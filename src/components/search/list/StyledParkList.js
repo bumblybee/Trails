@@ -1,0 +1,45 @@
+import styled from "styled-components";
+
+export const StyledCardList = styled.ul`
+  padding: 1rem;
+  overflow-y: scroll;
+  max-height: 874px;
+  ::-webkit-scrollbar-scrollbar-track-color {
+    background: transparent;
+    color: transparent;
+  }
+`;
+
+export const StyledCard = styled.li`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  border: 0.5px solid #eceeed;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
+`;
+
+export const StyledImageContainer = styled.div`
+  width: 250px;
+  height: 250px;
+`;
+
+export const StyledCardContentContainer = styled.div`
+  padding: 1rem;
+  h3 {
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  p {
+    font-weight: 300;
+  }
+`;
+
+export const StyledImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+`;
