@@ -40,39 +40,10 @@ const mapContainerStyle = {
 
 const Map = () => {
   const { trails } = useContext(SearchContext);
-  //   const [campgrounds, setCampgrounds] = useState([]);
+
   const [markers, setMarkers] = useState([]);
   const [center, setCenter] = useState({});
   const [selected, setSelected] = useState(null);
-
-  const setTrailMarkers = useCallback(() => {
-    trails.forEach((trail) => {
-      setMarkers((current) => [
-        ...current,
-        {
-          lat: parseInt(trail.lat),
-          lng: parseInt(trail.lon),
-          name: trail.name,
-          img:
-            trail.thumbnail !== null
-              ? trail.thumbnail
-              : "https://images.unsplash.com/photo-1571687949921-1306bfb24b72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-        },
-      ]);
-    });
-  }, [trails]);
-
-  useEffect(() => {
-    if (trails.length > 0) {
-      setCenter({
-        lat: parseInt(trails[0].lat),
-        lng: parseInt(trails[0].lon),
-      });
-
-      setTrailMarkers();
-      console.log(trails);
-    }
-  }, [trails, setTrailMarkers]);
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -83,6 +54,35 @@ const Map = () => {
   const onMapLoad = useCallback(async (map) => {
     mapRef.current = map;
   }, []);
+
+  const setTrailMarkers = useCallback(() => {
+    trails.forEach((trail) => {
+      setMarkers((current) => [
+        ...current,
+        {
+          lat: Number(trail.lat),
+          lng: Number(trail.lon),
+          name: trail.name,
+          img:
+            trail.thumbnail !== null
+              ? trail.thumbnail
+              : "https://images.unsplash.com/photo-1571687949921-1306bfb24b72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        },
+      ]);
+    });
+    console.log(markers);
+  }, [trails]);
+
+  useEffect(() => {
+    if (trails.length) {
+      setCenter({
+        lat: parseInt(trails[0].lat),
+        lng: parseInt(trails[0].lon),
+      });
+
+      setTrailMarkers();
+    }
+  }, [trails, setTrailMarkers]);
 
   if (loadError) return "Error loading map";
   if (!isLoaded) return "Loading map";
@@ -98,7 +98,7 @@ const Map = () => {
       <GoogleMap
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
-        zoom={7}
+        zoom={8}
         center={center}
         options={options}
       >
