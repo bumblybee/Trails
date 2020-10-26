@@ -36,11 +36,15 @@ const MapSearchbar = () => {
     <sc.StyledMapSearchbar>
       <Combobox
         onSelect={async (address) => {
+          setValue(address, false);
+          clearSuggestions();
           try {
             //get geo of address user passes in
             const results = await getGeocode({ address });
             // grab lat and lng from first result
+
             const { lat, lng } = await getLatLng(results[0]);
+            console.log(lat, lng);
           } catch (err) {
             console.log(err);
           }

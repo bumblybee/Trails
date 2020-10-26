@@ -29,6 +29,8 @@ export const StyledMapSearchbar = styled.div`
   transform: translateX(-50%);
   z-index: 10;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
 
   :hover {
     border: 1px solid transparent;
@@ -41,7 +43,7 @@ export const StyledMapSearchbar = styled.div`
 `;
 
 export const StyledComboboxOption = styled(ComboboxOption)`
-  padding: 0.5rem 1rem 0.5rem;
+  padding: 0.5rem 1rem;
 
   :hover {
     background: #f9f9f9;
@@ -53,6 +55,10 @@ export const StyledComboList = styled(ComboboxList)`
   list-style: none;
   color: #99a29e;
   background: #fffeff;
+  padding-top: 0.5rem;
+
+  width: 345px;
+  transform: translateX(-11.5%);
 `;
 
 export const StyledComboInput = styled(ComboboxInput)`
