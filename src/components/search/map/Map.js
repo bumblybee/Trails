@@ -26,6 +26,7 @@ import { SearchContext } from "../../../context/search/SearchContext";
 const libraries = ["places"];
 
 //TODO: change center to user's location
+//TODO: cut description off at like six lines and continue on single page
 
 const options = {
   styles: mapStyles,
@@ -66,11 +67,10 @@ const Map = () => {
           img:
             trail.thumbnail !== null
               ? trail.thumbnail
-              : "https://images.unsplash.com/photo-1571687949921-1306bfb24b72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+              : "https://images.unsplash.com/photo-1564417510515-b3d20c821653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
         },
       ]);
     });
-    console.log(markers);
   }, [trails]);
 
   useEffect(() => {
