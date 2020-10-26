@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ComboboxInput, ComboboxList, ComboboxOption } from "@reach/combobox";
 
 export const StyledMapContainer = styled.div`
   position: relative;
@@ -39,7 +40,22 @@ export const StyledMapSearchbar = styled.div`
   }
 `;
 
-export const StyledSearchInput = styled.input`
+export const StyledComboboxOption = styled(ComboboxOption)`
+  padding: 0.5rem 1rem 0.5rem;
+
+  :hover {
+    background: #f9f9f9;
+    cursor: pointer;
+  }
+`;
+
+export const StyledComboList = styled(ComboboxList)`
+  list-style: none;
+  color: #99a29e;
+  background: #fffeff;
+`;
+
+export const StyledComboInput = styled(ComboboxInput)`
   border: none;
   margin-left: 1rem;
   height: 100%;
