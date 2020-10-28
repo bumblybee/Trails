@@ -11,7 +11,7 @@ const Searchbar = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    await searchTrails();
+    // await searchTrails();
     history.push("/search");
   };
 

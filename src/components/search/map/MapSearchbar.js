@@ -15,7 +15,16 @@ import * as sc from "./StyledMap";
 const MapSearchbar = () => {
   const [searchText, setSearchText] = useState("");
 
-  const { trails } = useContext(SearchContext);
+  const { trails, searchTrails } = useContext(SearchContext);
+
+  const requestOptions = trails && {
+    location: {
+      lat: () => trails[0].lat,
+      lng: () => trails[0].lon,
+    },
+    radius: 200 * 1000,
+  };
+
   const {
     ready,
     value,
@@ -23,13 +32,7 @@ const MapSearchbar = () => {
     setValue,
     clearSuggestions,
   } = usePlacesAutoComplete({
-    requestOptions: {
-      location: {
-        lat: () => trails[0].lat,
-        lng: () => trails[0].lon,
-      },
-      radius: 200 * 1000,
-    },
+    requestOptions,
   });
 
   return (
@@ -44,7 +47,7 @@ const MapSearchbar = () => {
             // grab lat and lng from first result
             console.log(results);
             const { lat, lng } = await getLatLng(results[0]);
-            console.log(lat, lng);
+            await searchTrails(lat, lng);
           } catch (err) {
             console.log(err);
           }
@@ -75,18 +78,6 @@ const MapSearchbar = () => {
         </ComboboxPopover>
       </Combobox>
     </sc.StyledMapSearchbar>
-
-    // <sc.StyledMapSearchbar>
-    //   <div>
-    //     <i class="fas fa-search"></i>
-    //     <sc.StyledSearchInput
-    //       onChange={(e) => setSearchText(e.target.value)}
-    //       type="text"
-    //       placeholder="Search a location..."
-    //       value={searchText}
-    //     ></sc.StyledSearchInput>
-    //   </div>
-    // </sc.StyledMapSearchbar>
   );
 };
 
