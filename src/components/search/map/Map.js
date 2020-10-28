@@ -74,6 +74,7 @@ const Map = () => {
     });
   }, [trails]);
 
+  //TODO: Set center to user's location, then pan to searched area
   useEffect(() => {
     if (trails.length) {
       setCenter({

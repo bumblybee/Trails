@@ -17,7 +17,7 @@ const MapSearchbar = () => {
 
   const { trails, searchTrails } = useContext(SearchContext);
 
-  const requestOptions = trails && {
+  const requestOptions = trails.length && {
     location: {
       lat: () => trails[0].lat,
       lng: () => trails[0].lon,
