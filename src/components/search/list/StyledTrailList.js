@@ -15,8 +15,11 @@ export const StyledCard = styled.li`
   grid-template-columns: 1fr 2fr;
   border: 0.5px solid #eceeed;
   border-radius: 6px;
-  margin-bottom: 0.5rem;
+
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
+  :not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export const StyledImageContainer = styled.div`

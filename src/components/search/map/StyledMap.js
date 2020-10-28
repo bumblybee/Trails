@@ -20,7 +20,7 @@ export const StyledMapLogo = styled.div`
 
 export const StyledMapSearchbar = styled.div`
   border: 1px solid #eceeed;
-  padding: 0.5rem;
+  padding: 0.7rem;
   background: #fffeff;
   display: flex;
   position: absolute;
@@ -31,11 +31,6 @@ export const StyledMapSearchbar = styled.div`
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 350px;
-
-  :hover {
-    border: 1px solid transparent;
-    padding: 0.8rem;
-  }
 
   @media (max-width: 620px) {
     padding: 0.3rem;
@@ -58,7 +53,7 @@ export const StyledComboList = styled(ComboboxList)`
   padding-top: 0.5rem;
 
   width: 345px;
-  transform: translateX(-11.5%);
+  transform: translateX(-12.2%);
 `;
 
 export const StyledComboInput = styled(ComboboxInput)`

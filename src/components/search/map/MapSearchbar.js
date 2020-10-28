@@ -42,7 +42,7 @@ const MapSearchbar = () => {
             //get geo of address user passes in
             const results = await getGeocode({ address });
             // grab lat and lng from first result
-
+            console.log(results);
             const { lat, lng } = await getLatLng(results[0]);
             console.log(lat, lng);
           } catch (err) {

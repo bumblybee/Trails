@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledLanding = styled.div`
   position: relative;
-  height: calc(100vh - 75px);
+  height: 880px;
   background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0) 26.04%,
@@ -55,7 +55,7 @@ export const StyledLandingText = styled.div`
 
 export const StyledImageContainer = styled.div`
   position: absolute;
-  top: 39%;
+  bottom: 0;
   left: 0;
   width: 100%;
   z-index: -1;

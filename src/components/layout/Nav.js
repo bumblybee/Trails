@@ -9,13 +9,13 @@ const Nav = () => {
     <sc.StyledNav>
       <div className="logo-container">
         <Link to="/">
-          <img src="logo.png" alt="" />
+          <img style={{ height: "25px" }} src="assets/logo.png" alt="" />
         </Link>
       </div>
       <sc.StyledLinksContainer>
         <sc.StyledLink to="/login">Login</sc.StyledLink>
         <sc.StyledLink to="/signup">Signup</sc.StyledLink>
-        <StyledPinkButton>Host</StyledPinkButton>
+        <StyledPinkButton>Post</StyledPinkButton>
       </sc.StyledLinksContainer>
     </sc.StyledNav>
   );
