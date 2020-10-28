@@ -46,7 +46,7 @@ export const StyledLandingText = styled.div`
 
   h1 {
     margin-bottom: 0.5rem;
-    font-family: "Noto Sans JP", sans-serif;
+    font-family: "PT Sans", sans-serif;
     font-size: 2.1rem;
   }
 

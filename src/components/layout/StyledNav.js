@@ -7,7 +7,7 @@ export const StyledNav = styled.div`
   align-items: center;
   padding: 0.5rem 2rem;
   max-width: 100%;
-  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   background: #fffeff;
   @media (max-width: 620px) {
     padding: 0;

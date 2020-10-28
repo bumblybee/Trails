@@ -8,7 +8,7 @@ export const StyledMapContainer = styled.div`
 export const StyledMapLogo = styled.div`
   position: absolute;
   top: 1rem;
-  left: 1rem;
+  right: 1rem;
   z-index: 10;
   margin: 0;
   padding: 0;

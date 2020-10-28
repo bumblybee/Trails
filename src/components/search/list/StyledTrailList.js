@@ -34,14 +34,14 @@ export const StyledCardContentContainer = styled.div`
     font-weight: 600;
     text-transform: capitalize;
     letter-spacing: 0.08rem;
-    font-family: "Montserrat", sans-serif;
+    font-family: "PT Sans", sans-serif;
   }
 
   h5 {
     margin-bottom: 1rem;
     color: #99a29e;
     font-weight: 300;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
   }
 
   p {
