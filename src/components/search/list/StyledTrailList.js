@@ -30,8 +30,14 @@ export const StyledImageContainer = styled.div`
 export const StyledCardContentContainer = styled.div`
   padding: 1rem;
   h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
     font-weight: 500;
+  }
+
+  h5 {
+    margin-bottom: 1rem;
+    color: #99a29e;
+    font-weight: 400;
   }
 
   p {
