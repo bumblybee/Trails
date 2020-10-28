@@ -14,7 +14,8 @@ export const StyledMapLogo = styled.div`
   padding: 0;
 
   img {
-    width: 120px;
+    width: 100px;
+    opacity: 0.8;
   }
 `;
 

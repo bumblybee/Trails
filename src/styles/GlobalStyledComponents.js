@@ -6,7 +6,7 @@ export const StyledPinkButton = styled.button`
   display: block;
   width: 100%;
   color: #fff;
-  padding: 14px 20px;
+  padding: 12px 18px;
   border-radius: 4px;
   border: none;
 
