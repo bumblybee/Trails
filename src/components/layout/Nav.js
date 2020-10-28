@@ -15,7 +15,7 @@ const Nav = () => {
       <sc.StyledLinksContainer>
         <sc.StyledLink to="/login">Login</sc.StyledLink>
         <sc.StyledLink to="/signup">Signup</sc.StyledLink>
-        <StyledPinkButton>Post</StyledPinkButton>
+        <StyledPinkButton>Scout</StyledPinkButton>
       </sc.StyledLinksContainer>
     </sc.StyledNav>
   );

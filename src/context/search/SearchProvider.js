@@ -8,9 +8,9 @@ const SearchProvider = ({ children }) => {
   const [trails, setTrails] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const searchTrails = async () => {
+  const searchTrails = async (lat, lng) => {
     setLoading(true);
-    const trailData = await findTrails();
+    const trailData = await findTrails(lat, lng);
 
     setTrails(trailData);
     // setSearchValue(text);

@@ -31,17 +31,22 @@ export const StyledCardContentContainer = styled.div`
   padding: 1rem;
   h3 {
     margin-bottom: 0.2rem;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.08rem;
+    font-family: "Montserrat", sans-serif;
   }
 
   h5 {
     margin-bottom: 1rem;
     color: #99a29e;
-    font-weight: 400;
+    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
   }
 
   p {
     font-weight: 300;
+    font-family: "Noto Sans JP", sans-serif;
   }
 `;
 
