@@ -22,6 +22,7 @@ import { SearchContext } from "../../../context/search/SearchContext";
 
 //TODO: if user location, use that as center, else preset
 //TODO: google dev setup uri for key after deploy
+//TODO: Pan map and call api search when search performed by user
 
 const libraries = ["places"];
 

@@ -17,7 +17,7 @@ const TrailCard = ({ trail }) => {
       </sc.StyledImageContainer>
       <sc.StyledCardContentContainer>
         <h3>{trail.name}</h3>
-        <p>{trail.description}</p>
+        <p>{trail.description.substring(0, 240)}...</p>
       </sc.StyledCardContentContainer>
     </sc.StyledCard>
   );

@@ -15,6 +15,7 @@ const SearchProvider = ({ children }) => {
     setTrails(trailData);
     // setSearchValue(text);
     setLoading(false);
+    console.log(trailData);
     return trailData;
   };
 

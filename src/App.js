@@ -11,19 +11,17 @@ import Search from "./pages/search/Search";
 function App() {
   return (
     <Router>
-      <div className="App">
-        <SearchProvider>
-          <Nav />
-          <Switch>
-            <Route path="/search" exact>
-              <Search />
-            </Route>
-            <Route path="/" exact>
-              <Landing />
-            </Route>
-          </Switch>
-        </SearchProvider>
-      </div>
+      <SearchProvider>
+        <Nav />
+        <Switch>
+          <Route path="/search" exact>
+            <Search />
+          </Route>
+          <Route path="/" exact>
+            <Landing />
+          </Route>
+        </Switch>
+      </SearchProvider>
     </Router>
   );
 }
