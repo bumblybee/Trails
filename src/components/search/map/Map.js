@@ -91,7 +91,7 @@ const Map = () => {
   return (
     <sc.StyledMapContainer>
       <sc.StyledMapLogo>
-        <img src="logo.png" alt="" />
+        <img src="assets/logo.png" alt="" />
       </sc.StyledMapLogo>
 
       <MapSearchbar />
