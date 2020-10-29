@@ -9,6 +9,9 @@ const TrailCard = ({ trail }) => {
   return (
     <sc.StyledCard>
       <sc.StyledImageContainer>
+        <sc.StyledHeartIcon>
+          <i title="save" class="uil uil-bookmark-full"></i>
+        </sc.StyledHeartIcon>
         <sc.StyledImage
           src={
             trail.thumbnail !== null
