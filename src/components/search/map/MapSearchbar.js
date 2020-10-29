@@ -15,7 +15,7 @@ import * as sc from "./StyledMap";
 const MapSearchbar = () => {
   const [searchText, setSearchText] = useState("");
 
-  const { trails, searchTrails } = useContext(SearchContext);
+  const { trails, searchBikingTrails } = useContext(SearchContext);
 
   const requestOptions = trails.length && {
     location: {
@@ -47,7 +47,7 @@ const MapSearchbar = () => {
             // grab lat and lng from first result
             console.log(results);
             const { lat, lng } = await getLatLng(results[0]);
-            await searchTrails(lat, lng);
+            await searchBikingTrails(lat, lng);
           } catch (err) {
             console.log(err);
           }

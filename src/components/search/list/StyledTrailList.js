@@ -29,9 +29,10 @@ export const StyledImageContainer = styled.div`
 
 export const StyledCardContentContainer = styled.div`
   padding: 1rem;
+
   h3 {
     margin-bottom: 0.2rem;
-    font-weight: 600;
+    /* font-weight: 600; */
     text-transform: capitalize;
     letter-spacing: 0.08rem;
     font-family: "PT Sans", sans-serif;

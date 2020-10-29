@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { SearchContext } from "./SearchContext";
 
-import { findTrails } from "../../api/trailsApi";
+import { findBikingTrails } from "../../api/trailsApi";
 
 const SearchProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
   const [trails, setTrails] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const searchTrails = async (lat, lng) => {
+  const searchBikingTrails = async (lat, lng) => {
     setLoading(true);
-    const trailData = await findTrails(lat, lng);
+    const trailData = await findBikingTrails(lat, lng);
 
     setTrails(trailData);
     // setSearchValue(text);
@@ -21,7 +21,7 @@ const SearchProvider = ({ children }) => {
 
   return (
     <SearchContext.Provider
-      value={{ searchTrails, trails, searchValue, loading }}
+      value={{ searchBikingTrails, trails, searchValue, loading }}
     >
       {children}
     </SearchContext.Provider>
