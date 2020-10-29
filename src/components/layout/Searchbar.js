@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { SearchContext } from "../../context/search/SearchContext";
+import Filter from "./Filter";
 import { StyledPinkButton } from "../../styles/GlobalStyledComponents";
 import * as sc from "./StyledSearchbar";
 
@@ -28,9 +29,10 @@ const Searchbar = () => {
               value={searchText}
             ></sc.StyledSearchInput>
           </div>
-          <div className="search-button">
+          <sc.StyledButtonContainer>
+            <Filter />
             <StyledPinkButton type="submit">Search</StyledPinkButton>
-          </div>
+          </sc.StyledButtonContainer>
         </sc.StyledSearchForm>
       </sc.StyledSearchbar>
     </sc.StyledSearchbarContainer>
