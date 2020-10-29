@@ -13,7 +13,6 @@ const SearchProvider = ({ children }) => {
     const trailData = await findBikingTrails(lat, lng);
 
     setTrails(trailData);
-    // setSearchValue(text);
     setLoading(false);
     console.log(trailData);
     return trailData;
@@ -31,7 +30,6 @@ const SearchProvider = ({ children }) => {
         searchBikingTrails,
         searchHikingTrails,
         trails,
-        searchValue,
         loading,
       }}
     >

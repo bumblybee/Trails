@@ -25,6 +25,7 @@ export const StyledCard = styled.li`
 export const StyledImageContainer = styled.div`
   width: 250px;
   height: 250px;
+  position: relative;
 `;
 
 export const StyledCardContentContainer = styled.div`
@@ -57,4 +58,16 @@ export const StyledImage = styled.img`
   object-fit: cover;
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
+`;
+
+export const StyledHeartIcon = styled.div`
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: #fe7762;
+  font-size: 1.35rem;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
