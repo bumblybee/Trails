@@ -7,11 +7,11 @@ import * as sc from "./StyledSearchbar";
 const Searchbar = () => {
   const history = useHistory();
   const [searchText, setSearchText] = useState("");
-  const { searchTrails } = useContext(SearchContext);
+  const { searchBikingTrails } = useContext(SearchContext);
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    // await searchTrails();
+    // await searchBikingTrails();
     history.push("/search");
   };
 
