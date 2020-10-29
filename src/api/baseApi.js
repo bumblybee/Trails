@@ -1,14 +1,22 @@
 import axios from "axios";
 
-const trailsURL = "https://trailapi-trailapi.p.rapidapi.com/trails";
+const bikingURL = "https://trailapi-trailapi.p.rapidapi.com/trails";
+
+const hikingURL = "https://www.hikingproject.com/data";
 
 const baseURL = "http://localhost:9000";
 
-const trailsInstance = axios.create({
+const bikingInstance = axios.create({
   headers: {
-    "x-rapidapi-key": "198237b8e7msh115f216b181beb8p105c8ajsnb325b2607f5b",
+    "x-rapidapi-key": process.env.REACT_APP_BIKING_API_KEY,
   },
-  baseURL: trailsURL,
+  baseURL: bikingURL,
+
+  crossDomain: true,
+});
+
+const hikingInstance = axios.create({
+  baseURL: hikingURL,
 
   crossDomain: true,
 });
@@ -19,8 +27,14 @@ const serverInstance = axios.create({
   crossDomain: true,
 });
 
-export const getTrails = async (url) => {
-  return await trailsInstance.get(url).catch((e) => {
+export const getBikingTrails = async (url) => {
+  return await bikingInstance.get(url).catch((e) => {
+    console.log(e);
+  });
+};
+
+export const getHikingTrails = async (url) => {
+  return await hikingInstance.get(url).catch((e) => {
     console.log(e);
   });
 };

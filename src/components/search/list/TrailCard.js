@@ -5,7 +5,7 @@ import * as sc from "./StyledTrailList";
 //TODO: Length icon and #
 //TODO: Rating icon (out of 5) add to card footer
 const TrailCard = ({ trail }) => {
-  console.log(trail);
+  // console.log(trail);
   return (
     <sc.StyledCard>
       <sc.StyledImageContainer>
