@@ -8,11 +8,11 @@ import * as sc from "./StyledSearchbar";
 const Searchbar = () => {
   const history = useHistory();
   const [searchText, setSearchText] = useState("");
-  const { searchBikingTrails } = useContext(SearchContext);
+  const { searchBikingTrails, searchHikingTrails } = useContext(SearchContext);
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    // await searchBikingTrails();
+    await searchHikingTrails(42.4934, -92.343643);
     history.push("/search");
   };
 

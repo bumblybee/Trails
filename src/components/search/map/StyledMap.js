@@ -15,7 +15,7 @@ export const StyledMapLogo = styled.div`
 
   img {
     width: 100px;
-    opacity: 0.8;
+    opacity: 0.85;
   }
 `;
 
@@ -33,6 +33,10 @@ export const StyledMapSearchbar = styled.div`
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 370px;
+
+  :hover {
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+  }
 
   @media (max-width: 620px) {
     padding: 0.3rem;
