@@ -55,3 +55,10 @@ export const StyledSearchInput = styled.input`
     margin-left: 0.2rem;
   }
 `;
+
+export const StyledButtonContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  height: 40px;
+`;

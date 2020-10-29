@@ -3,13 +3,9 @@ import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
-import {
-  Combobox,
-  ComboboxPopover,
-  ComboboxList,
-  ComboboxOption,
-} from "@reach/combobox";
+import { Combobox, ComboboxPopover } from "@reach/combobox";
 import { SearchContext } from "../../../context/search/SearchContext";
+import Filter from "../../layout/Filter";
 import * as sc from "./StyledMap";
 
 const MapSearchbar = () => {
@@ -65,6 +61,7 @@ const MapSearchbar = () => {
           value={value}
           disabled={!ready}
         ></sc.StyledComboInput>
+
         <ComboboxPopover>
           <sc.StyledComboList>
             {status === "OK" &&
@@ -77,6 +74,7 @@ const MapSearchbar = () => {
           </sc.StyledComboList>
         </ComboboxPopover>
       </Combobox>
+      <Filter />
     </sc.StyledMapSearchbar>
   );
 };
