@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledLanding = styled.div`
   position: relative;
   height: 880px;
+
   background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0) 26.04%,
@@ -15,10 +16,6 @@ export const StyledLanding = styled.div`
       rgba(43, 87, 64, 0) 100%
     );
   z-index: 1;
-
-  @media (max-width: 620px) {
-    height: calc(100vh - 410px);
-  }
 `;
 
 export const StyledLandingContainer = styled.div`
@@ -39,6 +36,11 @@ export const StyledLandingContent = styled.div`
   text-align: left;
   width: 80%;
   margin: 13% auto;
+
+  @media (max-width: 620px) {
+    width: 100%;
+    margin: 45% auto;
+  }
 `;
 
 export const StyledLandingText = styled.div`
@@ -52,6 +54,10 @@ export const StyledLandingText = styled.div`
 
   p {
     margin-bottom: 2.5rem;
+  }
+
+  @media (max-width: 620px) {
+    width: 80%;
   }
 `;
 
