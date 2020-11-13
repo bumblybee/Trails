@@ -5,8 +5,9 @@ import { StyledFilter } from "./StyledFilter";
 const Filter = () => {
   return (
     <StyledFilter>
-      <option value="biking">biking</option>
       <option value="hiking">hiking</option>
+      <option value="biking">biking</option>
+      <option value="all">all</option>
     </StyledFilter>
   );
 };

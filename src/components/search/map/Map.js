@@ -62,8 +62,8 @@ const Map = () => {
       setMarkers((current) => [
         ...current,
         {
-          lat: Number(trail.lat),
-          lng: Number(trail.lon),
+          lat: Number(trail.lnglat.coordinates[1]),
+          lng: Number(trail.lnglat.coordinates[0]),
           name: trail.name,
           img:
             trail.thumbnail !== null
@@ -78,8 +78,8 @@ const Map = () => {
   useEffect(() => {
     if (trails.length) {
       setCenter({
-        lat: parseInt(trails[0].lat),
-        lng: parseInt(trails[0].lon),
+        lat: parseInt(trails[0].lnglat.coordinates[1]),
+        lng: parseInt(trails[0].lnglat.coordinates[0]),
       });
 
       setTrailMarkers();

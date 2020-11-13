@@ -9,13 +9,13 @@ const TrailCard = ({ trail }) => {
   return (
     <sc.StyledCard>
       <sc.StyledImageContainer>
-        <sc.StyledHeartIcon>
+        <sc.StyledBookmarkIcon>
           <i title="save" class="uil uil-bookmark-full"></i>
-        </sc.StyledHeartIcon>
+        </sc.StyledBookmarkIcon>
         <sc.StyledImage
           src={
-            trail.thumbnail !== null
-              ? trail.thumbnail
+            trail.image !== null
+              ? trail.image
               : "https://images.unsplash.com/photo-1564417510515-b3d20c821653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
           }
           alt="campground image"
@@ -26,7 +26,7 @@ const TrailCard = ({ trail }) => {
           <h3>{trail.name}</h3>
           <h5>{trail.city}</h5>
         </div>
-        <p>{trail.description.substring(0, 240)}...</p>
+        <p>{trail.description.substring(0, 200)}...</p>
       </sc.StyledCardContentContainer>
     </sc.StyledCard>
   );
