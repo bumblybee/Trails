@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledFilter = styled.select`
-  /* border-radius: 4px; */
   width: 100px;
   color: #99a29e;
   border: 0.5px solid #eceeed;
@@ -23,5 +22,9 @@ export const StyledFilter = styled.select`
     :hover {
       cursor: pointer;
     }
+  }
+
+  @media (max-width: 620px) {
+    width: 80px;
   }
 `;

@@ -1,8 +1,9 @@
 {
-    "workbench.colorCustomizations": {
-        "editorCursor.foreground": "#cfee22",
-        "activityBar.background": "#5B0F1E",
-        "titleBar.activeBackground": "#80142A",
-        "titleBar.activeForeground": "#FEFBFC"
-    }
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#cfee22",
+    "activityBar.background": "#864d1e",
+    "titleBar.activeBackground": "#864d1e",
+    "titleBar.activeForeground": "#FEFBFC"
+  },
+  "json.schemas": []
 }
