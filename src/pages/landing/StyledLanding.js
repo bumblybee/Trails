@@ -16,6 +16,10 @@ export const StyledLanding = styled.div`
       rgba(43, 87, 64, 0) 100%
     );
   z-index: 1;
+
+  @media (max-width: 620px) {
+    height: 100vh;
+  }
 `;
 
 export const StyledLandingContainer = styled.div`
@@ -69,6 +73,6 @@ export const StyledImageContainer = styled.div`
   z-index: -1;
 
   @media (max-width: 1028px) {
-    top: 80vh;
+    top: 75vh;
   }
 `;

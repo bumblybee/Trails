@@ -60,7 +60,7 @@ export const StyledImage = styled.img`
   border-bottom-left-radius: 6px;
 `;
 
-export const StyledHeartIcon = styled.div`
+export const StyledBookmarkIcon = styled.div`
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
