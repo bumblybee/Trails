@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Icon, InlineIcon } from "@iconify/react";
 
 export const StyledCardList = styled.ul`
   padding: 1rem;
@@ -30,10 +31,12 @@ export const StyledImageContainer = styled.div`
 
 export const StyledCardContentContainer = styled.div`
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   h3 {
     margin-bottom: 0.2rem;
-    /* font-weight: 600; */
     text-transform: capitalize;
     letter-spacing: 0.08rem;
     font-family: "PT Sans", sans-serif;
@@ -70,4 +73,45 @@ export const StyledBookmarkIcon = styled.div`
   :hover {
     cursor: pointer;
   }
+`;
+
+export const StyledCardFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  color: #99a29e;
+
+  svg:not(:first-child) {
+    margin-left: 1rem;
+  }
+`;
+
+export const StyledIconContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledGaugeIcon = styled(Icon)`
+  font-size: 2rem;
+  color: #b1ce7c;
+`;
+
+export const StyledStarIcon = styled(Icon)`
+  font-size: 1.55rem;
+  color: #fe7762;
+  opacity: 0.95;
+  margin-right: 0;
+`;
+
+export const StyledMarkerIcon = styled(Icon)`
+  font-size: 2rem;
+  color: #fe7762;
+`;
+
+export const StyledRating = styled.span`
+  position: absolute;
+  left: 0.6rem;
+  top: 0.65rem;
+  font-size: 0.8rem;
+  color: #fe7762;
 `;
