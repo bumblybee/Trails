@@ -56,9 +56,9 @@ export const StyledComboList = styled(ComboboxList)`
   list-style: none;
   color: #99a29e;
   background: #fffeff;
-  padding-top: 0.5rem;
-
-  width: 345px;
+  padding: 1rem 0 0.5rem;
+  margin-left: 1.1rem;
+  width: 368px;
   transform: translateX(-12.2%);
 `;
 
