@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import he from "he";
 import { Icon, InlineIcon } from "@iconify/react";
 import bookmarkIcon from "@iconify-icons/fa-regular/bookmark";
+import * as solidBookmark from "@iconify-icons/fa-solid/bookmark";
+
 import starIcon from "@iconify-icons/fa-regular/star";
-import mapMarkerPath from "@iconify-icons/mdi/map-marker-path";
+
 import gaugeEmpty from "@iconify-icons/mdi/gauge-empty";
 import turfAlong from "@iconify-icons/geo/turf-along";
 
@@ -13,11 +15,69 @@ import * as sc from "./StyledTrailList";
 //TODO: Length icon and #
 //TODO: Rating icon (out of 5) add to card footer
 const TrailCard = ({ trail }) => {
+  const [hover, setHover] = useState(false);
+  const renderDifficultyIcon = () => {
+    if (trail.difficulty === null)
+      return (
+        <img
+          title={`difficulty: Unknown`}
+          alt="difficulty icon"
+          src="https://img.icons8.com/ios-filled/24/ECEEED/medium-risk.png"
+        />
+      );
+
+    if (trail.difficulty === "Beginner" || trail.difficulty === "Easiest")
+      return (
+        <img
+          title={`difficulty: ${trail.difficulty}`}
+          alt="difficulty icon"
+          src="https://img.icons8.com/ios-filled/24/b1ce7c/medium-risk.png"
+        />
+      );
+
+    if (trail.difficulty === "Intermediate") {
+      return (
+        <img
+          title={`difficulty: ${trail.difficulty}`}
+          alt="difficulty icon"
+          src="https://img.icons8.com/ios-filled/24/749073/medium-risk.png"
+        />
+      );
+    }
+
+    if (trail.difficulty === "Advanced") {
+      return (
+        <img
+          title={`difficulty: ${trail.difficulty}`}
+          alt="difficulty icon"
+          src="https://img.icons8.com/ios-filled/24/FE7762/medium-risk.png"
+        />
+      );
+    }
+
+    if (trail.difficulty === "Expert") {
+      return (
+        <img
+          title={`difficulty: ${trail.difficulty}`}
+          alt="difficulty icon"
+          src="https://img.icons8.com/ios-filled/24/FE8A62/medium-risk.png"
+        />
+      );
+    }
+  };
+
   return (
     <sc.StyledCard>
       <sc.StyledImageContainer>
-        <sc.StyledBookmarkIcon>
-          <Icon icon={bookmarkIcon} />
+        <sc.StyledBookmarkIcon
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        >
+          {hover ? (
+            <Icon color="#fe7762" icon={solidBookmark} />
+          ) : (
+            <Icon icon={bookmarkIcon} />
+          )}
         </sc.StyledBookmarkIcon>
         <sc.StyledImage
           src={
@@ -32,21 +92,25 @@ const TrailCard = ({ trail }) => {
         <div>
           <h3>{trail.name}</h3>
           <h5>{trail.city}</h5>
-          <p>{he.decode(trail.description).substring(0, 220)}...</p>
+          <p>{he.decode(trail.description).substring(0, 225)}...</p>
         </div>
         <sc.StyledCardFooter>
           <sc.StyledIconContainer>
-            <sc.StyledGaugeIcon icon={gaugeEmpty} />
+            {renderDifficultyIcon()}
 
-            <sc.StyledMarkerIcon icon={turfAlong} />
+            <img
+              alt="trail length"
+              title="length"
+              src="https://img.icons8.com/ios-filled/24/b1ce7c/trail.png"
+            />
             <span>{Math.floor(trail.length)}</span>
+            <img src="https://img.icons8.com/ios-filled/24/b1ce7c/trekking.png" />
           </sc.StyledIconContainer>
 
           <sc.StyledIconContainer>
-            <sc.StyledStarIcon icon={starIcon} />
-            <sc.StyledRating>
-              {trail.rating === "0" ? "" : Math.floor(trail.rating)}
-            </sc.StyledRating>
+            <img src="https://img.icons8.com/ios-filled/18/fe7762/star.png" />
+
+            <span>{trail.rating === "0" ? "-" : Math.floor(trail.rating)}</span>
           </sc.StyledIconContainer>
         </sc.StyledCardFooter>
       </sc.StyledCardContentContainer>
@@ -55,14 +119,3 @@ const TrailCard = ({ trail }) => {
 };
 
 export default TrailCard;
-
-//icons
-//solid bookmark: <span class="iconify" data-icon="fa-solid:bookmark" data-inline="false"></span>
-//beginner: <span class="iconify" data-icon="mdi:gauge-empty" data-inline="false"></span>
-//intermediate: <span class="iconify" data-icon="mdi:gauge-low" data-inline="false"></span>
-//advanced: <span class="iconify" data-icon="mdi:gauge" data-inline="false"></span>
-//expert: <span class="iconify" data-icon="mdi:gauge-full" data-inline="false"></span>
-//distance: <span class="iconify" data-icon="mdi:map-marker-distance" data-inline="false"></span>
-//hike: <span class="iconify" data-icon="mdi:hiking" data-inline="false"></span>
-// bike: <span class="iconify" data-icon="ic:sharp-directions-bike" data-inline="false"></span>
-//ratings: <span class="iconify" data-icon="la:medal" data-inline="false"></span>

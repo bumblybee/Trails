@@ -80,7 +80,7 @@ export const StyledCardFooter = styled.div`
   justify-content: space-between;
   color: #99a29e;
 
-  svg:not(:first-child) {
+  img:not(:first-child) {
     margin-left: 1rem;
   }
 `;
@@ -105,13 +105,5 @@ export const StyledStarIcon = styled(Icon)`
 
 export const StyledMarkerIcon = styled(Icon)`
   font-size: 2rem;
-  color: #fe7762;
-`;
-
-export const StyledRating = styled.span`
-  position: absolute;
-  left: 0.6rem;
-  top: 0.65rem;
-  font-size: 0.8rem;
   color: #fe7762;
 `;
