@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import he from "he";
 import { Icon, InlineIcon } from "@iconify/react";
 import bookmarkIcon from "@iconify-icons/fa-regular/bookmark";
-import * as solidBookmark from "@iconify-icons/fa-solid/bookmark";
 
 import * as sc from "./StyledTrailCard";
 
@@ -69,9 +68,17 @@ const TrailCard = ({ trail }) => {
           onMouseLeave={() => setHover(false)}
         >
           {hover ? (
-            <Icon color="#fe7762" icon={solidBookmark} />
+            <img
+              title="bookmark trail"
+              alt="bookmark icon"
+              src="https://img.icons8.com/material/24/fe7762/bookmark-ribbon--v1.png"
+            />
           ) : (
-            <Icon icon={bookmarkIcon} />
+            <img
+              title="bookmark trail"
+              alt="bookmark icon"
+              src="https://img.icons8.com/material-outlined/24/fe7762/bookmark-ribbon.png"
+            />
           )}
         </sc.StyledBookmarkIcon>
         {/* TODO: Carousel v2 */}
@@ -81,7 +88,7 @@ const TrailCard = ({ trail }) => {
               ? trail.image
               : "https://images.unsplash.com/photo-1564417510515-b3d20c821653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
           }
-          alt="campground image"
+          alt="trail image"
         />
       </sc.StyledImageContainer>
       <sc.StyledCardContentContainer>
