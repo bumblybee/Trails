@@ -4,11 +4,6 @@ import { Icon, InlineIcon } from "@iconify/react";
 import bookmarkIcon from "@iconify-icons/fa-regular/bookmark";
 import * as solidBookmark from "@iconify-icons/fa-solid/bookmark";
 
-import starIcon from "@iconify-icons/fa-regular/star";
-
-import gaugeEmpty from "@iconify-icons/mdi/gauge-empty";
-import turfAlong from "@iconify-icons/geo/turf-along";
-
 import * as sc from "./StyledTrailList";
 
 //TODO: Difficulty icons
@@ -65,7 +60,7 @@ const TrailCard = ({ trail }) => {
       );
     }
   };
-
+  //TODO: hover card, highlight on map
   return (
     <sc.StyledCard>
       <sc.StyledImageContainer>
@@ -79,6 +74,7 @@ const TrailCard = ({ trail }) => {
             <Icon icon={bookmarkIcon} />
           )}
         </sc.StyledBookmarkIcon>
+        {/* TODO: Carousel v2 */}
         <sc.StyledImage
           src={
             trail.image !== null
@@ -91,7 +87,9 @@ const TrailCard = ({ trail }) => {
       <sc.StyledCardContentContainer>
         <div>
           <h3>{trail.name}</h3>
-          <h5>{trail.city}</h5>
+          <h5>
+            {trail.city}, {trail.state}
+          </h5>
           <p>{he.decode(trail.description).substring(0, 225)}...</p>
         </div>
         <sc.StyledCardFooter>
@@ -108,9 +106,17 @@ const TrailCard = ({ trail }) => {
           </sc.StyledIconContainer>
 
           <sc.StyledIconContainer>
-            <img src="https://img.icons8.com/ios-filled/18/fe7762/star.png" />
+            <img src="https://img.icons8.com/ios-filled/16/fe7762/star.png" />
 
-            <span>{trail.rating === "0" ? "-" : Math.floor(trail.rating)}</span>
+            <span
+              style={{
+                fontSize: "0.9rem",
+                fontWeight: "bold",
+                color: "#34423B",
+              }}
+            >
+              {trail.rating === "0" ? "-" : Math.floor(trail.rating)}
+            </span>
           </sc.StyledIconContainer>
         </sc.StyledCardFooter>
       </sc.StyledCardContentContainer>

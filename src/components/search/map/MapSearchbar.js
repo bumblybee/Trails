@@ -9,9 +9,7 @@ import Filter from "../../layout/Filter";
 import * as sc from "./StyledMap";
 
 const MapSearchbar = () => {
-  const [searchText, setSearchText] = useState("");
-
-  const { trails, searchTrails } = useContext(SearchContext);
+  const { trails, searchTrails, setSearchValue } = useContext(SearchContext);
 
   const requestOptions = trails.length && {
     location: {
@@ -36,6 +34,7 @@ const MapSearchbar = () => {
       <Combobox
         onSelect={async (address) => {
           setValue(address, false);
+          setSearchValue(address);
           clearSuggestions();
           try {
             //get geo of address user passes in
@@ -49,12 +48,9 @@ const MapSearchbar = () => {
           }
         }}
       >
-        <i class="fas fa-search"></i>
-
         <sc.StyledComboInput
           onChange={(e) => {
             setValue(e.target.value);
-            setSearchText(e.target.value);
           }}
           type="text"
           placeholder="Search a location..."
