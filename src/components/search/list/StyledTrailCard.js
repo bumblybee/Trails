@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 
 export const StyledCard = styled.li`
   display: grid;

@@ -15,15 +15,19 @@ const TrailCard = ({ trail }) => {
 
     if (trail.difficulty === "Beginner" || trail.difficulty === "Easiest")
       return (
-        <img src="https://img.icons8.com/material-outlined/24/b1ce7c/define-location.png" />
+        <img
+          title={trail.difficulty.toLowerCase()}
+          alt="difficulty"
+          src="https://img.icons8.com/material-outlined/24/b1ce7c/speedometer.png"
+        />
       );
 
     if (trail.difficulty === "Intermediate") {
       return (
         <img
-          title={`difficulty: ${trail.difficulty}`}
-          alt="difficulty icon"
-          src="https://img.icons8.com/ios-filled/24/749073/medium-risk.png"
+          title={trail.difficulty}
+          alt="difficulty"
+          src="https://img.icons8.com/material-outlined/24/749073/speedometer.png"
         />
       );
     }
@@ -31,9 +35,9 @@ const TrailCard = ({ trail }) => {
     if (trail.difficulty === "Advanced") {
       return (
         <img
-          title={`difficulty: ${trail.difficulty}`}
-          alt="difficulty icon"
-          src="https://img.icons8.com/ios-filled/24/FE7762/medium-risk.png"
+          title={trail.difficulty}
+          alt="difficulty"
+          src="https://img.icons8.com/material-outlined/24/FE7762/speedometer.png"
         />
       );
     }
@@ -41,9 +45,9 @@ const TrailCard = ({ trail }) => {
     if (trail.difficulty === "Expert") {
       return (
         <img
-          title={`difficulty: ${trail.difficulty}`}
-          alt="difficulty icon"
-          src="https://img.icons8.com/ios-filled/24/FE8A62/medium-risk.png"
+          title={trail.difficulty}
+          alt="difficulty"
+          src="https://img.icons8.com/material-outlined/24/FE8A62/speedometer.png"
         />
       );
     }
@@ -54,6 +58,12 @@ const TrailCard = ({ trail }) => {
     if (desc.length >= 170) {
       return true;
     }
+  };
+
+  const calcDistance = () => {
+    const distance = `${Math.floor(trail.distance / 1609)}`;
+
+    return distance > 8 ? `${distance} miles away` : "";
   };
 
   //TODO: hover card, highlight on map
@@ -68,13 +78,13 @@ const TrailCard = ({ trail }) => {
             <img
               title="bookmark trail"
               alt="bookmark icon"
-              src="https://img.icons8.com/material/24/fe7762/bookmark-ribbon--v1.png"
+              src="https://img.icons8.com/material/28/fe7762/bookmark-ribbon--v1.png"
             />
           ) : (
             <img
               title="bookmark trail"
               alt="bookmark icon"
-              src="https://img.icons8.com/material-outlined/24/fe7762/bookmark-ribbon.png"
+              src="https://img.icons8.com/material-outlined/28/fe7762/bookmark-ribbon.png"
             />
           )}
         </sc.StyledBookmarkIcon>
@@ -88,11 +98,13 @@ const TrailCard = ({ trail }) => {
           alt="trail image"
         />
       </sc.StyledImageContainer>
+
       <sc.StyledCardContentContainer>
         <div>
           <h3>{trail.name}</h3>
+
           <h5>
-            {trail.city}, {trail.state}
+            {trail.city}, {trail.state} -<span> {calcDistance()}</span>
           </h5>
           {countDescChars() ? (
             <p>{he.decode(trail.description).substring(0, 170)}...</p>
@@ -100,19 +112,10 @@ const TrailCard = ({ trail }) => {
             <p>{he.decode(trail.description)}</p>
           )}
         </div>
+
         <sc.StyledCardFooter>
           <sc.StyledIconContainer>
-            {renderDifficultyIcon()}
-
-            <img src="https://img.icons8.com/pastel-glyph/24/b1ce7c/route--v2.png" />
-            <span style={{ fontSize: "0.9rem" }}>
-              {Math.floor(trail.length)}
-            </span>
-            <img src="https://img.icons8.com/material/24/b1ce7c/trekking.png" />
-          </sc.StyledIconContainer>
-
-          <sc.StyledIconContainer>
-            <img src="https://img.icons8.com/ios-filled/16/fe7762/star.png" />
+            <img src="https://img.icons8.com/material/18/fe7762/star--v1.png" />
 
             <span
               style={{
@@ -123,6 +126,15 @@ const TrailCard = ({ trail }) => {
             >
               {trail.rating === "0" ? "-" : Math.floor(trail.rating)}
             </span>
+
+            <img src="https://img.icons8.com/pastel-glyph/24/99A29E/route--v2.png" />
+            <span style={{ fontSize: "0.9rem" }}>
+              {Math.floor(trail.length)}
+            </span>
+            <img src="https://img.icons8.com/material/24/99A29E/trekking.png" />
+          </sc.StyledIconContainer>
+          <sc.StyledIconContainer>
+            {renderDifficultyIcon()}
           </sc.StyledIconContainer>
         </sc.StyledCardFooter>
       </sc.StyledCardContentContainer>
