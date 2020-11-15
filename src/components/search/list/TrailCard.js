@@ -4,7 +4,7 @@ import { Icon, InlineIcon } from "@iconify/react";
 import bookmarkIcon from "@iconify-icons/fa-regular/bookmark";
 import * as solidBookmark from "@iconify-icons/fa-solid/bookmark";
 
-import * as sc from "./StyledTrailList";
+import * as sc from "./StyledTrailCard";
 
 //TODO: Difficulty icons
 //TODO: Length icon and #
