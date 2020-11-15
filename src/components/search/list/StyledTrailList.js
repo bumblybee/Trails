@@ -1,7 +1,22 @@
 import styled from "styled-components";
 import { Icon, InlineIcon } from "@iconify/react";
 
-export const StyledCardList = styled.ul`
+export const StyledTrailListHeader = styled.div`
+  color: #34423b;
+  padding: 0.5rem 1rem;
+
+  h1 {
+    margin: 1rem 0 0.5rem;
+  }
+
+  p {
+    color: #99a29e;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+`;
+
+export const StyledTrailList = styled.ul`
   padding: 1rem;
   overflow-y: scroll;
   max-height: 874px;
@@ -14,12 +29,19 @@ export const StyledCardList = styled.ul`
 export const StyledCard = styled.li`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  border: 0.5px solid #eceeed;
+  border: 0.5px solid #f1f1f1;
   border-radius: 6px;
-
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s ease-out;
+
   :not(:last-child) {
     margin-bottom: 0.8rem;
+  }
+
+  :hover {
+    cursor: pointer;
+    box-shadow: none;
+    border: 0.5px solid transparent;
   }
 `;
 

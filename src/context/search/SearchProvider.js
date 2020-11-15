@@ -24,6 +24,8 @@ const SearchProvider = ({ children }) => {
         searchTrails,
         trails,
         loading,
+        searchValue,
+        setSearchValue,
       }}
     >
       {children}
