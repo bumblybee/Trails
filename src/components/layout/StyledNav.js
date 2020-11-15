@@ -5,7 +5,7 @@ export const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem 0.5rem 1.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
   max-width: 100%;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   background: #fffeff;
