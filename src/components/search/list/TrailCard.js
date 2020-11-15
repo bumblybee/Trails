@@ -11,22 +11,11 @@ import * as sc from "./StyledTrailCard";
 const TrailCard = ({ trail }) => {
   const [hover, setHover] = useState(false);
   const renderDifficultyIcon = () => {
-    if (trail.difficulty === null)
-      return (
-        <img
-          title={`difficulty: Unknown`}
-          alt="difficulty icon"
-          src="https://img.icons8.com/ios-filled/24/ECEEED/medium-risk.png"
-        />
-      );
+    if (trail.difficulty === null) return "";
 
     if (trail.difficulty === "Beginner" || trail.difficulty === "Easiest")
       return (
-        <img
-          title={`difficulty: ${trail.difficulty}`}
-          alt="difficulty icon"
-          src="https://img.icons8.com/ios-filled/24/b1ce7c/medium-risk.png"
-        />
+        <img src="https://img.icons8.com/material-outlined/24/b1ce7c/define-location.png" />
       );
 
     if (trail.difficulty === "Intermediate") {
@@ -59,6 +48,14 @@ const TrailCard = ({ trail }) => {
       );
     }
   };
+
+  const countDescChars = () => {
+    const desc = trail.description;
+    if (desc.length >= 240) {
+      return true;
+    }
+  };
+
   //TODO: hover card, highlight on map
   return (
     <sc.StyledCard>
@@ -97,19 +94,21 @@ const TrailCard = ({ trail }) => {
           <h5>
             {trail.city}, {trail.state}
           </h5>
-          <p>{he.decode(trail.description).substring(0, 225)}...</p>
+          {countDescChars() ? (
+            <p>{he.decode(trail.description).substring(0, 225)}...</p>
+          ) : (
+            <p>{he.decode(trail.description).substring(0, 225)}</p>
+          )}
         </div>
         <sc.StyledCardFooter>
           <sc.StyledIconContainer>
             {renderDifficultyIcon()}
 
-            <img
-              alt="trail length"
-              title="length"
-              src="https://img.icons8.com/ios-filled/24/b1ce7c/trail.png"
-            />
-            <span>{Math.floor(trail.length)}</span>
-            <img src="https://img.icons8.com/ios-filled/24/b1ce7c/trekking.png" />
+            <img src="https://img.icons8.com/pastel-glyph/24/b1ce7c/route--v2.png" />
+            <span style={{ fontSize: "0.9rem" }}>
+              {Math.floor(trail.length)}
+            </span>
+            <img src="https://img.icons8.com/material/24/b1ce7c/trekking.png" />
           </sc.StyledIconContainer>
 
           <sc.StyledIconContainer>
