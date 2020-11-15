@@ -51,7 +51,7 @@ const TrailCard = ({ trail }) => {
 
   const countDescChars = () => {
     const desc = trail.description;
-    if (desc.length >= 240) {
+    if (desc.length >= 170) {
       return true;
     }
   };
@@ -95,9 +95,9 @@ const TrailCard = ({ trail }) => {
             {trail.city}, {trail.state}
           </h5>
           {countDescChars() ? (
-            <p>{he.decode(trail.description).substring(0, 225)}...</p>
+            <p>{he.decode(trail.description).substring(0, 170)}...</p>
           ) : (
-            <p>{he.decode(trail.description).substring(0, 225)}</p>
+            <p>{he.decode(trail.description)}</p>
           )}
         </div>
         <sc.StyledCardFooter>

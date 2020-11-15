@@ -49,6 +49,9 @@ export const StyledCardContentContainer = styled.div`
   p {
     font-weight: 300;
     font-family: "Noto Sans JP", sans-serif;
+    :first-letter {
+      text-transform: capitalize;
+    }
   }
 `;
 
