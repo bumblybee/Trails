@@ -23,6 +23,7 @@ export const StyledLinksContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-right: 1.3rem;
+  transition: border-color 0.2s ease-in-out 0s;
 
   @media (max-width: 620px) {
     margin-right: 0;
@@ -33,6 +34,10 @@ export const StyledLink = styled(Link)`
   display: inline-block;
   color: #34423b;
   margin-right: 2.5rem;
+
+  :hover {
+    color: #fe7762;
+  }
 
   @media (max-width: 620px) {
     margin-right: 0.5rem;
