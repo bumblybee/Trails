@@ -11,6 +11,7 @@ import * as sc from "./StyledMap";
 const MapSearchbar = () => {
   const { trails, searchTrails, setSearchValue } = useContext(SearchContext);
 
+  // usePlacesAutoComplete options
   const requestOptions = trails.length && {
     location: {
       lat: () => trails[0].lat,
@@ -34,6 +35,7 @@ const MapSearchbar = () => {
       <Combobox
         onSelect={async (address) => {
           setValue(address, false);
+          //store address in context
           setSearchValue(address);
           clearSuggestions();
           try {
@@ -42,6 +44,7 @@ const MapSearchbar = () => {
             // grab lat and lng from first result
             console.log(results);
             const { lat, lng } = await getLatLng(results[0]);
+            //call api
             await searchTrails(lat, lng);
           } catch (err) {
             console.log(err);

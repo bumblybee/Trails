@@ -5,24 +5,31 @@ import bookmarkIcon from "@iconify-icons/fa-regular/bookmark";
 
 import * as sc from "./StyledTrailCard";
 
-//TODO: Difficulty icons
+//TODO: Difficulty icons colors
 //TODO: Length icon and #
-//TODO: Rating icon (out of 5) add to card footer
+//TODO: Rating icon (out of 5)
 const TrailCard = ({ trail }) => {
   const [hover, setHover] = useState(false);
   const renderDifficultyIcon = () => {
-    if (trail.difficulty === null) return "";
-
-    if (trail.difficulty === "Beginner" || trail.difficulty === "Easiest")
+    if (trail.difficulty === "unknown")
       return (
         <img
-          title={trail.difficulty.toLowerCase()}
+          title={`difficulty ${trail.difficulty}`}
+          alt="difficulty"
+          src="https://img.icons8.com/material-outlined/24/D0D4D2/speedometer.png"
+        />
+      );
+
+    if (trail.difficulty === "beginner")
+      return (
+        <img
+          title="beginner"
           alt="difficulty"
           src="https://img.icons8.com/material-outlined/24/b1ce7c/speedometer.png"
         />
       );
 
-    if (trail.difficulty === "Intermediate") {
+    if (trail.difficulty === "intermediate") {
       return (
         <img
           title={trail.difficulty}
@@ -32,7 +39,7 @@ const TrailCard = ({ trail }) => {
       );
     }
 
-    if (trail.difficulty === "Advanced") {
+    if (trail.difficulty === "advanced") {
       return (
         <img
           title={trail.difficulty}
@@ -42,7 +49,7 @@ const TrailCard = ({ trail }) => {
       );
     }
 
-    if (trail.difficulty === "Expert") {
+    if (trail.difficulty === "expert") {
       return (
         <img
           title={trail.difficulty}
@@ -63,7 +70,7 @@ const TrailCard = ({ trail }) => {
   const calcDistance = () => {
     const distance = `${Math.floor(trail.distance / 1609)}`;
 
-    return distance > 8 ? `${distance} miles away` : "";
+    return distance > 8 ? `${distance} miles away` : "nearby";
   };
 
   //TODO: hover card, highlight on map
@@ -101,7 +108,7 @@ const TrailCard = ({ trail }) => {
 
       <sc.StyledCardContentContainer>
         <div>
-          <h3>{trail.name}</h3>
+          <h3>{he.decode(trail.name)}</h3>
 
           <h5>
             {trail.city}, {trail.state} -<span> {calcDistance()}</span>

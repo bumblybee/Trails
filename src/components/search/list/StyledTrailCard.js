@@ -15,8 +15,6 @@ export const StyledCard = styled.li`
 
   :hover {
     cursor: pointer;
-    box-shadow: none;
-    border: 0.5px solid transparent;
   }
 `;
 
