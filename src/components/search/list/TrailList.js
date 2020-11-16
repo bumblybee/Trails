@@ -13,7 +13,7 @@ const TrailList = () => {
           <h1>
             Trails near {searchValue.substring(0, searchValue.length - 5)}
           </h1>
-          <p>{trails.length} trails</p>
+          {/* <p>{trails.length} trails</p> */}
         </StyledTrailListHeader>
         {trails &&
           trails.map((trail, index) => <TrailCard key={index} trail={trail} />)}
