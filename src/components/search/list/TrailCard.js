@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import he from "he";
-import { Icon, InlineIcon } from "@iconify/react";
-import bookmarkIcon from "@iconify-icons/fa-regular/bookmark";
 
 import * as sc from "./StyledTrailCard";
 
@@ -125,6 +123,7 @@ const TrailCard = ({ trail }) => {
             <img src="https://img.icons8.com/material/18/fe7762/star--v1.png" />
 
             <span
+              title="rating out of 5"
               style={{
                 fontSize: "0.9rem",
                 fontWeight: "bold",
@@ -134,11 +133,19 @@ const TrailCard = ({ trail }) => {
               {trail.rating === "0" ? "-" : Math.floor(trail.rating)}
             </span>
 
-            <img src="https://img.icons8.com/pastel-glyph/24/99A29E/route--v2.png" />
-            <span style={{ fontSize: "0.9rem" }}>
+            <img
+              title="length in miles"
+              alt="length of trail"
+              src="https://img.icons8.com/pastel-glyph/24/99A29E/route--v2.png"
+            />
+            <span title="length in miles" style={{ fontSize: "0.9rem" }}>
               {Math.floor(trail.length)}
             </span>
-            <img src="https://img.icons8.com/material/24/99A29E/trekking.png" />
+            <img
+              title="hiking"
+              alt="hiking icon"
+              src="https://img.icons8.com/material/24/99A29E/trekking.png"
+            />
           </sc.StyledIconContainer>
           <sc.StyledIconContainer>
             {renderDifficultyIcon()}

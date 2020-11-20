@@ -6,6 +6,7 @@ import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 const TrailList = () => {
   //TODO: add type of trail to header when filter wired up
   const { trails, searchValue } = useContext(SearchContext);
+
   return (
     <div>
       <StyledTrailList>

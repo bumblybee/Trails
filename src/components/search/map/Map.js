@@ -41,7 +41,7 @@ const mapContainerStyle = {
 };
 
 const Map = () => {
-  const { trails } = useContext(SearchContext);
+  const { trails, searchTrails, searchValue } = useContext(SearchContext);
 
   const [markers, setMarkers] = useState([]);
   const [center, setCenter] = useState({});
