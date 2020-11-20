@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ComboboxInput, ComboboxList, ComboboxOption } from "@reach/combobox";
 
 export const StyledSearchbarContainer = styled.div`
   border: 0.5px solid #eceeed;
@@ -18,6 +19,8 @@ export const StyledSearchbar = styled.div`
   padding: 1rem;
   background: #fffeff;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
 
   :hover {
     border: 1px solid transparent;
@@ -29,13 +32,7 @@ export const StyledSearchbar = styled.div`
   }
 `;
 
-export const StyledSearchForm = styled.form`
-  color: #99a29e;
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const StyledSearchInput = styled.input`
+export const StyledComboInput = styled(ComboboxInput)`
   border: none;
   margin-left: 1rem;
   height: 100%;
@@ -51,6 +48,27 @@ export const StyledSearchInput = styled.input`
     margin-left: 0.2rem;
     width: 125px;
     font-size: 0.9rem;
+  }
+`;
+
+export const StyledComboList = styled(ComboboxList)`
+  list-style: none;
+  color: #fff;
+  background: transparent;
+  padding: 2rem 0 0.5rem;
+  margin-left: 1.1rem;
+  width: 368px;
+  transform: translateX(-12.2%);
+  z-index: 200;
+`;
+
+export const StyledComboboxOption = styled(ComboboxOption)`
+  padding: 0.5rem 1rem;
+  z-index: 200;
+
+  :hover {
+    /* background: #f9f9f9; */
+    cursor: pointer;
   }
 `;
 

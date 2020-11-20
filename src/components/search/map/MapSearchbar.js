@@ -9,7 +9,9 @@ import Filter from "../../layout/Filter";
 import * as sc from "./StyledMap";
 
 const MapSearchbar = () => {
-  const { trails, searchTrails, setSearchValue } = useContext(SearchContext);
+  const { trails, searchTrails, searchValue, setSearchValue } = useContext(
+    SearchContext
+  );
 
   // usePlacesAutoComplete options
   const requestOptions = trails.length && {
@@ -57,7 +59,7 @@ const MapSearchbar = () => {
           }}
           type="text"
           placeholder="Search a location..."
-          value={value}
+          value={value || searchValue.substring(0, searchValue.length - 5)}
           disabled={!ready}
         ></sc.StyledComboInput>
 
