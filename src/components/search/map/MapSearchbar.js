@@ -59,7 +59,7 @@ const MapSearchbar = () => {
           }}
           type="text"
           placeholder="Search a location..."
-          value={value || searchValue.substring(0, searchValue.length - 5)}
+          value={value}
           disabled={!ready}
         ></sc.StyledComboInput>
 

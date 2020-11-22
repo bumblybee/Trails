@@ -1,14 +1,23 @@
-import React from "react";
-import Select from "react-select";
+import React, { useState, useContext } from "react";
+import "react-dropdown/style.css";
 import { StyledFilter } from "./StyledFilter";
+import { SearchContext } from "../../context/search/SearchContext";
+
+const options = ["hiking", "biking"];
 
 const Filter = () => {
+  const { setFilterValue } = useContext(SearchContext);
+
+  const handleSelect = (option) => {
+    setFilterValue(option.value);
+  };
+
   return (
-    <StyledFilter>
-      <option value="hiking">hiking</option>
-      <option value="biking">biking</option>
-      <option value="all">all</option>
-    </StyledFilter>
+    <StyledFilter
+      options={options}
+      placeholder="filter"
+      onChange={handleSelect}
+    />
   );
 };
 
