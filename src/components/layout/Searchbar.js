@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
+import { useLoadScript } from "@react-google-maps/api";
+
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
@@ -11,11 +13,21 @@ import Filter from "./Filter";
 import { StyledPinkButton } from "../../styles/GlobalStyledComponents";
 import * as sc from "./StyledSearchbar";
 
+const libraries = ["places"];
+
 const Searchbar = () => {
+  //load Places script to use in searchbar
+  useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries,
+  });
+
   const history = useHistory();
   const [address, setAddress] = useState("");
-  const { searchTrails, trails, setSearchValue } = useContext(SearchContext);
-
+  const { searchTrails, trails, searchValue, setSearchValue } = useContext(
+    SearchContext
+  );
+  //TODO: get user location
   const requestOptions = trails.length && {
     location: {
       lat: () => trails[0].lat,
@@ -33,10 +45,6 @@ const Searchbar = () => {
   } = usePlacesAutoComplete({
     requestOptions,
   });
-
-  // const handleSearch = () => {
-  //   history.push("/search");
-  // };
 
   return (
     <sc.StyledSearchbarContainer>
@@ -90,7 +98,7 @@ const Searchbar = () => {
             onClick={async () => {
               const results = await getGeocode({ address });
               // grab lat and lng from first result
-
+              console.log(results);
               const { lat, lng } = await getLatLng(results[0]);
               //call api
               await searchTrails(lat, lng);
