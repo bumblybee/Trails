@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { useLoadScript } from "@react-google-maps/api";
@@ -27,14 +27,18 @@ const Searchbar = () => {
   const { searchTrails, trails, searchValue, setSearchValue } = useContext(
     SearchContext
   );
+
   //TODO: get user location
-  const requestOptions = trails.length && {
-    location: {
-      lat: () => trails[0].lat,
-      lng: () => trails[0].lon,
-    },
-    radius: 200 * 1000,
-  };
+  //if no trails, don't give suggestions - maybe get user location and use that
+  const requestOptions = trails.length
+    ? {
+        location: {
+          lat: () => trails[0].lat,
+          lng: () => trails[0].lon,
+        },
+        radius: 200 * 1000,
+      }
+    : "";
 
   const {
     ready,

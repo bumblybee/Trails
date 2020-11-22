@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import Dropdown from "react-dropdown";
 
-export const StyledFilter = styled.select`
+export const StyledFilter = styled(Dropdown)`
   width: 100px;
   color: #99a29e;
   border: 0.5px solid #eceeed;
   padding: 0.2rem;
+  font-size: 0.9rem;
 
   :focus {
     outline: none;
