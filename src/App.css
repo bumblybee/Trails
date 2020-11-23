@@ -65,7 +65,7 @@ a {
   text-decoration: none;
 }
 
-::-webkit-scrollbar {
-  width: 0px;
+/* ::-webkit-scrollbar {
+  width: none;
   background: transparent;
-}
+} */
