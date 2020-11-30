@@ -5,10 +5,11 @@ export const StyledTrailList = styled.ul`
   overflow-y: scroll;
   max-height: 874px;
   scrollbar-width: none;
-  /* ::-webkit-scrollbar-scrollbar-track-color {
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar-scrollbar-track-color {
     background: transparent;
     color: transparent;
-  } */
+  }
 `;
 
 export const StyledTrailListHeader = styled.div`
