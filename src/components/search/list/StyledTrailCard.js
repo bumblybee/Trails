@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Icon } from "@iconify/react";
+import { FaBullseye } from "react-icons/fa";
 
 export const StyledCard = styled.li`
   display: grid;
@@ -77,8 +77,8 @@ export const StyledCardFooter = styled.div`
   justify-content: space-between;
   color: #99a29e;
 
-  img:not(:first-child) {
-    margin-left: 1rem;
+  svg:not(:first-child) {
+    margin-left: 0.8rem;
   }
 `;
 
@@ -86,21 +86,15 @@ export const StyledIconContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  font-size: 1.2rem;
 `;
-
-export const StyledGaugeIcon = styled(Icon)`
-  font-size: 2rem;
-  color: #b1ce7c;
-`;
-
-export const StyledStarIcon = styled(Icon)`
-  font-size: 1.55rem;
-  color: #fe7762;
-  opacity: 0.95;
-  margin-right: 0;
-`;
-
-export const StyledMarkerIcon = styled(Icon)`
-  font-size: 2rem;
-  color: #fe7762;
+export const StyledBullseye = styled(FaBullseye)`
+  color: ${(props) =>
+    props.difficulty === "beginner"
+      ? "#b1ce7c"
+      : props.difficulty === "intermediate"
+      ? "#fe7762"
+      : props.difficulty === "advanced"
+      ? "#fe7762"
+      : ""};
 `;
