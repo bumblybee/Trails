@@ -6,6 +6,7 @@ import * as sc from "./StyledTrailCard";
 //TODO: Difficulty icons colors
 //TODO: Length icon and #
 //TODO: Rating icon (out of 5)
+//TODO: check if need he decode now that using regex on server side
 const TrailCard = ({ trail }) => {
   const [hover, setHover] = useState(false);
   const renderDifficultyIcon = () => {
@@ -58,7 +59,7 @@ const TrailCard = ({ trail }) => {
     }
   };
 
-  const countDescChars = () => {
+  const countChars = () => {
     const desc = trail.description;
     if (desc.length >= 170) {
       return true;
@@ -111,8 +112,8 @@ const TrailCard = ({ trail }) => {
           <h5>
             {trail.city}, {trail.state} -<span> {calcDistance()}</span>
           </h5>
-          {countDescChars() ? (
-            <p>{he.decode(trail.description).substring(0, 170)}...</p>
+          {countChars() ? (
+            <p>{he.decode(trail.description).substring(0, 172)}...</p>
           ) : (
             <p>{he.decode(trail.description)}</p>
           )}

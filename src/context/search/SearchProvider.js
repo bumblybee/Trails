@@ -5,7 +5,7 @@ import { getTrails } from "../../api/trailsApi";
 
 const SearchProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("");
-  const [filterValue, setFilterValue] = useState("");
+  const [filterValue, setFilterValue] = useState(null);
   const [trails, setTrails] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -13,10 +13,11 @@ const SearchProvider = ({ children }) => {
     setLoading(true);
 
     //TODO: add filterValue to search
-    const trailData = await getTrails(lat, lng);
-    console.log("filter val", filterValue);
+    const trailData = await getTrails(lat, lng, filterValue);
+
     setTrails(trailData);
     setLoading(false);
+    setFilterValue(null);
     console.log(trailData);
     return trailData;
   };
