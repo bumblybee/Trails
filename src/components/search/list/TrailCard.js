@@ -32,6 +32,7 @@ const TrailCard = ({ trail }) => {
   };
 
   //TODO: hover card, highlight on map
+  //TODO: color rating nearly invisible if none, color other icons
   return (
     <sc.StyledCard>
       <sc.StyledImageContainer>

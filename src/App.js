@@ -7,6 +7,7 @@ import SearchProvider from "./context/search/SearchProvider";
 import Nav from "./components/layout/Nav";
 import Landing from "./pages/landing/Landing";
 import Search from "./pages/search/Search";
+import ScoutTrail from "./pages/scout/ScoutTrail";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Switch>
           <Route path="/search" exact>
             <Search />
+          </Route>
+          <Route path="/scout">
+            <ScoutTrail />
           </Route>
           <Route path="/" exact>
             <Landing />

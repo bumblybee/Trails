@@ -76,10 +76,6 @@ export const StyledCardFooter = styled.div`
   display: flex;
   justify-content: space-between;
   color: #99a29e;
-
-  svg:not(:first-child) {
-    margin-left: 0.8rem;
-  }
 `;
 
 export const StyledIconContainer = styled.div`
@@ -87,7 +83,11 @@ export const StyledIconContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
+  svg:not(:first-child) {
+    margin-left: 1rem;
+  }
 `;
+
 export const StyledBullseye = styled(FaBullseye)`
   color: ${(props) =>
     props.difficulty === "beginner"
