@@ -3,7 +3,7 @@ import StarRating from "./StarRating";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
-  const [isChecked, setIsChecked] = useState({ value: "", checked: false });
+  const [isChecked, setIsChecked] = useState({ value: [], checked: false });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,8 +43,7 @@ const ScoutTrail = () => {
             <input
               onChange={(e) => {
                 setIsChecked({
-                  ...isChecked.value,
-                  value: e.target.value,
+                  value: [...isChecked.value, e.target.value],
                   checked: true,
                 });
               }}
@@ -54,7 +53,17 @@ const ScoutTrail = () => {
             Hiking
           </label>
           <label htmlFor="" className="type">
-            <input type="checkbox" value="Biking" /> Biking
+            <input
+              onChange={(e) => {
+                setIsChecked({
+                  value: [...isChecked.value, e.target.value],
+                  checked: true,
+                });
+              }}
+              type="checkbox"
+              value="Biking"
+            />{" "}
+            Biking
           </label>
         </sc.StyledFormGroup>
         {/* TODO: Add details about difficulty levels */}
