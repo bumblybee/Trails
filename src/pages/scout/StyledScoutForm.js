@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const StyledFormContainer = styled.div`
   width: 60%;
-  margin: 2rem auto;
+  margin: 2.5rem auto;
   padding: 2rem;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
 
   label {
@@ -33,6 +33,10 @@ export const StyledFormContainer = styled.div`
       outline: none;
     }
   }
+
+  span {
+    color: #b9c8b8;
+  }
 `;
 
 export const StyledHr = styled.hr`
@@ -48,7 +52,7 @@ export const StyledFormGroup = styled.div`
 export const StyledFormButton = styled.button`
   padding: 10px 16px;
   margin-right: 0.5rem;
-  background: ${(props) => (props.submitButton ? "#fe7762" : "#749073")};
+  background: ${(props) => (props.submitButton ? "#fe7762" : "#a5b8a4")};
   color: #fff;
   border: none;
   outline: none;
@@ -56,7 +60,7 @@ export const StyledFormButton = styled.button`
 
   :hover {
     cursor: pointer;
-    background: ${(props) => (props.submitButton ? "#fe9787" : "#a5b8a4")};
+    background: ${(props) => (props.submitButton ? "#fe9787" : "#b9c8b8")};
   }
 
   :active {
