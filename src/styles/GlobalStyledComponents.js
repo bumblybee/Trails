@@ -9,7 +9,7 @@ export const StyledPinkButton = styled.button`
   padding: 12px 18px;
   border-radius: 4px;
   border: none;
-
+  outline: none;
   font-weight: 400;
   text-align: center;
   position: relative;
@@ -19,6 +19,10 @@ export const StyledPinkButton = styled.button`
     background: #fe9787;
 
     box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.07);
+  }
+
+  :active {
+    transform: scale(0.98);
   }
 
   @media (max-width: 620px) {
