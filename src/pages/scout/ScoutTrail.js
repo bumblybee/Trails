@@ -1,16 +1,32 @@
 import React, { useState, useCallback } from "react";
+import { scoutTrail } from "../../api/trailsApi";
 import { useDropzone } from "react-dropzone";
 import StarRating from "./StarRating";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
-  const [isChecked, setIsChecked] = useState({ value: [], checked: false });
-  const [image, setImage] = useState("");
+  const [trailDetails, setTrailDetails] = useState({
+    userId: 1,
+    name: "",
+    city: "",
+    state: "",
+    lat: "",
+    lng: "",
+    hiking: false,
+    biking: false,
+    length: null,
+    rating: null,
+    description: "",
+    difficulty: "",
+  });
+  const [image, setImage] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
+
   const [progress, setProgress] = useState(null);
 
-  const onDrop = useCallback((file) => {
-    setImage(file);
+  const onDrop = useCallback((files) => {
+    setImage(files[0]);
   }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -18,14 +34,29 @@ const ScoutTrail = () => {
     multiple: false,
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     //TODO: make sure one box is checked and val passed to db on submit
-    if (isChecked.checked) {
-      console.log(isChecked.value);
-      const formData = new FormData();
+    if (isChecked) {
+      // TODO: wire up remaining inputs and remove this, it's just for testing
+      setTrailDetails({
+        ...trailDetails,
+        city: "waterloo",
+        state: "Iowa",
+        lat: 42.3456,
+        lng: -92.3456,
+        rating: 5,
+        difficulty: "beginner",
+      });
+
+      // append each key val pair in trailDetails to formData and pass to server
+      let formData = new FormData();
+      for (const key in trailDetails) {
+        formData.append(key, trailDetails[key]);
+      }
       formData.append("image", image);
-      console.log(image);
+      const submission = await scoutTrail(formData);
+      // TODO: handle progress and success
     }
   };
 
@@ -43,7 +74,15 @@ const ScoutTrail = () => {
           <label htmlFor="name">
             Trail Name<span title="required">*</span>
           </label>
-          <input type="text" name="" id="" required />
+          <input
+            onChange={(e) =>
+              setTrailDetails({ ...trailDetails, name: e.target.value })
+            }
+            type="text"
+            name=""
+            id=""
+            required
+          />
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
           <label htmlFor="StarRating">
@@ -58,9 +97,10 @@ const ScoutTrail = () => {
           <label className="type">
             <input
               onChange={(e) => {
-                setIsChecked({
-                  value: [...isChecked.value, e.target.value],
-                  checked: true,
+                setIsChecked(e.target.checked && true);
+                setTrailDetails({
+                  ...trailDetails,
+                  hiking: e.target.checked && true,
                 });
               }}
               type="checkbox"
@@ -71,9 +111,10 @@ const ScoutTrail = () => {
           <label htmlFor="" className="type">
             <input
               onChange={(e) => {
-                setIsChecked({
-                  value: [...isChecked.value, e.target.value],
-                  checked: true,
+                setIsChecked(e.target.checked && true);
+                setTrailDetails({
+                  ...trailDetails,
+                  biking: e.target.checked && true,
                 });
               }}
               type="checkbox"
@@ -107,6 +148,12 @@ const ScoutTrail = () => {
             Length<span title="required">*</span>
           </label>
           <input
+            onChange={(e) =>
+              setTrailDetails({
+                ...trailDetails,
+                length: e.target.value,
+              })
+            }
             type="number"
             name=""
             id=""
@@ -121,6 +168,12 @@ const ScoutTrail = () => {
             Description<span title="required">*</span>
           </label>
           <textarea
+            onChange={(e) =>
+              setTrailDetails({
+                ...trailDetails,
+                description: e.target.value,
+              })
+            }
             name=""
             id=""
             rows={7}
@@ -133,6 +186,7 @@ const ScoutTrail = () => {
         <label htmlFor="image-upload">Photo</label>
         <sc.StyledFormGroup>
           <sc.StyledDragDrop {...getRootProps()} isDragActive={isDragActive}>
+            {/* TODO: add image preview and progress */}
             <FaCloudUploadAlt />
             <input {...getInputProps()} />
             {isDragActive ? (
@@ -146,7 +200,19 @@ const ScoutTrail = () => {
           <label htmlFor="location">
             Trail Location<span title="required">*</span>
           </label>
-          <input type="text" name="" id="" required />
+          <input
+            // onChange={(e) =>
+            //   setTrailDetails({
+            //     ...trailDetails,
+            //     city: e.target.value,
+            //     state: e.target.value
+            //   })
+            // }
+            type="text"
+            name="location"
+            id=""
+            required
+          />
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
           <sc.StyledFormButton type="submit" submitButton={true}>
