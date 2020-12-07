@@ -13,7 +13,7 @@ import * as sc from "./StyledTrailCard";
 
 //TODO: Difficulty icons colors
 //TODO: Length icon and #
-//TODO: Rating icon (out of 5)
+//TODO: Rating icon (out of 5) - stars
 //TODO: check if need he decode now that using regex on server side
 const TrailCard = ({ trail }) => {
   const [hover, setHover] = useState(false);
@@ -43,6 +43,7 @@ const TrailCard = ({ trail }) => {
           {hover ? <FaBookmark /> : <FaRegBookmark />}
         </sc.StyledBookmarkIcon>
         {/* TODO: Carousel v2 */}
+        {/* TODO: Maybe have a few images chosen at random */}
         <sc.StyledImage
           src={
             trail.image !== null

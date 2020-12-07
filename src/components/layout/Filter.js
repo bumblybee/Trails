@@ -3,7 +3,7 @@ import "react-dropdown/style.css";
 import { StyledFilter } from "./StyledFilter";
 import { SearchContext } from "../../context/search/SearchContext";
 
-const options = ["hiking", "biking"];
+const options = ["hiking", "biking", "none"];
 
 const Filter = () => {
   const { setFilterValue } = useContext(SearchContext);

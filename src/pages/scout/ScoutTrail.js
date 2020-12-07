@@ -1,47 +1,59 @@
 import React from "react";
 import StarRating from "./StarRating";
+import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
   return (
-    <div
-      style={{
-        width: "60%",
-        margin: "2rem auto",
-        padding: "2rem",
-        boxShadow: "0 0 4px rgba(0,0,0, 0.2",
-        borderRadius: "6px",
-      }}
-    >
-      <h1>Scouted a Trail?</h1>
-      <form>
-        <hr style={{ margin: "2rem 0" }} />
-        <div className="form-group">
+    <sc.StyledFormContainer>
+      <h2>Scouted a Trail?</h2>
+      <p>Let's get some details</p>
+      <sc.StyledForm>
+        <sc.StyledHr />
+        <sc.StyledFormGroup>
           <label htmlFor="name">Trail Name*</label>
           <input type="text" name="" id="" />
-        </div>
-        <div className="form-group">
+        </sc.StyledFormGroup>
+        <sc.StyledFormGroup>
           <label htmlFor="StarRating">Rating*</label>
           <StarRating />
-        </div>
-        <div className="form-group">
+        </sc.StyledFormGroup>
+        <sc.StyledFormGroup>
           <label htmlFor="trail-type">Trail Type*</label>
-          <input type="radio" value="Hiking" /> Hiking
-          <input type="radio" value="Biking" /> Biking
-          <input type="radio" value="Both" /> Both
-        </div>
+          <label className="type">
+            <input type="checkbox" value="Hiking" /> Hiking
+          </label>
+          <label htmlFor="" className="type">
+            <input type="checkbox" value="Biking" /> Biking
+          </label>
+        </sc.StyledFormGroup>
         {/* TODO: Add details about difficulty levels */}
-        <div className="form-group">
+        <sc.StyledFormGroup>
           <label htmlFor="difficulty">Difficulty*</label>
-          <input type="radio" value="Beginner" /> Beginner
-          <input type="radio" value="Intermediate" /> Intermediate
-          <input type="radio" value="Advanced" /> Advanced
-          <input type="radio" value="Expert" /> Expert
-        </div>
-        <div className="form-group">
+          <label htmlFor="" className="difficulty">
+            <input type="radio" value="Beginner" /> Beginner
+          </label>
+          <label htmlFor="" className="difficulty">
+            <input type="radio" value="Intermediate" /> Intermediate
+          </label>
+          <label htmlFor="" className="difficulty">
+            <input type="radio" value="Advanced" /> Advanced
+          </label>
+          <label htmlFor="" className="difficulty">
+            <input type="radio" value="Expert" /> Expert
+          </label>
+        </sc.StyledFormGroup>
+        <sc.StyledFormGroup>
           <label htmlFor="length">Length*</label>
-          <input type="number" name="" id="" /> miles
-        </div>
-        <div className="form-group">
+          <input
+            type="number"
+            name=""
+            id=""
+            step="0.1"
+            style={{ width: "3.5rem", fontWeight: "300" }}
+          />{" "}
+          miles
+        </sc.StyledFormGroup>
+        <sc.StyledFormGroup>
           <label htmlFor="description">Description*</label>
           <textarea
             name=""
@@ -51,24 +63,23 @@ const ScoutTrail = () => {
             style={{ resize: "none" }}
             placeholder="Please provide as much detail as possible. It might be the reason someone else chooses the same adventure!"
           ></textarea>
-        </div>
+        </sc.StyledFormGroup>
         <label htmlFor="image-upload">Photo</label>
-        <div
-          className="form-group"
-          style={{ border: "1px solid black", width: "561px" }}
-        >
+        <sc.StyledFormGroup>
           <h1>image upload area</h1>
-        </div>
-        <div className="form-group">
+        </sc.StyledFormGroup>
+        <sc.StyledFormGroup>
           <label htmlFor="location">Location*</label>
           <input type="text" name="" id="" />
-        </div>
-        <div className="form-group">
-          <button>Submit Trail</button>
-          <button>Save for Later</button>
-        </div>
-      </form>
-    </div>
+        </sc.StyledFormGroup>
+        <sc.StyledFormGroup>
+          <sc.StyledFormButton submitButton={true}>
+            Submit Trail
+          </sc.StyledFormButton>
+          <sc.StyledFormButton>Save for Later</sc.StyledFormButton>
+        </sc.StyledFormGroup>
+      </sc.StyledForm>
+    </sc.StyledFormContainer>
   );
 };
 

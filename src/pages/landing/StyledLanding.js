@@ -14,7 +14,13 @@ export const StyledLanding = styled.div`
       rgba(43, 87, 64, 0.81) 31.77%,
       rgba(43, 87, 64, 0.735802) 99.99%,
       rgba(43, 87, 64, 0) 100%
-    );
+    ),
+    url("https://images.unsplash.com/photo-1591899761266-148e5928e389?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)),
+    url("https://images.unsplash.com/photo-1591899761266-148e5928e389?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
   z-index: 1;
 
   @media (max-width: 620px) {
@@ -58,6 +64,7 @@ export const StyledLandingText = styled.div`
 
   p {
     margin-bottom: 2.5rem;
+    line-height: 1.33;
   }
 
   @media (max-width: 620px) {
