@@ -12,10 +12,8 @@ const StarRating = () => {
       name={"trail-rating"}
       starCount={5}
       onStarClick={(nextValue) => setRating(nextValue)}
-      //   onStarHover={() => setHover(true)}
-      //   onStarHoverOut={(nextValue, prevValue, name) => {
-      //     setHover(false);
-      //   }}
+      onStarHover={(nextValue) => setRating(nextValue)}
+      onStarHoverOut={(nextValue, prevValue) => setRating(prevValue)}
       size={32}
       value={rating}
       //   starColor={hover ? "#fe7762" : "#99a29e"}
