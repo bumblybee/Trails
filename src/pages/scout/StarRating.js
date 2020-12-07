@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import StarRatingComponent from "react-star-rating-component";
+import { FaStar } from "react-icons/fa";
 
 const StarRating = () => {
   const [rating, setRating] = useState(null);
@@ -15,11 +16,12 @@ const StarRating = () => {
       //   onStarHoverOut={(nextValue, prevValue, name) => {
       //     setHover(false);
       //   }}
-      size={24}
+      size={32}
       value={rating}
       //   starColor={hover ? "#fe7762" : "#99a29e"}
+      renderStarIcon={() => <FaStar />}
       starColor={"#fe7762"}
-      emptyStarColor={"#99a29e"}
+      emptyStarColor={"#eceeed"}
     />
   );
 };

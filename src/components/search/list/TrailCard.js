@@ -13,7 +13,7 @@ import * as sc from "./StyledTrailCard";
 
 //TODO: Difficulty icons colors
 //TODO: Length icon and #
-//TODO: Rating icon (out of 5) - stars
+//TODO: Rating icon (out of 5) - stars - bring in star rating component
 //TODO: check if need he decode now that using regex on server side
 const TrailCard = ({ trail }) => {
   const [hover, setHover] = useState(false);

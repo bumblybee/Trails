@@ -3,11 +3,19 @@ import StarRating from "./StarRating";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleSave = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <sc.StyledFormContainer>
       <h2>Scouted a Trail?</h2>
       <p>Let's get some details</p>
-      <sc.StyledForm>
+      <sc.StyledForm onSubmit={handleSubmit}>
         <sc.StyledHr />
         <sc.StyledFormGroup>
           <label htmlFor="name">Trail Name*</label>
@@ -30,16 +38,17 @@ const ScoutTrail = () => {
         <sc.StyledFormGroup>
           <label htmlFor="difficulty">Difficulty*</label>
           <label htmlFor="" className="difficulty">
-            <input type="radio" value="Beginner" /> Beginner
+            <input type="radio" value="Beginner" name="difficulty" /> Beginner
           </label>
           <label htmlFor="" className="difficulty">
-            <input type="radio" value="Intermediate" /> Intermediate
+            <input type="radio" value="Intermediate" name="difficulty" />{" "}
+            Intermediate
           </label>
           <label htmlFor="" className="difficulty">
-            <input type="radio" value="Advanced" /> Advanced
+            <input type="radio" value="Advanced" name="difficulty" /> Advanced
           </label>
           <label htmlFor="" className="difficulty">
-            <input type="radio" value="Expert" /> Expert
+            <input type="radio" value="Expert" name="difficulty" /> Expert
           </label>
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
@@ -49,7 +58,7 @@ const ScoutTrail = () => {
             name=""
             id=""
             step="0.1"
-            style={{ width: "3.5rem", fontWeight: "300" }}
+            style={{ width: "4rem", fontWeight: "300" }}
           />{" "}
           miles
         </sc.StyledFormGroup>
@@ -73,10 +82,12 @@ const ScoutTrail = () => {
           <input type="text" name="" id="" />
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
-          <sc.StyledFormButton submitButton={true}>
+          <sc.StyledFormButton type="submit" submitButton={true}>
             Submit Trail
           </sc.StyledFormButton>
-          <sc.StyledFormButton>Save for Later</sc.StyledFormButton>
+          <sc.StyledFormButton onClick={handleSave}>
+            Save for Later
+          </sc.StyledFormButton>
         </sc.StyledFormGroup>
       </sc.StyledForm>
     </sc.StyledFormContainer>
