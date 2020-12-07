@@ -43,3 +43,7 @@ export const StyledLink = styled(Link)`
     margin-right: 0.5rem;
   }
 `;
+
+export const StyledLinkButton = styled(Link)`
+  color: #fff;
+`;
