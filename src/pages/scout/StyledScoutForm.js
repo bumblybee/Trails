@@ -49,6 +49,30 @@ export const StyledFormGroup = styled.div`
   margin-bottom: 1.3rem;
 `;
 
+export const StyledDragDrop = styled.div`
+  border: ${(props) =>
+    props.isDragActive ? "4px dashed #fe7762" : "4px dashed #eceeed"};
+  padding: 1rem;
+  width: 25%;
+  position: relative;
+
+  p {
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #99a29e;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  svg {
+    color: #d0d4d288;
+    width: 5rem;
+    height: 5rem;
+
+    transform: translate(100%, -20%);
+  }
+`;
+
 export const StyledFormButton = styled.button`
   padding: 10px 16px;
   margin-right: 0.5rem;

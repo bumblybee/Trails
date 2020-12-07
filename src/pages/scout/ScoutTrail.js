@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
+import { useDropzone } from "react-dropzone";
 import StarRating from "./StarRating";
+import { FaCloudUploadAlt } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
   const [isChecked, setIsChecked] = useState({ value: [], checked: false });
+  const [image, setImage] = useState("");
+  const [progress, setProgress] = useState(null);
+
+  const onDrop = useCallback((file) => {
+    setImage(file);
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    multiple: false,
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //TODO: make sure one box is checked and val passed to db on submit
     if (isChecked.checked) {
       console.log(isChecked.value);
+      const formData = new FormData();
+      formData.append("image", image);
+      console.log(image);
     }
   };
 
@@ -21,7 +37,7 @@ const ScoutTrail = () => {
     <sc.StyledFormContainer>
       <h2>Scouted a Trail?</h2>
       <p>Let's get some details</p>
-      <sc.StyledForm onSubmit={handleSubmit}>
+      <sc.StyledForm enctype="multipart/form-data" onSubmit={handleSubmit}>
         <sc.StyledHr />
         <sc.StyledFormGroup>
           <label htmlFor="name">
@@ -116,11 +132,19 @@ const ScoutTrail = () => {
         </sc.StyledFormGroup>
         <label htmlFor="image-upload">Photo</label>
         <sc.StyledFormGroup>
-          <h1>image upload area</h1>
+          <sc.StyledDragDrop {...getRootProps()} isDragActive={isDragActive}>
+            <FaCloudUploadAlt />
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p>Drop file ...</p>
+            ) : (
+              <p>Drag 'n drop or click to upload (max 5mb)</p>
+            )}
+          </sc.StyledDragDrop>
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
           <label htmlFor="location">
-            Location<span title="required">*</span>
+            Trail Location<span title="required">*</span>
           </label>
           <input type="text" name="" id="" required />
         </sc.StyledFormGroup>

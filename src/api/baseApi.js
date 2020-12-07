@@ -13,3 +13,9 @@ export const get = async (url) => {
     console.log(e);
   });
 };
+
+export const post = async (url) => {
+  return await instance.post(url).catch((e) => {
+    console.log(e);
+  });
+};
