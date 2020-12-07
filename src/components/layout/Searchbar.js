@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { useLoadScript } from "@react-google-maps/api";
-
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
@@ -15,6 +14,7 @@ import * as sc from "./StyledSearchbar";
 
 const libraries = ["places"];
 
+//TODO: reconfig autocomplete because not always accurate
 const Searchbar = () => {
   //load Places script to use in searchbar
   useLoadScript({

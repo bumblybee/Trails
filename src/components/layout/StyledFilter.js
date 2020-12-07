@@ -2,9 +2,10 @@ import styled from "styled-components";
 import Dropdown from "react-dropdown";
 
 export const StyledFilter = styled(Dropdown)`
-  width: 100px;
+  width: 90px;
   color: #99a29e;
-  border: 0.5px solid #eceeed;
+  /* border: 0.5px solid #eceeed; */
+
   padding: 0.2rem;
   font-size: 0.9rem;
 
@@ -15,9 +16,21 @@ export const StyledFilter = styled(Dropdown)`
   :hover {
     cursor: pointer;
 
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
+  }
 
-    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.07);
+  .Dropdown-control {
+    border: none;
+    :hover {
+      cursor: pointer;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  .Dropdown-menu {
+    border: 0.5px solid #eceeed;
+    border-top: none;
   }
 
   option {

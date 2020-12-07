@@ -124,7 +124,7 @@ const Map = () => {
           >
             <div>
               <h1 style={{ marginBottom: "0" }}>{selected.name}</h1>
-              <p>Replace me with a card that has park details</p>
+              <p>Replace me with a card that has trail details</p>
               <img
                 style={{
                   width: "200px",
