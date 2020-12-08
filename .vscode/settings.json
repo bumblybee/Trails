@@ -5,5 +5,10 @@
     "titleBar.activeBackground": "#864d1e",
     "titleBar.activeForeground": "#FEFBFC"
   },
-  "json.schemas": []
+  "json.schemas": [],
+  "cSpell.ignoreWords": [
+    "dropzone",
+    "use",
+    "use dropzone"
+  ]
 }
