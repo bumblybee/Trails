@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { scoutTrail } from "../../api/trailsApi";
 import { useDropzone } from "react-dropzone";
 import StarRating from "./StarRating";
-import { FaCloudUploadAlt } from "react-icons/fa";
+import { FaCloudUploadAlt, FaImage } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
@@ -221,7 +221,7 @@ const ScoutTrail = () => {
             name=""
             id=""
             rows={7}
-            cols={50}
+            cols={51}
             style={{ resize: "none" }}
             placeholder="Please provide as much detail as possible. It might be the reason someone else chooses the same adventure!"
             required
@@ -229,16 +229,21 @@ const ScoutTrail = () => {
         </sc.StyledFormGroup>
         <label htmlFor="image-upload">Photo</label>
         <sc.StyledFormGroup>
-          <sc.StyledDragDrop {...getRootProps()} isDragActive={isDragActive}>
-            {/* TODO: add image preview and progress */}
-            <FaCloudUploadAlt />
-            <input {...getInputProps()} />
-            {isDragActive ? (
-              <p>Drop file ...</p>
-            ) : (
-              <p>Drag 'n drop or click to upload (max 5mb)</p>
-            )}
-          </sc.StyledDragDrop>
+          <sc.StyledUploadContainer>
+            <sc.StyledDragDrop {...getRootProps()} isDragActive={isDragActive}>
+              {/* TODO: add image preview and progress */}
+              <FaCloudUploadAlt />
+              <input {...getInputProps()} />
+              {isDragActive ? (
+                <p>Drop file ...</p>
+              ) : (
+                <p>Drag 'n drop or click to upload (max 5mb)</p>
+              )}
+            </sc.StyledDragDrop>
+            <sc.StyledImagePreview>
+              <FaImage />
+            </sc.StyledImagePreview>
+          </sc.StyledUploadContainer>
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
           <label htmlFor="location">
