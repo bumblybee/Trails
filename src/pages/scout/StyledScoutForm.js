@@ -48,27 +48,50 @@ export const StyledFormGroup = styled.div`
   margin-bottom: 1.3rem;
 `;
 
+export const StyledUploadContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-gap: 2rem;
+  width: 45%;
+`;
+
 export const StyledDragDrop = styled.div`
   border: ${(props) =>
     props.isDragActive ? "4px dashed #fe7762" : "4px dashed #eceeed"};
   padding: 1rem;
-  width: 25%;
   position: relative;
+  :hover {
+    cursor: pointer;
+  }
 
   p {
     font-weight: 300;
     font-size: 0.9rem;
     color: #99a29e;
-    padding: 0 1rem;
+    padding: 1rem;
     text-align: center;
   }
 
   svg {
-    color: #d0d4d288;
+    color: #eceeede6;
     width: 5rem;
     height: 5rem;
+    position: absolute;
+    z-index: -10;
+    transform: translate(105%, -15%);
+  }
+`;
 
-    transform: translate(100%, -20%);
+export const StyledImagePreview = styled.div`
+  border: 4px solid #eceeed;
+
+  svg {
+    color: #eceeede6;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    z-index: -10;
+    transform: translate(55%, 10%);
   }
 `;
 
