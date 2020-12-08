@@ -19,6 +19,9 @@ export const StyledFormContainer = styled.div`
   label.type {
     margin-right: 0.5rem;
   }
+  label span {
+    color: #a5afab;
+  }
 
   input[type="text"],
   input[type="number"],
@@ -32,10 +35,6 @@ export const StyledFormContainer = styled.div`
       border: none;
       outline: none;
     }
-  }
-
-  span {
-    color: #b9c8b8;
   }
 `;
 
