@@ -22,9 +22,12 @@ const ScoutTrail = () => {
   });
   const [image, setImage] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
-  const [rating, setRating] = useState(null);
-
   const [progress, setProgress] = useState(null);
+
+  //function to set star rating in StarRating component and pass up to parent state
+  const setRating = (val) => {
+    setTrailDetails({ ...trailDetails, rating: val });
+  };
 
   const onDrop = useCallback((files) => {
     setImage(files[0]);
@@ -90,7 +93,7 @@ const ScoutTrail = () => {
           <label htmlFor="StarRating">
             Rating<span title="required">*</span>
           </label>
-          <StarRating rating={rating} setRating={setRating} />
+          <StarRating rating={trailDetails.rating} setRating={setRating} />
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
           <label htmlFor="trail-type">
