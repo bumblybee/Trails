@@ -21,8 +21,9 @@ const ScoutTrail = () => {
     difficulty: "",
   });
   const [image, setImage] = useState(null);
+  // isChecked used to be sure a trail type is checked before submitting because can't set required on checkbox itself
   const [isChecked, setIsChecked] = useState(false);
-  const [progress, setProgress] = useState(null);
+  // const [progress, setProgress] = useState(null);
 
   //function to set star rating in StarRating component and pass up to parent state
   const setRating = (val) => {
@@ -49,8 +50,6 @@ const ScoutTrail = () => {
         state: "Iowa",
         lat: 42.3456,
         lng: -92.3456,
-        rating: 5,
-        difficulty: "beginner",
       });
 
       // append each key val pair in trailDetails to formData and pass to server
@@ -59,9 +58,9 @@ const ScoutTrail = () => {
         formData.append(key, trailDetails[key]);
       }
       formData.append("image", image);
-      const submission = await scoutTrail(formData);
+      console.log(trailDetails);
+      // const submission = await scoutTrail(formData);
       // TODO: handle progress and success
-      console.log(submission.config.onUploadProgress);
     }
   };
 
@@ -133,19 +132,54 @@ const ScoutTrail = () => {
           <label htmlFor="difficulty">
             Difficulty<span title="required">*</span>
           </label>
-          <label htmlFor="" className="difficulty">
-            <input type="radio" value="Beginner" name="difficulty" required />{" "}
+          <label htmlFor="difficulty" className="difficulty">
+            <input
+              onChange={(e) =>
+                setTrailDetails({ ...trailDetails, difficulty: e.target.value })
+              }
+              type="radio"
+              value="Beginner"
+              name="difficulty"
+              checked={trailDetails.difficulty === "Beginner"}
+              required
+            />{" "}
             Beginner
           </label>
-          <label htmlFor="" className="difficulty">
-            <input type="radio" value="Intermediate" name="difficulty" />{" "}
+          <label htmlFor="difficulty" className="difficulty">
+            <input
+              onChange={(e) =>
+                setTrailDetails({ ...trailDetails, difficulty: e.target.value })
+              }
+              type="radio"
+              value="Intermediate"
+              name="difficulty"
+              checked={trailDetails.difficulty === "Intermediate"}
+            />{" "}
             Intermediate
           </label>
-          <label htmlFor="" className="difficulty">
-            <input type="radio" value="Advanced" name="difficulty" /> Advanced
+          <label htmlFor="difficulty" className="difficulty">
+            <input
+              onChange={(e) =>
+                setTrailDetails({ ...trailDetails, difficulty: e.target.value })
+              }
+              type="radio"
+              value="Advanced"
+              name="difficulty"
+              checked={trailDetails.difficulty === "Advanced"}
+            />{" "}
+            Advanced
           </label>
-          <label htmlFor="" className="difficulty">
-            <input type="radio" value="Expert" name="difficulty" /> Expert
+          <label htmlFor="difficulty" className="difficulty">
+            <input
+              onChange={(e) =>
+                setTrailDetails({ ...trailDetails, difficulty: e.target.value })
+              }
+              type="radio"
+              value="Expert"
+              name="difficulty"
+              checked={trailDetails.difficulty === "Expert"}
+            />{" "}
+            Expert
           </label>
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
