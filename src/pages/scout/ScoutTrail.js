@@ -41,9 +41,9 @@ const ScoutTrail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //TODO: make sure one box is checked and val passed to db on submit
+    //make sure at least one box checked before sending to db
     if (isChecked) {
-      // TODO: wire up remaining inputs and remove this, it's just for testing
+      // TODO: wire up places autocomplete and remove this test data
       setTrailDetails({
         ...trailDetails,
         city: "waterloo",
@@ -61,9 +61,11 @@ const ScoutTrail = () => {
       console.log(trailDetails);
       // const submission = await scoutTrail(formData);
       // TODO: handle progress and success
+      //TODO: redirect or clear form
     }
   };
 
+  //TODO: v2 - save draft to user account if click "save draft"
   const handleSave = (e) => {
     e.preventDefault();
   };
@@ -72,7 +74,7 @@ const ScoutTrail = () => {
     <sc.StyledFormContainer>
       <h2>Scouted a Trail?</h2>
       <p>Let's get some details</p>
-      <sc.StyledForm enctype="multipart/form-data" onSubmit={handleSubmit}>
+      <sc.StyledForm onSubmit={handleSubmit}>
         <sc.StyledHr />
         <sc.StyledFormGroup>
           <label htmlFor="name">
@@ -143,7 +145,7 @@ const ScoutTrail = () => {
               checked={trailDetails.difficulty === "Beginner"}
               required
             />{" "}
-            Beginner
+            Beginner - <span>flat or little uneven terrain</span>
           </label>
           <label htmlFor="difficulty" className="difficulty">
             <input
@@ -155,7 +157,7 @@ const ScoutTrail = () => {
               name="difficulty"
               checked={trailDetails.difficulty === "Intermediate"}
             />{" "}
-            Intermediate
+            Intermediate - <span>some incline or uneven terrain</span>
           </label>
           <label htmlFor="difficulty" className="difficulty">
             <input
@@ -167,7 +169,7 @@ const ScoutTrail = () => {
               name="difficulty"
               checked={trailDetails.difficulty === "Advanced"}
             />{" "}
-            Advanced
+            Advanced - <span>rocky, uneven terrain, steep inclines</span>
           </label>
           <label htmlFor="difficulty" className="difficulty">
             <input
@@ -179,7 +181,10 @@ const ScoutTrail = () => {
               name="difficulty"
               checked={trailDetails.difficulty === "Expert"}
             />{" "}
-            Expert
+            Expert -{" "}
+            <span>
+              very steep or treacherous, only for most experienced trailgoers
+            </span>
           </label>
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
