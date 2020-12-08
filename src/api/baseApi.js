@@ -2,10 +2,8 @@ import axios from "axios";
 
 const baseURL = "http://localhost:9000";
 
-const formConfig = {
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
+const progressConfig = {
+  onUploadProgress: (progressEvent) => progressEvent,
 };
 
 const instance = axios.create({
@@ -21,7 +19,7 @@ export const get = async (url) => {
 };
 
 export const post = async (url, data) => {
-  return await instance.post(url, data).catch((e) => {
+  return await instance.post(url, data, progressConfig).catch((e) => {
     console.log(e);
   });
 };

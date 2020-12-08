@@ -22,6 +22,7 @@ const ScoutTrail = () => {
   });
   const [image, setImage] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
+  const [rating, setRating] = useState(null);
 
   const [progress, setProgress] = useState(null);
 
@@ -57,6 +58,7 @@ const ScoutTrail = () => {
       formData.append("image", image);
       const submission = await scoutTrail(formData);
       // TODO: handle progress and success
+      console.log(submission.config.onUploadProgress);
     }
   };
 
@@ -88,7 +90,7 @@ const ScoutTrail = () => {
           <label htmlFor="StarRating">
             Rating<span title="required">*</span>
           </label>
-          <StarRating required />
+          <StarRating rating={rating} setRating={setRating} />
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
           <label htmlFor="trail-type">
