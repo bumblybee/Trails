@@ -6,6 +6,8 @@ import { FaCloudUploadAlt, FaImage } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
+  // TODOS: progress, clear form or reroute, wire up places autocomplete and get lat and lng from location, save draft, move image upload to own component, maybe move radio button group to own component
+
   const [trailDetails, setTrailDetails] = useState({
     userId: 1,
     name: "",
@@ -26,7 +28,7 @@ const ScoutTrail = () => {
   const [isChecked, setIsChecked] = useState(false);
   // const [progress, setProgress] = useState(null);
 
-  //function to set star rating in StarRating component and pass up to parent state
+  //function to pass to StarRating component
   const setRating = (val) => {
     setTrailDetails({ ...trailDetails, rating: val });
   };
@@ -35,7 +37,9 @@ const ScoutTrail = () => {
     let reader = new FileReader();
     reader.readAsDataURL(files[0]);
     setImage(files[0]);
-    reader.onloadend = () => setPreview(reader.result);
+    reader.onloadend = () => {
+      setPreview(reader.result);
+    };
   }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -95,7 +99,7 @@ const ScoutTrail = () => {
             }
             type="text"
             name=""
-            placeholder='"River Run"'
+            placeholder='"River Run Trail"'
             required
           />
         </sc.StyledFormGroup>
@@ -138,7 +142,7 @@ const ScoutTrail = () => {
             Biking
           </label>
         </sc.StyledFormGroup>
-        {/* TODO: Add details about difficulty levels */}
+
         <sc.StyledFormGroup>
           <label htmlFor="difficulty">
             Difficulty<span title="required">*</span>
@@ -229,7 +233,7 @@ const ScoutTrail = () => {
             rows={7}
             cols={51}
             style={{ resize: "none" }}
-            placeholder="Please provide as much detail as possible. It might be the reason someone else chooses the same adventure!"
+            placeholder="Please provide as much detail as possible. It might encourage someone else to choose the same adventure!"
             required
           ></textarea>
         </sc.StyledFormGroup>
@@ -238,15 +242,26 @@ const ScoutTrail = () => {
           <sc.StyledUploadContainer>
             <sc.StyledDragDrop {...getRootProps()} isDragActive={isDragActive}>
               {/* TODO: add image preview and progress */}
-              <FaCloudUploadAlt />
+
               <input {...getInputProps()} />
               {isDragActive ? (
-                <p>Drop file ...</p>
+                <>
+                  <FaCloudUploadAlt />
+                  <p>Drop file ...</p>{" "}
+                </>
+              ) : !preview ? (
+                <>
+                  <FaCloudUploadAlt />
+                  <p>Drag 'n drop or click to choose photo (max 5mb)</p>
+                </>
               ) : (
-                <p>Drag 'n drop or click to upload (max 5mb)</p>
+                <>
+                  <FaImage />
+                  <p>Drag 'n drop or click to choose a different photo</p>
+                </>
               )}
             </sc.StyledDragDrop>
-            <sc.StyledImagePreview>
+            <sc.StyledImagePreview title="image preview">
               {preview ? (
                 <>
                   <span onClick={removeImage} title="remove">
@@ -255,10 +270,7 @@ const ScoutTrail = () => {
                   <img alt="preview" src={preview} />{" "}
                 </>
               ) : (
-                <>
-                  <FaImage />
-                  <p>Image preview</p>
-                </>
+                <FaImage />
               )}
             </sc.StyledImagePreview>
           </sc.StyledUploadContainer>

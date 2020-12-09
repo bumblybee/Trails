@@ -9,6 +9,7 @@ export const StyledNav = styled.div`
   max-width: 100%;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   background: #fffeff;
+
   @media (max-width: 620px) {
     padding: 0;
     justify-content: space-around;
