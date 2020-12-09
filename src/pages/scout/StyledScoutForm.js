@@ -37,6 +37,11 @@ export const StyledFormContainer = styled.div`
       border: none;
       outline: none;
     }
+
+    ::placeholder {
+      font-weight: 300;
+      color: #99a29e;
+    }
   }
 `;
 
@@ -53,8 +58,9 @@ export const StyledFormGroup = styled.div`
 export const StyledUploadContainer = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 1fr;
-  grid-gap: 2rem;
+  grid-gap: 1rem;
   width: 45%;
+  height: 140px;
 `;
 
 export const StyledDragDrop = styled.div`
@@ -65,6 +71,7 @@ export const StyledDragDrop = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 
   :hover {
     cursor: pointer;
@@ -79,7 +86,7 @@ export const StyledDragDrop = styled.div`
   }
 
   svg {
-    color: #eceeede6;
+    color: #eceeed99;
     width: 5rem;
     height: 5rem;
     position: absolute;
@@ -96,7 +103,7 @@ export const StyledImagePreview = styled.div`
   justify-content: center;
 
   svg {
-    color: #eceeede6;
+    color: #eceeed99;
     width: 5rem;
     height: 5rem;
     position: absolute;
@@ -104,9 +111,25 @@ export const StyledImagePreview = styled.div`
   }
 
   img {
-    height: 120px;
+    height: 140px;
     width: 100%;
     object-fit: cover;
+  }
+
+  p {
+    color: #eceeed;
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 600;
+    color: #eceeed;
+
+    :hover {
+      cursor: pointer;
+    }
   }
 `;
 
