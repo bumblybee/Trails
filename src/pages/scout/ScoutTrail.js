@@ -6,7 +6,7 @@ import { FaCloudUploadAlt, FaImage } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
-  // TODOS: progress, clear form or reroute, wire up places autocomplete and get lat and lng from location, save draft, move image upload to own component, maybe move radio button group to own component
+  // TODOS: progress, clear form or reroute, wire up places autocomplete and get lat and lng from location, save draft, move image upload to own component, maybe move radio button group to own component, handle image size exceeded
 
   const [trailDetails, setTrailDetails] = useState({
     userId: 1,
@@ -35,16 +35,28 @@ const ScoutTrail = () => {
 
   const onDrop = useCallback((files) => {
     let reader = new FileReader();
-    reader.readAsDataURL(files[0]);
-    setImage(files[0]);
-    reader.onloadend = () => {
-      setPreview(reader.result);
-    };
+    if (files[0]) {
+      reader.readAsDataURL(files[0]);
+      setImage(files[0]);
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+    }
   }, []);
+
+  const onDropRejected = () => {
+    return alert(
+      "Image exceeds 5 MB. Please choose another image or compress the image before uploading."
+    );
+  };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
+    onDropRejected,
     multiple: false,
+    accept: "image/jpeg, image/png, image/jpg",
+    minSize: 0,
+    maxSize: 5242880,
   });
 
   const handleSubmit = async (e) => {
@@ -237,8 +249,12 @@ const ScoutTrail = () => {
         <label htmlFor="image-upload">Photo</label>
         <sc.StyledFormGroup>
           <sc.StyledUploadContainer>
-            <sc.StyledDragDrop {...getRootProps()} isDragActive={isDragActive}>
-              {/* TODO: add image preview and progress */}
+            <sc.StyledDragDrop
+              {...getRootProps()}
+              isDragActive={isDragActive}
+              onDropRejected={onDropRejected}
+            >
+              {/* TODO: add progress */}
 
               <input {...getInputProps()} />
               {isDragActive ? (
