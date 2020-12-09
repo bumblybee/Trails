@@ -44,10 +44,14 @@ const ScoutTrail = () => {
     }
   }, []);
 
-  const onDropRejected = () => {
-    return alert(
-      "Image exceeds 5 MB. Please choose another image or compress the image before uploading."
-    );
+  const onDropRejected = (fileRejections) => {
+    console.log(fileRejections);
+    const error = fileRejections[0].errors[0];
+    if (error.code === "file-too-large") {
+      return alert("File exceeds 5 MB limit");
+    } else {
+      return alert("Unauthorized file");
+    }
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
