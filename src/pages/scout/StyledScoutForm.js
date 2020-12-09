@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledFormContainer = styled.div`
   width: 60%;
   margin: 2.5rem auto;
-  padding: 2rem;
+  padding: 2rem 2.5rem;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
 
@@ -47,6 +47,8 @@ export const StyledFormContainer = styled.div`
 
 export const StyledHr = styled.hr`
   margin: 1rem 0 1.5rem;
+
+  border: 2px solid #eceeed;
 `;
 
 export const StyledForm = styled.form``;
@@ -125,7 +127,8 @@ export const StyledImagePreview = styled.div`
     top: 0;
     right: 0;
     font-weight: 600;
-    color: #eceeed;
+    color: #fe7762;
+    text-shadow: -0.5px 0 1px #eceeed;
 
     :hover {
       cursor: pointer;
