@@ -87,8 +87,8 @@ const ScoutTrail = () => {
     <sc.StyledFormContainer>
       <h2>Scouted a Trail?</h2>
       <p>Let's get some details</p>
+      <sc.StyledHr />
       <sc.StyledForm onSubmit={handleSubmit}>
-        <sc.StyledHr />
         <sc.StyledFormGroup>
           <label htmlFor="name">
             Trail Name<span title="required">*</span>
@@ -194,10 +194,7 @@ const ScoutTrail = () => {
               name="difficulty"
               checked={trailDetails.difficulty === "Expert"}
             />{" "}
-            Expert -{" "}
-            <span>
-              very steep or treacherous, only for most experienced trailgoers
-            </span>
+            Expert - <span>very steep or treacherous terrain</span>
           </label>
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
@@ -231,7 +228,7 @@ const ScoutTrail = () => {
             name=""
             id=""
             rows={7}
-            cols={51}
+            cols={44}
             style={{ resize: "none" }}
             placeholder="Please provide as much detail as possible. It might encourage someone else to choose the same adventure!"
             required
