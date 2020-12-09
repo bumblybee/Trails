@@ -61,7 +61,7 @@ export const StyledUploadContainer = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   grid-gap: 1rem;
-  width: 45%;
+  width: 39.7%;
   height: 140px;
 `;
 
@@ -113,7 +113,7 @@ export const StyledImagePreview = styled.div`
   }
 
   img {
-    height: 140px;
+    height: 132px;
     width: 100%;
     object-fit: cover;
   }
@@ -137,7 +137,7 @@ export const StyledImagePreview = styled.div`
 `;
 
 export const StyledFormButton = styled.button`
-  padding: 10px 16px;
+  padding: 10px 18px;
   margin-right: 0.5rem;
   background: ${(props) => (props.submitButton ? "#fe7762" : "#a5b8a4")};
   color: #fff;
