@@ -21,6 +21,7 @@ const ScoutTrail = () => {
     difficulty: "",
   });
   const [image, setImage] = useState(null);
+  const [preview, setPreview] = useState(null);
   // isChecked used to be sure a trail type is checked before submitting because can't set required on checkbox itself
   const [isChecked, setIsChecked] = useState(false);
   // const [progress, setProgress] = useState(null);
@@ -31,7 +32,10 @@ const ScoutTrail = () => {
   };
 
   const onDrop = useCallback((files) => {
+    let reader = new FileReader();
+    let url = reader.readAsDataURL(files[0]);
     setImage(files[0]);
+    reader.onloadend = () => setPreview(reader.result);
   }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -241,7 +245,7 @@ const ScoutTrail = () => {
               )}
             </sc.StyledDragDrop>
             <sc.StyledImagePreview>
-              <FaImage />
+              {preview ? <img alt="preview" src={preview} /> : <FaImage />}
             </sc.StyledImagePreview>
           </sc.StyledUploadContainer>
         </sc.StyledFormGroup>

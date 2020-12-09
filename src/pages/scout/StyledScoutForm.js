@@ -19,8 +19,10 @@ export const StyledFormContainer = styled.div`
   label.type {
     margin-right: 0.5rem;
   }
+
   label span {
     color: #a5afab;
+    font-weight: 300;
   }
 
   input[type="text"],
@@ -60,6 +62,10 @@ export const StyledDragDrop = styled.div`
     props.isDragActive ? "4px dashed #fe7762" : "4px dashed #eceeed"};
   padding: 1rem;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   :hover {
     cursor: pointer;
   }
@@ -78,12 +84,16 @@ export const StyledDragDrop = styled.div`
     height: 5rem;
     position: absolute;
     z-index: -10;
-    transform: translate(105%, -15%);
+    /* transform: translate(105%, -15%); */
   }
 `;
 
 export const StyledImagePreview = styled.div`
   border: 4px solid #eceeed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   svg {
     color: #eceeede6;
@@ -91,7 +101,12 @@ export const StyledImagePreview = styled.div`
     height: 5rem;
     position: absolute;
     z-index: -10;
-    transform: translate(55%, 10%);
+  }
+
+  img {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
   }
 `;
 
