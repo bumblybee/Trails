@@ -33,7 +33,7 @@ const ScoutTrail = () => {
 
   const onDrop = useCallback((files) => {
     let reader = new FileReader();
-    let url = reader.readAsDataURL(files[0]);
+    reader.readAsDataURL(files[0]);
     setImage(files[0]);
     reader.onloadend = () => setPreview(reader.result);
   }, []);
@@ -69,6 +69,11 @@ const ScoutTrail = () => {
     }
   };
 
+  const removeImage = () => {
+    setImage(null);
+    setPreview(null);
+  };
+
   //TODO: v2 - save draft to user account if click "save draft"
   const handleSave = (e) => {
     e.preventDefault();
@@ -90,7 +95,7 @@ const ScoutTrail = () => {
             }
             type="text"
             name=""
-            id=""
+            placeholder='"River Run"'
             required
           />
         </sc.StyledFormGroup>
@@ -192,9 +197,7 @@ const ScoutTrail = () => {
           </label>
         </sc.StyledFormGroup>
         <sc.StyledFormGroup>
-          <label htmlFor="length">
-            Length<span title="required">*</span>
-          </label>
+          <label htmlFor="length">Length</label>
           <input
             onChange={(e) =>
               setTrailDetails({
@@ -204,10 +207,9 @@ const ScoutTrail = () => {
             }
             type="number"
             name=""
-            id=""
+            placeholder="0"
             step="0.1"
             style={{ width: "4rem", fontWeight: "300" }}
-            required
           />{" "}
           miles
         </sc.StyledFormGroup>
@@ -245,7 +247,19 @@ const ScoutTrail = () => {
               )}
             </sc.StyledDragDrop>
             <sc.StyledImagePreview>
-              {preview ? <img alt="preview" src={preview} /> : <FaImage />}
+              {preview ? (
+                <>
+                  <span onClick={removeImage} title="remove">
+                    &times;
+                  </span>
+                  <img alt="preview" src={preview} />{" "}
+                </>
+              ) : (
+                <>
+                  <FaImage />
+                  <p>Image preview</p>
+                </>
+              )}
             </sc.StyledImagePreview>
           </sc.StyledUploadContainer>
         </sc.StyledFormGroup>
@@ -263,7 +277,7 @@ const ScoutTrail = () => {
             // }
             type="text"
             name="location"
-            id=""
+            placeholder="city, state"
             required
           />
         </sc.StyledFormGroup>
