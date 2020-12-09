@@ -1,8 +1,9 @@
 import React, { useState, useCallback } from "react";
 import { scoutTrail } from "../../api/trailsApi";
-import { useDropzone } from "react-dropzone";
+import DragDrop from "./DragDrop";
+import { FaImage } from "react-icons/fa";
 import StarRating from "./StarRating";
-import { FaCloudUploadAlt, FaImage } from "react-icons/fa";
+
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
@@ -24,7 +25,7 @@ const ScoutTrail = () => {
   });
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
-  // isChecked used to be sure a trail type is checked before submitting because can't set required on checkbox itself
+
   const [isChecked, setIsChecked] = useState(false);
   // const [progress, setProgress] = useState(null);
 
@@ -32,36 +33,6 @@ const ScoutTrail = () => {
   const setRating = (val) => {
     setTrailDetails({ ...trailDetails, rating: val });
   };
-
-  const onDrop = useCallback((files) => {
-    let reader = new FileReader();
-    if (files[0]) {
-      reader.readAsDataURL(files[0]);
-      setImage(files[0]);
-      reader.onloadend = () => {
-        setPreview(reader.result);
-      };
-    }
-  }, []);
-
-  const onDropRejected = (fileRejections) => {
-    console.log(fileRejections);
-    const error = fileRejections[0].errors[0];
-    if (error.code === "file-too-large") {
-      return alert("File exceeds 5 MB limit");
-    } else {
-      return alert("Unauthorized file");
-    }
-  };
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    onDropRejected,
-    multiple: false,
-    accept: "image/jpeg, image/png, image/jpg",
-    minSize: 0,
-    maxSize: 5242880,
-  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -230,6 +201,7 @@ const ScoutTrail = () => {
           />{" "}
           miles
         </sc.StyledFormGroup>
+
         <sc.StyledFormGroup>
           <label htmlFor="description">
             Description<span title="required">*</span>
@@ -242,7 +214,6 @@ const ScoutTrail = () => {
               })
             }
             name=""
-            id=""
             rows={7}
             cols={44}
             style={{ resize: "none" }}
@@ -253,31 +224,11 @@ const ScoutTrail = () => {
         <label htmlFor="image-upload">Photo</label>
         <sc.StyledFormGroup>
           <sc.StyledUploadContainer>
-            <sc.StyledDragDrop
-              {...getRootProps()}
-              isDragActive={isDragActive}
-              onDropRejected={onDropRejected}
-            >
-              {/* TODO: add progress */}
-
-              <input {...getInputProps()} />
-              {isDragActive ? (
-                <>
-                  <FaCloudUploadAlt />
-                  <p>Drop file ...</p>{" "}
-                </>
-              ) : !preview ? (
-                <>
-                  <FaCloudUploadAlt />
-                  <p>Drag 'n drop or click to choose photo (max 5mb)</p>
-                </>
-              ) : (
-                <>
-                  <FaImage />
-                  <p>Drag 'n drop or click to choose a different photo</p>
-                </>
-              )}
-            </sc.StyledDragDrop>
+            <DragDrop
+              preview={preview}
+              setPreview={setPreview}
+              setImage={setImage}
+            />
             <sc.StyledImagePreview title="image preview">
               {preview ? (
                 <>
@@ -292,6 +243,7 @@ const ScoutTrail = () => {
             </sc.StyledImagePreview>
           </sc.StyledUploadContainer>
         </sc.StyledFormGroup>
+
         <sc.StyledFormGroup>
           <label htmlFor="location">
             Trail Location<span title="required">*</span>
