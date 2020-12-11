@@ -8,26 +8,17 @@ import React, {
 
 import MapSearchbar from "./MapSearchbar";
 
-import {
-  GoogleMap,
-  useLoadScript,
-  Marker,
-  InfoWindow,
-} from "@react-google-maps/api";
+import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
 
 import mapStyles from "../../../styles/mapStyles";
 import * as sc from "./StyledMap";
 
 import { SearchContext } from "../../../context/search/SearchContext";
 
-//TODO: if user location, use that as center, else preset
-//TODO: google dev setup uri for key after deploy
-//TODO: Pan map and call api search when search performed by user
-
-// const libraries = ["places"];
-
-//TODO: change center to user's location
-//TODO: cut description off at like six lines and continue on single page
+// TODO: if user location and no trails, use that as center, else preset
+// TODO: google dev setup uri for key after deploy
+// TODO: Pan map and call api search when search performed by user
+// TODO: Zoom map when markers displayed
 
 const options = {
   styles: mapStyles,
@@ -41,7 +32,7 @@ const mapContainerStyle = {
 };
 
 const Map = () => {
-  const { trails, searchTrails, searchValue } = useContext(SearchContext);
+  const { trails } = useContext(SearchContext);
 
   const [markers, setMarkers] = useState([]);
   const [center, setCenter] = useState({});
@@ -73,11 +64,13 @@ const Map = () => {
   useEffect(() => {
     if (trails.length) {
       setCenter({
-        lat: parseInt(trails[0].lnglat.coordinates[1]),
-        lng: parseInt(trails[0].lnglat.coordinates[0]),
+        lat: trails[3].lnglat.coordinates[1],
+        lng: trails[3].lnglat.coordinates[0],
       });
 
       setTrailMarkers();
+    } else {
+      setCenter({ lat: 41.0998, lng: -100.1586 });
     }
   }, [trails, setTrailMarkers]);
 
@@ -92,7 +85,7 @@ const Map = () => {
       <GoogleMap
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
-        zoom={8}
+        zoom={markers.length ? 8 : 6}
         center={center}
         options={options}
       >

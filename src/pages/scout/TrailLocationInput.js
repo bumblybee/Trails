@@ -22,6 +22,7 @@ const TrailLocationInput = ({ setLocation }) => {
     return { city, state };
   };
 
+  // handle places autocomplete suggestion selection
   const handleSelect = async (val) => {
     const results = await geocodeByAddress(val);
     const result = results[0];
@@ -31,8 +32,6 @@ const TrailLocationInput = ({ setLocation }) => {
     const { city, state } = getCityAndState(result);
     setLocation(city, state, latLng.lat, latLng.lng);
   };
-
-  //TODO: wire state to form
 
   return (
     <>
