@@ -7,14 +7,13 @@ import PlacesAutocomplete, {
 
 const TrailLocationInput = ({ setLocation }) => {
   const [address, setAddress] = useState("");
-  const [coords, setCoords] = useState({ lat: null, lng: null });
 
   const handleSelect = async (val) => {
     const results = await geocodeByAddress(val);
     const result = results[0];
     const latLng = await getLatLng(result);
     setAddress(val);
-    setCoords(latLng);
+
     // console.log(result);
     // console.log(latLng);
     setLocation(
@@ -36,9 +35,14 @@ const TrailLocationInput = ({ setLocation }) => {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps }) => (
           <div>
-            <input {...getInputProps({ placeholder: "Type address" })} />
+            <input
+              {...getInputProps({ placeholder: "Type address" })}
+              required
+            />
 
-            <div style={{ zIndex: 100, position: "absolute" }}>
+            <div
+              style={{ zIndex: 100, position: "absolute", color: "#99a29e" }}
+            >
               {suggestions.map((suggestion) => {
                 const style = {
                   backgroundColor: suggestion.active ? "#fe7762" : "#fff",
