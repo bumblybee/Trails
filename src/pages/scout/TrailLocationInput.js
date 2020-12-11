@@ -45,7 +45,8 @@ const TrailLocationInput = ({ setLocation }) => {
             >
               {suggestions.map((suggestion) => {
                 const style = {
-                  backgroundColor: suggestion.active ? "#fe7762" : "#fff",
+                  backgroundColor: suggestion.active ? "#eceeed" : "#fff",
+                  cursor: "pointer",
                 };
 
                 return (

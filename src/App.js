@@ -8,7 +8,7 @@ import SearchProvider from "./context/search/SearchProvider";
 import Nav from "./components/layout/Nav";
 import Landing from "./pages/landing/Landing";
 import Search from "./pages/search/Search";
-import ScoutTrail from "./pages/scout/ScoutTrail";
+import ScoutTrailForm from "./pages/scout/ScoutTrailForm";
 const libraries = ["places"];
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
               <Search />
             </Route>
             <Route path="/scout">
-              <ScoutTrail />
+              <ScoutTrailForm />
             </Route>
             <Route path="/" exact>
               <Landing />
