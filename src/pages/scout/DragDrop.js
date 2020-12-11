@@ -53,7 +53,7 @@ const DragDrop = ({ setImage, preview, setPreview }) => {
       ) : !preview ? (
         <>
           <FaCloudUploadAlt />
-          <p>Drag 'n drop or click to choose photo (max 5mb)</p>
+          <p>Drag 'n drop or click to choose photo (max 5MB)</p>
         </>
       ) : (
         <>
