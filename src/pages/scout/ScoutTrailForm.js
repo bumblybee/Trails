@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { scoutTrail } from "../../api/trailsApi";
 import DragDrop from "./DragDrop";
 import StarRating from "./StarRating";
@@ -41,8 +41,6 @@ const ScoutTrail = () => {
 
     //make sure at least one box checked before sending to db
     if (isChecked) {
-      // TODO: wire up places autocomplete and remove this test data
-
       // append each key val pair in trailDetails to formData and pass to server
       let formData = new FormData();
       for (const key in trailDetails) {
