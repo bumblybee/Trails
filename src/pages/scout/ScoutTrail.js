@@ -3,6 +3,7 @@ import { scoutTrail } from "../../api/trailsApi";
 import DragDrop from "./DragDrop";
 import { FaImage } from "react-icons/fa";
 import StarRating from "./StarRating";
+import TrailLocationInput from "./TrailLocationInput";
 
 import * as sc from "./StyledScoutForm";
 
@@ -10,12 +11,12 @@ const ScoutTrail = () => {
   // TODOS: progress, clear form or reroute, wire up places autocomplete and get lat and lng from location, save draft, move image upload to own component, maybe move radio button group to own component, handle image size exceeded
 
   const [trailDetails, setTrailDetails] = useState({
-    userId: 1,
+    // userId: 12,
     name: "",
-    city: "",
-    state: "",
-    lat: "",
-    lng: "",
+    city: "Waterloo",
+    state: "Iowa",
+    lat: 42.3456,
+    lng: -92.3456,
     hiking: false,
     biking: false,
     length: null,
@@ -25,27 +26,19 @@ const ScoutTrail = () => {
   });
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
-
   const [isChecked, setIsChecked] = useState(false);
   // const [progress, setProgress] = useState(null);
 
-  //function to pass to StarRating component
   const setRating = (val) => {
     setTrailDetails({ ...trailDetails, rating: val });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     //make sure at least one box checked before sending to db
     if (isChecked) {
       // TODO: wire up places autocomplete and remove this test data
-      setTrailDetails({
-        ...trailDetails,
-        city: "waterloo",
-        state: "Iowa",
-        lat: 42.3456,
-        lng: -92.3456,
-      });
 
       // append each key val pair in trailDetails to formData and pass to server
       let formData = new FormData();
@@ -54,7 +47,8 @@ const ScoutTrail = () => {
       }
       formData.append("image", image);
       console.log(trailDetails);
-      // const submission = await scoutTrail(formData);
+      const submission = await scoutTrail(formData);
+      console.log(submission);
       // TODO: handle progress and success
       //TODO: redirect or clear form
     }
@@ -75,7 +69,10 @@ const ScoutTrail = () => {
       <h2>Scouted a Trail?</h2>
       <p>Let's get some details</p>
       <sc.StyledHr />
+
       <sc.StyledForm onSubmit={handleSubmit}>
+        {/*  ---Trail Name--- */}
+
         <sc.StyledFormGroup>
           <label htmlFor="name">
             Trail Name<span title="required">*</span>
@@ -90,12 +87,18 @@ const ScoutTrail = () => {
             required
           />
         </sc.StyledFormGroup>
+
+        {/* ---Trail Rating--- */}
+
         <sc.StyledFormGroup>
           <label htmlFor="StarRating">
             Rating<span title="required">*</span>
           </label>
           <StarRating rating={trailDetails.rating} setRating={setRating} />
         </sc.StyledFormGroup>
+
+        {/* ---Trail Type--- */}
+
         <sc.StyledFormGroup>
           <label htmlFor="trail-type">
             Trail Type<span title="required">*</span>
@@ -129,6 +132,8 @@ const ScoutTrail = () => {
             Biking
           </label>
         </sc.StyledFormGroup>
+
+        {/* ---Trail Difficulty--- */}
 
         <sc.StyledFormGroup>
           <label htmlFor="difficulty">
@@ -184,6 +189,9 @@ const ScoutTrail = () => {
             Expert - <span>very steep or treacherous terrain</span>
           </label>
         </sc.StyledFormGroup>
+
+        {/* ---Length---- */}
+
         <sc.StyledFormGroup>
           <label htmlFor="length">Length</label>
           <input
@@ -201,6 +209,8 @@ const ScoutTrail = () => {
           />{" "}
           miles
         </sc.StyledFormGroup>
+
+        {/* ---Trail Description--- */}
 
         <sc.StyledFormGroup>
           <label htmlFor="description">
@@ -221,8 +231,11 @@ const ScoutTrail = () => {
             required
           ></textarea>
         </sc.StyledFormGroup>
-        <label htmlFor="image-upload">Photo</label>
+
+        {/* ---Image Upload--- */}
+
         <sc.StyledFormGroup>
+          <label htmlFor="image-upload">Photo</label>
           <sc.StyledUploadContainer>
             <DragDrop
               preview={preview}
@@ -244,24 +257,17 @@ const ScoutTrail = () => {
           </sc.StyledUploadContainer>
         </sc.StyledFormGroup>
 
+        {/* ---Trail Location--- */}
+
         <sc.StyledFormGroup>
           <label htmlFor="location">
             Trail Location<span title="required">*</span>
           </label>
-          <input
-            // onChange={(e) =>
-            //   setTrailDetails({
-            //     ...trailDetails,
-            //     city: e.target.value,
-            //     state: e.target.value
-            //   })
-            // }
-            type="text"
-            name="location"
-            placeholder="city, state"
-            required
-          />
+          <TrailLocationInput required />
         </sc.StyledFormGroup>
+
+        {/* ---Buttons--- */}
+
         <sc.StyledFormGroup>
           <sc.StyledFormButton type="submit" submitButton={true}>
             Submit Trail
