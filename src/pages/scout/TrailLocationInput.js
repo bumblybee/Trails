@@ -8,20 +8,28 @@ import PlacesAutocomplete, {
 const TrailLocationInput = ({ setLocation }) => {
   const [address, setAddress] = useState("");
 
+  // Grab city and state from returned geocode result
+  const getCityAndState = (result) => {
+    let city, state;
+    result.address_components.forEach((component) => {
+      if (component.types.includes("locality")) {
+        city = component.long_name;
+      }
+      if (component.types.includes("administrative_area_level_1")) {
+        state = component.long_name;
+      }
+    });
+    return { city, state };
+  };
+
   const handleSelect = async (val) => {
     const results = await geocodeByAddress(val);
     const result = results[0];
     const latLng = await getLatLng(result);
     setAddress(val);
 
-    // console.log(result);
-    // console.log(latLng);
-    setLocation(
-      result.address_components[0].long_name,
-      result.address_components[2].long_name,
-      latLng.lat,
-      latLng.lng
-    );
+    const { city, state } = getCityAndState(result);
+    setLocation(city, state, latLng.lat, latLng.lng);
   };
 
   //TODO: wire state to form

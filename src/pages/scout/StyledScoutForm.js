@@ -29,8 +29,9 @@ export const StyledFormContainer = styled.div`
   input[type="number"],
   textarea {
     border: none;
+
     background: #eceeed;
-    padding: 0.4rem;
+    padding: 0.5rem;
     font-weight: 300;
 
     :focus {
@@ -47,8 +48,7 @@ export const StyledFormContainer = styled.div`
 
 export const StyledHr = styled.hr`
   margin: 1rem 0 1.5rem;
-
-  border: 2px solid #eceeed;
+  border: 2px solid #b9c8b8;
 `;
 
 export const StyledForm = styled.form``;

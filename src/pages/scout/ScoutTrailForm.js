@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { scoutTrail } from "../../api/trailsApi";
 import DragDrop from "./DragDrop";
-import { FaImage } from "react-icons/fa";
 import StarRating from "./StarRating";
 import TrailLocationInput from "./TrailLocationInput";
-import { LoadScript } from "@react-google-maps/api";
-
+import { FaImage } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
-const libraries = ["places"];
 
 const ScoutTrail = () => {
   // TODOS: progress, clear form or reroute, save draft, maybe move radio button group to own component, handle image size exceeded
@@ -54,20 +51,7 @@ const ScoutTrail = () => {
       formData.append("image", image);
       // console.log(trailDetails);
       const submission = await scoutTrail(formData);
-      submission &&
-        setTrailDetails({
-          name: "",
-          city: "",
-          state: "",
-          lat: null,
-          lng: null,
-          hiking: false,
-          biking: false,
-          length: null,
-          rating: null,
-          description: "",
-          difficulty: "",
-        });
+      console.log(submission);
       // TODO: handle progress and success
       //TODO: redirect or clear form
     }
@@ -133,7 +117,7 @@ const ScoutTrail = () => {
               }}
               type="checkbox"
               value="Hiking"
-            />{" "}
+            />
             Hiking
           </label>
           <label htmlFor="" className="type">
