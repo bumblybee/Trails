@@ -4,19 +4,26 @@ import DragDrop from "./DragDrop";
 import { FaImage } from "react-icons/fa";
 import StarRating from "./StarRating";
 import TrailLocationInput from "./TrailLocationInput";
+import { useLoadScript } from "@react-google-maps/api";
 
 import * as sc from "./StyledScoutForm";
+const libraries = ["places"];
 
 const ScoutTrail = () => {
-  // TODOS: progress, clear form or reroute, wire up places autocomplete and get lat and lng from location, save draft, move image upload to own component, maybe move radio button group to own component, handle image size exceeded
+  // TODOS: progress, clear form or reroute, save draft, maybe move radio button group to own component, handle image size exceeded
+
+  useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries,
+  });
 
   const [trailDetails, setTrailDetails] = useState({
     // userId: 12,
     name: "",
-    city: "Waterloo",
-    state: "Iowa",
-    lat: 42.3456,
-    lng: -92.3456,
+    city: "",
+    state: "",
+    lat: null,
+    lng: null,
     hiking: false,
     biking: false,
     length: null,
@@ -33,6 +40,10 @@ const ScoutTrail = () => {
     setTrailDetails({ ...trailDetails, rating: val });
   };
 
+  const setLocation = (city, state, lat, lng) => {
+    setTrailDetails({ ...trailDetails, city, state, lat, lng });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -46,7 +57,7 @@ const ScoutTrail = () => {
         formData.append(key, trailDetails[key]);
       }
       formData.append("image", image);
-      console.log(trailDetails);
+      // console.log(trailDetails);
       const submission = await scoutTrail(formData);
       console.log(submission);
       // TODO: handle progress and success
@@ -263,7 +274,7 @@ const ScoutTrail = () => {
           <label htmlFor="location">
             Trail Location<span title="required">*</span>
           </label>
-          <TrailLocationInput required />
+          <TrailLocationInput setLocation={setLocation} required />
         </sc.StyledFormGroup>
 
         {/* ---Buttons--- */}
