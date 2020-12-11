@@ -6,7 +6,7 @@ import {
   FaRegBookmark,
   FaHiking,
   FaBiking,
-  FaMedal,
+  FaStar,
 } from "react-icons/fa";
 
 import * as sc from "./StyledTrailCard";
@@ -82,13 +82,13 @@ const TrailCard = ({ trail }) => {
             />
           </sc.StyledIconContainer>
           <sc.StyledIconContainer>
-            <FaMedal />
-
+            <FaStar />
+            {/* TODO: color star - maybe grey out if no rating */}
             <span
               title="rating out of 5"
               style={{
                 fontSize: "0.85rem",
-                fontWeight: "bold",
+                fontWeight: "bolder",
                 color: "#34423B",
               }}
             >
