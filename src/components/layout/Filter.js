@@ -10,6 +10,7 @@ const Filter = () => {
 
   const handleSelect = (option) => {
     setFilterValue(option.value);
+    console.log(option.value);
   };
 
   return (

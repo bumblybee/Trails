@@ -14,7 +14,7 @@ const SearchProvider = ({ children }) => {
 
     //TODO: add filterValue to search
     const trailData = await getTrails(lat, lng, filterValue);
-
+    console.log(filterValue);
     setTrails(trailData);
     setLoading(false);
     setFilterValue(null);
