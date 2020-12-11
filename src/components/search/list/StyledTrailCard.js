@@ -39,6 +39,7 @@ export const StyledCardContentContainer = styled.div`
 
   h5 {
     margin-bottom: 1rem;
+    text-transform: capitalize;
     color: #99a29e;
     font-weight: 300;
     font-family: "Noto Sans JP", sans-serif;

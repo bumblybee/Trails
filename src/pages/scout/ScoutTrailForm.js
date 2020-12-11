@@ -218,6 +218,7 @@ const ScoutTrail = () => {
             name=""
             placeholder="0"
             step="0.1"
+            min="0"
             style={{ width: "4rem", fontWeight: "300" }}
           />{" "}
           miles
