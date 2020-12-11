@@ -24,7 +24,7 @@ import { SearchContext } from "../../../context/search/SearchContext";
 //TODO: google dev setup uri for key after deploy
 //TODO: Pan map and call api search when search performed by user
 
-const libraries = ["places"];
+// const libraries = ["places"];
 
 //TODO: change center to user's location
 //TODO: cut description off at like six lines and continue on single page
@@ -46,11 +46,6 @@ const Map = () => {
   const [markers, setMarkers] = useState([]);
   const [center, setCenter] = useState({});
   const [selected, setSelected] = useState(null);
-
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-    libraries,
-  });
 
   const mapRef = useRef();
   const onMapLoad = useCallback(async (map) => {
@@ -85,9 +80,6 @@ const Map = () => {
       setTrailMarkers();
     }
   }, [trails, setTrailMarkers]);
-
-  if (loadError) return "Error loading map";
-  if (!isLoaded) return "Loading map";
 
   return (
     <sc.StyledMapContainer>
