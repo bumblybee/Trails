@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { scoutTrail } from "../../api/trailsApi";
+import { uploadProgress } from "../../api/baseApi";
 import DragDrop from "./DragDrop";
 import StarRating from "./StarRating";
 import TrailLocationInput from "./TrailLocationInput";
@@ -23,10 +24,10 @@ const ScoutTrail = () => {
     description: "",
     difficulty: "",
   });
+  const [progress, setProgress] = useState(0);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
-  // const [progress, setProgress] = useState(null);
 
   const setRating = (val) => {
     setTrailDetails({ ...trailDetails, rating: val });
@@ -40,6 +41,7 @@ const ScoutTrail = () => {
     e.preventDefault();
 
     //make sure at least one box checked before sending to db
+
     if (isChecked) {
       // append each key val pair in trailDetails to formData and pass to server
       let formData = new FormData();
@@ -48,8 +50,16 @@ const ScoutTrail = () => {
       }
       formData.append("image", image);
       // console.log(trailDetails);
-      const submission = await scoutTrail(formData);
-      console.log(submission);
+      const submission = await scoutTrail(formData, (progressEvent) => {
+        setProgress(
+          Math.round((100 * progressEvent.loaded) / progressEvent.total)
+        );
+        console.log(progress);
+      });
+
+      if (submission) {
+        setProgress(0);
+      }
       // TODO: handle progress and success
       //TODO: redirect or clear form
     }
@@ -253,6 +263,7 @@ const ScoutTrail = () => {
           <sc.StyledUploadContainer>
             <DragDrop
               preview={preview}
+              progress={progress}
               setPreview={setPreview}
               setImage={setImage}
             />
