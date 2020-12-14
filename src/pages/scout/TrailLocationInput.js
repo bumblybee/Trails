@@ -57,7 +57,10 @@ const TrailLocationInput = ({ setLocation }) => {
                 };
 
                 return (
-                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                  <div
+                    key={suggestion.index}
+                    {...getSuggestionItemProps(suggestion, { style })}
+                  >
                     {suggestion.description}
                   </div>
                 );

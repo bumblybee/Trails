@@ -6,8 +6,8 @@ export const getTrails = async (lat, lng, filter) => {
   return res.data;
 };
 
-export const scoutTrail = async (data) => {
-  const res = await post(`/trails`, data);
-  // console.log(res);
+export const scoutTrail = async (data, onUploadProgress) => {
+  const res = await post(`/trails`, data, onUploadProgress);
+  console.log(res);
   return res;
 };
