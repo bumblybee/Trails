@@ -29,10 +29,12 @@ const ScoutTrail = () => {
   const [preview, setPreview] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
 
+  // Star Rating Component
   const setRating = (val) => {
     setTrailDetails({ ...trailDetails, rating: val });
   };
 
+  // Trail Location Input
   const setLocation = (city, state, lat, lng) => {
     setTrailDetails({ ...trailDetails, city, state, lat, lng });
   };
@@ -40,21 +42,21 @@ const ScoutTrail = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //make sure at least one box checked before sending to db
+    // Make sure at least one trail type box checked before sending to db
 
     if (isChecked) {
-      // append each key val pair in trailDetails to formData and pass to server
+      // append each key-val pair in trailDetails to formData, pass to server
       let formData = new FormData();
       for (const key in trailDetails) {
         formData.append(key, trailDetails[key]);
       }
       formData.append("image", image);
-      // console.log(trailDetails);
+
+      // onUploadProgress Event exposed when calling scoutTrail
       const submission = await scoutTrail(formData, (progressEvent) => {
         setProgress(
           Math.round((100 * progressEvent.loaded) / progressEvent.total)
         );
-        console.log(progress);
       });
 
       if (submission) {
@@ -77,9 +79,13 @@ const ScoutTrail = () => {
 
   return (
     <sc.StyledFormContainer>
-      <h1 style={{ marginBottom: "0.2rem" }}>Scouted a Trail?</h1>
-      <p>Great! Let's get some details.</p>
+      <h1 style={{ marginBottom: "0.2rem" }}>Add Trail</h1>
+      <p>Scouted a new trail? Great! Let's get some details.</p>
       <sc.StyledHr />
+
+      {/* -- Progress Animation--- */}
+
+      {progress > 0 && <ProgressBar progress={progress} />}
 
       <sc.StyledForm onSubmit={handleSubmit}>
         {/*  ---Trail Name--- */}
@@ -256,10 +262,9 @@ const ScoutTrail = () => {
           ></textarea>
         </sc.StyledFormGroup>
 
-        {/* ---Image Upload--- */}
+        {/* ---Image Upload */}
 
         <sc.StyledFormGroup>
-          {progress > 0 && <ProgressBar progress={progress} />}
           <label htmlFor="image-upload">Photo</label>
           <sc.StyledUploadContainer>
             <DragDrop
