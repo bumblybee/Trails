@@ -43,7 +43,7 @@ const TrailLocationInput = ({ setLocation }) => {
         {({ getInputProps, suggestions, getSuggestionItemProps }) => (
           <div>
             <input
-              {...getInputProps({ placeholder: "Type address" })}
+              {...getInputProps({ placeholder: "Type address..." })}
               required
             />
 

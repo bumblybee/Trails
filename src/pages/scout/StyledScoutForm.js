@@ -6,6 +6,7 @@ export const StyledFormContainer = styled.div`
   padding: 2rem 2.5rem;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+  position: relative;
 
   label {
     display: block;
@@ -61,7 +62,7 @@ export const StyledUploadContainer = styled.div`
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   grid-gap: 1rem;
-  width: 39.7%;
+  width: 40%;
   height: 140px;
 `;
 

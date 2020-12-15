@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone";
 import { FaCloudUploadAlt, FaImage } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
-const DragDrop = ({ setImage, preview, setPreview, progress }) => {
+const DragDrop = ({ setImage, preview, setPreview }) => {
   const onDrop = useCallback((files) => {
     let reader = new FileReader();
 
@@ -55,8 +55,6 @@ const DragDrop = ({ setImage, preview, setPreview, progress }) => {
           <FaCloudUploadAlt />
           <p>Drag 'n drop or click to choose photo (max 5MB)</p>
         </>
-      ) : progress > 0 ? (
-        <p>{progress}%</p>
       ) : (
         <>
           <FaImage />
