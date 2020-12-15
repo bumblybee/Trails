@@ -4,6 +4,7 @@ import * as sc from "./StyledNav";
 import { StyledPinkButton } from "../../styles/GlobalStyledComponents";
 
 //TODO: If signed up, show saves and account
+//TODO: Scout button takes you to login/signup if not logged in
 const Nav = () => {
   return (
     <sc.StyledNav>

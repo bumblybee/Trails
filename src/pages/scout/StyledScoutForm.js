@@ -5,7 +5,8 @@ export const StyledFormContainer = styled.div`
   margin: 2.5rem auto;
   padding: 2rem 2.5rem;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
+  border: 1px solid #eceeed;
+
   position: relative;
 
   label {
