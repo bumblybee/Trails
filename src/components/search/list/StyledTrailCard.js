@@ -84,7 +84,7 @@ export const StyledIconContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  svg:not(:first-child) {
+  svg {
     margin-left: 1rem;
   }
 `;
