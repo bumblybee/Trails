@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { FaCloudUploadAlt, FaImage } from "react-icons/fa";
-import * as sc from "./StyledScoutForm";
+import * as sc from "../../pages/scout/StyledScoutForm";
 
 const DragDrop = ({ setImage, preview, setPreview }) => {
   const onDrop = useCallback((files) => {
