@@ -34,14 +34,14 @@ const TrailCard = ({ trail }) => {
   //TODO: hover card, highlight on map
   //TODO: color rating nearly invisible if none, color other icons
   return (
-    <sc.StyledCard>
+    <sc.StyledCard image={trail.image}>
+      <sc.StyledBookmarkIcon
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      >
+        {hover ? <FaBookmark /> : <FaRegBookmark />}
+      </sc.StyledBookmarkIcon>
       <sc.StyledImageContainer>
-        <sc.StyledBookmarkIcon
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-        >
-          {hover ? <FaBookmark /> : <FaRegBookmark />}
-        </sc.StyledBookmarkIcon>
         {/* TODO: Carousel v2 */}
         {/* TODO: Maybe have a few images chosen at random */}
         <sc.StyledImage

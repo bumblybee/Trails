@@ -10,6 +10,10 @@ export const StyledTrailList = styled.ul`
     background: transparent;
     color: transparent;
   }
+
+  @media (max-width: 620px) {
+    padding: 1rem 0.5rem;
+  }
 `;
 
 export const StyledTrailListHeader = styled.div`
@@ -18,6 +22,11 @@ export const StyledTrailListHeader = styled.div`
 
   h1 {
     margin: 0 0 0.5rem;
+
+    @media (max-width: 620px) {
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+    }
   }
 
   p {
@@ -25,5 +34,9 @@ export const StyledTrailListHeader = styled.div`
     font-size: 0.9rem;
     font-weight: 400;
     margin-left: 0.2rem;
+  }
+
+  @media (max-width: 620px) {
+    padding: 0;
   }
 `;

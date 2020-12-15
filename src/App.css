@@ -10,7 +10,7 @@ body {
   height: 100%;
   width: 100vw;
   overflow: hidden;
-  color: #34423b;
+  color: rgb(52, 66, 59);
 }
 
 h1,
@@ -64,8 +64,3 @@ p {
 a {
   text-decoration: none;
 }
-
-/* ::-webkit-scrollbar {
-  width: none;
-  background: transparent;
-} */
