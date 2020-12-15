@@ -33,7 +33,7 @@ const MapSearchbar = () => {
   });
 
   return (
-    <sc.StyledMapSearchbar>
+    <sc.StyledMapSearchbar className="map-searchbar">
       <Combobox
         onSelect={async (address) => {
           setValue(address, false);
