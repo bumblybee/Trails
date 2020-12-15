@@ -70,16 +70,42 @@ const TrailCard = ({ trail }) => {
 
         <sc.StyledCardFooter>
           <sc.StyledIconContainer>
+            {/* <sc.StyledBullseye
+              difficulty={trail.difficulty}
+              title={trail.difficulty}
+            /> */}
+            {trail.difficulty !== "unknown" && (
+              <div
+                title={trail.difficulty}
+                style={{
+                  background:
+                    trail.difficulty === "beginner"
+                      ? "#b1ce7c"
+                      : trail.difficulty === "intermediate"
+                      ? "#fe7762"
+                      : "#eeeeed",
+                  padding: "0.6rem",
+                  width: "18px",
+                  height: "18px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "4px",
+                  fontSize: "0.8rem",
+                  // fontWeight: "300",
+                  color: "#fff",
+                  border: "1px solid #eeeeed55",
+                }}
+              >
+                {trail.difficulty.charAt(0).toUpperCase()}
+              </div>
+            )}
             <FaRoute />
             <span title="length in miles" style={{ fontSize: "0.9rem" }}>
               {Math.floor(trail.length)}
             </span>
             {trail.hiking === true && <FaHiking />}
             {trail.biking === true && <FaBiking />}
-            <sc.StyledBullseye
-              difficulty={trail.difficulty}
-              title={trail.difficulty}
-            />
           </sc.StyledIconContainer>
           <sc.StyledIconContainer>
             <FaStar />
