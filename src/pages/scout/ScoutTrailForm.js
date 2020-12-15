@@ -45,11 +45,13 @@ const ScoutTrail = () => {
     // Make sure at least one trail type box checked before sending to db
 
     if (isChecked) {
-      // append each key-val pair in trailDetails to formData, pass to server
       let formData = new FormData();
+
+      // Append each key-val pair in trailDetails state
       for (const key in trailDetails) {
         formData.append(key, trailDetails[key]);
       }
+
       formData.append("image", image);
 
       // onUploadProgress Event exposed when calling scoutTrail
@@ -62,8 +64,9 @@ const ScoutTrail = () => {
       if (submission) {
         setProgress(0);
       }
-      // TODO: handle progress and success
-      //TODO: redirect or clear form
+      // TODO: handle success confirmation
+      // TODO: handle error message
+      // TODO: redirect or clear form on success
     }
   };
 
@@ -289,7 +292,7 @@ const ScoutTrail = () => {
           </sc.StyledUploadContainer>
         </sc.StyledFormGroup>
 
-        {/* ---Trail Location--- */}
+        {/* ---Location--- */}
 
         <sc.StyledFormGroup>
           <label htmlFor="location">

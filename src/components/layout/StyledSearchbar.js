@@ -67,7 +67,6 @@ export const StyledComboboxOption = styled(ComboboxOption)`
   z-index: 200;
 
   :hover {
-    /* background: #f9f9f9; */
     cursor: pointer;
   }
 `;

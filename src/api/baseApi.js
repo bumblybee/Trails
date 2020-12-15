@@ -34,3 +34,5 @@ export const post = async (url, data, onUploadProgress) => {
       console.log(e);
     });
 };
+
+//TODO: separate function for formPost and POST
