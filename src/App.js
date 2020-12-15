@@ -7,7 +7,7 @@ import SearchProvider from "./context/search/SearchProvider";
 
 import Nav from "./components/layout/Nav";
 import Landing from "./pages/landing/Landing";
-import Search from "./pages/search/Search";
+import SearchPage from "./pages/search/SearchPage";
 import ScoutTrailForm from "./pages/scout/ScoutTrailForm";
 const libraries = ["places"];
 
@@ -22,7 +22,7 @@ function App() {
           <Nav />
           <Switch>
             <Route path="/search" exact>
-              <Search />
+              <SearchPage />
             </Route>
             <Route path="/scout">
               <ScoutTrailForm />

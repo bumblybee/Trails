@@ -3,7 +3,7 @@ import TrailList from "../../components/search/list/TrailList";
 import Map from "../../components/search/map/Map";
 
 import { SearchContext } from "../../context/search/SearchContext";
-import * as sc from "./StyledSearch";
+import * as sc from "./StyledSearchPage";
 
 const Search = () => {
   const { loading } = useContext(SearchContext);
