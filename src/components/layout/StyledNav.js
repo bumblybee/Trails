@@ -11,11 +11,14 @@ export const StyledNav = styled.div`
   background: #fffeff;
 
   @media (max-width: 620px) {
-    padding: 0;
-    justify-content: space-around;
-    img {
-      height: 50px;
-    }
+    padding: 0.5rem 0.7rem;
+  }
+`;
+
+export const StyledLogo = styled.img`
+  height: 24px;
+  @media (max-width: 620px) {
+    height: 20px;
   }
 `;
 
@@ -41,6 +44,7 @@ export const StyledLink = styled(Link)`
   }
 
   @media (max-width: 620px) {
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
+    font-size: 0.95rem;
   }
 `;

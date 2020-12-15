@@ -10,9 +10,9 @@ const Search = () => {
   if (loading) return "Loading...";
   return (
     <sc.StyledSearchContainer>
-      <TrailList />
+      <TrailList className="list" />
 
-      <Map />
+      <Map className="map" />
     </sc.StyledSearchContainer>
   );
 };

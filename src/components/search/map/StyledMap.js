@@ -29,7 +29,7 @@ export const StyledMapSearchbar = styled.div`
   top: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: 100;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 370px;
@@ -40,6 +40,8 @@ export const StyledMapSearchbar = styled.div`
 
   @media (max-width: 620px) {
     padding: 0.3rem;
+    height: 12%;
+    width: 85%;
   }
 `;
 
