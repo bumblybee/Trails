@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { scoutTrail } from "../../api/trailsApi";
-import { uploadProgress } from "../../api/baseApi";
 import DragDrop from "./DragDrop";
 import StarRating from "./StarRating";
 import TrailLocationInput from "./TrailLocationInput";
-import { FaImage } from "react-icons/fa";
+import ProgressBar from "./ProgressBar";
+import { FaImage, FaBinoculars } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
@@ -77,8 +77,8 @@ const ScoutTrail = () => {
 
   return (
     <sc.StyledFormContainer>
-      <h2>Scouted a Trail?</h2>
-      <p>Let's get some details</p>
+      <h1 style={{ marginBottom: "0.2rem" }}>Scouted a Trail?</h1>
+      <p>Great! Let's get some details.</p>
       <sc.StyledHr />
 
       <sc.StyledForm onSubmit={handleSubmit}>
@@ -259,6 +259,7 @@ const ScoutTrail = () => {
         {/* ---Image Upload--- */}
 
         <sc.StyledFormGroup>
+          {progress > 0 && <ProgressBar progress={progress} />}
           <label htmlFor="image-upload">Photo</label>
           <sc.StyledUploadContainer>
             <DragDrop
@@ -267,6 +268,7 @@ const ScoutTrail = () => {
               setPreview={setPreview}
               setImage={setImage}
             />
+
             <sc.StyledImagePreview title="image preview">
               {preview ? (
                 <>
