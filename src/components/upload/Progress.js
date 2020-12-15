@@ -4,9 +4,12 @@ import {
   buildStyles,
 } from "react-circular-progressbar";
 
-import { StyledProgressContainer, StyledProgressBar } from "./StyledProgress";
+import {
+  StyledProgressContainer,
+  StyledProgressBar,
+} from "../../pages/scout/StyledProgress";
 
-const ProgressBar = ({ progress }) => {
+const Progress = ({ progress }) => {
   return (
     <StyledProgressContainer>
       <CircularProgressbarWithChildren
@@ -24,4 +27,4 @@ const ProgressBar = ({ progress }) => {
   );
 };
 
-export default ProgressBar;
+export default Progress;

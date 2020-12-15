@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { scoutTrail } from "../../api/trailsApi";
-import DragDrop from "./DragDrop";
+import DragDrop from "../../components/upload/DragDrop";
 import StarRating from "./StarRating";
 import TrailLocationInput from "./TrailLocationInput";
-import ProgressBar from "./ProgressBar";
+import Progress from "../../components/upload/Progress";
 import { FaImage, FaBinoculars } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
-  // TODOS: progress, clear form or reroute, save draft, maybe move radio button group to own component, handle image size exceeded
+  // TODOS: progress, clear form or reroute, save draft, maybe move radio button group to own component
 
   const [trailDetails, setTrailDetails] = useState({
-    // userId: 12,
+    // userId: 1,
     name: "",
     city: "",
     state: "",
@@ -85,7 +85,7 @@ const ScoutTrail = () => {
 
       {/* -- Progress Animation--- */}
 
-      {progress > 0 && <ProgressBar progress={progress} />}
+      {progress > 0 && <Progress progress={progress} />}
 
       <sc.StyledForm onSubmit={handleSubmit}>
         {/*  ---Trail Name--- */}

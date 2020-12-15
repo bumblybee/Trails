@@ -3,6 +3,7 @@ import Searchbar from "../../components/layout/Searchbar";
 import * as sc from "./StyledLanding";
 
 //TODO: add cards at bottom
+//TODO: Disable button if no search
 const Landing = () => {
   return (
     <sc.StyledLanding>
