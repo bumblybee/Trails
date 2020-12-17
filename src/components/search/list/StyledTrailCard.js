@@ -22,8 +22,8 @@ export const StyledCard = styled.li`
     height: 220px;
     background-image: linear-gradient(
         to bottom right,
-        rgba(52, 66, 59, 0.6) 40%,
-        rgba(254, 119, 98, 0.45)
+        rgba(52, 66, 59, 0.7) 40%,
+        rgba(254, 119, 98, 0.35)
       ),
       url(${(props) => props.image});
     background-size: cover;
