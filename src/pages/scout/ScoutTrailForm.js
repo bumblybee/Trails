@@ -85,11 +85,9 @@ const ScoutTrail = () => {
       <h1 style={{ marginBottom: "0.2rem" }}>Add Trail</h1>
       <p>Scouted a new trail? Great! Let's get some details.</p>
       <sc.StyledHr />
-
       {/* -- Progress Animation--- */}
-
+      // TODO: When upload progress showing, dull background like modal
       {progress > 0 && <Progress progress={progress} />}
-
       <sc.StyledForm onSubmit={handleSubmit}>
         {/*  ---Trail Name--- */}
 

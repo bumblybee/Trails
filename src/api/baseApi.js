@@ -22,7 +22,13 @@ export const get = async (url) => {
   });
 };
 
-export const post = async (url, data, onUploadProgress) => {
+export const post = async (url, data) => {
+  return await instance.post(url, data).catch((e) => {
+    console.log(e);
+  });
+};
+
+export const postFormData = async (url, data, onUploadProgress) => {
   return await instance
     .post(url, data, {
       headers: {
