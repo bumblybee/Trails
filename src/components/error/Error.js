@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Zoom } from "react-toastify";
 import { ErrorContext } from "../../context/error/ErrorContext";
 
 const Error = () => {
@@ -8,11 +8,13 @@ const Error = () => {
   return (
     errorMessage !== null && (
       <ToastContainer
+        transition={Zoom}
         position="top-center"
-        autoClose={6000}
+        autoClose={false}
         draggable
         pauseOnHover
         closeOnClick
+        newestOnTop
       />
     )
   );
