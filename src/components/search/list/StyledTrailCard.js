@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { FaBullseye } from "react-icons/fa";
 
 export const StyledCard = styled.li`
   display: grid;

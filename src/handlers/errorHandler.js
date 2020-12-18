@@ -1,4 +1,6 @@
-const errorCodeToMessage = {};
+const errorCodeToMessage = {
+  "upload.failed": "Something went wrong with the upload",
+};
 
 // Pass array of errors to handleErrors fn
 const handleErrorsArray = (array) => {

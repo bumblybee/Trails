@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { scoutTrail } from "../../api/trailsApi";
+import { ErrorContext } from "../../context/error/ErrorContext";
 import DragDrop from "../../components/upload/DragDrop";
 import StarRating from "./StarRating";
 import TrailLocationInput from "./TrailLocationInput";
@@ -9,7 +10,7 @@ import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
   // TODOS: progress, clear form or reroute, save draft, maybe move radio button group to own component
-
+  const { setError } = useContext(ErrorContext);
   const [trailDetails, setTrailDetails] = useState({
     // userId: 1,
     name: "",
@@ -24,7 +25,7 @@ const ScoutTrail = () => {
     description: "",
     difficulty: "",
   });
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(null);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
@@ -41,7 +42,7 @@ const ScoutTrail = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // setProgress(0);
     // Make sure at least one trail type box checked before sending to db
 
     if (isChecked) {
@@ -54,16 +55,26 @@ const ScoutTrail = () => {
 
       formData.append("image", image);
 
-      // onUploadProgress Event exposed when calling scoutTrail
+      // onUploadProgress event exposed when calling scoutTrail
       const submission = await scoutTrail(formData, (progressEvent) => {
-        setProgress(
-          Math.round((100 * progressEvent.loaded) / progressEvent.total)
+        console.log(progressEvent);
+        const percent = Math.round(
+          (100 * progressEvent.loaded) / progressEvent.total
         );
+        percent < 100 && setProgress(percent);
       });
 
-      if (submission) {
-        setProgress(0);
+      if (submission.error) {
+        setProgress(null);
+        setError(submission.error);
+      } else if (submission) {
+        setProgress("Complete");
+        setTimeout(() => {
+          setProgress(null);
+          window.location.reload();
+        }, 2000);
       }
+
       // TODO: handle success confirmation
       // TODO: handle error message
       // TODO: redirect or clear form on success
@@ -81,13 +92,14 @@ const ScoutTrail = () => {
   };
 
   return (
-    <sc.StyledFormContainer>
+    <sc.StyledFormContainer progress={progress}>
       <h1 style={{ marginBottom: "0.2rem" }}>Add Trail</h1>
       <p>Scouted a new trail? Great! Let's get some details.</p>
       <sc.StyledHr />
+
       {/* -- Progress Animation--- */}
-      // TODO: When upload progress showing, dull background like modal
-      {progress > 0 && <Progress progress={progress} />}
+      {/* TODO: When upload progress showing, dull background like modal */}
+      {progress !== null && <Progress progress={progress} />}
       <sc.StyledForm onSubmit={handleSubmit}>
         {/*  ---Trail Name--- */}
 

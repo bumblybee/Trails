@@ -1,30 +1,34 @@
-import React from "react";
-import {
-  CircularProgressbarWithChildren,
-  buildStyles,
-} from "react-circular-progressbar";
+import React, { useContext } from "react";
+import { Circle } from "rc-progress";
 
-import {
-  StyledProgressContainer,
-  StyledProgressBar,
-} from "../../pages/scout/StyledProgress";
+import { StyledProgressContainer, StyledProgressText } from "./StyledProgress";
 
 const Progress = ({ progress }) => {
   return (
     <StyledProgressContainer>
-      <CircularProgressbarWithChildren
-        styles={buildStyles({
-          pathColor: `rgba(254, 119, 98, ${progress / 100})`,
-          textColor: "#fff",
-          trailColor: "#eceeed",
-        })}
-        value={progress}
-        text={`${progress}%`}
-      >
-        <h4>Uploading Trail</h4>
-      </CircularProgressbarWithChildren>
+      <Circle
+        percent={progress}
+        strokeLinecap="round"
+        strokeColor={{
+          "0%": "#b1ce7c",
+          "70%": "#fe7762",
+          "100%": "#b1ce7c",
+        }}
+        strokeWidth="5"
+        trailColor="#ffffff99"
+        trailWidth="2"
+      />
+      <StyledProgressText>
+        {typeof progress === "number" ? progress + "%" : progress}
+      </StyledProgressText>
     </StyledProgressContainer>
   );
 };
 
+const progressStyle = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignContent: "center",
+};
 export default Progress;

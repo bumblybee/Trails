@@ -45,23 +45,23 @@ export const StyledMapSearchbar = styled.div`
   }
 `;
 
+export const StyledComboList = styled(ComboboxList)`
+  color: #99a29e;
+  background: #fffeff;
+  width: 369px;
+
+  transform: translateX(-7.9%) translateY(9%);
+  font-size: 0.95rem;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+`;
+
 export const StyledComboboxOption = styled(ComboboxOption)`
-  padding: 0.5rem 1rem;
+  padding: 2rem;
 
   :hover {
     background: #f9f9f9;
     cursor: pointer;
   }
-`;
-
-export const StyledComboList = styled(ComboboxList)`
-  list-style: none;
-  color: #99a29e;
-  background: #fffeff;
-  padding: 1rem 0 0.5rem;
-  margin-left: 1.1rem;
-  width: 368px;
-  transform: translateX(-12.2%);
 `;
 
 export const StyledComboInput = styled(ComboboxInput)`
