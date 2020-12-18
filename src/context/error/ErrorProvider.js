@@ -7,11 +7,11 @@ const ErrorProvider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const setError = (msg) => {
+    toast.error(msg);
     setErrorMessage(msg);
-    toast(msg, { type: toast.TYPE.ERROR });
     setTimeout(() => {
       setError(null);
-    }, 7000);
+    }, 6000);
   };
 
   return (
