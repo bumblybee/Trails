@@ -34,11 +34,11 @@ export const StyledSearchbar = styled.div`
 
 export const StyledComboInput = styled(ComboboxInput)`
   border: none;
+  outline: none;
   margin-left: 1rem;
   height: 100%;
   width: 500px;
   color: #99a29e;
-  outline: none;
 
   ::placeholder {
     color: #d0d4d2;
@@ -53,18 +53,15 @@ export const StyledComboInput = styled(ComboboxInput)`
 
 export const StyledComboList = styled(ComboboxList)`
   list-style: none;
-  color: #fff;
-  background: transparent;
-  padding: 2rem 0 0.5rem;
-  margin-left: 1.1rem;
+  color: #99a29e;
+  background: #fffeff;
+  font-size: 1rem;
   width: 368px;
-  transform: translateX(-12.2%);
-  z-index: 200;
+  transform: translateX(-2.2%);
 `;
 
 export const StyledComboboxOption = styled(ComboboxOption)`
-  padding: 0.5rem 1rem;
-  z-index: 200;
+  padding: 1rem;
 
   :hover {
     cursor: pointer;

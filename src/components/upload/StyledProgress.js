@@ -6,12 +6,18 @@ export const StyledProgressContainer = styled.div`
   left: 25%;
   z-index: 100;
   width: 40%;
-  background: #b9c8b8;
-  padding: 6rem;
+  background: #d0d4d2;
+  padding: 8rem;
   border-radius: 6px;
   box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+`;
 
-  h4 {
-    color: #eceeed50;
-  }
+export const StyledProgressText = styled.h4`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: #ffffff99;
+  font-size: 1.3rem;
 `;
