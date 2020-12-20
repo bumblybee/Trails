@@ -77,6 +77,7 @@ const ScoutTrail = () => {
 
       // TODO: handle success confirmation
       // TODO: handle error message
+      // TODO: Maybe just use spinner instead of whole progress component
       // TODO: redirect or clear form on success
     }
   };

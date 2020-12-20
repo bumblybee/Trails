@@ -31,7 +31,6 @@ export const StyledFormContainer = styled.div`
   input[type="number"],
   textarea {
     border: none;
-
     background: #eceeed;
     padding: 0.5rem;
     font-weight: 300;
