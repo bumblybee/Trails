@@ -51,18 +51,14 @@ const TrailLocationInput = ({ setLocation }) => {
             {suggestions.length > 0 && (
               <sc.StyledLocationDropDown>
                 {suggestions.map((suggestion) => {
-                  const style = {
-                    backgroundColor: suggestion.active ? "#eceeed" : "#fff",
-                    cursor: "pointer",
-                  };
-
                   return (
-                    <div
+                    <sc.StyledLocationSuggestion
+                      suggestion={suggestion}
                       key={suggestion.index}
-                      {...getSuggestionItemProps(suggestion, { style })}
+                      {...getSuggestionItemProps(suggestion)}
                     >
                       {suggestion.description}
-                    </div>
+                    </sc.StyledLocationSuggestion>
                   );
                 })}
               </sc.StyledLocationDropDown>
