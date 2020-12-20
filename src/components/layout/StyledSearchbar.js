@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { ComboboxInput, ComboboxList, ComboboxOption } from "@reach/combobox";
+import {
+  ComboboxInput,
+  ComboboxList,
+  ComboboxPopover,
+  ComboboxOption,
+} from "@reach/combobox";
 
 export const StyledSearchbarContainer = styled.div`
   border: 0.5px solid #eceeed;
@@ -32,6 +37,11 @@ export const StyledSearchbar = styled.div`
   }
 `;
 
+export const StyledComboPopover = styled(ComboboxPopover)`
+  z-index: 1;
+  border: none;
+`;
+
 export const StyledComboInput = styled(ComboboxInput)`
   border: none;
   outline: none;
@@ -58,10 +68,12 @@ export const StyledComboList = styled(ComboboxList)`
   font-size: 1rem;
   width: 368px;
   transform: translateX(-2.2%);
+  border: none;
+  padding: 1rem 0;
 `;
 
 export const StyledComboboxOption = styled(ComboboxOption)`
-  padding: 1rem;
+  padding: 0.5rem;
 
   :hover {
     cursor: pointer;

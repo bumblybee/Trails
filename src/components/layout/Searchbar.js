@@ -59,7 +59,7 @@ const Searchbar = () => {
             disabled={!ready}
           ></sc.StyledComboInput>
 
-          <ComboboxPopover style={{ zIndex: "5" }}>
+          <sc.StyledComboPopover>
             <sc.StyledComboList>
               {status === "OK" &&
                 data.map(({ id, description }) => (
@@ -69,7 +69,7 @@ const Searchbar = () => {
                   ></sc.StyledComboboxOption>
                 ))}
             </sc.StyledComboList>
-          </ComboboxPopover>
+          </sc.StyledComboPopover>
         </Combobox>
 
         <sc.StyledButtonContainer>
