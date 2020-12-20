@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import StarRatingComponent from "react-star-rating-component";
 import { FaStar } from "react-icons/fa";
 
-const StarRating = ({ rating, setRating }) => {
+const ScoutFormStarRating = ({ rating, setRating }) => {
   return (
     <StarRatingComponent
       name={"trail-rating"}
@@ -22,4 +22,4 @@ const StarRating = ({ rating, setRating }) => {
   );
 };
 
-export default StarRating;
+export default ScoutFormStarRating;
