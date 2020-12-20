@@ -7,6 +7,7 @@ import PlacesAutocomplete, {
 
 import * as sc from "./StyledLocation";
 
+//TODO: Check into making input required
 const TrailLocationInput = ({ setLocation }) => {
   const [address, setAddress] = useState("");
 
@@ -45,7 +46,7 @@ const TrailLocationInput = ({ setLocation }) => {
         {({ getInputProps, suggestions, getSuggestionItemProps }) => (
           <div>
             <sc.StyledLocationInput
-              {...getInputProps({ placeholder: "Type address..." })}
+              {...getInputProps({ placeholder: "Start typing address..." })}
               required
             />
             {suggestions.length > 0 && (
