@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { scoutTrail } from "../../api/trailsApi";
 import { ErrorContext } from "../../context/error/ErrorContext";
 import DragDrop from "../../components/upload/DragDrop";
-import StarRating from "./StarRating";
+import ScoutFormStarRating from "../../components/rating/ScoutFormStarRating";
 import TrailLocationInput from "./TrailLocationInput";
 import Progress from "../../components/upload/Progress";
 import { FaImage, FaBinoculars } from "react-icons/fa";
@@ -125,7 +125,10 @@ const ScoutTrail = () => {
           <label htmlFor="StarRating">
             Rating<span title="required">*</span>
           </label>
-          <StarRating rating={trailDetails.rating} setRating={setRating} />
+          <ScoutFormStarRating
+            rating={trailDetails.rating}
+            setRating={setRating}
+          />
         </sc.StyledFormGroup>
 
         {/* ---Trail Type--- */}
