@@ -6,9 +6,9 @@ export const StyledProgressContainer = styled.div`
   left: 25%;
   z-index: 100;
   width: 40%;
-  background: #d0d4d2;
+  background: transparent;
   padding: 8rem;
-  border-radius: 6px;
+
   box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
 `;
 

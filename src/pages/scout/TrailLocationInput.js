@@ -5,6 +5,8 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 
+import * as sc from "./StyledLocation";
+
 const TrailLocationInput = ({ setLocation }) => {
   const [address, setAddress] = useState("");
 
@@ -42,30 +44,29 @@ const TrailLocationInput = ({ setLocation }) => {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps }) => (
           <div>
-            <input
+            <sc.StyledLocationInput
               {...getInputProps({ placeholder: "Type address..." })}
               required
             />
+            {suggestions.length > 0 && (
+              <sc.StyledLocationDropDown>
+                {suggestions.map((suggestion) => {
+                  const style = {
+                    backgroundColor: suggestion.active ? "#eceeed" : "#fff",
+                    cursor: "pointer",
+                  };
 
-            <div
-              style={{ zIndex: 100, position: "absolute", color: "#99a29e" }}
-            >
-              {suggestions.map((suggestion) => {
-                const style = {
-                  backgroundColor: suggestion.active ? "#eceeed" : "#fff",
-                  cursor: "pointer",
-                };
-
-                return (
-                  <div
-                    key={suggestion.index}
-                    {...getSuggestionItemProps(suggestion, { style })}
-                  >
-                    {suggestion.description}
-                  </div>
-                );
-              })}
-            </div>
+                  return (
+                    <div
+                      key={suggestion.index}
+                      {...getSuggestionItemProps(suggestion, { style })}
+                    >
+                      {suggestion.description}
+                    </div>
+                  );
+                })}
+              </sc.StyledLocationDropDown>
+            )}
           </div>
         )}
       </PlacesAutocomplete>

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ToastContainer, Zoom } from "react-toastify";
 import { ErrorContext } from "../../context/error/ErrorContext";
+import * as sc from "./StyledError";
 
 const Error = () => {
   const { errorMessage } = useContext(ErrorContext);
@@ -10,7 +11,7 @@ const Error = () => {
       <ToastContainer
         transition={Zoom}
         position="top-center"
-        autoClose={false}
+        autoClose={6000}
         draggable
         pauseOnHover
         closeOnClick
