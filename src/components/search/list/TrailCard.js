@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import he from "he";
+import { randomImage } from "../../../defaultImages/randomImages";
 import {
   FaRoute,
   FaBookmark,
@@ -45,11 +46,7 @@ const TrailCard = ({ trail }) => {
         {/* TODO: Carousel v2 */}
         {/* TODO: Maybe have a few images chosen at random */}
         <sc.StyledImage
-          src={
-            trail.image !== null
-              ? trail.image
-              : "https://images.unsplash.com/photo-1564417510515-b3d20c821653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-          }
+          src={trail.image !== null ? trail.image : randomImage()}
           alt="trail image"
         />
       </sc.StyledImageContainer>
