@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import he from "he";
 import { randomImage } from "../../../defaultImages/randomImages";
+import TrailCardStarRating from "../../../components/rating/TrailCardStarRating";
 import {
   FaRoute,
   FaBookmark,
@@ -13,8 +14,7 @@ import {
 import * as sc from "./StyledTrailCard";
 
 //TODO: Difficulty icons colors
-//TODO: Length icon and #
-//TODO: Rating icon (out of 5) - stars - bring in star rating component
+//TODO: Size and color icons
 //TODO: check if need he decode now that using regex on server side
 const TrailCard = ({ trail }) => {
   const [hover, setHover] = useState(false);
@@ -100,18 +100,7 @@ const TrailCard = ({ trail }) => {
             {trail.biking === true && <FaBiking />}
           </sc.StyledIconContainer>
           <sc.StyledIconContainer>
-            <FaStar />
-            {/* TODO: color star - maybe grey out if no rating */}
-            <span
-              title="rating out of 5"
-              style={{
-                fontSize: "0.85rem",
-                fontWeight: "bolder",
-                color: "#34423B",
-              }}
-            >
-              {trail.rating === "0" ? "" : Math.floor(trail.rating)}
-            </span>
+            <TrailCardStarRating rating={trail.rating} />
           </sc.StyledIconContainer>
         </sc.StyledCardFooter>
       </sc.StyledCardContentContainer>
