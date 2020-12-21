@@ -4,7 +4,7 @@ import { ErrorContext } from "../../context/error/ErrorContext";
 import DragDrop from "../../components/upload/DragDrop";
 import ScoutFormStarRating from "../../components/rating/ScoutFormStarRating";
 import TrailLocationInput from "./TrailLocationInput";
-import Progress from "../../components/upload/Progress";
+import SuccessConfirmation from "../../components/upload/SuccessConfirmation";
 import { FaImage, FaBinoculars } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
@@ -25,7 +25,7 @@ const ScoutTrail = () => {
     description: "",
     difficulty: "",
   });
-  const [progress, setProgress] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
@@ -57,10 +57,10 @@ const ScoutTrail = () => {
 
       // onUploadProgress event exposed when calling scoutTrail
       const submission = await scoutTrail(formData, (progressEvent) => {
-        const percent = Math.round(
-          (100 * progressEvent.loaded) / progressEvent.total
-        );
-        percent < 100 && setProgress(percent);
+        // const percent = Math.round(
+        //   (100 * progressEvent.loaded) / progressEvent.total
+        // );
+        // percent < 100 && setProgress(percent);
       });
 
       if (submission.error) {
@@ -68,10 +68,11 @@ const ScoutTrail = () => {
         setError(submission.error);
       } else if (submission) {
         // setProgress("Complete");
-        setTimeout(() => {
-          // setProgress(null);
-          window.location.reload();
-        }, 2000);
+        setSubmitted(true);
+        // setTimeout(() => {
+        //   // setProgress(null);
+        //   window.location.reload();
+        // }, 2000);
       }
 
       // TODO: handle success confirmation
@@ -91,8 +92,10 @@ const ScoutTrail = () => {
     e.preventDefault();
   };
 
-  return (
-    <sc.StyledFormContainer progress={progress}>
+  return submitted ? (
+    <SuccessConfirmation />
+  ) : (
+    <sc.StyledFormContainer>
       <h1 style={{ marginBottom: "0.2rem" }}>Add Trail</h1>
       <p>Scouted a new trail? Great! Let's get some details.</p>
       <sc.StyledHr />
@@ -282,7 +285,6 @@ const ScoutTrail = () => {
           <sc.StyledUploadContainer>
             <DragDrop
               preview={preview}
-              progress={progress}
               setPreview={setPreview}
               setImage={setImage}
             />
