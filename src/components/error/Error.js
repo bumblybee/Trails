@@ -11,7 +11,7 @@ const Error = () => {
       <ToastContainer
         transition={Zoom}
         position="top-center"
-        autoClose={6000}
+        // autoClose={6000}
         draggable
         pauseOnHover
         closeOnClick

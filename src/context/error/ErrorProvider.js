@@ -11,7 +11,7 @@ const ErrorProvider = ({ children }) => {
     setErrorMessage(msg);
     setTimeout(() => {
       setError(null);
-    }, 7000);
+    }, 8000);
   };
 
   return (
