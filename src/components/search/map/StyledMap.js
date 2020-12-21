@@ -49,14 +49,14 @@ export const StyledComboList = styled(ComboboxList)`
   color: #99a29e;
   background: #fffeff;
   width: 369px;
-
-  transform: translateX(-7.9%) translateY(9%);
+  padding: 0.5rem 0;
+  transform: translateX(-7.9%) translateY(6%);
   font-size: 0.95rem;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
 `;
 
 export const StyledComboboxOption = styled(ComboboxOption)`
-  padding: 2rem;
+  padding: 0.5rem;
 
   :hover {
     background: #f9f9f9;
