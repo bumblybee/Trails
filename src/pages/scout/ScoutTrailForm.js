@@ -57,7 +57,6 @@ const ScoutTrail = () => {
 
       // onUploadProgress event exposed when calling scoutTrail
       const submission = await scoutTrail(formData, (progressEvent) => {
-        console.log(progressEvent);
         const percent = Math.round(
           (100 * progressEvent.loaded) / progressEvent.total
         );
@@ -65,12 +64,12 @@ const ScoutTrail = () => {
       });
 
       if (submission.error) {
-        setProgress(null);
+        // setProgress(null);
         setError(submission.error);
       } else if (submission) {
-        setProgress("Complete");
+        // setProgress("Complete");
         setTimeout(() => {
-          setProgress(null);
+          // setProgress(null);
           window.location.reload();
         }, 2000);
       }
@@ -98,9 +97,6 @@ const ScoutTrail = () => {
       <p>Scouted a new trail? Great! Let's get some details.</p>
       <sc.StyledHr />
 
-      {/* -- Progress Animation--- */}
-      {/* TODO: When upload progress showing, dull background like modal */}
-      {progress !== null && <Progress progress={progress} />}
       <sc.StyledForm onSubmit={handleSubmit}>
         {/*  ---Trail Name--- */}
 
