@@ -1,9 +1,12 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
+import { ErrorContext } from "../../context/error/ErrorContext";
 import { FaCloudUploadAlt, FaImage } from "react-icons/fa";
 import * as sc from "../../pages/scout/StyledScoutForm";
 
 const DragDrop = ({ setImage, preview, setPreview }) => {
+  const { setError } = useContext(ErrorContext);
+
   const onDrop = useCallback((files) => {
     let reader = new FileReader();
 
@@ -23,9 +26,9 @@ const DragDrop = ({ setImage, preview, setPreview }) => {
     console.log(fileRejections);
     const error = fileRejections[0].errors[0];
     if (error.code === "file-too-large") {
-      return alert("File exceeds 5 MB limit.");
+      setError("File exceeds 5 MB limit.");
     } else {
-      return alert("Unauthorized file. Please choose a jpg or png file type.");
+      setError("Unauthorized file. Please choose a jpg or png file type.");
     }
   };
 
