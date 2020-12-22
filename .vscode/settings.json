@@ -3,7 +3,8 @@
     "editorCursor.foreground": "#cfee22",
     "activityBar.background": "#864d1e",
     "titleBar.activeBackground": "#864d1e",
-    "titleBar.activeForeground": "#FEFBFC"
+    "titleBar.activeForeground": "#FEFBFC",
+    "statusBar.background": "#425529"
   },
   "json.schemas": [],
   "cSpell.ignoreWords": [

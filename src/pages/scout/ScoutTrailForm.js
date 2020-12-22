@@ -5,7 +5,7 @@ import DragDrop from "../../components/upload/DragDrop";
 import ScoutFormStarRating from "../../components/rating/ScoutFormStarRating";
 import TrailLocationInput from "./TrailLocationInput";
 import SuccessConfirmation from "../../components/upload/SuccessConfirmation";
-import { FaImage, FaBinoculars } from "react-icons/fa";
+import { FaImage } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
@@ -77,7 +77,6 @@ const ScoutTrail = () => {
       // TODO: handle success confirmation
       // TODO: handle error message
       // TODO: Maybe just use spinner instead of whole progress component
-      // TODO: redirect or clear form on success
     }
   };
 
