@@ -2,26 +2,19 @@ import styled from "styled-components";
 
 export const StyledLanding = styled.div`
   position: relative;
-  height: 880px;
+  height: 100%;
 
   background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0) 26.04%,
-      #fffeff 100%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(43, 87, 64, 0.81) 31.77%,
-      rgba(43, 87, 64, 0.735802) 99.99%,
-      rgba(43, 87, 64, 0) 100%
+      to bottom,
+      rgba(52, 66, 59, 0.95) 65%,
+      rgba(52, 66, 59, 0.75),
+      rgba(254, 119, 98, 0.5)
     ),
     url("https://images.unsplash.com/photo-1591899761266-148e5928e389?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");
-  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.35)),
-    url("https://images.unsplash.com/photo-1591899761266-148e5928e389?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
+
   z-index: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @media (max-width: 620px) {
     height: 100vh;
@@ -82,4 +75,14 @@ export const StyledImageContainer = styled.div`
   @media (max-width: 1028px) {
     top: 75vh;
   }
+`;
+
+export const StyledCardContainer = styled.div`
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255)
+  );
+  margin-top: 12rem;
+  padding: 2rem;
 `;

@@ -70,9 +70,8 @@ const ScoutTrail = () => {
         // setProgress("Complete");
         setSubmitted(true);
         // setTimeout(() => {
-        //   // setProgress(null);
         //   window.location.reload();
-        // }, 2000);
+        // }, 2500);
       }
 
       // TODO: handle success confirmation
