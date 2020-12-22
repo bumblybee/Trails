@@ -16,8 +16,8 @@ import * as sc from "./StyledMap";
 import { SearchContext } from "../../../context/search/SearchContext";
 
 // TODO: if user location and no trails, use that as center, else preset
-// TODO: google dev setup uri for key after deploy
-// TODO: Pan map and call api search when search performed by user
+// TODO: google dev - setup uri for key after deploy
+// TODO: Pan map and call api search when user moves map
 // TODO: Zoom map when markers displayed
 
 const options = {
@@ -89,6 +89,8 @@ const Map = () => {
         center={center}
         options={options}
       >
+        {/* ---Markers--- */}
+
         {markers.map((marker, index) => (
           <Marker
             onClick={() => setSelected(marker)}
@@ -102,6 +104,9 @@ const Map = () => {
             }}
           />
         ))}
+
+        {/* ---Marker Card--- */}
+
         {selected ? (
           <InfoWindow
             position={{ lat: selected.lat, lng: selected.lng }}
