@@ -6,8 +6,8 @@ export const StyledLanding = styled.div`
 
   background: linear-gradient(
       to bottom,
-      rgba(52, 66, 59, 0.95) 65%,
-      rgba(52, 66, 59, 0.75),
+      rgba(52, 66, 59, 0.9) 60%,
+      rgba(52, 66, 59, 0.7),
       rgba(254, 119, 98, 0.5)
     ),
     url("https://images.unsplash.com/photo-1591899761266-148e5928e389?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");

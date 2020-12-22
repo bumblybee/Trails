@@ -85,7 +85,7 @@ const Map = () => {
       <GoogleMap
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
-        zoom={markers.length ? 8 : 6}
+        zoom={markers.length > 0 ? 9 : 6}
         center={center}
         options={options}
       >
