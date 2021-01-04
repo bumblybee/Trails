@@ -41,6 +41,7 @@ export const StyledSearchbar = styled.div`
 export const StyledComboPopover = styled(ComboboxPopover)`
   z-index: 1;
   border: none;
+  margin-top: 3rem;
 `;
 
 export const StyledComboInput = styled(ComboboxInput)`
@@ -67,7 +68,7 @@ export const StyledComboList = styled(ComboboxList)`
   color: #99a29e;
   background: #fffeff;
   font-size: 1rem;
-  width: 368px;
+  /* width: 368px; */
   transform: translateX(-2.2%);
   border: none;
   padding: 1rem 0;

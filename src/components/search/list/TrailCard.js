@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 
 import * as sc from "./StyledTrailCard";
-
+//!!: Handle hover in a way that isn't changing state, too slow and too many re-renders
 //TODO: Difficulty icons colors
 //TODO: Size and color icons
 //TODO: check if need he decode now that using regex on server side
@@ -36,7 +36,7 @@ const TrailCard = ({ trail, setHovered }) => {
   return (
     <sc.StyledCard
       onMouseEnter={() => setHovered(trail.id)}
-      // onMouseLeave={() => setHovered({})}
+      onMouseLeave={() => setHovered({})}
       image={trail.image}
     >
       <sc.StyledBookmarkIcon
