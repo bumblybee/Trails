@@ -64,7 +64,7 @@ const Map = () => {
   }, [trails]);
 
   // When stops dragging map, get center and call api with updated lat and lng, set markers
-  // TODO: Handle the poor UX when everything reloads
+  // TODO: Handle the poor UX when everything re-renders
   const handleMapDrag = () => {
     const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
     console.log(mapCenter);
