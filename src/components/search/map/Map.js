@@ -38,6 +38,7 @@ const Map = () => {
 
   const [markers, setMarkers] = useState([]);
   const [coords] = useLocalStorage("coords");
+  const [center, setCenter] = useState({});
   const [selected, setSelected] = useState(null);
 
   const mapRef = useRef();
@@ -62,6 +63,16 @@ const Map = () => {
     });
   }, [trails]);
 
+  // When stops dragging map, get center and call api with updated lat and lng, set markers
+  // TODO: Handle the poor UX when everything reloads
+  const handleMapDrag = () => {
+    const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
+    console.log(mapCenter);
+    setCenter(mapCenter);
+    searchTrails(mapCenter.lat, mapCenter.lng);
+    setTrailMarkers();
+  };
+
   useEffect(() => {
     // If window reloads or user coming from another page, search trails again using local storage coords so map, markers, and cards populate
     if (!trails.length) searchTrails(coords.lat, coords.lng);
@@ -82,6 +93,7 @@ const Map = () => {
         mapContainerStyle={mapContainerStyle}
         zoom={markers.length > 0 ? 8 : 6}
         center={coords}
+        onDragEnd={handleMapDrag}
         options={options}
       >
         {/* ---Markers--- */}
