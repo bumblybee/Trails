@@ -14,7 +14,7 @@ const TrailList = ({ setHovered }) => {
         <StyledTrailListHeader>
           {trails.length ? (
             <h1>
-              Trails near {searchValue.substring(0, searchValue.length - 5)}
+              Trails near {trails[0].city}, {trails[0].state}
             </h1>
           ) : (
             <h1>Search a location...</h1>
