@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import he from "he";
 import { randomImage } from "../../../defaultImages/randomImages";
 import TrailCardStarRating from "../../../components/rating/TrailCardStarRating";
+import { useHover } from "../../../hooks/useHover";
 import {
   FaRoute,
   FaBookmark,
@@ -12,12 +13,13 @@ import {
 } from "react-icons/fa";
 
 import * as sc from "./StyledTrailCard";
-//!!: Handle hover in a way that isn't changing state, too slow and too many re-renders
+//!!: Handle bookmark hover in a way that isn't changing state
 //TODO: Difficulty icons colors
 //TODO: Size and color icons
 //TODO: check if need he decode now that using regex on server side
-const TrailCard = ({ trail, setHovered }) => {
-  const [hover, setHover] = useState(false);
+
+const TrailCard = React.memo(({ trail, setHovered }) => {
+  const [bookmarkHoverRef, bookmarkHover] = useHover();
 
   const countChars = () => {
     const desc = trail.description;
@@ -39,11 +41,8 @@ const TrailCard = ({ trail, setHovered }) => {
       onMouseLeave={() => setHovered({})}
       image={trail.image}
     >
-      <sc.StyledBookmarkIcon
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        {hover ? <FaBookmark /> : <FaRegBookmark />}
+      <sc.StyledBookmarkIcon ref={bookmarkHoverRef}>
+        {bookmarkHover ? <FaBookmark /> : <FaRegBookmark />}
       </sc.StyledBookmarkIcon>
       <sc.StyledImageContainer>
         {/* TODO: Carousel v2 */}
@@ -109,6 +108,6 @@ const TrailCard = ({ trail, setHovered }) => {
       </sc.StyledCardContentContainer>
     </sc.StyledCard>
   );
-};
+});
 
 export default TrailCard;

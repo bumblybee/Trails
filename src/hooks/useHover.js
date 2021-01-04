@@ -8,13 +8,13 @@ import { useRef, useState, useEffect } from "react";
 // }
 
 // Hook
-export function useHover(data) {
+export function useHover() {
   const [value, setValue] = useState(null);
 
   const ref = useRef(null);
 
-  const handleMouseOver = () => setValue(data);
-  const handleMouseOut = () => setValue({});
+  const handleMouseOver = () => setValue(true);
+  const handleMouseOut = () => setValue(false);
 
   useEffect(
     () => {
