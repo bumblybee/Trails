@@ -46,8 +46,6 @@ const Map = () => {
   }, []);
 
   const setTrailMarkers = useCallback(() => {
-    if (!trails.length) searchTrails(coords.lat, coords.lng);
-
     trails.forEach((trail) => {
       setMarkers((current) => [
         ...current,
@@ -65,6 +63,9 @@ const Map = () => {
   }, [trails]);
 
   useEffect(() => {
+    // If window reloads or user coming from another page, search trails again using local storage coords so map, markers, and cards populate
+    if (!trails.length) searchTrails(coords.lat, coords.lng);
+
     setTrailMarkers();
   }, [setTrailMarkers]);
 
