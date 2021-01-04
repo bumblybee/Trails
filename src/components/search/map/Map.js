@@ -6,6 +6,8 @@ import React, {
   useContext,
 } from "react";
 
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+
 import MapSearchbar from "./MapSearchbar";
 
 import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
@@ -35,7 +37,7 @@ const Map = () => {
   const { trails } = useContext(SearchContext);
 
   const [markers, setMarkers] = useState([]);
-  const [center, setCenter] = useState({});
+  const [center, setCenter] = useLocalStorage("center");
   const [selected, setSelected] = useState(null);
 
   const mapRef = useRef();
@@ -60,19 +62,9 @@ const Map = () => {
     });
   }, [trails]);
 
-  //TODO: Set center to user's location, then pan to searched area
   useEffect(() => {
-    if (trails.length) {
-      setCenter({
-        lat: trails[3].lnglat.coordinates[1],
-        lng: trails[3].lnglat.coordinates[0],
-      });
-
-      setTrailMarkers();
-    } else {
-      setCenter({ lat: 41.0998, lng: -100.1586 });
-    }
-  }, [trails, setTrailMarkers]);
+    setTrailMarkers();
+  }, [setTrailMarkers]);
 
   return (
     <sc.StyledMapContainer>

@@ -4,6 +4,7 @@ import usePlacesAutoComplete, {
   getLatLng,
 } from "use-places-autocomplete";
 import { Combobox, ComboboxPopover } from "@reach/combobox";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { SearchContext } from "../../../context/search/SearchContext";
 import Filter from "../../layout/Filter";
 import * as sc from "./StyledMap";
@@ -12,6 +13,7 @@ const MapSearchbar = () => {
   const { trails, searchTrails, searchValue, setSearchValue } = useContext(
     SearchContext
   );
+  const [center, setCenter] = useLocalStorage("center", {});
 
   // usePlacesAutoComplete options
   const requestOptions = trails.length && {
@@ -45,6 +47,7 @@ const MapSearchbar = () => {
             const results = await getGeocode({ address });
             // grab lat and lng from first result
             const { lat, lng } = await getLatLng(results[0]);
+            setCenter({ lat, lng });
             //call api
             await searchTrails(lat, lng);
           } catch (err) {
