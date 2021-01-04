@@ -10,6 +10,6 @@ const defaultTrailImages = [
 
 export const randomImage = function () {
   const randomIndex = Math.floor(Math.random() * defaultTrailImages.length);
-  console.log(defaultTrailImages[randomIndex]);
+
   return defaultTrailImages[randomIndex];
 };

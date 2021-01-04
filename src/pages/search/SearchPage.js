@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import TrailList from "../../components/search/list/TrailList";
 import Map from "../../components/search/map/Map";
 
@@ -7,12 +7,14 @@ import * as sc from "./StyledSearchPage";
 
 const Search = () => {
   const { loading } = useContext(SearchContext);
+  const [hovered, setHovered] = useState({});
+
   if (loading) return "Loading...";
   return (
     <sc.StyledSearchContainer>
-      <TrailList className="list" />
+      <TrailList className="list" setHovered={setHovered} />
 
-      <Map className="map" />
+      <Map className="map" hovered={hovered} />
     </sc.StyledSearchContainer>
   );
 };
