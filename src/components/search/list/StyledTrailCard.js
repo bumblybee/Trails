@@ -8,7 +8,7 @@ export const StyledCard = styled.li`
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.2s ease-out;
   position: relative;
-  transition: transform 0 ease, box-shadow 0.15s ease;
+  /* transition: transform 0 linear, box-shadow 0 ease; */
 
   :not(:last-child) {
     margin-bottom: 0.8rem;

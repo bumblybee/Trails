@@ -16,7 +16,7 @@ import * as sc from "./StyledTrailCard";
 //TODO: Difficulty icons colors
 //TODO: Size and color icons
 //TODO: check if need he decode now that using regex on server side
-const TrailCard = ({ trail }) => {
+const TrailCard = ({ trail, setHovered }) => {
   const [hover, setHover] = useState(false);
 
   const countChars = () => {
@@ -32,10 +32,13 @@ const TrailCard = ({ trail }) => {
     return distance > 8 ? `${distance} miles away` : "nearby";
   };
 
-  //TODO: hover card, highlight on map
   //TODO: color rating nearly invisible if none, color other icons
   return (
-    <sc.StyledCard image={trail.image}>
+    <sc.StyledCard
+      onMouseEnter={() => setHovered(trail.id)}
+      // onMouseLeave={() => setHovered({})}
+      image={trail.image}
+    >
       <sc.StyledBookmarkIcon
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -44,7 +47,7 @@ const TrailCard = ({ trail }) => {
       </sc.StyledBookmarkIcon>
       <sc.StyledImageContainer>
         {/* TODO: Carousel v2 */}
-        {/* TODO: Maybe have a few images chosen at random */}
+
         <sc.StyledImage
           src={trail.image !== null ? trail.image : randomImage()}
           alt="trail image"

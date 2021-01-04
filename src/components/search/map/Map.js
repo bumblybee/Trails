@@ -5,7 +5,7 @@ import React, {
   useRef,
   useContext,
 } from "react";
-
+import { useHover } from "../../../hooks/useHover";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 
 import MapSearchbar from "./MapSearchbar";
@@ -33,12 +33,13 @@ const mapContainerStyle = {
   height: "100%",
 };
 
-const Map = () => {
+const Map = ({ hovered }) => {
   const { trails, searchTrails } = useContext(SearchContext);
 
   const [markers, setMarkers] = useState([]);
   const [coords] = useLocalStorage("coords");
   const [center, setCenter] = useState({});
+
   const [selected, setSelected] = useState(null);
 
   const mapRef = useRef();
@@ -51,6 +52,7 @@ const Map = () => {
       setMarkers((current) => [
         ...current,
         {
+          id: trail.id,
           lat: Number(trail.lnglat.coordinates[1]),
           lng: Number(trail.lnglat.coordinates[0]),
           name: trail.name,
@@ -64,7 +66,7 @@ const Map = () => {
   }, [trails]);
 
   // When stops dragging map, get center and call api with updated lat and lng, set markers
-  // TODO: Handle the poor UX when everything re-renders
+  // TODO: Handle poor UX when everything re-renders
   const handleMapDrag = () => {
     const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
     console.log(mapCenter);
@@ -79,6 +81,8 @@ const Map = () => {
 
     setTrailMarkers();
   }, [setTrailMarkers]);
+  console.log(hovered);
+  console.log(markers);
 
   return (
     <sc.StyledMapContainer>
@@ -104,7 +108,10 @@ const Map = () => {
             key={index}
             position={{ lat: marker.lat, lng: marker.lng }}
             icon={{
-              url: "/assets/marker.svg",
+              url:
+                hovered === marker.id
+                  ? "/assets/hoveredMarker.svg"
+                  : "/assets/marker.svg",
               scaledSize: new window.google.maps.Size(30, 30),
               origin: new window.google.maps.Point(0, 0),
               anchor: new window.google.maps.Point(15, 15),

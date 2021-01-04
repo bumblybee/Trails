@@ -3,7 +3,7 @@ import TrailCard from "./TrailCard";
 import { SearchContext } from "../../../context/search/SearchContext";
 import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
-const TrailList = () => {
+const TrailList = ({ setHovered }) => {
   // TODO: add type of trail to header when filter wired up
   // TODO: persist trails or get user location so not showing empty list on refresh
   const { trails, searchValue } = useContext(SearchContext);
@@ -21,7 +21,9 @@ const TrailList = () => {
           )}
         </StyledTrailListHeader>
         {trails &&
-          trails.map((trail, index) => <TrailCard key={index} trail={trail} />)}
+          trails.map((trail, index) => (
+            <TrailCard key={index} trail={trail} setHovered={setHovered} />
+          ))}
       </StyledTrailList>
     </div>
   );
