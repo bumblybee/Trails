@@ -5,8 +5,9 @@ import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
 const TrailList = ({ setHovered }) => {
   // TODO: add type of trail to header when filter wired up
-  // TODO: persist trails or get user location so not showing empty list on refresh
-  const { trails, searchValue } = useContext(SearchContext);
+  // TODO: Maybe wire hover state to context to prevent re-rendering
+
+  const { trails } = useContext(SearchContext);
 
   return (
     <div>

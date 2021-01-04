@@ -6,9 +6,6 @@ export const StyledCard = styled.li`
   /* border: 0.5px solid #f1f1f1; */
   border-radius: 6px;
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.2s ease-out;
-  position: relative;
-  /* transition: transform 0 linear, box-shadow 0 ease; */
 
   :not(:last-child) {
     margin-bottom: 0.8rem;
@@ -16,9 +13,7 @@ export const StyledCard = styled.li`
 
   :hover {
     cursor: pointer;
-    transform: translateY(-1px);
-    cursor: pointer;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 rgba(0, 0, 0, 0.12);
   }
 
   @media (max-width: 620px) {

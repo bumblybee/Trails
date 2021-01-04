@@ -5,7 +5,7 @@ import React, {
   useRef,
   useContext,
 } from "react";
-import { useHover } from "../../../hooks/useHover";
+
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 
 import MapSearchbar from "./MapSearchbar";
@@ -95,7 +95,7 @@ const Map = ({ hovered }) => {
       <GoogleMap
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
-        zoom={markers.length > 0 ? 8.25 : 6}
+        zoom={markers.length > 0 ? 8 : 6}
         center={coords}
         onDragEnd={handleMapDrag}
         options={options}

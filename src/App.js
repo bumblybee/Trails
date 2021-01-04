@@ -8,6 +8,7 @@ import { LoadScript } from "@react-google-maps/api";
 
 import SearchProvider from "./context/search/SearchProvider";
 import ErrorProvider from "./context/error/ErrorProvider";
+import HoverProvider from "./context/hover/HoverProvider";
 
 import Error from "./components/error/Error";
 import Nav from "./components/layout/Nav";
@@ -25,19 +26,22 @@ function App() {
       <Router>
         <SearchProvider>
           <ErrorProvider>
-            <Error />
-            <Nav />
-            <Switch>
-              <Route path="/search" exact>
-                <SearchPage />
-              </Route>
-              <Route path="/scout">
-                <ScoutTrailForm />
-              </Route>
-              <Route path="/" exact>
-                <Landing />
-              </Route>
-            </Switch>
+            <HoverProvider>
+              <Error />
+              <Nav />
+              <Switch>
+                <Route path="/search" exact>
+                  <SearchPage />
+                </Route>
+
+                <Route path="/scout">
+                  <ScoutTrailForm />
+                </Route>
+                <Route path="/" exact>
+                  <Landing />
+                </Route>
+              </Switch>
+            </HoverProvider>
           </ErrorProvider>
         </SearchProvider>
       </Router>
