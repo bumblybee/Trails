@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
@@ -13,7 +13,7 @@ import * as sc from "./StyledSearchbar";
 
 const Searchbar = () => {
   const history = useHistory();
-
+  const [coords, setCoords] = useLocalStorage("coords", {});
   const { searchTrails, setSearchValue } = useContext(SearchContext);
 
   const {
@@ -37,7 +37,8 @@ const Searchbar = () => {
       // grab lat and lng from first result
       console.log(results);
       const { lat, lng } = await getLatLng(results[0]);
-
+      //set local storage coords
+      setCoords({ lat, lng });
       //call api
       await searchTrails(lat, lng);
     } catch (err) {

@@ -34,10 +34,10 @@ const mapContainerStyle = {
 };
 
 const Map = () => {
-  const { trails } = useContext(SearchContext);
+  const { trails, searchTrails } = useContext(SearchContext);
 
   const [markers, setMarkers] = useState([]);
-  const [center, setCenter] = useLocalStorage("center");
+  const [coords] = useLocalStorage("coords");
   const [selected, setSelected] = useState(null);
 
   const mapRef = useRef();
@@ -46,6 +46,8 @@ const Map = () => {
   }, []);
 
   const setTrailMarkers = useCallback(() => {
+    if (!trails.length) searchTrails(coords.lat, coords.lng);
+
     trails.forEach((trail) => {
       setMarkers((current) => [
         ...current,
@@ -77,8 +79,8 @@ const Map = () => {
       <GoogleMap
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
-        zoom={markers.length > 0 ? 9 : 6}
-        center={center}
+        zoom={markers.length > 0 ? 8 : 6}
+        center={coords}
         options={options}
       >
         {/* ---Markers--- */}
