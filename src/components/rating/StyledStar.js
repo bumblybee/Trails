@@ -3,8 +3,8 @@ import StarRatingComponent from "react-star-rating-component";
 import { FaStar } from "react-icons/fa";
 
 export const StyledStarRatingComponent = styled(StarRatingComponent)`
-  svg {
-    margin-left: 0.1rem;
+  label > svg {
+    margin: 0;
     padding: 0;
   }
 `;
