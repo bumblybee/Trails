@@ -7,13 +7,15 @@ export const StyledCard = styled.li`
   border-radius: 6px;
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
 
+  position: relative;
+
   :not(:last-child) {
     margin-bottom: 0.8rem;
   }
 
   :hover {
     cursor: pointer;
-    box-shadow: 0 0 rgba(0, 0, 0, 0.12);
+    box-shadow: none;
   }
 
   @media (max-width: 620px) {
