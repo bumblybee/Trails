@@ -14,6 +14,7 @@ const MapSearchbar = () => {
     SearchContext
   );
   const [coords, setCoords] = useLocalStorage("coords", {});
+  const [searchTerm, setSearchTerm] = useLocalStorage("search", {});
 
   // usePlacesAutoComplete options
   const requestOptions = trails.length && {
@@ -40,7 +41,7 @@ const MapSearchbar = () => {
         onSelect={async (address) => {
           setValue(address, false);
           //store address in context
-          setSearchValue(address);
+          setSearchTerm(address);
           clearSuggestions();
           try {
             //get geo of address user passes in
