@@ -17,10 +17,8 @@ import * as sc from "./StyledMap";
 
 import { SearchContext } from "../../../context/search/SearchContext";
 
-// TODO: if user location and no trails, use that as center, else preset
 // TODO: google dev - setup uri for key after deploy
 // TODO: Pan map and call api search when user moves map
-// TODO: Zoom map when markers displayed
 
 const options = {
   styles: mapStyles,
@@ -112,9 +110,9 @@ const Map = ({ hovered }) => {
                 hovered === marker.id
                   ? "/assets/hoveredMarker.svg"
                   : "/assets/marker.svg",
-              scaledSize: new window.google.maps.Size(30, 30),
+              scaledSize: new window.google.maps.Size(31, 31),
               origin: new window.google.maps.Point(0, 0),
-              anchor: new window.google.maps.Point(15, 15),
+              anchor: new window.google.maps.Point(18, 18),
             }}
           />
         ))}

@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 
 import * as sc from "./StyledTrailCard";
-//!!: Handle bookmark hover in a way that isn't changing state
+//!!: Handle bookmark hover in a way that isn't re-rendering
 //TODO: Difficulty icons colors
 //TODO: Size and color icons
 //TODO: check if need he decode now that using regex on server side

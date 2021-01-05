@@ -10,5 +10,5 @@ export const StyledStarRatingComponent = styled(StarRatingComponent)`
 `;
 
 export const StyledStar = styled(FaStar)`
-  font-size: 1rem;
+  font-size: 0.95rem;
 `;
