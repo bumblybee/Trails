@@ -16,10 +16,10 @@ const mapStyles = [
     elementType: "all",
     stylers: [
       {
-        hue: "#679714",
+        hue: "#B1CE7C",
       },
       {
-        saturation: 33.4,
+        saturation: 25.4,
       },
       {
         lightness: -25.4,
@@ -82,10 +82,10 @@ const mapStyles = [
         hue: "#00BFFF",
       },
       {
-        saturation: 6,
+        saturation: 4,
       },
       {
-        lightness: 8,
+        lightness: 2,
       },
       {
         gamma: 1,

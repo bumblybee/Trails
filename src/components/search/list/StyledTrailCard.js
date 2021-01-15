@@ -105,6 +105,7 @@ export const StyledCardContentContainer = styled.div`
 
   p {
     font-weight: 300;
+    width: 98%;
     :first-letter {
       text-transform: capitalize;
     }
