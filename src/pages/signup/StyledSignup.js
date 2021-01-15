@@ -7,7 +7,7 @@ export const StyledSignupContainer = styled.div`
       rgba(52, 66, 59, 0.9) 60%,
       rgba(52, 66, 59, 0.9)
     ),
-    url("https://images.unsplash.com/photo-1591899761266-148e5928e389?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");
+    url("https://images.unsplash.com/photo-1560199738-3d933bc1e714?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
   background-repeat: no-repeat;
   background-size: cover;
   height: 94vh;
