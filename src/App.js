@@ -15,6 +15,7 @@ import Nav from "./components/layout/Nav";
 import Landing from "./pages/landing/Landing";
 import SearchPage from "./pages/search/SearchPage";
 import ScoutTrailForm from "./pages/scout/ScoutTrailForm";
+import Signup from "./pages/signup/Signup";
 const libraries = ["places"];
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
 
                 <Route path="/scout">
                   <ScoutTrailForm />
+                </Route>
+                <Route path="/signup" exact>
+                  <Signup />
                 </Route>
                 <Route path="/" exact>
                   <Landing />

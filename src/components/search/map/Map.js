@@ -93,7 +93,7 @@ const Map = ({ hovered }) => {
       <GoogleMap
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
-        zoom={markers.length > 0 ? 8 : 6}
+        zoom={markers.length > 0 ? 8.1 : 6}
         center={coords}
         onDragEnd={handleMapDrag}
         options={options}
@@ -110,7 +110,7 @@ const Map = ({ hovered }) => {
                 hovered === marker.id
                   ? "/assets/hoveredMarker.svg"
                   : "/assets/marker.svg",
-              scaledSize: new window.google.maps.Size(31, 31),
+              scaledSize: new window.google.maps.Size(30, 30),
               origin: new window.google.maps.Point(0, 0),
               anchor: new window.google.maps.Point(18, 18),
             }}
