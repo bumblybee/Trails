@@ -6,7 +6,7 @@ const Signup = () => {
     <sc.StyledSignupContainer>
       <sc.StyledForm action="">
         <div className="form-header">
-          <h1>TrailScout</h1>
+          <h2>Join TrailScout</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
             voluptates cupiditate!
