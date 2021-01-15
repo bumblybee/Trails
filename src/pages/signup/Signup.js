@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { signupUser } from "../../api/userApi";
+import { ErrorContext } from "../../context/error/ErrorContext";
 import * as sc from "./StyledSignup";
 
 const Signup = () => {
+  const history = useHistory();
+  const { setError } = useContext(ErrorContext);
   const [userDetails, setUserDetails] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userDetails);
+    const signup = await signupUser(userDetails);
+    console.log(signup);
+    signup && signup.error ? setError(signup.error) : history.push("/");
   };
 
   return (
