@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const StyledCard = styled.li`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  /* border: 0.5px solid #f1f1f1; */
-  border-radius: 6px;
-  box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
+  border: 0.5px solid #eceeed75;
+  border-radius: 1px;
 
   position: relative;
 
@@ -15,7 +14,7 @@ export const StyledCard = styled.li`
 
   :hover {
     cursor: pointer;
-    box-shadow: none;
+    box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
   }
 
   @media (max-width: 620px) {
@@ -57,8 +56,8 @@ export const StyledImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
+  /* border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px; */
 
   @media (max-width: 620px) {
     display: none;
