@@ -49,7 +49,7 @@ export const StyledComboInput = styled(ComboboxInput)`
   outline: none;
   margin-left: 1rem;
   height: 100%;
-  width: 500px;
+  width: 700px;
   color: #99a29e;
 
   ::placeholder {
