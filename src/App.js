@@ -16,6 +16,8 @@ import Landing from "./pages/landing/Landing";
 import SearchPage from "./pages/search/SearchPage";
 import ScoutTrailForm from "./pages/scout/ScoutTrailForm";
 import Signup from "./pages/signup/Signup";
+import Login from "./pages/login/Login";
+
 const libraries = ["places"];
 
 function App() {
@@ -34,12 +36,14 @@ function App() {
                 <Route path="/search" exact>
                   <SearchPage />
                 </Route>
-
                 <Route path="/scout">
                   <ScoutTrailForm />
                 </Route>
                 <Route path="/signup" exact>
                   <Signup />
+                </Route>
+                <Route path="/login" exact>
+                  <Login />
                 </Route>
                 <Route path="/" exact>
                   <Landing />
