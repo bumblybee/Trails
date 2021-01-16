@@ -76,7 +76,11 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
                   trail.difficulty === "beginner"
                     ? "#b1ce7c"
                     : trail.difficulty === "intermediate"
-                    ? "#fe7762"
+                    ? "#fec787"
+                    : trail.difficulty === "advanced"
+                    ? "#FE9787"
+                    : trail.difficulty === "expert"
+                    ? "##FE7762"
                     : "#eeeeed",
                 padding: "0.6rem",
                 width: "18px",
@@ -91,7 +95,9 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
                 border: "1px solid #eeeeed55",
               }}
             >
-              {trail.difficulty.charAt(0).toUpperCase()}
+              {trail.difficulty === "unknown"
+                ? "-"
+                : trail.difficulty.charAt(0).toUpperCase()}
             </div>
 
             <FaRoute />
@@ -101,7 +107,9 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
             {trail.hiking === true && <FaHiking />}
             {trail.biking === true && <FaBiking />}
           </sc.StyledIconContainer>
-          <sc.StyledIconContainer>
+          <sc.StyledIconContainer
+            title={trail.rating === "0" ? "no rating" : "rating"}
+          >
             <TrailCardStarRating rating={trail.rating} />
           </sc.StyledIconContainer>
         </sc.StyledCardFooter>
