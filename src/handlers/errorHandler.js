@@ -1,9 +1,11 @@
 const errorCodeToMessage = {
   "upload.failed": "Something went wrong with the upload",
-  "File too large":
-    "File size exceeds 5 MB. Please compress the file or choose another.",
   "auth.invalidCredentials":
     "Invalid Credentials. Check credentials and try again.",
+  "auth.unknownIssue":
+    "An unknown error occured in the process, please contact support.",
+  "File too large":
+    "File size exceeds 5 MB. Please compress the file or choose another.",
 };
 
 // Pass array of errors to handleErrors fn
