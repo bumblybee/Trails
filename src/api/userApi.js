@@ -1,6 +1,10 @@
 import { get, post } from "./baseApi";
 
-// TODO: create user context and call getUser on app initiation so if logged in, display different nav link options
+export const getUser = async () => {
+  const res = await get("/users/current");
+  return res;
+};
+
 export const signupUser = async (data) => {
   const res = await post("/users/signup", data);
   return res;
