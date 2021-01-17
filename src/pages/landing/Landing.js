@@ -21,8 +21,11 @@ const Landing = () => {
             <Searchbar />
           </sc.StyledLandingContent>
         </sc.StyledLandingContainer>
-
+        {/* TODO: Break into own component */}
         <sc.StyledCardContainer>
+          <h1 style={{ color: "#fff", marginBottom: "2rem" }}>
+            Popular Trails
+          </h1>
           <div
             style={{
               width: "65%",

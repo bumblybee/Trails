@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./styles/App.css";
 import { LoadScript } from "@react-google-maps/api";
 
+import UserProvider from "./context/user/UserProvider";
 import SearchProvider from "./context/search/SearchProvider";
 import ErrorProvider from "./context/error/ErrorProvider";
 import HoverProvider from "./context/hover/HoverProvider";
@@ -29,27 +30,29 @@ function App() {
       <Router>
         <SearchProvider>
           <ErrorProvider>
-            <HoverProvider>
-              <Error />
-              <Nav />
-              <Switch>
-                <Route path="/search" exact>
-                  <SearchPage />
-                </Route>
-                <Route path="/scout">
-                  <ScoutTrailForm />
-                </Route>
-                <Route path="/signup" exact>
-                  <Signup />
-                </Route>
-                <Route path="/login" exact>
-                  <Login />
-                </Route>
-                <Route path="/" exact>
-                  <Landing />
-                </Route>
-              </Switch>
-            </HoverProvider>
+            <UserProvider>
+              <HoverProvider>
+                <Error />
+                <Nav />
+                <Switch>
+                  <Route path="/search" exact>
+                    <SearchPage />
+                  </Route>
+                  <Route path="/scout">
+                    <ScoutTrailForm />
+                  </Route>
+                  <Route path="/signup" exact>
+                    <Signup />
+                  </Route>
+                  <Route path="/login" exact>
+                    <Login />
+                  </Route>
+                  <Route path="/" exact>
+                    <Landing />
+                  </Route>
+                </Switch>
+              </HoverProvider>
+            </UserProvider>
           </ErrorProvider>
         </SearchProvider>
       </Router>

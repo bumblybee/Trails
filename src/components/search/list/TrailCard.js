@@ -95,9 +95,7 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
                 border: "1px solid #eeeeed55",
               }}
             >
-              {trail.difficulty === "unknown"
-                ? "-"
-                : trail.difficulty.charAt(0).toUpperCase()}
+              {trail.difficulty.charAt(0).toUpperCase()}
             </div>
 
             <FaRoute />
