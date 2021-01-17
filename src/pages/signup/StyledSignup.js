@@ -1,52 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-
-export const StyledPinkButton = styled.button`
-  background: #fe7762;
-  display: block;
-  width: 100%;
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  font-weight: 400;
-  text-align: center;
-  position: relative;
-
-  :hover {
-    cursor: pointer;
-    background: #fe9787;
-
-    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.07);
-  }
-
-  :active {
-    transform: scale(0.98);
-  }
-
-  @media (max-width: 620px) {
-    padding: 10px 14px;
-  }
-`;
-
-export const StyledDisabledButton = styled.button`
-  background: #fe97877a;
-  display: block;
-  width: 100%;
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 4px;
-  border: none;
-  outline: none;
-  font-weight: 400;
-  text-align: center;
-  position: relative;
-
-  @media (max-width: 620px) {
-    padding: 10px 14px;
-  }
-`;
 
 export const StyledLoginSignupFormContainer = styled.div`
   padding: 3rem;
@@ -72,7 +24,7 @@ export const StyledLoginSignupForm = styled.form`
   border: 1px solid #eceeed;
   background: #fff;
 
-  border-radius: 1px;
+  border-radius: 4px;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
 
   div.form-group {
