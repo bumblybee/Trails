@@ -17,7 +17,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const login = await loginUser(userDetails);
-    console.log(login);
+    setUser(login.data);
 
     login && login.error ? setError(login.error) : history.push("/");
   };
@@ -26,7 +26,7 @@ const Login = () => {
     <sc.StyledLoginSignupFormContainer>
       <sc.StyledLoginSignupForm onSubmit={handleSubmit}>
         <div className="form-header">
-          <h2>Log into TrailScout</h2>
+          <h4>Log into TrailScout</h4>
           <p>Lorem ipsum dolor sit amet consectetur.</p>
         </div>
 

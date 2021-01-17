@@ -2,11 +2,14 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { signupUser } from "../../api/userApi";
 import { ErrorContext } from "../../context/error/ErrorContext";
+import { UserContext } from "../../context/user/UserContext";
 import * as sc from "../../styles/GlobalStyledComponents";
 
 const Signup = () => {
   const history = useHistory();
   const { setError } = useContext(ErrorContext);
+  const { setUser } = useContext(UserContext);
+
   const [userDetails, setUserDetails] = useState({
     username: "",
     email: "",
@@ -16,7 +19,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const signup = await signupUser(userDetails);
-    console.log(signup);
+    setUser(signup.data);
     // TODO: handle signup errors
     // TODO: reroute user to account page after creation
     signup && signup.error ? setError(signup.error) : history.push("/");
@@ -26,7 +29,7 @@ const Signup = () => {
     <sc.StyledLoginSignupFormContainer>
       <sc.StyledLoginSignupForm onSubmit={handleSubmit}>
         <div className="form-header">
-          <h2>Join TrailScout</h2>
+          <h4>Join TrailScout</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
             voluptates cupiditate!

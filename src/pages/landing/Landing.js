@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import Searchbar from "../../components/layout/Searchbar";
+
 import * as sc from "./StyledLanding";
 
 //TODO: add cards at bottom - break into separate component
