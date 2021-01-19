@@ -1,17 +1,11 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../../context/user/UserContext";
-import { FaUser } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+import NavMenu from "./NavMenu";
 import * as sc from "./StyledNav";
-import {
-  StyledDisabledButton,
-  StyledPinkButton,
-} from "../../styles/GlobalStyledComponents";
 
-//TODO: If signed up, show saves and account
-//TODO: Scout button takes you to login/signup if not logged in
 const Nav = () => {
-  const { user } = useContext(UserContext);
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
     <sc.StyledNav>
@@ -20,26 +14,12 @@ const Nav = () => {
           <sc.StyledLogo src="assets/logo.png" alt="" />
         </Link>
       </div>
-      {user ? (
-        <sc.StyledLinksContainer>
-          <sc.StyledLink to="/account">
-            <FaUser title="account" />
-          </sc.StyledLink>
-          <Link to="/scout">
-            <StyledPinkButton>Scout</StyledPinkButton>
-          </Link>
-        </sc.StyledLinksContainer>
-      ) : (
-        <sc.StyledLinksContainer>
-          <sc.StyledLink to="/login">Login</sc.StyledLink>
-          <sc.StyledLink to="/signup">Signup</sc.StyledLink>
-          <Link to="#">
-            <StyledDisabledButton title="Log in to post a trail">
-              Scout
-            </StyledDisabledButton>
-          </Link>
-        </sc.StyledLinksContainer>
-      )}
+      <NavMenu />
+      <sc.StyledLinksContainer>
+        <Link to="/account">
+          <FaBars title="account" />
+        </Link>
+      </sc.StyledLinksContainer>
     </sc.StyledNav>
   );
 };
