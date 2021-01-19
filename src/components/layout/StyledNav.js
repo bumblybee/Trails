@@ -5,10 +5,11 @@ export const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  padding: 0.5rem 6rem;
   max-width: 100%;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   background: #fffeff;
+  position: relative;
 
   @media (max-width: 620px) {
     padding: 0.5rem 0.7rem;
@@ -31,9 +32,9 @@ export const StyledLinksContainer = styled.div`
 
   svg {
     font-size: 2.2rem;
-    color: #2b5740;
-    border-radius: 50%;
-    border: 1px solid #2b5740;
+    color: #fe7762;
+    border-radius: 4px;
+    border: 2px solid #fe7762;
     padding: 0.5rem;
   }
 
