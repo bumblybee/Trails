@@ -19,10 +19,11 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const signup = await signupUser(userDetails);
-    setUser(signup.data);
     // TODO: handle signup errors
     // TODO: reroute user to account page after creation
     signup && signup.error ? setError(signup.error) : history.push("/");
+
+    signup && setUser(signup.data);
   };
 
   return (

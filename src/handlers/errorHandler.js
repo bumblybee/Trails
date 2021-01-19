@@ -2,6 +2,8 @@ const errorCodeToMessage = {
   "upload.failed": "Something went wrong with the upload",
   "auth.invalidCredentials":
     "Invalid Credentials. Check credentials and try again.",
+  "auth.existingCredentials":
+    "Looks like you already have an account. Please log in.",
   "auth.unknownIssue":
     "An unknown error occured in the process, please contact support.",
   "File too large":
