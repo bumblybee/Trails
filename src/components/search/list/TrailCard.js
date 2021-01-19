@@ -9,7 +9,6 @@ import {
   FaRegBookmark,
   FaHiking,
   FaBiking,
-  FaStar,
 } from "react-icons/fa";
 
 import * as sc from "./StyledTrailCard";

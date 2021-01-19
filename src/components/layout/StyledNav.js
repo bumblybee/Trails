@@ -29,6 +29,14 @@ export const StyledLinksContainer = styled.div`
   margin-right: 1.3rem;
   transition: border-color 0.2s ease-in-out 0s;
 
+  svg {
+    font-size: 2.2rem;
+    color: #2b5740;
+    border-radius: 50%;
+    border: 1px solid #2b5740;
+    padding: 0.5rem;
+  }
+
   @media (max-width: 620px) {
     margin-right: 0;
   }
