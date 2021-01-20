@@ -5,7 +5,7 @@ export const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 6rem;
+  padding: 0.5rem 1.5rem;
   max-width: 100%;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   background: #fffeff;
@@ -36,24 +36,13 @@ export const StyledLinksContainer = styled.div`
     border-radius: 4px;
     border: 2px solid #fe7762;
     padding: 0.5rem;
+
+    :hover {
+      cursor: pointer;
+    }
   }
 
   @media (max-width: 620px) {
     margin-right: 0;
-  }
-`;
-
-export const StyledLink = styled(Link)`
-  display: inline-block;
-  color: #34423b;
-  margin-right: 2.5rem;
-
-  :hover {
-    color: #fe7762;
-  }
-
-  @media (max-width: 620px) {
-    margin-right: 0.7rem;
-    font-size: 0.95rem;
   }
 `;

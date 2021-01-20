@@ -72,7 +72,7 @@ export const StyledLoginSignupForm = styled.form`
   border: 1px solid #eceeed;
   background: #fff;
 
-  border-radius: 1px;
+  border-radius: 4px;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
 
   div.form-group {

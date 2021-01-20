@@ -26,7 +26,7 @@ const Login = () => {
     <sc.StyledLoginSignupFormContainer>
       <sc.StyledLoginSignupForm onSubmit={handleSubmit}>
         <div className="form-header">
-          <h4>Log into TrailScout</h4>
+          <h4>Log in to TrailScout</h4>
           <p>Lorem ipsum dolor sit amet consectetur.</p>
         </div>
 
