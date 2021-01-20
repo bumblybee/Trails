@@ -1,14 +1,15 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useRef } from "react";
+import { useClickOutsideMenu } from "../../hooks/useClickOutsideMenu";
 import { UserContext } from "../../context/user/UserContext";
 import { StyledHr } from "../../styles/GlobalStyledComponents";
 import * as sc from "./StyledNavMenu";
 
 const NavMenu = ({ closeMenu }) => {
   const { user } = useContext(UserContext);
+  const menuRef = useClickOutsideMenu(() => closeMenu());
 
   return (
-    <sc.StyledNavMenuContainer>
+    <sc.StyledNavMenuContainer ref={menuRef}>
       {user ? (
         <>
           <sc.StyledLink to="/account" onClick={() => closeMenu()}>
