@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from "react-router-dom";
 
 import "@reach/combobox/styles.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -46,6 +51,9 @@ function App() {
                   </Route>
                   <Route path="/login" exact>
                     <Login />
+                  </Route>
+                  <Route path="/logout" exact>
+                    <Redirect to="/" />
                   </Route>
                   <Route path="/" exact>
                     <Landing />

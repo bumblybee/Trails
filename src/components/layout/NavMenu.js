@@ -1,12 +1,19 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
+
 import { useClickOutsideMenu } from "../../hooks/useClickOutsideMenu";
 import { UserContext } from "../../context/user/UserContext";
-import { StyledHr } from "../../styles/GlobalStyledComponents";
+import { logoutUser } from "../../api/userApi";
 import * as sc from "./StyledNavMenu";
 
 const NavMenu = ({ closeMenu }) => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const menuRef = useClickOutsideMenu(() => closeMenu());
+
+  const handleLogout = async () => {
+    await logoutUser();
+    setUser(null);
+    closeMenu();
+  };
 
   return (
     <sc.StyledNavMenuContainer ref={menuRef}>
@@ -23,7 +30,7 @@ const NavMenu = ({ closeMenu }) => {
           </sc.StyledLink>
           <sc.StyledMenuHr />
 
-          <sc.StyledLink to="/logout" onClick={() => closeMenu()}>
+          <sc.StyledLink to="/logout" onClick={() => handleLogout()}>
             Log out
           </sc.StyledLink>
         </>
