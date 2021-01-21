@@ -54,7 +54,7 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
 
       <sc.StyledCardContentContainer>
         <div>
-          <h3>{he.decode(trail.name)}</h3>
+          <h4>{he.decode(trail.name)}</h4>
 
           <h5>
             {trail.city}, {trail.state} -<span> {calcDistance()}</span>

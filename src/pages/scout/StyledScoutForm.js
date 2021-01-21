@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const StyledFormContainer = styled.div`
   width: 60%;
-  margin: 2.5rem auto;
+  margin: 5.5rem auto 2rem;
   padding: 2rem 2.5rem;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #eceeed;
-
+  border-radius: 6px;
   position: relative;
 
   label {
