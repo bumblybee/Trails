@@ -4,7 +4,7 @@ export const StyledCard = styled.li`
   display: grid;
   grid-template-columns: 1fr 2fr;
   border: 0.5px solid #eceeed75;
-  border-radius: 1px;
+  border-radius: 6px;
 
   position: relative;
 

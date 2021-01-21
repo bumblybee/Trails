@@ -52,7 +52,9 @@ export const StyledHr = styled.hr`
   border: 2px solid #b9c8b8;
 `;
 
-export const StyledForm = styled.form``;
+export const StyledForm = styled.form`
+  padding-top: 1rem;
+`;
 
 export const StyledFormGroup = styled.div`
   margin-bottom: 1.3rem;

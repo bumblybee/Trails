@@ -1,33 +1,34 @@
-import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import NavMenu from "./NavMenu";
 import * as sc from "./StyledNav";
 
 const Nav = () => {
+  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState("");
   const [showMenu, setShowMenu] = useState(false);
-  const menuButtonRef = useRef();
 
   const closeMenu = () => {
     setShowMenu(!showMenu);
   };
 
+  useEffect(() => {
+    setCurrentPath(location.pathname);
+  });
+
   return (
-    <sc.StyledNav>
-      <div className="logo-container">
-        <Link to="/">
+    <sc.StyledNav currentPath={currentPath}>
+      <Link to="/">
+        <sc.StyledLogoContainer>
           <sc.StyledLogo src="assets/logo.png" alt="" />
-        </Link>
-      </div>
+        </sc.StyledLogoContainer>
+      </Link>
 
       {showMenu ? <NavMenu closeMenu={closeMenu} /> : ""}
 
-      <sc.StyledLinksContainer>
-        <FaBars
-          title="account"
-          ref={menuButtonRef}
-          onClick={() => setShowMenu(!showMenu)}
-        />
+      <sc.StyledLinksContainer currentPath={currentPath}>
+        <FaBars title="account" onClick={() => setShowMenu(!showMenu)} />
       </sc.StyledLinksContainer>
     </sc.StyledNav>
   );
