@@ -12,7 +12,7 @@ export const StyledLanding = styled.div`
 export const StyledLandingContainer = styled.div`
   background: linear-gradient(
       to bottom,
-      rgba(52, 66, 59, 0.7),
+      rgba(52, 66, 59, 0.3) 60%,
       rgba(254, 119, 98, 0.5)
     ),
     url("https://cdn.pixabay.com/photo/2019/12/05/23/26/dawn-4676278_960_720.jpg");
@@ -21,11 +21,12 @@ export const StyledLandingContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* width: 80%; */
+
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
   z-index: 10;
+  height: 850px;
 
   @media (max-width: 620px) {
     width: 100%;
@@ -64,24 +65,10 @@ export const StyledLandingText = styled.div`
   }
 `;
 
-export const StyledImageContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
-
-  @media (max-width: 1028px) {
-    top: 75vh;
-  }
-`;
-
 export const StyledCardContainer = styled.div`
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255)
-  );
-  margin-top: 12rem;
   padding: 2rem;
+
+  h3 {
+    padding: 1rem 0 2rem;
+  }
 `;
