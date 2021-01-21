@@ -21,12 +21,13 @@ export const StyledMapLogo = styled.div`
 
 export const StyledMapSearchbar = styled.div`
   border: 1px solid #eceeed;
+  border-radius: 6px;
   padding: 0.7rem;
   background: #fffeff;
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 1rem;
+  top: 2rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;

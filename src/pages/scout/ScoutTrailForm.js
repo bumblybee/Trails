@@ -93,7 +93,7 @@ const ScoutTrail = () => {
     <SuccessConfirmation />
   ) : (
     <sc.StyledFormContainer>
-      <h1 style={{ marginBottom: "0.2rem" }}>Add Trail</h1>
+      <h3 style={{ marginBottom: "0.2rem" }}>Add Trail</h3>
       <p>Scouted a new trail? Great! Let's get some details.</p>
       <sc.StyledHr />
 

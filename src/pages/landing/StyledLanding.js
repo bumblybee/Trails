@@ -4,25 +4,24 @@ export const StyledLanding = styled.div`
   position: relative;
   height: 100%;
 
-  background: linear-gradient(
-      to bottom,
-      rgba(52, 66, 59, 0.9) 60%,
-      rgba(52, 66, 59, 0.7),
-      rgba(254, 119, 98, 0.5)
-    ),
-    url("https://images.unsplash.com/photo-1591899761266-148e5928e389?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80");
-
-  z-index: 1;
-  background-repeat: no-repeat;
-  background-size: cover;
-
   @media (max-width: 620px) {
     height: 100vh;
   }
 `;
 
 export const StyledLandingContainer = styled.div`
-  width: 80%;
+  background: linear-gradient(
+      to bottom,
+      rgba(52, 66, 59, 0.7),
+      rgba(254, 119, 98, 0.5)
+    ),
+    url("https://cdn.pixabay.com/photo/2019/12/05/23/26/dawn-4676278_960_720.jpg");
+
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* width: 80%; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;

@@ -12,6 +12,7 @@ export const StyledSearchbarContainer = styled.div`
   background: #fffeff;
   z-index: 10;
   box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.07);
+  border-radius: 6px;
 
   @media (max-width: 620px) {
     padding: 0.7rem;
@@ -21,6 +22,7 @@ export const StyledSearchbarContainer = styled.div`
 
 export const StyledSearchbar = styled.div`
   border: 1px solid #eceeed;
+  border-radius: 6px;
   padding: 1rem;
   background: #fffeff;
   z-index: 10;
@@ -42,6 +44,7 @@ export const StyledComboPopover = styled(ComboboxPopover)`
   z-index: 1;
   border: none;
   margin-top: 3rem;
+  border-radius: 6px;
 `;
 
 export const StyledComboInput = styled(ComboboxInput)`
@@ -68,14 +71,15 @@ export const StyledComboList = styled(ComboboxList)`
   color: #99a29e;
   background: #fffeff;
   font-size: 1rem;
-  /* width: 368px; */
-  transform: translateX(-2.2%);
+  border-radius: 6px;
+  transform: translateX(-5.2%);
   border: none;
-  padding: 1rem 0;
+  padding: 0.5rem 0 0.5rem 1.4rem;
 `;
 
 export const StyledComboboxOption = styled(ComboboxOption)`
   padding: 0.5rem;
+  border-radius: 6px;
 
   :hover {
     cursor: pointer;
