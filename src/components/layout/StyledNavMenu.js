@@ -6,7 +6,7 @@ export const StyledNavMenuContainer = styled.div`
   flex-direction: column;
   position: absolute;
   z-index: 10;
-  top: 3.5rem;
+  top: 4rem;
   right: 2.8rem;
   background: #fffeff;
 

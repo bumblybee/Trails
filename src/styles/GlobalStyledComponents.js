@@ -51,14 +51,13 @@ export const StyledDisabledButton = styled.button`
 export const StyledLoginSignupFormContainer = styled.div`
   padding: 3rem;
   background: linear-gradient(
-      to bottom,
-      rgba(52, 66, 59, 0.9) 60%,
-      rgba(52, 66, 59, 0.9)
-    ),
-    url("https://images.unsplash.com/photo-1560199738-3d933bc1e714?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
+    to bottom,
+    rgba(52, 66, 59, 0.9) 40%,
+    rgba(52, 66, 59, 0.7)
+  );
   background-repeat: no-repeat;
   background-size: cover;
-  height: 95vh;
+  height: 100vh;
 `;
 
 export const StyledLoginSignupForm = styled.form`
@@ -68,11 +67,11 @@ export const StyledLoginSignupForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin: 8rem auto;
+  margin: 11% auto;
   border: 1px solid #eceeed;
   background: #fff;
 
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
 
   div.form-group {
