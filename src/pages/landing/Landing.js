@@ -24,52 +24,53 @@ const Landing = () => {
         </sc.StyledLandingContainer>
         {/* TODO: Break into own component */}
         <sc.StyledCardContainer>
-          <h1 style={{ color: "#fff", marginBottom: "2rem" }}>
-            Popular Trails
-          </h1>
           <div
             style={{
               width: "65%",
-              display: "flex",
-              justifyContent: "space-between",
               margin: "0 auto",
             }}
           >
-            <div
-              style={{
-                borderRadius: "6px",
-                background: "#fff",
-                padding: "1rem",
-                width: "250px",
-                textAlign: "center",
-              }}
-            >
-              <h3 style={{ marginBottom: "0.5rem" }}>card title</h3>
-              <p>card body</p>
-            </div>
-            <div
-              style={{
-                borderRadius: "6px",
-                background: "#fff",
-                padding: "1rem",
-                width: "250px",
-                textAlign: "center",
-              }}
-            >
-              <h3 style={{ marginBottom: "0.5rem" }}>card title</h3>
-              <p>card body</p>
-            </div>
-            <div
-              style={{
-                borderRadius: "6px",
-                background: "#fff",
-                padding: "1rem",
-                width: "250px",
-                textAlign: "center",
-              }}
-            >
-              <h3 style={{ marginBottom: "0.5rem" }}>card title</h3>
-              <p>card body</p>
+            <h3>Popular Trails</h3>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div
+                style={{
+                  borderRadius: "6px",
+                  border: "1px solid #eceeed",
+                  background: "#fff",
+                  padding: "1rem",
+                  width: "250px",
+                  textAlign: "center",
+                }}
+              >
+                <h4 style={{ marginBottom: "0.5rem" }}>card title</h4>
+                <p>card body</p>
+              </div>
+              <div
+                style={{
+                  borderRadius: "6px",
+                  border: "1px solid #eceeed",
+                  background: "#fff",
+                  padding: "1rem",
+                  width: "250px",
+                  textAlign: "center",
+                }}
+              >
+                <h4 style={{ marginBottom: "0.5rem" }}>card title</h4>
+                <p>card body</p>
+              </div>
+              <div
+                style={{
+                  borderRadius: "6px",
+                  border: "1px solid #eceeed",
+                  background: "#fff",
+                  padding: "1rem",
+                  width: "250px",
+                  textAlign: "center",
+                }}
+              >
+                <h4 style={{ marginBottom: "0.5rem" }}>card title</h4>
+                <p>card body</p>
+              </div>
             </div>
           </div>
         </sc.StyledCardContainer>
