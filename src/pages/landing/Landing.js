@@ -3,8 +3,10 @@ import Searchbar from "../../components/layout/Searchbar";
 
 import * as sc from "./StyledLanding";
 
-//TODO: add cards at bottom - break into separate component
-//TODO: Disable button if no search and enter to search
+// TODO: add cards at bottom - break into separate component
+// TODO: Disable button if no search and enter to search
+// TODO: Background image separate div or component, maybe css::after so it sits on top nicely
+
 const Landing = () => {
   return (
     <div>
