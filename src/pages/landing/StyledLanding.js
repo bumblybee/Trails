@@ -13,14 +13,14 @@ export const StyledLandingContainer = styled.div`
   background: linear-gradient(
       to bottom,
       rgba(52, 66, 59, 0.3) 60%,
-      rgba(254, 119, 98, 0.5)
+      rgba(254, 119, 98, 0.3)
     ),
-    url("https://cdn.pixabay.com/photo/2019/12/05/23/26/dawn-4676278_960_720.jpg");
+    url("/assets/Black People Hiking.png");
 
   z-index: 1;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: top;
 
   margin: 0 auto;
   padding: 2rem;

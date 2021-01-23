@@ -29,8 +29,11 @@ export const StyledFilter = styled(Dropdown)`
   }
 
   .Dropdown-menu {
-    border: 0.5px solid #eceeed;
-    border-top: none;
+    border: 1px solid #eceeed;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2.3rem;
   }
 
   option {
