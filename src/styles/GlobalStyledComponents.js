@@ -118,7 +118,6 @@ export const StyledLoginSignupForm = styled.form`
   button {
     padding: 14px 0;
     width: 70%;
-    margin-top: 1rem;
     background: #fe7762;
     color: #fff;
     border: none;
@@ -134,6 +133,12 @@ export const StyledLoginSignupForm = styled.form`
       transform: scale(0.98);
     }
   }
+`;
+
+export const StyledFormLink = styled(Link)`
+  color: #fe7762;
+  text-decoration: none;
+  margin-top: 1rem;
 `;
 
 export const StyledHr = styled.hr`

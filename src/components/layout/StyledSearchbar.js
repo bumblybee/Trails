@@ -22,7 +22,7 @@ export const StyledSearchbarContainer = styled.div`
 
 export const StyledSearchbar = styled.div`
   border: 1px solid #eceeed;
-  border-radius: 6px;
+  border-radius: 32px;
   padding: 1rem;
   background: #fffeff;
   z-index: 10;

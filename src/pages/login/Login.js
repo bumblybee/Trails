@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { loginUser } from "../../api/userApi";
 import { ErrorContext } from "../../context/error/ErrorContext";
 import { UserContext } from "../../context/user/UserContext";
@@ -54,6 +54,9 @@ const Login = () => {
           />
         </div>
         <button>Log In</button>
+        <sc.StyledFormLink to="/password-reset-request">
+          Forgot your password?
+        </sc.StyledFormLink>
       </sc.StyledLoginSignupForm>
     </sc.StyledLoginSignupFormContainer>
   );

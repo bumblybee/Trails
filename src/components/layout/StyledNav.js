@@ -22,9 +22,7 @@ export const StyledNav = styled.div`
 `;
 
 export const StyledLogoContainer = styled.div`
-  background: #fffeff;
   padding: 0.4rem;
-  border-radius: 6px;
 `;
 
 export const StyledLogo = styled.img`

@@ -23,6 +23,7 @@ import SearchPage from "./pages/search/SearchPage";
 import ScoutTrailForm from "./pages/scout/ScoutTrailForm";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
+import PasswordResetRequest from "./pages/passwordReset/PasswordResetRequest";
 
 const libraries = ["places"];
 
@@ -40,12 +41,6 @@ function App() {
                 <Error />
                 <Nav />
                 <Switch>
-                  <Route path="/search" exact>
-                    <SearchPage />
-                  </Route>
-                  <Route path="/scout">
-                    <ScoutTrailForm />
-                  </Route>
                   <Route path="/signup" exact>
                     <Signup />
                   </Route>
@@ -54,6 +49,15 @@ function App() {
                   </Route>
                   <Route path="/logout" exact>
                     <Redirect to="/" />
+                  </Route>
+                  <Route path="/password-reset-request" exact>
+                    <PasswordResetRequest />
+                  </Route>
+                  <Route path="/search" exact>
+                    <SearchPage />
+                  </Route>
+                  <Route path="/scout">
+                    <ScoutTrailForm />
                   </Route>
                   <Route path="/" exact>
                     <Landing />
