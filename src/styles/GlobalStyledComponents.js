@@ -48,7 +48,7 @@ export const StyledDisabledButton = styled.button`
   }
 `;
 
-export const StyledLoginSignupFormContainer = styled.div`
+export const StyledUserFormContainer = styled.div`
   padding: 3rem;
   background: linear-gradient(
     to bottom,
@@ -60,7 +60,7 @@ export const StyledLoginSignupFormContainer = styled.div`
   height: 100vh;
 `;
 
-export const StyledLoginSignupForm = styled.form`
+export const StyledUserForm = styled.form`
   width: 30%;
   padding: 2rem;
   display: flex;

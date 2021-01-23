@@ -27,8 +27,8 @@ const Signup = () => {
   };
 
   return (
-    <sc.StyledLoginSignupFormContainer>
-      <sc.StyledLoginSignupForm onSubmit={handleSubmit}>
+    <sc.StyledUserFormContainer>
+      <sc.StyledUserForm onSubmit={handleSubmit}>
         <div className="form-header">
           <h4>Join TrailScout</h4>
           <p>
@@ -81,8 +81,8 @@ const Signup = () => {
           />
         </div>
         <button>Join TrailScout</button>
-      </sc.StyledLoginSignupForm>
-    </sc.StyledLoginSignupFormContainer>
+      </sc.StyledUserForm>
+    </sc.StyledUserFormContainer>
   );
 };
 

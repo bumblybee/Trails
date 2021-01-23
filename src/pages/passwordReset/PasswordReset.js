@@ -23,8 +23,8 @@ const PasswordReset = () => {
   };
 
   return (
-    <sc.StyledLoginSignupFormContainer>
-      <sc.StyledLoginSignupForm onSubmit={handleSubmit}>
+    <sc.StyledUserFormContainer>
+      <sc.StyledUserForm onSubmit={handleSubmit}>
         <div className="form-header">
           <h4>Password</h4>
           <p style={{ marginBottom: "1rem" }}>Enter your new password.</p>
@@ -46,8 +46,8 @@ const PasswordReset = () => {
           ></input>
         </div>
         <button type="submit">Submit</button>
-      </sc.StyledLoginSignupForm>
-    </sc.StyledLoginSignupFormContainer>
+      </sc.StyledUserForm>
+    </sc.StyledUserFormContainer>
   );
 };
 
