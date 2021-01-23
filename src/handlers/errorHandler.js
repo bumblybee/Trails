@@ -4,6 +4,8 @@ const errorCodeToMessage = {
     "Invalid Credentials. Check credentials and try again.",
   "auth.existingCredentials":
     "Looks like you already have an account. Please log in.",
+  "auth.noToken":
+    "Token not found or has expired. Try resetting your password again.",
   "auth.unknownIssue":
     "An unknown error occured in the process, please contact support.",
   "File too large":
