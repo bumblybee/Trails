@@ -56,7 +56,7 @@ const Login = () => {
           />
         </div>
         <button>Log In</button>
-        <sc.StyledFormLink to="/password-reset">
+        <sc.StyledFormLink to="/reset-password">
           Forgot your password?
         </sc.StyledFormLink>
       </sc.StyledLoginSignupForm>

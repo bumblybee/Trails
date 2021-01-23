@@ -24,6 +24,7 @@ import ScoutTrailForm from "./pages/scout/ScoutTrailForm";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import PasswordResetRequest from "./pages/passwordReset/PasswordResetRequest";
+import PasswordReset from "./pages/passwordReset/PasswordReset";
 
 const libraries = ["places"];
 
@@ -50,10 +51,10 @@ function App() {
                   <Route path="/logout" exact>
                     <Redirect to="/" />
                   </Route>
-                  <Route path="/password-reset/:token" exact>
-                    <PasswordResetRequest />
+                  <Route path="/reset-password/:token" exact>
+                    <PasswordReset />
                   </Route>
-                  <Route path="/password-reset" exact>
+                  <Route path="/reset-password" exact>
                     <PasswordResetRequest />
                   </Route>
                   <Route path="/search" exact>

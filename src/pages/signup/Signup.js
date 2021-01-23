@@ -72,7 +72,7 @@ const Signup = () => {
             id="password"
             value={userDetails.password}
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            title="Must contain at least 8 characters with at least one number and one uppercase and lowercase letter."
+            title="Must contain at least 8 characters with at least one number, one uppercase and one lowercase letter."
             maxLength="50"
             onChange={(e) =>
               setUserDetails({ ...userDetails, password: e.target.value })
