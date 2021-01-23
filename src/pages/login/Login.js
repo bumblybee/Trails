@@ -23,8 +23,8 @@ const Login = () => {
   };
 
   return (
-    <sc.StyledLoginSignupFormContainer>
-      <sc.StyledLoginSignupForm onSubmit={handleSubmit}>
+    <sc.StyledUserFormContainer>
+      <sc.StyledUserForm onSubmit={handleSubmit}>
         <div className="form-header">
           <h4>Log in to TrailScout</h4>
           <p>Lorem ipsum dolor sit amet consectetur.</p>
@@ -59,8 +59,8 @@ const Login = () => {
         <sc.StyledFormLink to="/reset-password">
           Forgot your password?
         </sc.StyledFormLink>
-      </sc.StyledLoginSignupForm>
-    </sc.StyledLoginSignupFormContainer>
+      </sc.StyledUserForm>
+    </sc.StyledUserFormContainer>
   );
 };
 

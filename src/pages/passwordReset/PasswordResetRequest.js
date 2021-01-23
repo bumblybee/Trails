@@ -15,9 +15,9 @@ const PasswordResetRequest = () => {
   };
 
   return (
-    <sc.StyledLoginSignupFormContainer>
+    <sc.StyledUserFormContainer>
       {!submitted ? (
-        <sc.StyledLoginSignupForm onSubmit={handleSubmit}>
+        <sc.StyledUserForm onSubmit={handleSubmit}>
           <div className="form-header">
             <h4>Password Reset</h4>
             <p style={{ marginBottom: "1rem" }}>
@@ -37,18 +37,18 @@ const PasswordResetRequest = () => {
             />
           </div>
           <button>Submit</button>
-        </sc.StyledLoginSignupForm>
+        </sc.StyledUserForm>
       ) : (
-        <sc.StyledLoginSignupForm>
+        <sc.StyledUserForm>
           <div className="form-header">
             <h4>Email Sent!</h4>
           </div>
           <div className="form-header">
             <p>Follow the link in the email to reset your password.</p>
           </div>
-        </sc.StyledLoginSignupForm>
+        </sc.StyledUserForm>
       )}
-    </sc.StyledLoginSignupFormContainer>
+    </sc.StyledUserFormContainer>
   );
 };
 
