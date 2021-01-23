@@ -44,6 +44,7 @@ const Signup = () => {
           <input
             type="text"
             id="username"
+            value={userDetails.username}
             maxLength="50"
             title="Max characters: 50"
             onChange={(e) =>
@@ -57,6 +58,7 @@ const Signup = () => {
           <input
             type="email"
             id="email"
+            value={userDetails.email}
             onChange={(e) =>
               setUserDetails({ ...userDetails, email: e.target.value })
             }
@@ -68,6 +70,7 @@ const Signup = () => {
           <input
             type="password"
             id="password"
+            value={userDetails.password}
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Must contain at least 8 characters with at least one number and one uppercase and lowercase letter."
             maxLength="50"

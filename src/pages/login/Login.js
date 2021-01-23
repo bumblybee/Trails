@@ -36,6 +36,7 @@ const Login = () => {
           <input
             type="email"
             id="email"
+            value={userDetails.email}
             onChange={(e) =>
               setUserDetails({ ...userDetails, email: e.target.value })
             }
@@ -47,6 +48,7 @@ const Login = () => {
           <input
             type="password"
             id="password"
+            value={userDetails.password}
             onChange={(e) =>
               setUserDetails({ ...userDetails, password: e.target.value })
             }
