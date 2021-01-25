@@ -15,7 +15,7 @@ const Searchbar = () => {
   const history = useHistory();
   const [coords, setCoords] = useLocalStorage("coords", {});
   const [searchTerm, setSearchTerm] = useLocalStorage("search", {});
-  const { searchTrails, setSearchValue } = useContext(SearchContext);
+  const { searchTrails } = useContext(SearchContext);
 
   const {
     ready,

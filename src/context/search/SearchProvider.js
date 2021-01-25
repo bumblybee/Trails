@@ -5,7 +5,6 @@ import { getTrails } from "../../api/trailsApi";
 
 //!!: May be able to get rid of searchValue, as of now not using
 const SearchProvider = ({ children }) => {
-  const [searchValue, setSearchValue] = useState("");
   const [filterValue, setFilterValue] = useState(null);
   const [trails, setTrails] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -15,7 +14,7 @@ const SearchProvider = ({ children }) => {
 
     //TODO: add filterValue to search
     const trailData = await getTrails(lat, lng, filterValue);
-    console.log(filterValue);
+
     setTrails(trailData);
     setLoading(false);
     setFilterValue(null);
@@ -29,8 +28,6 @@ const SearchProvider = ({ children }) => {
         searchTrails,
         trails,
         loading,
-        searchValue,
-        setSearchValue,
         setFilterValue,
       }}
     >
