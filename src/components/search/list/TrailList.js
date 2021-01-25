@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
-import TrailCard from "./TrailCard";
 import { SearchContext } from "../../../context/search/SearchContext";
+import TrailCard from "./TrailCard";
 import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
 const TrailList = ({ setHovered }) => {
-  // TODO: add type of trail to header when filter wired up
-  // TODO: persist trails or get user location so not showing empty list on refresh
-  const { trails, searchValue } = useContext(SearchContext);
-  const [searchTerm] = useLocalStorage("search", {});
+  const { trails } = useContext(SearchContext);
+  const [searchTerm] = useLocalStorage("search");
+
   return (
     <div>
       <StyledTrailList>

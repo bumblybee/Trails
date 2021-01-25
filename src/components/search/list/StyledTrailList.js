@@ -18,10 +18,11 @@ export const StyledTrailList = styled.ul`
 
 export const StyledTrailListHeader = styled.div`
   color: #34423b;
-  padding: 2rem 0;
+  padding: 3.5rem 0 2rem;
 
-  h1 {
+  h3 {
     margin: 0 0 0.5rem;
+    font-size: 2.1rem;
 
     @media (max-width: 620px) {
       margin: 0 0 1rem;

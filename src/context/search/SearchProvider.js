@@ -3,7 +3,6 @@ import { SearchContext } from "./SearchContext";
 
 import { getTrails } from "../../api/trailsApi";
 
-//!!: May be able to get rid of searchValue, as of now not using
 const SearchProvider = ({ children }) => {
   const [filterValue, setFilterValue] = useState(null);
   const [trails, setTrails] = useState([]);

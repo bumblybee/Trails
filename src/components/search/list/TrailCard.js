@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import he from "he";
 import { randomImage } from "../../../defaultImages/randomImages";
 import TrailCardStarRating from "../../../components/rating/TrailCardStarRating";
