@@ -7,7 +7,7 @@ export const StyledPinkButton = styled.button`
   width: 100%;
   color: #fff;
   padding: 12px 18px;
-  border-radius: 6px;
+  border-radius: 32px;
   border: none;
   outline: none;
   font-weight: 400;

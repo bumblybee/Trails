@@ -8,7 +8,7 @@ const TrailList = ({ setHovered }) => {
   // TODO: add type of trail to header when filter wired up
   // TODO: persist trails or get user location so not showing empty list on refresh
   const { trails, searchValue } = useContext(SearchContext);
-  const [searchTerm, setSearchTerm] = useLocalStorage("search", {});
+  const [searchTerm] = useLocalStorage("search", {});
   return (
     <div>
       <StyledTrailList>

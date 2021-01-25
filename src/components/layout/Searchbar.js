@@ -5,7 +5,7 @@ import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
-import { Combobox, ComboboxPopover } from "@reach/combobox";
+import { Combobox } from "@reach/combobox";
 import { SearchContext } from "../../context/search/SearchContext";
 import Filter from "./Filter";
 import { StyledPinkButton } from "../../styles/GlobalStyledComponents";

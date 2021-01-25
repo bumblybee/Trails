@@ -63,11 +63,11 @@ const Map = ({ hovered }) => {
     });
   }, [trails]);
 
-  // When stops dragging map, get center and call api with updated lat and lng, set markers
+  // When user stops dragging map, get center and call api with updated lat and lng, set markers
   // TODO: Handle poor UX when everything re-renders
   const handleMapDrag = () => {
     const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
-    console.log(mapCenter);
+
     setCenter(mapCenter);
     searchTrails(mapCenter.lat, mapCenter.lng);
     setTrailMarkers();
@@ -75,12 +75,13 @@ const Map = ({ hovered }) => {
 
   useEffect(() => {
     // If window reloads or user coming from another page, search trails again using local storage coords so map, markers, and cards populate
-    if (!trails.length) searchTrails(coords.lat, coords.lng);
+    const getTrails = async () => {
+      if (!trails.length) await searchTrails(coords.lat, coords.lng);
+    };
 
+    getTrails();
     setTrailMarkers();
   }, [setTrailMarkers]);
-  console.log(hovered);
-  console.log(markers);
 
   return (
     <sc.StyledMapContainer>
