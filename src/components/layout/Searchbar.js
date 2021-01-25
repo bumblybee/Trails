@@ -36,7 +36,6 @@ const Searchbar = () => {
       const results = await getGeocode({ address });
 
       // grab lat and lng from first result
-      console.log(results);
       const { lat, lng } = await getLatLng(results[0]);
       //set local storage coords
       setCoords({ lat, lng });
