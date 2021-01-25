@@ -8,6 +8,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { logoutUser } from "../../api/userApi";
 import * as sc from "./StyledNavMenu";
 
+// Todo:  Move setSearchTerm out of local storage and into context so title refreshes when location changes
 const NavMenu = ({ closeMenu }) => {
   const history = useHistory();
 
@@ -32,8 +33,8 @@ const NavMenu = ({ closeMenu }) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
         setCoords({ lat, lng });
-        await searchTrails(lat, lng);
         await reverseGeocode(lat, lng);
+        await searchTrails(lat, lng);
         closeMenu();
         history.push("/search");
       },
