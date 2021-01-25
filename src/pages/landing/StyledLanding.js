@@ -11,8 +11,8 @@ export const StyledLanding = styled.div`
 
 export const StyledLandingContainer = styled.div`
   background: linear-gradient(
-      to bottom,
-      rgba(52, 66, 59, 0.3) 60%,
+      to top,
+      rgba(254, 119, 98, 0.3) 60%,
       rgba(254, 119, 98, 0.3)
     ),
     url("/assets/Black People Hiking.png");

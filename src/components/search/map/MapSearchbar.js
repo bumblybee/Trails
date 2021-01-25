@@ -10,9 +10,7 @@ import Filter from "../../layout/Filter";
 import * as sc from "./StyledMap";
 
 const MapSearchbar = () => {
-  const { trails, searchTrails, searchValue, setSearchValue } = useContext(
-    SearchContext
-  );
+  const { trails, searchTrails } = useContext(SearchContext);
   const [coords, setCoords] = useLocalStorage("coords", {});
   const [searchTerm, setSearchTerm] = useLocalStorage("search", {});
 

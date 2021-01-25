@@ -15,7 +15,7 @@ const Nav = () => {
 
   useEffect(() => {
     setCurrentPath(location.pathname);
-  });
+  }, [location.pathname]);
 
   return (
     <sc.StyledNav currentPath={currentPath}>
