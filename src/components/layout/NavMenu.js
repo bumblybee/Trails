@@ -3,18 +3,21 @@ import { useHistory } from "react-router-dom";
 import { useClickOutsideMenu } from "../../hooks/useClickOutsideMenu";
 import { ErrorContext } from "../../context/error/ErrorContext";
 import { UserContext } from "../../context/user/UserContext";
+import { SearchContext } from "../../context//search/SearchContext";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { logoutUser } from "../../api/userApi";
 import * as sc from "./StyledNavMenu";
 
-// TODO: Refresh map if click near me while on map page
-
 const NavMenu = ({ closeMenu }) => {
   const history = useHistory();
+
   const { user, setUser } = useContext(UserContext);
   const { setError } = useContext(ErrorContext);
+  const { searchTrails } = useContext(SearchContext);
+
   const [coords, setCoords] = useLocalStorage("coords", {});
   const [searchTerm, setSearchTerm] = useLocalStorage("search", {});
+
   const menuRef = useClickOutsideMenu(() => closeMenu());
 
   const handleLogout = async () => {
@@ -26,14 +29,11 @@ const NavMenu = ({ closeMenu }) => {
   const findTrailsNearUser = () => {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
-        setCoords({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
-        await reverseGeocode(
-          position.coords.latitude,
-          position.coords.longitude
-        );
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        setCoords({ lat, lng });
+        await searchTrails(lat, lng);
+        await reverseGeocode(lat, lng);
         closeMenu();
         history.push("/search");
       },
