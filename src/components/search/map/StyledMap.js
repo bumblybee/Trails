@@ -7,15 +7,15 @@ export const StyledMapContainer = styled.div`
 
 export const StyledMapLogo = styled.div`
   position: absolute;
-  top: 1rem;
+  top: 4rem;
   left: 2rem;
-  z-index: 10;
+  z-index: 100;
   margin: 0;
   padding: 0;
 
   img {
     width: 100px;
-    opacity: 0.85;
+    opacity: 0.8;
   }
 `;
 
@@ -27,7 +27,7 @@ export const StyledMapSearchbar = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 2rem;
+  top: 4rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
