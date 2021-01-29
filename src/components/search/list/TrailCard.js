@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import he from "he";
+import { UserContext } from "../../../context/user/UserContext";
+import { bookmarkTrail } from "../../../api/userApi";
 import { randomImage } from "../../../defaultImages/randomImages";
 import TrailCardStarRating from "../../../components/rating/TrailCardStarRating";
 import { useHover } from "../../../hooks/useHover";
@@ -19,6 +21,8 @@ import * as sc from "./StyledTrailCard";
 
 const TrailCard = React.memo(({ trail, setHovered }) => {
   const [bookmarkHoverRef, bookmarkHover] = useHover();
+  const { user } = useContext(UserContext);
+  const [bookmarked, setBookmarked] = useState([]);
 
   const countChars = () => {
     const desc = trail.description;
@@ -27,10 +31,16 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
     }
   };
 
-  const calcDistance = () => {
+  const calcDistanceFromSearchLocation = () => {
     const distance = `${Math.floor(trail.distance / 1609)}`;
 
     return distance > 8 ? `${distance} miles away` : "nearby";
+  };
+
+  const handleBookmarkTrail = async (trailId) => {
+    // Need to set icon to stay solid after saved
+    user && (await bookmarkTrail(trailId));
+    user && setBookmarked([...bookmarked, trail.id]);
   };
 
   //TODO: color rating nearly invisible if none, color other icons
@@ -40,9 +50,15 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
       onMouseLeave={() => setHovered({})}
       image={trail.image}
     >
-      <sc.StyledBookmarkIcon ref={bookmarkHoverRef}>
-        {bookmarkHover ? <FaBookmark /> : <FaRegBookmark />}
+      <sc.StyledBookmarkIcon onClick={() => handleBookmarkTrail(trail.id)}>
+        {(user && bookmarked.includes(trail.id)) ||
+        (user && user.bookmarks.includes(trail.id)) ? (
+          <FaBookmark />
+        ) : (
+          <FaRegBookmark />
+        )}
       </sc.StyledBookmarkIcon>
+
       <sc.StyledImageContainer>
         {/* TODO: Carousel v2 */}
 
@@ -57,7 +73,8 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
           <h4>{he.decode(trail.name)}</h4>
 
           <h5>
-            {trail.city}, {trail.state} -<span> {calcDistance()}</span>
+            {trail.city}, {trail.state} -
+            <span> {calcDistanceFromSearchLocation()}</span>
           </h5>
           {countChars() ? (
             <p>{he.decode(trail.description).substring(0, 172)}...</p>
