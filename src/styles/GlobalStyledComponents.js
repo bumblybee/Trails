@@ -48,6 +48,32 @@ export const StyledDisabledButton = styled.button`
   }
 `;
 
+export const StyledSearchButton = styled.button`
+  background: #fe7762;
+  display: block;
+
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  outline: none;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+
+  :hover {
+    cursor: pointer;
+    background: #fff;
+    border: 2px solid #fe7762;
+    color: #fe7762;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.07);
+  }
+
+  :active {
+    color: #fff;
+  }
+`;
+
 export const StyledUserFormContainer = styled.div`
   padding: 3rem;
   background: linear-gradient(

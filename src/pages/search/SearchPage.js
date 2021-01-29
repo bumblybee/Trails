@@ -7,6 +7,7 @@ import * as sc from "./StyledSearchPage";
 
 const Search = () => {
   const { loading } = useContext(SearchContext);
+  // Handles highlighting of marker on map
   const [hovered, setHovered] = useState({});
 
   if (loading) return "Loading...";

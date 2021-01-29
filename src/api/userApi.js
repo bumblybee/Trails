@@ -27,3 +27,8 @@ export const triggerPasswordReset = async (email) => {
 export const resetPassword = async (token, password) => {
   return await post(`/users/reset-password/${token}`, { password });
 };
+
+export const bookmarkTrail = async (trailId) => {
+  const res = await post(`/users/bookmark/${trailId}`);
+  return res.data;
+};

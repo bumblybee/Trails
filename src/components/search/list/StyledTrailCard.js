@@ -41,6 +41,19 @@ export const StyledBookmarkIcon = styled.div`
   :hover {
     cursor: pointer;
   }
+
+  svg {
+    :hover {
+      fill: #fe7762;
+    }
+    :active {
+      color: #fe7762;
+    }
+
+    :focus {
+      color: #fe7762;
+    }
+  }
 `;
 
 export const StyledImageContainer = styled.div`

@@ -8,7 +8,8 @@ import usePlacesAutoComplete, {
 import { Combobox } from "@reach/combobox";
 import { SearchContext } from "../../context/search/SearchContext";
 import Filter from "./Filter";
-import { StyledPinkButton } from "../../styles/GlobalStyledComponents";
+import { FaSearch } from "react-icons/fa";
+import { StyledSearchButton } from "../../styles/GlobalStyledComponents";
 import * as sc from "./StyledSearchbar";
 
 const Searchbar = () => {
@@ -75,13 +76,13 @@ const Searchbar = () => {
 
         <sc.StyledButtonContainer>
           <Filter />
-          <StyledPinkButton
+          <StyledSearchButton
             onClick={() => {
               history.push("/search");
             }}
           >
-            Search
-          </StyledPinkButton>
+            <FaSearch />
+          </StyledSearchButton>
         </sc.StyledButtonContainer>
       </sc.StyledSearchbar>
     </sc.StyledSearchbarContainer>

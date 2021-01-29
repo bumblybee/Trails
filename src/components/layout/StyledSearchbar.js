@@ -13,7 +13,7 @@ export const StyledSearchbarContainer = styled.div`
   z-index: 10;
   box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.07);
   border-radius: 6px;
-
+  /* width: 80%; */
   @media (max-width: 620px) {
     padding: 0.7rem;
     width: 100%;
@@ -87,11 +87,10 @@ export const StyledComboboxOption = styled(ComboboxOption)`
 `;
 
 export const StyledButtonContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+  display: flex;
+  justify-content: space-between;
   height: 40px;
-
+  width: 15%;
   @media (max-width: 620px) {
     grid-gap: 0.5rem;
   }
