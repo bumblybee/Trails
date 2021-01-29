@@ -67,7 +67,7 @@ const NavMenu = ({ closeMenu }) => {
             Account
           </sc.StyledLink>
           <sc.StyledLink to="/bookmarks" onClick={() => closeMenu()}>
-            Saves
+            Bookmarks
           </sc.StyledLink>
           <sc.StyledLink to="#" onClick={() => findTrailsNearUser()}>
             Near me

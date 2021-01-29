@@ -37,10 +37,10 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
     return distance > 8 ? `${distance} miles away` : "nearby";
   };
 
+  // TODO: fix this whack ass situation
   const handleBookmarkTrail = async (trailId) => {
-    // Need to set icon to stay solid after saved
     user && (await bookmarkTrail(trailId));
-    user && setBookmarked([...bookmarked, trail.id]);
+    user && setBookmarked([trail.id]);
   };
 
   //TODO: color rating nearly invisible if none, color other icons
@@ -50,12 +50,20 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
       onMouseLeave={() => setHovered({})}
       image={trail.image}
     >
-      <sc.StyledBookmarkIcon onClick={() => handleBookmarkTrail(trail.id)}>
+      <sc.StyledBookmarkIcon
+        ref={bookmarkHoverRef}
+        onClick={() => handleBookmarkTrail(trail.id)}
+      >
+        {/* if local state holds bookmark or user record holds bookmark, show filled in icon */}
         {(user && bookmarked.includes(trail.id)) ||
         (user && user.bookmarks.includes(trail.id)) ? (
           <FaBookmark />
         ) : (
-          <FaRegBookmark />
+          <FaRegBookmark
+            title={
+              user ? "Click to bookmark trail" : "Log in to bookmark trail"
+            }
+          />
         )}
       </sc.StyledBookmarkIcon>
 
