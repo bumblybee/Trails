@@ -43,10 +43,13 @@ export const StyledLinksContainer = styled.div`
 
   svg {
     font-size: 2.2rem;
-    color: ${(props) => (props.currentPath === "/" ? "#fffeff" : "#fe7762")};
+    /* color: ${(props) =>
+      props.currentPath === "/" ? "#fffeff" : "#fe7762"}; */
+    color: #fe7762;
     border-radius: 6px;
-    border: ${(props) =>
-      props.currentPath === "/" ? "2px solid #fffeff" : "2px solid #fe7762"};
+    /* border: ${(props) =>
+      props.currentPath === "/" ? "2px solid #fffeff" : "2px solid #fe7762"}; */
+    border: 2px solid #fe7762;
     padding: 0.5rem;
 
     :hover {

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { scoutTrail } from "../../api/trailsApi";
 import { ErrorContext } from "../../context/error/ErrorContext";
 import DragDrop from "../../components/upload/DragDrop";
@@ -69,9 +70,9 @@ const ScoutTrail = () => {
       } else if (submission) {
         // setProgress("Complete");
         setSubmitted(true);
-        // setTimeout(() => {
-        //   window.location.reload();
-        // }, 2500);
+        setTimeout(() => {
+          window.location.reload();
+        }, 2500);
       }
 
       // TODO: handle success confirmation
