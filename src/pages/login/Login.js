@@ -56,9 +56,13 @@ const Login = () => {
           />
         </div>
         <button>Log In</button>
-        <sc.StyledFormLink to="/reset-password">
-          Forgot your password?
-        </sc.StyledFormLink>
+        <div style={{ display: "flex" }}>
+          <sc.StyledFormLink to="/reset-password">
+            Forgot password
+          </sc.StyledFormLink>
+          <p style={{ margin: "1rem 0.5rem", color: "#b9c8b8" }}>|</p>
+          <sc.StyledFormLink to="/signup">Create account</sc.StyledFormLink>
+        </div>
       </sc.StyledUserForm>
     </sc.StyledUserFormContainer>
   );
