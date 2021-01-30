@@ -48,9 +48,6 @@ function App() {
                   <Route path="/login" exact>
                     <Login />
                   </Route>
-                  <Route path="/logout" exact>
-                    <Redirect to="/" />
-                  </Route>
                   <Route path="/reset-password/:token" exact>
                     <PasswordReset />
                   </Route>
