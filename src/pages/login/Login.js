@@ -19,7 +19,7 @@ const Login = () => {
     const login = await loginUser(userDetails);
     setUser(login.data);
 
-    login && login.error ? setError(login.error) : history.push("/");
+    login && login.error ? setError(login.error) : history.goBack();
   };
 
   return (
