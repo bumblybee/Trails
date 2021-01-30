@@ -81,6 +81,9 @@ const Signup = () => {
           />
         </div>
         <button>Join TrailScout</button>
+        <sc.StyledFormLink to="/login">
+          I already have an account
+        </sc.StyledFormLink>
       </sc.StyledUserForm>
     </sc.StyledUserFormContainer>
   );
