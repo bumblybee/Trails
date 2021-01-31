@@ -15,6 +15,7 @@ import Error from "./components/error/Error";
 import Nav from "./components/layout/Nav";
 import Landing from "./pages/landing/Landing";
 import SearchPage from "./pages/search/SearchPage";
+import TrailPage from "./pages/trail/TrailPage";
 import ScoutTrailForm from "./pages/scout/ScoutTrailForm";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
@@ -51,6 +52,9 @@ function App() {
                   </Route>
                   <Route path="/search" exact>
                     <SearchPage />
+                  </Route>
+                  <Route path="/trail/:id" exact>
+                    <TrailPage />
                   </Route>
                   <Route path="/scout">
                     <ScoutTrailForm />

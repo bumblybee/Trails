@@ -1,8 +1,15 @@
 import { get, postFormData } from "./baseApi";
 
 export const getTrails = async (lat, lng, filter) => {
-  const res = await get(`/trails/?lat=${lat}&lng=${lng}&filter=${filter}`);
+  const res = await get(
+    `/trails/search?lat=${lat}&lng=${lng}&filter=${filter}`
+  );
 
+  return res.data;
+};
+
+export const getSingleTrail = async (id) => {
+  const res = await get(`/trails/${id}`);
   return res.data;
 };
 
