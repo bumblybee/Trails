@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import he from "he";
 import { UserContext } from "../../../context/user/UserContext";
 import { bookmarkTrail, removeBookmark } from "../../../api/userApi";

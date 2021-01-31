@@ -35,8 +35,7 @@ const Map = ({ hovered }) => {
   const { trails, searchTrails } = useContext(SearchContext);
 
   const [markers, setMarkers] = useState([]);
-  const [coords] = useLocalStorage("coords");
-  const [center, setCenter] = useState({});
+  const [coords, setCoords] = useLocalStorage("coords");
 
   const [selected, setSelected] = useState(null);
 
@@ -65,11 +64,11 @@ const Map = ({ hovered }) => {
 
   // When user stops dragging map, get center and call api with updated lat and lng, set markers
   // TODO: Handle poor UX when everything re-renders
-  const handleMapDrag = () => {
+  const handleMapDrag = async () => {
     const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
 
-    setCenter(mapCenter);
-    searchTrails(mapCenter.lat, mapCenter.lng);
+    setCoords(mapCenter);
+    await searchTrails(mapCenter.lat, mapCenter.lng);
     setTrailMarkers();
   };
 
