@@ -13,7 +13,7 @@ const ScoutFormStarRating = ({ rating, setRating }) => {
       onStarHover={(nextValue) => setRating(nextValue)}
       onStarHoverOut={(nextValue, prevValue) => setRating(prevValue)}
       size={32}
-      value={rating}
+      value={Number(rating)}
       //   starColor={hover ? "#fe7762" : "#99a29e"}
       renderStarIcon={() => <FaStar />}
       starColor={"#fe7762"}

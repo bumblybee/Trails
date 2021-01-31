@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import he from "he";
 import { UserContext } from "../../../context/user/UserContext";
-import { bookmarkTrail } from "../../../api/userApi";
+import { bookmarkTrail, removeBookmark } from "../../../api/userApi";
 import { randomImage } from "../../../defaultImages/randomImages";
 import TrailCardStarRating from "../../../components/rating/TrailCardStarRating";
 import { useHover } from "../../../hooks/useHover";
@@ -37,10 +37,25 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
     return distance > 8 ? `${distance} miles away` : "nearby";
   };
 
-  // TODO: fix this whack ass situation
-  const handleBookmarkTrail = async (trailId) => {
-    user && (await bookmarkTrail(trailId));
-    user && setBookmarked([trail.id]);
+  // TODO: fix this whack ass situation - local storage?
+
+  const handleTrailBookmark = async (trailId) => {
+    if (user && user.bookmarks.includes(trailId)) {
+      const arr = [...user.bookmarks];
+      const index = arr.indexOf(trailId);
+
+      if (index !== -1) {
+        arr.splice(index, 1);
+
+        setBookmarked(arr);
+      }
+
+      await removeBookmark(trailId);
+    } else {
+      user && (await bookmarkTrail(trailId));
+
+      user && setBookmarked([...bookmarked, trail.id]);
+    }
   };
 
   //TODO: color rating nearly invisible if none, color other icons
@@ -52,11 +67,11 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
     >
       <sc.StyledBookmarkIcon
         ref={bookmarkHoverRef}
-        onClick={() => handleBookmarkTrail(trail.id)}
+        onClick={() => handleTrailBookmark(trail.id)}
       >
         {/* if local state holds bookmark or user record holds bookmark, show filled in icon */}
         {(user && bookmarked.includes(trail.id)) ||
-        (user && user.bookmarks.includes(trail.id)) ? (
+        (user && user.bookmarks && user.bookmarks.includes(trail.id)) ? (
           <FaBookmark />
         ) : (
           <FaRegBookmark
