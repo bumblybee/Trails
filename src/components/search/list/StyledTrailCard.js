@@ -1,4 +1,10 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+export const StyledCardLinkWrapper = styled(Link)`
+  text-decoration: none;
+  color: #34423b;
+`;
 
 export const StyledCard = styled.li`
   display: grid;
