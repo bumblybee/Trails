@@ -7,7 +7,7 @@ const TrailCardStarRating = ({ rating }) => {
     <StyledStarRatingComponent
       name={"trail-rating"}
       starCount={5}
-      value={rating}
+      value={Number(rating)}
       renderStarIcon={() => <StyledStar />}
       starColor={"#fe7762"}
       emptyStarColor={"#eceeed"}
