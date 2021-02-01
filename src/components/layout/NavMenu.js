@@ -77,7 +77,10 @@ const NavMenu = ({ closeMenu }) => {
           </sc.StyledLink>
           <sc.StyledMenuHr />
 
-          <sc.StyledLink to={window.location.pathname} onClick={() => handleLogout()}>
+          <sc.StyledLink
+            to={window.location.pathname}
+            onClick={() => handleLogout()}
+          >
             Log out
           </sc.StyledLink>
         </>

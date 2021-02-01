@@ -49,7 +49,7 @@ const TrailPage = () => {
   useEffect(() => {
     getTrailData();
   }, []);
-  console.log(trail);
+  console.log(user);
   return (
     <sc.StyledTrailPageWrapper>
       <sc.StyledImageContainer>
@@ -121,26 +121,23 @@ const TrailPage = () => {
           </sc.StyledFloatingCard>
 
           <sc.StyledFloatingCard>
-            <sc.StyledButtonContainer>
+            <sc.StyledButtonContainer user={user}>
               <button
-                user={user}
                 title={user ? "" : "Log in to add a photo"}
-                disabled={!user ? true : false}
+                disabled={user ? false : true}
               >
                 <FaImage />
                 Add Photo
               </button>
               <button
-                user={user}
                 title={user ? "" : "Log in to suggest an edit"}
-                disabled={!user ? true : false}
+                disabled={user ? false : true}
               >
                 <FaPencilAlt /> Suggest Edit
               </button>
               <button
-                user={user}
                 title={user ? "" : "Log in to add a bookmark"}
-                disabled={!user ? true : false}
+                disabled={user ? false : true}
               >
                 <FaRegBookmark /> Bookmark
               </button>
