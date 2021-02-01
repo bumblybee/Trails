@@ -12,6 +12,8 @@ export const StyledTrailPageContainer = styled.div`
 
   h2 {
     margin-bottom: 1rem;
+    width: 80%;
+    font-size: 2.5rem;
   }
 
   h5 {
@@ -23,7 +25,7 @@ export const StyledTrailPageContainer = styled.div`
   }
 
   p {
-    margin-top: 4rem;
+    margin-top: 3rem;
     width: 64%;
     line-height: 1.5;
   }
@@ -31,7 +33,7 @@ export const StyledTrailPageContainer = styled.div`
 
 export const StyledFloatingCardContainer = styled.div`
   position: absolute;
-  right: 2.5rem;
+  right: 7%;
   top: -2.5rem;
   z-index: 10;
   display: grid;
@@ -56,13 +58,15 @@ export const StyledFloatingCard = styled.div`
 export const StyledIconsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1.5rem;
+  /* grid-gap: 1rem; */
   font-size: 1.25rem;
 `;
 
 export const StyledIcon = styled.div`
   display: flex;
   color: #999;
+
+  padding-bottom: 0.5rem;
 
   svg,
   div {
