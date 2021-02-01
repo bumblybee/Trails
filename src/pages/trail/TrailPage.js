@@ -64,6 +64,30 @@ const TrailPage = () => {
           <sc.StyledFloatingCard>
             <sc.StyledIconsContainer>
               <sc.StyledIcon>
+                <FaRoute />
+
+                <div>
+                  <span title="length in miles">
+                    {Math.floor(trail.length)} miles
+                  </span>
+                </div>
+              </sc.StyledIcon>
+
+              {trail.hiking === true && (
+                <sc.StyledIcon>
+                  <FaHiking />
+                  <span>hiking</span>
+                </sc.StyledIcon>
+              )}
+
+              {trail.biking === true && (
+                <sc.StyledIcon>
+                  <FaBiking />
+                  <span>biking</span>
+                </sc.StyledIcon>
+              )}
+
+              <sc.StyledIcon>
                 <div
                   title={`difficulty: ${trail.difficulty}`}
                   style={{
@@ -96,31 +120,6 @@ const TrailPage = () => {
                   {trail.difficulty !== "unknown" && trail.difficulty}
                 </span>
               </sc.StyledIcon>
-              <StyledHr />
-              <sc.StyledIcon>
-                <FaRoute />
-
-                <div>
-                  <span title="length in miles">
-                    {Math.floor(trail.length)} miles
-                  </span>
-                </div>
-              </sc.StyledIcon>
-              <StyledHr />
-
-              {trail.hiking === true && (
-                <sc.StyledIcon>
-                  <FaHiking />
-                  <span>hiking</span>
-                </sc.StyledIcon>
-              )}
-
-              {trail.biking === true && (
-                <sc.StyledIcon>
-                  <FaBiking />
-                  <span>biking</span>
-                </sc.StyledIcon>
-              )}
             </sc.StyledIconsContainer>
           </sc.StyledFloatingCard>
 

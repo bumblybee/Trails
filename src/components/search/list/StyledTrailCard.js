@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 export const StyledCardLinkWrapper = styled(Link)`
   text-decoration: none;
   color: #34423b;
-  :not(:last-child) {
-    margin-bottom: 1rem;
-  }
 `;
 
 export const StyledCard = styled.li`
@@ -14,12 +11,19 @@ export const StyledCard = styled.li`
   grid-template-columns: 1fr 2fr;
   border: 0.5px solid #eceeed75;
   border-radius: 6px;
-
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
   position: relative;
+  transition: transform 0.05s ease-out;
+
+  :not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
 
   :hover {
     cursor: pointer;
     box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
+
+    transform: scale(1.01);
   }
 
   @media (max-width: 620px) {
