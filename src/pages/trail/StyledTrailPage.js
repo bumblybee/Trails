@@ -58,7 +58,7 @@ export const StyledFloatingCard = styled.div`
 export const StyledIconsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-gap: 1rem; */
+  grid-gap: 1rem;
   font-size: 1.25rem;
 `;
 
@@ -71,6 +71,10 @@ export const StyledIcon = styled.div`
   svg,
   div {
     margin-right: 1rem;
+  }
+
+  svg {
+    color: #99a29e;
   }
 `;
 
@@ -127,6 +131,6 @@ export const StyledImage = styled.img`
 
 export const StyledBorder = styled.hr`
   margin: 1rem 0 2rem;
-  border: 1px solid #b9c8b8;
+  border: 1px solid #a5b8a4;
   width: 64%;
 `;
