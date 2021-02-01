@@ -158,6 +158,9 @@ export const StyledFormButton = styled.button`
   }
 
   :active {
-    transform: scale(0.98);
+    color: #fff;
+    background: ${(props) => (props.submitButton ? "#fe7762" : "#a5b8a4")};
+
+    border: 2px solid transparent;
   }
 `;
