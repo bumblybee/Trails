@@ -92,7 +92,9 @@ const TrailPage = () => {
                 >
                   {trail.difficulty && trail.difficulty.charAt(0).toUpperCase()}
                 </div>
-                <span>{trail.difficulty} difficulty</span>
+                <span>
+                  {trail.difficulty !== "unknown" && trail.difficulty}
+                </span>
               </sc.StyledIcon>
               <sc.StyledIcon>
                 <FaRoute />

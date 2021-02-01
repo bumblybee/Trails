@@ -62,16 +62,12 @@ export const StyledIconsContainer = styled.div`
 
 export const StyledIcon = styled.div`
   display: flex;
-
-  /* span {
-    text-transform: capitalize;
-  } */
+  color: #999;
 
   svg,
   div {
     margin-right: 1rem;
   }
-  /* justify-content: space-around; */
 `;
 
 export const StyledButtonContainer = styled.div`
@@ -87,14 +83,14 @@ export const StyledButtonContainer = styled.div`
     border: 2px solid transparent;
     border-radius: 6px;
     color: #fff;
-    background: ${(props) => (props.user ? "#ccc" : "#eceeed")};
+    background: ${(props) => (props.user ? "#a5b8a4" : "#eceeed")};
 
     :hover {
       cursor: pointer;
       background: ${(props) => (props.user ? "#fff" : "")};
       border: ${(props) =>
-        props.user ? "2px solid #ccc" : "2px solid transparent"};
-      color: ${(props) => (props.user ? "#ccc" : "#fff")};
+        props.user ? "2px solid #a5b8a4" : "2px solid transparent"};
+      color: ${(props) => (props.user ? "#a5b8a4" : "#fff")};
     }
 
     :last-child {
