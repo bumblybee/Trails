@@ -101,7 +101,9 @@ const TrailPage = () => {
           <sc.StyledButtonContainer>
             <button>upload photo</button>
             <button>request edit</button>
-            <button>bookmark</button>
+            <button>
+              <FaRegBookmark /> Bookmark
+            </button>
           </sc.StyledButtonContainer>
         </sc.StyledFloatingCard>
         <h5>

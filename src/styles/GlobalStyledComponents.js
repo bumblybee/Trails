@@ -71,6 +71,9 @@ export const StyledSearchButton = styled.button`
 
   :active {
     color: #fff;
+    background: #fe7762;
+
+    border: 2px solid transparent;
   }
 `;
 
@@ -142,17 +145,20 @@ export const StyledUserForm = styled.form`
   }
 
   button {
-    padding: 14px 0;
+    padding: 10px 0;
     width: 70%;
     background: #fe7762;
     color: #fff;
-    border: none;
+    font-weight: bold;
+    border: 2px solid transparent;
     outline: none;
     border-radius: 4px;
 
     :hover {
       cursor: pointer;
-      background: #fe9787;
+      background: #fff;
+      color: #fe7762;
+      border: 2px solid #fe7762;
     }
 
     :active {
