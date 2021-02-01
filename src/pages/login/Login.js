@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { loginUser } from "../../api/userApi";
 import { ErrorContext } from "../../context/error/ErrorContext";
 import { UserContext } from "../../context/user/UserContext";
@@ -7,6 +7,7 @@ import * as sc from "../../styles/GlobalStyledComponents";
 
 const Login = () => {
   const history = useHistory();
+
   const { setError } = useContext(ErrorContext);
   const { setUser } = useContext(UserContext);
   const [userDetails, setUserDetails] = useState({
@@ -16,10 +17,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const login = await loginUser(userDetails);
-    setUser(login.data);
-
-    login && login.error ? setError(login.error) : history.goBack();
+    const user = await loginUser(userDetails);
+    user.id && setUser(user.data);
+    console.log(user);
+    if (user.error) {
+      setError(user.error);
+    } else {
+      history.goBack();
+    }
   };
 
   return (
