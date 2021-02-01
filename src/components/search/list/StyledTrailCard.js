@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 export const StyledCardLinkWrapper = styled(Link)`
   text-decoration: none;
   color: #34423b;
+  :not(:last-child) {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const StyledCard = styled.li`
@@ -13,10 +16,6 @@ export const StyledCard = styled.li`
   border-radius: 6px;
 
   position: relative;
-
-  :not(:last-child) {
-    margin-bottom: 0.8rem;
-  }
 
   :hover {
     cursor: pointer;
