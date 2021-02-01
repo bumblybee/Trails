@@ -24,9 +24,19 @@ export const StyledTrailPageContainer = styled.div`
 
   p {
     margin-top: 4rem;
-    width: 68%;
+    width: 64%;
     line-height: 1.5;
   }
+`;
+
+export const StyledFloatingCardContainer = styled.div`
+  position: absolute;
+  right: 2.5rem;
+  top: -2.5rem;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
 `;
 
 export const StyledFloatingCard = styled.div`
@@ -34,50 +44,72 @@ export const StyledFloatingCard = styled.div`
   border-radius: 6px;
   background: #fff;
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
+  padding: 2.5rem;
+  width: 300px;
 
-  position: absolute;
-  right: 1.7rem;
-  top: -3rem;
-  z-index: 10;
+  span {
+    font-size: 0.95rem;
+    color: #99a29e;
+  }
 `;
 
-export const StyledIconContainer = styled.div`
-  padding: 2rem 2rem 0;
+export const StyledIconsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 3rem;
+  grid-template-columns: 1fr;
+  grid-gap: 1.5rem;
+  font-size: 1.25rem;
+`;
+
+export const StyledIcon = styled.div`
+  display: flex;
+
+  /* span {
+    text-transform: capitalize;
+  } */
+
+  svg,
+  div {
+    margin-right: 1rem;
+  }
+  /* justify-content: space-around; */
 `;
 
 export const StyledButtonContainer = styled.div`
-  padding: 0 2rem 2rem;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 0.5rem;
+  grid-gap: 0.75rem;
 
   button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
+    padding: 10px;
     border: 2px solid transparent;
     border-radius: 6px;
     color: #fff;
-    background: #ccc;
+    background: ${(props) => (props.user ? "#ccc" : "#eceeed")};
 
     :hover {
       cursor: pointer;
-      background: #fff;
-      border: 2px solid #ccc;
-      color: #ccc;
+      background: ${(props) => (props.user ? "#fff" : "")};
+      border: ${(props) =>
+        props.user ? "2px solid #ccc" : "2px solid transparent"};
+      color: ${(props) => (props.user ? "#ccc" : "#fff")};
     }
 
     :last-child {
-      background: #fe7762;
+      background: ${(props) => (props.user ? "#fe7762" : "#eceeed")};
+
       :hover {
-        background: #fff;
-        border: 2px solid #fe7762;
-        color: #fe7762;
+        background: ${(props) => (props.user ? "#fff" : "")};
+        border: ${(props) =>
+          props.user ? "2px solid #fe7762" : "2px solid transparent"};
+        color: ${(props) => (props.user ? "#fe7762" : "#fff")};
       }
+    }
+
+    svg {
+      margin-right: 0.5rem;
     }
   }
 `;
@@ -96,5 +128,5 @@ export const StyledImage = styled.img`
 export const StyledBorder = styled.hr`
   margin: 1rem 0 2rem;
   border: 1px solid #b9c8b8;
-  width: 67%;
+  width: 64%;
 `;
