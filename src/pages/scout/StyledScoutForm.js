@@ -144,13 +144,17 @@ export const StyledFormButton = styled.button`
   margin-right: 0.5rem;
   background: ${(props) => (props.submitButton ? "#fe7762" : "#a5b8a4")};
   color: #fff;
-  border: none;
+  border: 2px solid transparent;
   outline: none;
   border-radius: 6px;
 
   :hover {
     cursor: pointer;
-    background: ${(props) => (props.submitButton ? "#fe9787" : "#b9c8b8")};
+
+    background: #fff;
+    color: ${(props) => (props.submitButton ? "#fe7762" : "#a5b8a4")};
+    border: ${(props) =>
+      props.submitButton ? "2px solid #fe7762" : "2px solid #a5b8a4"};
   }
 
   :active {
