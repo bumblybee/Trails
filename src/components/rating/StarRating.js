@@ -2,7 +2,7 @@ import React from "react";
 
 import { StyledStarRatingComponent, StyledStar } from "./StyledStar";
 
-const TrailCardStarRating = ({ rating }) => {
+const StarRating = ({ rating }) => {
   return (
     <StyledStarRatingComponent
       name={"trail-rating"}
@@ -16,4 +16,4 @@ const TrailCardStarRating = ({ rating }) => {
   );
 };
 
-export default TrailCardStarRating;
+export default StarRating;

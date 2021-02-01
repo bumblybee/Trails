@@ -4,7 +4,7 @@ import he from "he";
 import { UserContext } from "../../../context/user/UserContext";
 import { bookmarkTrail, removeBookmark } from "../../../api/userApi";
 import { randomImage } from "../../../defaultImages/randomImages";
-import TrailCardStarRating from "../../../components/rating/TrailCardStarRating";
+import StarRating from "../../../components/rating/StarRating";
 import { useHover } from "../../../hooks/useHover";
 import {
   FaRoute,
@@ -149,7 +149,7 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
             <sc.StyledIconContainer
               title={trail.rating === "0" ? "no rating" : "rating"}
             >
-              <TrailCardStarRating rating={trail.rating} />
+              <StarRating rating={trail.rating} />
             </sc.StyledIconContainer>
           </sc.StyledCardFooter>
         </sc.StyledCardContentContainer>
