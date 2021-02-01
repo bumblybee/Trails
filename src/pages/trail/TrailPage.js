@@ -65,7 +65,7 @@ const TrailPage = () => {
             <sc.StyledIconsContainer>
               <sc.StyledIcon>
                 <div
-                  title={trail.difficulty}
+                  title={`difficulty: ${trail.difficulty}`}
                   style={{
                     background:
                       trail.difficulty === "beginner"
@@ -96,6 +96,7 @@ const TrailPage = () => {
                   {trail.difficulty !== "unknown" && trail.difficulty}
                 </span>
               </sc.StyledIcon>
+              <StyledHr />
               <sc.StyledIcon>
                 <FaRoute />
 
@@ -105,6 +106,7 @@ const TrailPage = () => {
                   </span>
                 </div>
               </sc.StyledIcon>
+              <StyledHr />
 
               {trail.hiking === true && (
                 <sc.StyledIcon>
