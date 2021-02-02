@@ -61,37 +61,38 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
 
   //TODO: color rating nearly invisible if none, color other icons
   return (
-    <sc.StyledCard
-      onMouseEnter={() => setHovered(trail.id)}
-      onMouseLeave={() => setHovered({})}
-      image={trail.image}
-    >
-      <sc.StyledBookmarkIcon
-        ref={bookmarkHoverRef}
-        onClick={() => handleTrailBookmark(trail.id)}
+    <sc.StyledCardLinkWrapper to={`/trail/${trail.id}`}>
+      <sc.StyledCard
+        onMouseEnter={() => setHovered(trail.id)}
+        onMouseLeave={() => setHovered({})}
+        image={trail.image}
       >
-        {/* if local state holds bookmark or user record holds bookmark, show filled in icon */}
-        {(user && bookmarked.includes(trail.id)) ||
-        (user && user.bookmarks && user.bookmarks.includes(trail.id)) ? (
-          <FaBookmark />
-        ) : (
-          <FaRegBookmark
-            title={
-              user ? "Click to bookmark trail" : "Log in to bookmark trail"
-            }
+        <sc.StyledBookmarkIcon
+          ref={bookmarkHoverRef}
+          onClick={() => handleTrailBookmark(trail.id)}
+        >
+          {/* if local state holds bookmark or user record holds bookmark, show filled in icon */}
+          {(user && bookmarked.includes(trail.id)) ||
+          (user && user.bookmarks && user.bookmarks.includes(trail.id)) ? (
+            <FaBookmark />
+          ) : (
+            <FaRegBookmark
+              title={
+                user ? "Click to bookmark trail" : "Log in to bookmark trail"
+              }
+            />
+          )}
+        </sc.StyledBookmarkIcon>
+
+        <sc.StyledImageContainer>
+          {/* TODO: Carousel v2 */}
+
+          <sc.StyledImage
+            src={trail.image !== null ? trail.image : randomImage()}
+            alt="trail image"
           />
-        )}
-      </sc.StyledBookmarkIcon>
+        </sc.StyledImageContainer>
 
-      <sc.StyledImageContainer>
-        {/* TODO: Carousel v2 */}
-
-        <sc.StyledImage
-          src={trail.image !== null ? trail.image : randomImage()}
-          alt="trail image"
-        />
-      </sc.StyledImageContainer>
-      <sc.StyledCardLinkWrapper to={`/trail/${trail.id}`}>
         <sc.StyledCardContentContainer>
           <div>
             <h4>{he.decode(trail.name)}</h4>
@@ -152,8 +153,8 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
             </sc.StyledIconContainer>
           </sc.StyledCardFooter>
         </sc.StyledCardContentContainer>
-      </sc.StyledCardLinkWrapper>
-    </sc.StyledCard>
+      </sc.StyledCard>
+    </sc.StyledCardLinkWrapper>
   );
 });
 
