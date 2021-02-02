@@ -72,7 +72,7 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
           onClick={() => handleTrailBookmark(trail.id)}
         >
           {/* if local state holds bookmark or user record holds bookmark, show filled in icon */}
-          {(user && bookmarked.includes(trail.id)) ||
+          {(user && bookmarked.length && bookmarked.includes(trail.id)) ||
           (user && user.bookmarks && user.bookmarks.includes(trail.id)) ? (
             <FaBookmark />
           ) : (
