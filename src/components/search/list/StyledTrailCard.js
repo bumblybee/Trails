@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 export const StyledCardLinkWrapper = styled(Link)`
   text-decoration: none;
   color: #34423b;
-  display: block;
-  :not(:last-child) {
-    margin-bottom: 0.5rem;
-  }
 `;
 
 export const StyledCard = styled.li`
@@ -18,6 +14,10 @@ export const StyledCard = styled.li`
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
   position: relative;
   transition: box-shadow 0.05s ease-out;
+
+  :not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
 
   :hover {
     cursor: pointer;
@@ -89,19 +89,14 @@ export const StyledCardContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  @media (max-width: 620px) {
-    height: 100%;
-    padding: 2.5rem 2rem 1rem 2.5rem;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
+  height: 100%;
 
   h3 {
     margin-bottom: 0.2rem;
     text-transform: capitalize;
     letter-spacing: 0.08rem;
     font-family: "PT Sans", sans-serif;
+
     @media (max-width: 620px) {
       color: #fff;
       font-weight: 600;
@@ -130,6 +125,10 @@ export const StyledCardContentContainer = styled.div`
     }
 
     @media (max-width: 620px) {
+      height: 100%;
+      padding: 2.5rem 2rem 1rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
       color: #fff;
       text-shadow: 1px 1px #333;
     }
