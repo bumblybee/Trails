@@ -21,9 +21,9 @@ const Signup = () => {
     const signup = await signupUser(userDetails);
     // TODO: handle signup errors
     // TODO: reroute user to account page after creation
-    signup && signup.error ? setError(signup.error) : history.push("/");
 
     signup && setUser(signup.data);
+    signup && signup.error ? setError(signup.error) : history.push("/");
   };
 
   return (

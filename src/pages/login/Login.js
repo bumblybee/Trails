@@ -9,7 +9,7 @@ const Login = () => {
   const history = useHistory();
 
   const { setError } = useContext(ErrorContext);
-  const { setUser } = useContext(UserContext);
+  const { logUserIn } = useContext(UserContext);
   const [userDetails, setUserDetails] = useState({
     email: "",
     password: "",
@@ -17,9 +17,9 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await loginUser(userDetails);
-    user.id && setUser(user.data);
-    console.log(user);
+
+    const user = await logUserIn(userDetails);
+
     if (user.error) {
       setError(user.error);
     } else {

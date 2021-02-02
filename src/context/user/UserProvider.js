@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { getUser } from "../../api/userApi";
+import { getUser, loginUser } from "../../api/userApi";
 import { UserContext } from "./UserContext";
 
 const UserProvider = ({ children }) => {
@@ -13,6 +13,12 @@ const UserProvider = ({ children }) => {
     }
   }, []);
 
+  const logUserIn = async (userDetails) => {
+    const user = await loginUser(userDetails);
+    setUser(user.data);
+    return user;
+  };
+
   useEffect(() => {
     getCurrentUser();
   }, [getCurrentUser]);
@@ -20,7 +26,7 @@ const UserProvider = ({ children }) => {
   console.log(user);
 
   return (
-    <UserContext.Provider value={{ user, setUser, getCurrentUser }}>
+    <UserContext.Provider value={{ user, setUser, getCurrentUser, logUserIn }}>
       {children}
     </UserContext.Provider>
   );
