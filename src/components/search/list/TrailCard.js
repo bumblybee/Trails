@@ -38,17 +38,21 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
     return distance > 8 ? `${distance} miles away` : "nearby";
   };
 
-  // TODO: fix this whack ass situation - local storage?
+  // TODO: fix this whack ass situation. User data doesn't update globally when bookmarked - local storage?
 
   const handleTrailBookmark = async (trailId) => {
-    if (user && user.bookmarks.includes(trailId)) {
-      const arr = [...user.bookmarks];
-      const index = arr.indexOf(trailId);
+    const userBookmarks = [...user.bookmarks];
+    console.log(
+      `user: ${user.bookmarks}, bookmarks: ${user.bookmarks}, trailId: ${trailId}`
+    );
 
-      if (index !== -1) {
-        arr.splice(index, 1);
+    if (user && userBookmarks.includes(trailId)) {
+      const bookmarkIndex = userBookmarks.indexOf(trailId);
 
-        setBookmarked(arr);
+      if (bookmarkIndex !== -1) {
+        userBookmarks = userBookmarks.splice(bookmarkIndex, 1);
+
+        setBookmarked(userBookmarks);
       }
 
       await removeBookmark(trailId);
@@ -61,38 +65,40 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
 
   //TODO: color rating nearly invisible if none, color other icons
   return (
-    <sc.StyledCardLinkWrapper to={`/trail/${trail.id}`}>
-      <sc.StyledCard
-        onMouseEnter={() => setHovered(trail.id)}
-        onMouseLeave={() => setHovered({})}
-        image={trail.image}
+    <sc.StyledCard
+      onMouseEnter={() => setHovered(trail.id)}
+      onMouseLeave={() => setHovered({})}
+      image={trail.image}
+    >
+      <sc.StyledBookmarkIcon
+        ref={bookmarkHoverRef}
+        onClick={() => handleTrailBookmark(trail.id)}
       >
-        <sc.StyledBookmarkIcon
-          ref={bookmarkHoverRef}
-          onClick={() => handleTrailBookmark(trail.id)}
-        >
-          {/* if local state holds bookmark or user record holds bookmark, show filled in icon */}
-          {(user && bookmarked.length && bookmarked.includes(trail.id)) ||
-          (user && user.bookmarks && user.bookmarks.includes(trail.id)) ? (
-            <FaBookmark />
-          ) : (
-            <FaRegBookmark
-              title={
-                user ? "Click to bookmark trail" : "Log in to bookmark trail"
-              }
-            />
-          )}
-        </sc.StyledBookmarkIcon>
+        {/* if local state holds bookmark or user record holds bookmark, show filled in icon */}
+        {(user && bookmarked.length && bookmarked.includes(trail.id)) ||
+        (user && user.bookmarks && user.bookmarks.includes(trail.id)) ? (
+          <FaBookmark />
+        ) : (
+          <FaRegBookmark
+            title={
+              user ? "Click to bookmark trail" : "Log in to bookmark trail"
+            }
+          />
+        )}
+      </sc.StyledBookmarkIcon>
 
-        <sc.StyledImageContainer>
+      <sc.StyledImageContainer>
+        <sc.StyledCardLinkWrapper to={`/trail/${trail.id}`}>
           {/* TODO: Carousel v2 */}
 
           <sc.StyledImage
             src={trail.image !== null ? trail.image : randomImage()}
             alt="trail image"
           />
-        </sc.StyledImageContainer>
+        </sc.StyledCardLinkWrapper>
+      </sc.StyledImageContainer>
 
+      <sc.StyledCardLinkWrapper to={`/trail/${trail.id}`}>
         <sc.StyledCardContentContainer>
           <div>
             <h4>{he.decode(trail.name)}</h4>
@@ -153,8 +159,8 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
             </sc.StyledIconContainer>
           </sc.StyledCardFooter>
         </sc.StyledCardContentContainer>
-      </sc.StyledCard>
-    </sc.StyledCardLinkWrapper>
+      </sc.StyledCardLinkWrapper>
+    </sc.StyledCard>
   );
 });
 
