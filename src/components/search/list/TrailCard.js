@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import he from "he";
 import { UserContext } from "../../../context/user/UserContext";
 import { bookmarkTrail, removeBookmark } from "../../../api/userApi";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { randomImage } from "../../../defaultImages/randomImages";
 import StarRating from "../../../components/rating/StarRating";
 import { useHover } from "../../../hooks/useHover";
@@ -23,7 +24,11 @@ import * as sc from "./StyledTrailCard";
 const TrailCard = React.memo(({ trail, setHovered }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
-  const [bookmarked, setBookmarked] = useState([]);
+  const [storedBookmarks, setStoredBookmarks] = useLocalStorage(
+    "bookmarkedTrails",
+    []
+  );
+  const [localBookmarks, setLocalBookmarks] = useState([]);
 
   const countChars = () => {
     const desc = trail.description;
@@ -41,27 +46,31 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
   // TODO: fix this whack ass situation. User data doesn't update globally when bookmarked - local storage?
 
   const handleTrailBookmark = async (trailId) => {
-    const userBookmarks = [...user.bookmarks];
-    console.log(
-      `user: ${user.bookmarks}, bookmarks: ${user.bookmarks}, trailId: ${trailId}`
-    );
+    const userBookmarks = [...storedBookmarks];
 
     if (user && userBookmarks.includes(trailId)) {
-      const bookmarkIndex = userBookmarks.indexOf(trailId);
+      let bookmarkIndex = userBookmarks.indexOf(trailId);
 
       if (bookmarkIndex !== -1) {
-        userBookmarks = userBookmarks.splice(bookmarkIndex, 1);
+        userBookmarks.splice(bookmarkIndex, 1);
 
-        setBookmarked(userBookmarks);
+        setStoredBookmarks([...userBookmarks]);
       }
 
       await removeBookmark(trailId);
     } else {
       user && (await bookmarkTrail(trailId));
 
-      user && setBookmarked([...bookmarked, trail.id]);
+      user && setStoredBookmarks([...storedBookmarks, trailId]);
+
+      user && setLocalBookmarks([...storedBookmarks]);
     }
   };
+
+  useEffect(() => {
+    user && setStoredBookmarks(user.bookmarks);
+    user && setLocalBookmarks(storedBookmarks);
+  }, []);
 
   //TODO: color rating nearly invisible if none, color other icons
   return (
@@ -75,8 +84,7 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
         onClick={() => handleTrailBookmark(trail.id)}
       >
         {/* if local state holds bookmark or user record holds bookmark, show filled in icon */}
-        {(user && bookmarked.length && bookmarked.includes(trail.id)) ||
-        (user && user.bookmarks && user.bookmarks.includes(trail.id)) ? (
+        {user && storedBookmarks && storedBookmarks.includes(trail.id) ? (
           <FaBookmark />
         ) : (
           <FaRegBookmark
