@@ -6,16 +6,16 @@ import React, {
   useContext,
 } from "react";
 
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { useLocalStorage } from "../../../../hooks/useLocalStorage";
 
 import MapSearchbar from "./MapSearchbar";
 
 import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
 
-import mapStyles from "../../../styles/mapStyles";
+import mapStyles from "../../../../styles/mapStyles";
 import * as sc from "./StyledMap";
 
-import { SearchContext } from "../../../context/search/SearchContext";
+import { SearchContext } from "../../../../context/search/SearchContext";
 
 // TODO: google dev - setup uri for key after deploy
 // TODO: Pan map and call api search when user moves map
