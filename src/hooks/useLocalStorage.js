@@ -13,7 +13,10 @@ const getSavedValue = (key, initialValue) => {
 
 export const useLocalStorage = (key, initialValue) => {
   const [value, setValue] = useState(() => {
-    return getSavedValue(key, initialValue);
+    // Check if in browser window and not running code on server
+    if (typeof window !== undefined) {
+      return getSavedValue(key, initialValue);
+    }
   });
 
   useEffect(() => {

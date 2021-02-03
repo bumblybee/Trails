@@ -35,5 +35,5 @@ export const bookmarkTrail = async (trailId) => {
 
 export const removeBookmark = async (trailId) => {
   const res = await post(`/users/remove-bookmark/${trailId}`);
-  return res;
+  return res.data;
 };

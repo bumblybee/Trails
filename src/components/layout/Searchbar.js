@@ -15,7 +15,10 @@ import * as sc from "./StyledSearchbar";
 const Searchbar = () => {
   const history = useHistory();
   const [coords, setCoords] = useLocalStorage("coords", {});
-  const [searchTerm, setSearchTerm] = useLocalStorage("search", {});
+  const [locationSearch, setLocationSearch] = useLocalStorage(
+    "location_search",
+    ""
+  );
   const { searchTrails } = useContext(SearchContext);
 
   const {
@@ -29,7 +32,7 @@ const Searchbar = () => {
   const handleSelect = async (address) => {
     setValue(address, false);
     //store search value in context to use in map
-    setSearchTerm(address);
+    setLocationSearch(address);
     clearSuggestions();
 
     try {
