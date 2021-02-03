@@ -30,7 +30,7 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
   );
   const [localBookmarkState, setLocalBookmarkState] = useState([]);
 
-  const countChars = () => {
+  const shouldTruncateDescription = () => {
     const desc = trail.description;
     if (desc.length >= 170) {
       return true;
@@ -111,7 +111,7 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
               {trail.city}, {trail.state} -
               <span> {calcDistanceFromSearchLocation()}</span>
             </h5>
-            {countChars() ? (
+            {shouldTruncateDescription() ? (
               <p>{he.decode(trail.description).substring(0, 172)}...</p>
             ) : (
               <p>{he.decode(trail.description)}</p>
