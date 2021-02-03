@@ -14,7 +14,7 @@ import HoverProvider from "./context/hover/HoverProvider";
 import Error from "./components/error/Error";
 import Nav from "./components/layout/nav/Nav";
 import Landing from "./pages/landing/Landing";
-import SearchPage from "./pages/search/SearchPage";
+import MapView from "./pages/map_view/MapView";
 import TrailPage from "./pages/trail/TrailPage";
 import ScoutTrailForm from "./pages/scout/ScoutTrailForm";
 import Signup from "./pages/signup/Signup";
@@ -51,7 +51,7 @@ function App() {
                     <PasswordResetRequest />
                   </Route>
                   <Route path="/search" exact>
-                    <SearchPage />
+                    <MapView />
                   </Route>
                   <Route path="/trail/:id" exact>
                     <TrailPage />
