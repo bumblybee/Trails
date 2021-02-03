@@ -6,7 +6,7 @@ import usePlacesAutoComplete, {
 import { Combobox, ComboboxPopover } from "@reach/combobox";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { SearchContext } from "../../../context/search/SearchContext";
-import Filter from "../../layout/Filter";
+import Filter from "../../layout/search_filter/Filter";
 import * as sc from "./StyledMap";
 
 const MapSearchbar = () => {

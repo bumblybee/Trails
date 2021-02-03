@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { useClickOutsideMenu } from "../../hooks/useClickOutsideMenu";
-import { ErrorContext } from "../../context/error/ErrorContext";
-import { UserContext } from "../../context/user/UserContext";
-import { SearchContext } from "../../context//search/SearchContext";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { logoutUser } from "../../api/userApi";
+import { useClickOutsideMenu } from "../../../hooks/useClickOutsideMenu";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { ErrorContext } from "../../../context/error/ErrorContext";
+import { UserContext } from "../../../context/user/UserContext";
+import { SearchContext } from "../../../context/search/SearchContext";
+
+import { logoutUser } from "../../../api/userApi";
 import * as sc from "./StyledNavMenu";
 
 // Todo:  Move setSearchTerm out of local storage and into context so title refreshes when location changes

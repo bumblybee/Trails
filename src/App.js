@@ -12,7 +12,7 @@ import ErrorProvider from "./context/error/ErrorProvider";
 import HoverProvider from "./context/hover/HoverProvider";
 
 import Error from "./components/error/Error";
-import Nav from "./components/layout/Nav";
+import Nav from "./components/layout/nav/Nav";
 import Landing from "./pages/landing/Landing";
 import SearchPage from "./pages/search/SearchPage";
 import TrailPage from "./pages/trail/TrailPage";

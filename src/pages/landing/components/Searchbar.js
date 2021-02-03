@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
 import { Combobox } from "@reach/combobox";
-import { SearchContext } from "../../context/search/SearchContext";
-import Filter from "./Filter";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { SearchContext } from "../../../context/search/SearchContext";
+import Filter from "../../../components/layout/search_filter/Filter";
 import { FaSearch } from "react-icons/fa";
-import { StyledSearchButton } from "../../styles/GlobalStyledComponents";
+import { StyledSearchButton } from "../../../styles/GlobalStyledComponents";
 import * as sc from "./StyledSearchbar";
 
 const Searchbar = () => {
