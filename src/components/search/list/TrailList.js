@@ -4,7 +4,7 @@ import { SearchContext } from "../../../context/search/SearchContext";
 import TrailCard from "./TrailCard";
 import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
-const TrailList = ({ setHovered }) => {
+const TrailList = ({ setHoveredCard }) => {
   const { trails } = useContext(SearchContext);
   const [locationSearch] = useLocalStorage("location_search");
 
@@ -23,7 +23,11 @@ const TrailList = ({ setHovered }) => {
         </StyledTrailListHeader>
         {trails &&
           trails.map((trail, index) => (
-            <TrailCard key={index} trail={trail} setHovered={setHovered} />
+            <TrailCard
+              key={index}
+              trail={trail}
+              setHoveredCard={setHoveredCard}
+            />
           ))}
       </StyledTrailList>
     </div>

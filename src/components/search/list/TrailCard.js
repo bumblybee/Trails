@@ -21,7 +21,7 @@ import * as sc from "./StyledTrailCard";
 // TODO: Size and color icons
 // TODO: check if need he decode now that using regex on server side
 
-const TrailCard = React.memo(({ trail, setHovered }) => {
+const TrailCard = React.memo(({ trail, setHoveredCard }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
   const [storedBookmarks, setStoredBookmarks] = useLocalStorage(
@@ -71,15 +71,15 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
   //TODO: color rating nearly invisible if none, color other icons
   return (
     <sc.StyledCard
-      onMouseEnter={() => setHovered(trail.id)}
-      onMouseLeave={() => setHovered({})}
+      onMouseEnter={() => setHoveredCard(trail.id)}
+      onMouseLeave={() => setHoveredCard({})}
       image={trail.image}
     >
       <sc.StyledBookmarkIcon
         ref={bookmarkHoverRef}
         onClick={() => handleTrailBookmark(trail.id)}
       >
-        {/* if local state holds bookmark or user record holds bookmark, show filled in icon */}
+        {/* if storedBookmarks includes trail id, solid icon*/}
         {user && storedBookmarks && storedBookmarks.includes(trail.id) ? (
           <FaBookmark />
         ) : (
