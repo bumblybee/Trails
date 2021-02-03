@@ -51,9 +51,10 @@ export const StyledComboList = styled(ComboboxList)`
   background: #fffeff;
   width: 369px;
   padding: 0.5rem 0;
-  transform: translateX(-7.9%) translateY(6%);
+  transform: translateX(-7.9%) translateY(7%);
   font-size: 0.95rem;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
 `;
 
 export const StyledComboboxOption = styled(ComboboxOption)`
