@@ -53,18 +53,19 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
         setLocalBookmarkState([...storedBookmarks]);
       } else {
         // If trailId doesn't exist, add it
-        const res = user && (await bookmarkTrail(trailId));
+        const res = await bookmarkTrail(trailId);
 
         setStoredBookmarks([...res]);
-
         setLocalBookmarkState([...storedBookmarks]);
       }
     }
   };
 
   useEffect(() => {
-    user && setStoredBookmarks([...user.bookmarks]);
-    user && setLocalBookmarkState([...storedBookmarks]);
+    if (user) {
+      !storedBookmarks.length && setStoredBookmarks([...user.bookmarks]);
+      setLocalBookmarkState([...storedBookmarks]);
+    }
   }, []);
 
   //TODO: color rating nearly invisible if none, color other icons
