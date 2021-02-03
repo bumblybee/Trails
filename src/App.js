@@ -16,7 +16,7 @@ import Nav from "./components/layout/nav/Nav";
 import Landing from "./pages/landing/Landing";
 import MapView from "./pages/map_view/MapView";
 import TrailPage from "./pages/trail/TrailPage";
-import ScoutTrailForm from "./pages/scout/ScoutTrailForm";
+import ScoutTrailForm from "./pages/scout_trail/ScoutTrailForm";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import PasswordResetRequest from "./pages/passwordReset/PasswordResetRequest";
