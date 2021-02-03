@@ -31,7 +31,7 @@ const mapContainerStyle = {
   height: "100%",
 };
 
-const Map = ({ hovered }) => {
+const Map = ({ hoveredCard }) => {
   const { trails, searchTrails } = useContext(SearchContext);
 
   const [markers, setMarkers] = useState([]);
@@ -107,7 +107,7 @@ const Map = ({ hovered }) => {
             position={{ lat: marker.lat, lng: marker.lng }}
             icon={{
               url:
-                hovered === marker.id
+                hoveredCard === marker.id
                   ? "/assets/hoveredMarker.svg"
                   : "/assets/marker.svg",
               scaledSize: new window.google.maps.Size(30, 30),

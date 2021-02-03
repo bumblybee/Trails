@@ -8,14 +8,14 @@ import * as sc from "./StyledSearchPage";
 const Search = () => {
   const { loading } = useContext(SearchContext);
   // Handles highlighting of marker on map
-  const [hovered, setHovered] = useState({});
+  const [hoveredCard, setHoveredCard] = useState({});
 
   if (loading) return "Loading...";
   return (
     <sc.StyledSearchContainer>
-      <TrailList className="list" setHovered={setHovered} />
+      <TrailList className="list" setHoveredCard={setHoveredCard} />
 
-      <Map className="map" hovered={hovered} />
+      <Map className="map" hoveredCard={hoveredCard} />
     </sc.StyledSearchContainer>
   );
 };
