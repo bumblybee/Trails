@@ -93,7 +93,7 @@ const Map = ({ hoveredCard }) => {
       <GoogleMap
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
-        zoom={markers.length > 0 ? 8.1 : 6}
+        zoom={markers.length > 0 ? 8.25 : 6}
         center={coords}
         onDragEnd={handleMapDrag}
         options={options}
