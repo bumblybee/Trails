@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import TrailList from "../../components/search/list/TrailList";
+import TrailList from "./components/trail_list/TrailList";
 import Map from "./components/map/Map";
 
 import { SearchContext } from "../../context/search/SearchContext";

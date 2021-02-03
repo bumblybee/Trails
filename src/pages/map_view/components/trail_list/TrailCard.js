@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 
 import he from "he";
-import { UserContext } from "../../../context/user/UserContext";
-import { bookmarkTrail, removeBookmark } from "../../../api/userApi";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
-import { randomImage } from "../../../defaultImages/randomImages";
-import StarRating from "../../../components/rating/StarRating";
-import { useHover } from "../../../hooks/useHover";
+import { UserContext } from "../../../../context/user/UserContext";
+import { bookmarkTrail, removeBookmark } from "../../../../api/userApi";
+import { useLocalStorage } from "../../../../hooks/useLocalStorage";
+import { randomImage } from "../../../../defaultImages/randomImages";
+import StarRating from "../../../../components/rating/StarRating";
+import { useHover } from "../../../../hooks/useHover";
 import {
   FaRoute,
   FaBookmark,

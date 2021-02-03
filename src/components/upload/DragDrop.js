@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import { ErrorContext } from "../../context/error/ErrorContext";
 import { FaCloudUploadAlt, FaImage } from "react-icons/fa";
-import * as sc from "../../pages/scout/StyledScoutForm";
+import * as sc from "../../pages/scout_trail/StyledScoutForm";
 
 const DragDrop = ({ setImage, preview, setPreview }) => {
   const { setError } = useContext(ErrorContext);
