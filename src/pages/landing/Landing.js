@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import Searchbar from "../../components/layout/Searchbar";
+import React from "react";
+import Searchbar from "./components/Searchbar";
 
 import * as sc from "./StyledLanding";
 

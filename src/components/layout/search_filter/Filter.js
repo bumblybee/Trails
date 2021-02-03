@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "react-dropdown/style.css";
 import { StyledFilter } from "./StyledFilter";
-import { SearchContext } from "../../context/search/SearchContext";
+import { SearchContext } from "../../../context/search/SearchContext";
 
 const options = ["hiking", "biking", "none"];
 
