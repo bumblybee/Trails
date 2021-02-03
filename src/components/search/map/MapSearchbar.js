@@ -12,7 +12,10 @@ import * as sc from "./StyledMap";
 const MapSearchbar = () => {
   const { trails, searchTrails } = useContext(SearchContext);
   const [coords, setCoords] = useLocalStorage("coords", {});
-  const [searchTerm, setSearchTerm] = useLocalStorage("search", {});
+  const [locationSearch, setLocationSearch] = useLocalStorage(
+    "location_search",
+    ""
+  );
 
   // usePlacesAutoComplete options
   const requestOptions = trails.length && {
@@ -39,7 +42,7 @@ const MapSearchbar = () => {
         onSelect={async (address) => {
           setValue(address, false);
           //store address in context
-          setSearchTerm(address);
+          setLocationSearch(address);
           clearSuggestions();
           try {
             //get geo of address user passes in

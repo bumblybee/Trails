@@ -28,6 +28,7 @@ const TrailPage = () => {
   const getTrailData = async () => {
     const trailData = await getSingleTrail(id);
     setTrail(trailData);
+    console.log(trail);
   };
 
   const breakLongDescription = (trail) => {
@@ -49,7 +50,7 @@ const TrailPage = () => {
   useEffect(() => {
     getTrailData();
   }, []);
-  console.log(user);
+
   return (
     <sc.StyledTrailPageWrapper>
       <sc.StyledImageContainer>

@@ -6,7 +6,7 @@ import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
 const TrailList = ({ setHovered }) => {
   const { trails } = useContext(SearchContext);
-  const [searchTerm] = useLocalStorage("search");
+  const [locationSearch] = useLocalStorage("location_search");
 
   return (
     <div>
@@ -14,7 +14,8 @@ const TrailList = ({ setHovered }) => {
         <StyledTrailListHeader>
           {trails.length ? (
             <h3>
-              Trails near {searchTerm.substring(0, searchTerm.length - 5)}
+              Trails near{" "}
+              {locationSearch.substring(0, locationSearch.length - 5)}
             </h3>
           ) : (
             <h1>Search a location...</h1>

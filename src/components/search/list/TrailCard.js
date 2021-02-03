@@ -16,19 +16,19 @@ import {
 } from "react-icons/fa";
 
 import * as sc from "./StyledTrailCard";
-//!!: Handle bookmark hover in a way that isn't re-rendering
-//TODO: Difficulty icons colors
-//TODO: Size and color icons
-//TODO: check if need he decode now that using regex on server side
+// !!: Handle bookmark hover in a way that isn't re-rendering
+// TODO: Difficulty icons colors
+// TODO: Size and color icons
+// TODO: check if need he decode now that using regex on server side
 
 const TrailCard = React.memo(({ trail, setHovered }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
   const [storedBookmarks, setStoredBookmarks] = useLocalStorage(
-    "bookmarkedTrails",
+    "stored_bookmarks",
     []
   );
-  const [localBookmarks, setLocalBookmarks] = useState([]);
+  const [localBookmarkState, setLocalBookmarkState] = useState([]);
 
   const countChars = () => {
     const desc = trail.description;
@@ -43,33 +43,28 @@ const TrailCard = React.memo(({ trail, setHovered }) => {
     return distance > 8 ? `${distance} miles away` : "nearby";
   };
 
-  // TODO: fix this whack ass situation. User data doesn't update globally when bookmarked - local storage?
-
   const handleTrailBookmark = async (trailId) => {
-    const userBookmarks = [...storedBookmarks];
+    if (user) {
+      // If trailId already exists, remove it
+      if (storedBookmarks.includes(trailId)) {
+        const res = await removeBookmark(trailId);
 
-    if (user && userBookmarks.includes(trailId)) {
-      let bookmarkIndex = userBookmarks.indexOf(trailId);
+        setStoredBookmarks([...res]);
+        setLocalBookmarkState([...storedBookmarks]);
+      } else {
+        // If trailId doesn't exist, add it
+        const res = user && (await bookmarkTrail(trailId));
 
-      if (bookmarkIndex !== -1) {
-        userBookmarks.splice(bookmarkIndex, 1);
+        setStoredBookmarks([...res]);
 
-        setStoredBookmarks([...userBookmarks]);
+        setLocalBookmarkState([...storedBookmarks]);
       }
-
-      await removeBookmark(trailId);
-    } else {
-      user && (await bookmarkTrail(trailId));
-
-      user && setStoredBookmarks([...storedBookmarks, trailId]);
-
-      user && setLocalBookmarks([...storedBookmarks]);
     }
   };
 
   useEffect(() => {
-    user && setStoredBookmarks(user.bookmarks);
-    user && setLocalBookmarks(storedBookmarks);
+    user && setStoredBookmarks([...user.bookmarks]);
+    user && setLocalBookmarkState([...storedBookmarks]);
   }, []);
 
   //TODO: color rating nearly invisible if none, color other icons

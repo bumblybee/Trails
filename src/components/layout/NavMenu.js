@@ -17,7 +17,10 @@ const NavMenu = ({ closeMenu }) => {
   const { searchTrails } = useContext(SearchContext);
 
   const [coords, setCoords] = useLocalStorage("coords", {});
-  const [searchTerm, setSearchTerm] = useLocalStorage("search", {});
+  const [locationSearch, setLocationSearch] = useLocalStorage(
+    "location_search",
+    ""
+  );
 
   const menuRef = useClickOutsideMenu(() => closeMenu());
 
@@ -56,7 +59,7 @@ const NavMenu = ({ closeMenu }) => {
     const address = data.results[0].address_components;
     const formattedAddress = `${address[2].short_name}, ${address[4].short_name}, USA`;
 
-    setSearchTerm(formattedAddress);
+    setLocationSearch(formattedAddress);
   };
 
   return (
