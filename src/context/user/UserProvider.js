@@ -8,7 +8,7 @@ const UserProvider = ({ children }) => {
   const getCurrentUser = useCallback(async () => {
     const userData = await getUser();
 
-    if (!userData.error) {
+    if (userData && !userData.error) {
       setUser(userData.data.user);
     }
   }, []);

@@ -17,7 +17,7 @@ import {
 
 import * as sc from "./StyledTrailCard";
 // !!: Handle bookmark hover in a way that isn't re-rendering
-// TODO: Difficulty icons colors
+
 // TODO: Size and color icons
 // TODO: check if need he decode now that using regex on server side
 
@@ -44,6 +44,8 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
   };
 
   const handleTrailBookmark = async (trailId) => {
+    // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
+
     if (user) {
       // If trailId already exists, remove it
       if (storedBookmarks.includes(trailId)) {
