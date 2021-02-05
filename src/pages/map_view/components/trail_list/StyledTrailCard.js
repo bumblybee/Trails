@@ -43,7 +43,7 @@ export const StyledBookmarkIcon = styled.div`
   top: 0.5rem;
   left: 0.5rem;
   color: #fe7762;
-  font-size: 1.4rem;
+  font-size: 1.45rem;
 
   :hover {
     cursor: pointer;
