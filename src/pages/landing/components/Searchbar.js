@@ -19,7 +19,9 @@ const Searchbar = () => {
     "location_search",
     ""
   );
-  const { searchTrails } = useContext(SearchContext);
+  const { searchTrails, searchLocation, setSearchLocation } = useContext(
+    SearchContext
+  );
 
   const {
     ready,
@@ -32,19 +34,23 @@ const Searchbar = () => {
   const handleSelect = async (address) => {
     setValue(address, false);
     //store search value in context to use in map
-    setLocationSearch(address);
     clearSuggestions();
+    console.log(address);
 
     try {
       //get geo of address user passes in
       const results = await getGeocode({ address });
-
       // grab lat and lng from first result
       const { lat, lng } = await getLatLng(results[0]);
+
+      const city = address.split(",")[0];
+      const state = address.split(", ")[1];
+      setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
+
       //set local storage coords
       setCoords({ lat, lng });
       //call api
-      await searchTrails(lat, lng);
+      await searchTrails(lat, lng, city, state);
     } catch (err) {
       console.log(err);
     }
@@ -81,7 +87,9 @@ const Searchbar = () => {
           <Filter />
           <StyledSearchButton
             onClick={() => {
-              history.push("/search");
+              history.push(
+                `/search?city=${searchLocation.city}&state=${searchLocation.state}&lat=${searchLocation.lat}&lng=${searchLocation.lng}`
+              );
             }}
           >
             <FaSearch />

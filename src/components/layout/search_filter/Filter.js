@@ -6,10 +6,10 @@ import { SearchContext } from "../../../context/search/SearchContext";
 const options = ["hiking", "biking", "none"];
 
 const Filter = () => {
-  const { setFilterValue } = useContext(SearchContext);
+  const { setSearchFilterValue } = useContext(SearchContext);
 
   const handleSelect = (option) => {
-    setFilterValue(option.value);
+    setSearchFilterValue(option.value);
     console.log(option.value);
   };
 
