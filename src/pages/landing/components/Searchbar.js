@@ -88,7 +88,7 @@ const Searchbar = () => {
           <StyledSearchButton
             onClick={() => {
               history.push(
-                `/search?city=${searchLocation.city}&state=${searchLocation.state}&lat=${searchLocation.lat}&lng=${searchLocation.lng}`
+                `/search?city=${searchLocation.city}&state=${searchLocation.state}&lat=${searchLocation.coords.lat}&lng=${searchLocation.coords.lng}`
               );
             }}
           >
