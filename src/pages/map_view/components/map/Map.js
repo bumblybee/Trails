@@ -6,19 +6,16 @@ import React, {
   useContext,
 } from "react";
 
-import { useLocalStorage } from "../../../../hooks/useLocalStorage";
-
-import MapSearchbar from "./MapSearchbar";
-
+import { useLocation, useHistory } from "react-router-dom";
 import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
-
-import mapStyles from "../../../../styles/mapStyles";
-import * as sc from "./StyledMap";
 
 import { SearchContext } from "../../../../context/search/SearchContext";
 
+import mapStyles from "../../../../styles/mapStyles";
+import MapSearchbar from "./MapSearchbar";
+import * as sc from "./StyledMap";
+
 // TODO: google dev - setup uri for key after deploy
-// TODO: On map drag, update url
 
 const options = {
   styles: mapStyles,
@@ -32,11 +29,19 @@ const mapContainerStyle = {
 };
 
 const Map = ({ hoveredCard }) => {
+  const history = useHistory();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const city = query.get("city");
+  const state = query.get("state");
+  const coords = {
+    lat: Number(query.get("lat")),
+    lng: Number(query.get("lng")),
+  };
+
   const { trails, searchTrails } = useContext(SearchContext);
 
   const [markers, setMarkers] = useState([]);
-  const [coords, setCoords] = useLocalStorage("coords");
-
   const [selected, setSelected] = useState(null);
 
   const mapRef = useRef();
@@ -63,19 +68,23 @@ const Map = ({ hoveredCard }) => {
   }, [trails]);
 
   // When user stops dragging map, get center and call api with updated lat and lng, set markers
-  // TODO: Handle poor UX when everything re-renders
+  // TODO: Handle poor UX where everything re-renders
   const handleMapDrag = async () => {
     const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
 
-    setCoords(mapCenter);
     await searchTrails(mapCenter.lat, mapCenter.lng);
-    setTrailMarkers();
+
+    history.push(
+      `/search?city=${city}&state=${state}&lat=${mapCenter.lat}&lng=${mapCenter.lng}`
+    );
   };
 
   useEffect(() => {
     // If window reloads or user coming from another page, search trails again using local storage coords so map, markers, and cards populate
     const getTrails = async () => {
-      if (!trails.length) await searchTrails(coords.lat, coords.lng);
+      if (!trails.length) {
+        await searchTrails(coords.lat, coords.lng);
+      }
     };
 
     getTrails();
