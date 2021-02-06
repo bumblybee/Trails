@@ -35,6 +35,7 @@ export const StyledCard = styled.li`
     background-size: cover;
     background-repeat: no-repeat;
     grid-template-columns: 1fr;
+    padding: 0.25rem;
   }
 `;
 
@@ -63,8 +64,8 @@ export const StyledBookmarkIcon = styled.div`
   }
 
   @media (max-width: 620px) {
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 0.75rem;
+    right: 0.75rem;
     left: auto;
   }
 `;
@@ -101,12 +102,11 @@ export const StyledCardContentContainer = styled.div`
     margin-bottom: 0.2rem;
     text-transform: capitalize;
     letter-spacing: 0.08rem;
-    font-family: "PT Sans", sans-serif;
 
     @media (max-width: 620px) {
-      color: #fff;
+      color: #eceeedee;
       font-weight: 600;
-      text-shadow: 1px 1px #333;
+      text-shadow: 0 0 1px #99a29e;
     }
   }
 
@@ -114,12 +114,15 @@ export const StyledCardContentContainer = styled.div`
     margin-bottom: 1rem;
     text-transform: capitalize;
     color: #99a29e;
+    text-shadow: 0 0 1px #99a29e;
+
     font-weight: 300;
     font-family: "Noto Sans JP", sans-serif;
 
     @media (max-width: 620px) {
-      color: #eceeedee;
+      color: #b1ce7c;
       text-shadow: 1px 1px #333;
+      font-size: 0.875rem;
     }
   }
 
