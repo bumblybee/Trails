@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
@@ -10,12 +11,8 @@ import Filter from "../../../../components/layout/search_filter/Filter";
 import * as sc from "./StyledMap";
 
 const MapSearchbar = () => {
-  const { trails, searchTrails } = useContext(SearchContext);
-  const [coords, setCoords] = useLocalStorage("coords", {});
-  const [locationSearch, setLocationSearch] = useLocalStorage(
-    "location_search",
-    ""
-  );
+  const history = useHistory();
+  const { trails, searchTrails, setSearchLocation } = useContext(SearchContext);
 
   // usePlacesAutoComplete options
   const requestOptions = trails.length && {
@@ -42,16 +39,22 @@ const MapSearchbar = () => {
         onSelect={async (address) => {
           setValue(address, false);
           //store address in context
-          setLocationSearch(address);
+          const city = address.split(",")[0];
+          const state = address.split(", ")[1];
+
           clearSuggestions();
           try {
             //get geo of address user passes in
             const results = await getGeocode({ address });
+
             // grab lat and lng from first result
             const { lat, lng } = await getLatLng(results[0]);
-            setCoords({ lat, lng });
+            setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
             //call api
             await searchTrails(lat, lng);
+            history.push(
+              `/search?city=${city}&state=${state}&lat=${lat}&lng=${lng}`
+            );
           } catch (err) {
             console.log(err);
           }

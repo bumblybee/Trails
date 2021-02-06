@@ -29,7 +29,6 @@ const Searchbar = () => {
 
   const handleSelect = async (address) => {
     setValue(address, false);
-    //store search value in context to use in map
     clearSuggestions();
     console.log(address);
 
@@ -44,7 +43,7 @@ const Searchbar = () => {
       setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
 
       //call api
-      await searchTrails(lat, lng, city, state);
+      await searchTrails(lat, lng);
     } catch (err) {
       console.log(err);
     }

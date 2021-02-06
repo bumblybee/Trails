@@ -13,7 +13,7 @@ const SearchProvider = ({ children }) => {
   });
   const [loading, setLoading] = useState(false);
 
-  const searchTrails = async (lat, lng, city, state) => {
+  const searchTrails = async (lat, lng) => {
     setLoading(true);
 
     //TODO: add filterValue to search
@@ -23,7 +23,6 @@ const SearchProvider = ({ children }) => {
     setLoading(false);
     setSearchFilterValue(null);
     console.log(trailData);
-    console.log(searchLocation);
 
     return trailData;
   };
