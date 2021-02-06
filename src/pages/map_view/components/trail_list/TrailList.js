@@ -7,7 +7,7 @@ import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
 const TrailList = ({ setHoveredCard }) => {
   const location = useLocation();
-
+  console.log(location.search);
   const { trails, searchLocation } = useContext(SearchContext);
   // window.history.replaceState(
   //   null,

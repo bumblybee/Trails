@@ -18,7 +18,7 @@ import * as sc from "./StyledMap";
 import { SearchContext } from "../../../../context/search/SearchContext";
 
 // TODO: google dev - setup uri for key after deploy
-// TODO: Pan map and call api search when user moves map
+// TODO: On map drag, update url
 
 const options = {
   styles: mapStyles,
