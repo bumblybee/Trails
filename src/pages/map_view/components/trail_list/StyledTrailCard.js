@@ -61,6 +61,12 @@ export const StyledBookmarkIcon = styled.div`
       color: #fe7762;
     }
   }
+
+  @media (max-width: 620px) {
+    top: 0.5rem;
+    right: 0.5rem;
+    left: auto;
+  }
 `;
 
 export const StyledImageContainer = styled.div`
@@ -91,7 +97,7 @@ export const StyledCardContentContainer = styled.div`
   justify-content: space-between;
   height: 100%;
 
-  h3 {
+  h4 {
     margin-bottom: 0.2rem;
     text-transform: capitalize;
     letter-spacing: 0.08rem;
@@ -126,10 +132,11 @@ export const StyledCardContentContainer = styled.div`
 
     @media (max-width: 620px) {
       height: 100%;
-      padding: 2.5rem 2rem 1rem 2.5rem;
+      width: 100%;
+      padding: 1.5rem 0 1rem;
       display: grid;
       grid-template-columns: 1fr;
-      color: #fff;
+      color: #eceeedee;
       text-shadow: 1px 1px #333;
     }
   }
