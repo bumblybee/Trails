@@ -6,15 +6,11 @@ import TrailCard from "./TrailCard";
 import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
 const TrailList = ({ setHoveredCard }) => {
+  const { trails } = useContext(SearchContext);
   const location = useLocation();
-  console.log(location.search);
-  const { trails, searchLocation } = useContext(SearchContext);
-  // window.history.replaceState(
-  //   null,
-  //   null,
-  //   `/search?city=${searchLocation.city}&state=${searchLocation.state}&lat=${searchLocation.coords.lat}&lng=${searchLocation.coords.lng}`
-  // );
-  const [locationSearch] = useLocalStorage("location_search");
+  const query = new URLSearchParams(location.search);
+  const city = query.get("city");
+  const state = query.get("state");
 
   return (
     <div>
@@ -22,9 +18,7 @@ const TrailList = ({ setHoveredCard }) => {
         <StyledTrailListHeader>
           {trails.length ? (
             <h3>
-              Trails near{" "}
-              {/* {locationSearch.substring(0, locationSearch.length - 5)} */}
-              {searchLocation.city}, {searchLocation.state}
+              Trails near {city}, {state}
             </h3>
           ) : (
             <h1>Search a location...</h1>
