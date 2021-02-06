@@ -8,6 +8,7 @@ import React, {
 
 import { useLocation, useHistory } from "react-router-dom";
 import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
+import usePlacesAutoComplete, { getGeocode } from "use-places-autocomplete";
 
 import { SearchContext } from "../../../../context/search/SearchContext";
 
@@ -32,8 +33,7 @@ const Map = ({ hoveredCard }) => {
   const history = useHistory();
   const location = useLocation();
   const query = new URLSearchParams(location.search);
-  const city = query.get("city");
-  const state = query.get("state");
+
   const coords = {
     lat: Number(query.get("lat")),
     lng: Number(query.get("lng")),
@@ -43,6 +43,26 @@ const Map = ({ hoveredCard }) => {
 
   const [markers, setMarkers] = useState([]);
   const [selected, setSelected] = useState(null);
+
+  const reverseGeocode = async (mapCenter) => {
+    const res = await fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${mapCenter.lat},${mapCenter.lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
+    );
+
+    const data = await res.json();
+    return data;
+  };
+
+  const setQueryParamsOnDrag = async (mapCenter) => {
+    const data = await reverseGeocode(mapCenter);
+
+    const address = data.plus_code.compound_code.split(",");
+    console.log(address);
+    query.set("city", address[0].split(" ")[1]);
+    query.set("state", address[1]);
+    query.set("lat", mapCenter.lat);
+    query.set("lng", mapCenter.lng);
+  };
 
   const mapRef = useRef();
   const onMapLoad = useCallback(async (map) => {
@@ -73,10 +93,8 @@ const Map = ({ hoveredCard }) => {
     const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
 
     await searchTrails(mapCenter.lat, mapCenter.lng);
-
-    history.push(
-      `/search?city=${city}&state=${state}&lat=${mapCenter.lat}&lng=${mapCenter.lng}`
-    );
+    await setQueryParamsOnDrag(mapCenter);
+    history.push(`${location.pathname}?${query.toString()}`);
   };
 
   useEffect(() => {
@@ -102,7 +120,7 @@ const Map = ({ hoveredCard }) => {
       <GoogleMap
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
-        zoom={markers.length > 0 ? 8.25 : 6}
+        zoom={markers.length > 0 ? 8 : 6}
         center={coords}
         onDragEnd={handleMapDrag}
         options={options}
