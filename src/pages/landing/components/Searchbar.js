@@ -14,11 +14,7 @@ import * as sc from "./StyledSearchbar";
 
 const Searchbar = () => {
   const history = useHistory();
-  const [coords, setCoords] = useLocalStorage("coords", {});
-  const [locationSearch, setLocationSearch] = useLocalStorage(
-    "location_search",
-    ""
-  );
+
   const { searchTrails, searchLocation, setSearchLocation } = useContext(
     SearchContext
   );
@@ -47,8 +43,6 @@ const Searchbar = () => {
       const state = address.split(", ")[1];
       setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
 
-      //set local storage coords
-      setCoords({ lat, lng });
       //call api
       await searchTrails(lat, lng, city, state);
     } catch (err) {
