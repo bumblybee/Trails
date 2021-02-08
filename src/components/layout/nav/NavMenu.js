@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useClickOutsideMenu } from "../../../hooks/useClickOutsideMenu";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { ErrorContext } from "../../../context/error/ErrorContext";
@@ -9,21 +9,18 @@ import { SearchContext } from "../../../context/search/SearchContext";
 import { logoutUser } from "../../../api/userApi";
 import * as sc from "./StyledNavMenu";
 
-// Todo:  Move setSearchTerm out of local storage and into context so title refreshes when location changes
+// Todo:  Handle setting url when click "near me"
+// Todo: remove use of local storage
 const NavMenu = ({ closeMenu }) => {
   const history = useHistory();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+
+  const menuRef = useClickOutsideMenu(() => closeMenu());
 
   const { user, setUser } = useContext(UserContext);
   const { setError } = useContext(ErrorContext);
   const { searchTrails } = useContext(SearchContext);
-
-  const [coords, setCoords] = useLocalStorage("coords", {});
-  const [locationSearch, setLocationSearch] = useLocalStorage(
-    "location_search",
-    ""
-  );
-
-  const menuRef = useClickOutsideMenu(() => closeMenu());
 
   const handleLogout = async () => {
     await logoutUser();
@@ -31,22 +28,11 @@ const NavMenu = ({ closeMenu }) => {
     closeMenu();
   };
 
-  const findTrailsNearUser = () => {
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
-        setCoords({ lat, lng });
-        await reverseGeocode(lat, lng);
-        await searchTrails(lat, lng);
-        closeMenu();
-        history.push("/search");
-      },
-      (err) => {
-        setError("Enable location access to view trails near you.");
-        return;
-      }
-    );
+  const setQueryParams = (address, lat, lng) => {
+    query.set("city", address[0].split(" ")[1]);
+    query.set("state", address[1]);
+    query.set("lat", lat);
+    query.set("lng", lng);
   };
 
   // TODO: move api call outside of component
@@ -56,11 +42,28 @@ const NavMenu = ({ closeMenu }) => {
     );
 
     const data = await res.json();
+    const address = data.plus_code.compound_code.split(",");
 
-    const address = data.results[0].address_components;
-    const formattedAddress = `${address[2].short_name}, ${address[4].short_name}, USA`;
+    setQueryParams(address, lat, lng);
+  };
 
-    setLocationSearch(formattedAddress);
+  const findTrailsNearUser = () => {
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+
+        await reverseGeocode(lat, lng);
+        await searchTrails(lat, lng);
+
+        closeMenu();
+        history.push(`/search${location.pathname}?${query.toString()}`);
+      },
+      (err) => {
+        setError("Enable location access to view trails near you.");
+        return;
+      }
+    );
   };
 
   return (
