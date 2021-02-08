@@ -52,6 +52,7 @@ const MapSearchbar = () => {
             setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
             //call api
             await searchTrails(lat, lng);
+            // TODO: see about setting query params instead of pushing history
             history.push(
               `/search?city=${city}&state=${state}&lat=${lat}&lng=${lng}`
             );

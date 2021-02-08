@@ -53,17 +53,6 @@ const Map = ({ hoveredCard }) => {
     return data;
   };
 
-  const setQueryParamsOnDrag = async (mapCenter) => {
-    const data = await reverseGeocode(mapCenter);
-
-    const address = data.plus_code.compound_code.split(",");
-    console.log(address);
-    query.set("city", address[0].split(" ")[1]);
-    query.set("state", address[1]);
-    query.set("lat", mapCenter.lat);
-    query.set("lng", mapCenter.lng);
-  };
-
   const mapRef = useRef();
   const onMapLoad = useCallback(async (map) => {
     mapRef.current = map;
@@ -86,6 +75,17 @@ const Map = ({ hoveredCard }) => {
       ]);
     });
   }, [trails]);
+
+  const setQueryParamsOnDrag = async (mapCenter) => {
+    const data = await reverseGeocode(mapCenter);
+
+    const address = data.plus_code.compound_code.split(",");
+    console.log(address);
+    query.set("city", address[0].split(" ")[1]);
+    query.set("state", address[1]);
+    query.set("lat", mapCenter.lat);
+    query.set("lng", mapCenter.lng);
+  };
 
   // When user stops dragging map, get center and call api with updated lat and lng, set markers
   // TODO: Handle poor UX where everything re-renders
