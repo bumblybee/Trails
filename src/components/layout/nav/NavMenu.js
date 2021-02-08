@@ -57,7 +57,7 @@ const NavMenu = ({ closeMenu }) => {
         await searchTrails(lat, lng);
 
         closeMenu();
-        history.push(`/search${location.pathname}?${query.toString()}`);
+        history.push(`/search?${query.toString()}`);
       },
       (err) => {
         setError("Enable location access to view trails near you.");
