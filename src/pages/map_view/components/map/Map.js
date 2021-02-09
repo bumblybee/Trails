@@ -133,6 +133,7 @@ const Map = ({ hoveredCard }) => {
       </sc.StyledSearchOnDragCheckbox>
       <MapSearchbar />
       <GoogleMap
+        onClick={() => setSelected(null)}
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
         zoom={markers.length > 0 ? 8 : 6}
