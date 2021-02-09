@@ -1,5 +1,6 @@
 import React from "react";
 import { HashLink } from "react-router-hash-link";
+import he from "he";
 import { useLocation } from "react-router-dom";
 import { InfoWindow } from "@react-google-maps/api";
 import StarRating from "../../../../../components/rating/StarRating";
@@ -22,12 +23,12 @@ const MapMarkerPopup = ({ selected, setSelected }) => {
       }
     >
       <InfoWindow
-        position={{ lat: selected.lat, lng: selected.lng }}
+        position={{ lat: selected.lat + 0.04, lng: selected.lng - 0.02 }}
         zIndex={2000}
         onCloseClick={() => setSelected(null)}
       >
         <sc.StyledMapMarkerPopup>
-          <h3>{selected.name}</h3>
+          <h3>{he.decode(selected.name)}</h3>
           <p>
             {selected.city}, {selected.state}
           </p>

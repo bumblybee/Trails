@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 
 import he from "he";
 import { UserContext } from "../../../../context/user/UserContext";
@@ -20,7 +20,6 @@ import { removeBookmark } from "../../../../api/userApi";
 // !!: Handle bookmark hover in a way that isn't re-rendering
 
 // TODO: Size and color icons
-// TODO: check if need he decode now that using regex on server side
 
 const TrailCard = React.memo(({ trail, setHoveredCard, useBookmarks }) => {
   const [bookmarkHoverRef] = useHover();
