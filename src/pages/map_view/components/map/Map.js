@@ -7,10 +7,11 @@ import React, {
 } from "react";
 
 import { useLocation, useHistory } from "react-router-dom";
-import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
+import { GoogleMap } from "@react-google-maps/api";
 
 import { SearchContext } from "../../../../context/search/SearchContext";
-import MapMarker from "./MapMarker";
+import MapMarker from "./map_marker/MapMarker";
+import MapMarkerPopup from "./map_marker/MapMarkerPopup";
 import mapStyles from "../../../../styles/mapStyles";
 import MapSearchbar from "./MapSearchbar";
 import * as sc from "./StyledMap";
@@ -66,6 +67,9 @@ const Map = ({ hoveredCard }) => {
           lat: Number(trail.lnglat.coordinates[1]),
           lng: Number(trail.lnglat.coordinates[0]),
           name: trail.name,
+          city: trail.city,
+          state: trail.state,
+          rating: trail.rating,
           img:
             trail.image !== null
               ? trail.image
@@ -138,25 +142,10 @@ const Map = ({ hoveredCard }) => {
         {/* ---Marker Card--- */}
 
         {selected ? (
-          <InfoWindow
-            position={{ lat: selected.lat, lng: selected.lng }}
-            onCloseClick={() => setSelected(null)}
-          >
-            <div>
-              <h1 style={{ marginBottom: "0" }}>{selected.name}</h1>
-              <p>Replace me with a card that has trail details</p>
-              <img
-                style={{
-                  width: "200px",
-                  height: "150px",
-                  display: "block",
-                  margin: "0 auto",
-                }}
-                src={selected.img}
-                alt=""
-              />
-            </div>
-          </InfoWindow>
+          <MapMarkerPopup
+            selected={selected}
+            setSelected={setSelected}
+          ></MapMarkerPopup>
         ) : null}
       </GoogleMap>
     </sc.StyledMapContainer>

@@ -88,6 +88,7 @@ const TrailCard = React.memo(({ trail, setHoveredCard, useBookmarks }) => {
       onMouseEnter={() => setHoveredCard(trail.id)}
       onMouseLeave={() => setHoveredCard({})}
       image={trail.image}
+      id={trail.id}
     >
       <sc.StyledBookmarkIcon
         ref={bookmarkHoverRef}
