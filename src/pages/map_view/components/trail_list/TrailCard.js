@@ -16,17 +16,20 @@ import {
 } from "react-icons/fa";
 
 import * as sc from "./StyledTrailCard";
-import { removeBookmark } from "../../../../api/userApi";
+
 // !!: Handle bookmark hover in a way that isn't re-rendering
 
 // TODO: Size and color icons
 
-const TrailCard = React.memo(({ trail, setHoveredCard, useBookmarks }) => {
+const TrailCard = React.memo(({ trail, setHoveredCard }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
-  const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
-    BookmarkContext
-  );
+  const {
+    bookmarks,
+    setBookmarks,
+    createUserBookmark,
+    removeUserBookmark,
+  } = useContext(BookmarkContext);
 
   const shouldTruncateDescription = () => {
     const desc = trail.description;
@@ -44,9 +47,7 @@ const TrailCard = React.memo(({ trail, setHoveredCard, useBookmarks }) => {
   const handleTrailBookmark = async (id) => {
     // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
 
-    // Todo: adding bookmark taking two clicks, figure out
-
-    if (user && bookmarks[0]) {
+    if (user && bookmarks) {
       let type = "create";
 
       for (let { trailId } of bookmarks) {
@@ -67,16 +68,15 @@ const TrailCard = React.memo(({ trail, setHoveredCard, useBookmarks }) => {
 
   const renderBookmarkIcon = (id) => {
     let icon = (
-      <FaRegBookmark
-        title={user ? "Click to bookmark trail" : "Log in to bookmark trail"}
-      />
+      <FaRegBookmark title={user ? "Bookmark" : "Log in to bookmark trail"} />
     );
+
     if (bookmarks) {
-      bookmarks.forEach((bkmrk) => {
-        if (bkmrk.trailId === id) {
-          icon = <FaBookmark />;
+      for (let { trailId } of bookmarks) {
+        if (trailId === id) {
+          icon = <FaBookmark title="Remove bookmark" />;
         }
-      });
+      }
     }
     return icon;
   };
