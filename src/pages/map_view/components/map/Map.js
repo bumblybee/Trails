@@ -10,7 +10,7 @@ import { useLocation, useHistory } from "react-router-dom";
 import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
 
 import { SearchContext } from "../../../../context/search/SearchContext";
-
+import MapMarker from "./MapMarker";
 import mapStyles from "../../../../styles/mapStyles";
 import MapSearchbar from "./MapSearchbar";
 import * as sc from "./StyledMap";
@@ -79,7 +79,7 @@ const Map = ({ hoveredCard }) => {
     const data = await reverseGeocode(mapCenter);
 
     const address = data.plus_code.compound_code.split(",");
-    console.log(address);
+
     queryParams.set("city", address[0].split(" ")[1]);
     queryParams.set("state", address[1]);
     queryParams.set("lat", mapCenter.lat);
@@ -127,19 +127,11 @@ const Map = ({ hoveredCard }) => {
         {/* ---Markers--- */}
 
         {markers.map((marker, index) => (
-          <Marker
-            onClick={() => setSelected(marker)}
+          <MapMarker
             key={index}
-            position={{ lat: marker.lat, lng: marker.lng }}
-            icon={{
-              url:
-                hoveredCard === marker.id
-                  ? "/assets/hoveredMarker.svg"
-                  : "/assets/marker.svg",
-              scaledSize: new window.google.maps.Size(30, 30),
-              origin: new window.google.maps.Point(0, 0),
-              anchor: new window.google.maps.Point(18, 18),
-            }}
+            marker={marker}
+            hoveredCard={hoveredCard}
+            setSelected={setSelected}
           />
         ))}
 

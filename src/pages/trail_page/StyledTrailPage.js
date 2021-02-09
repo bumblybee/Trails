@@ -72,11 +72,9 @@ export const StyledIconsContainer = styled.div`
 
 export const StyledIcon = styled.div`
   display: flex;
-  /* padding-bottom: 0.5rem; */
 
   span {
     color: #99a29e;
-
     font-size: 0.89rem;
   }
 
@@ -88,15 +86,6 @@ export const StyledIcon = styled.div`
   svg {
     color: #abb1ad;
   }
-
-  /* .faRoute {
-    color: #fe9787;
-  }
-
-  .faHiking,
-  .faBiking {
-    color: #fe9787;
-  } */
 `;
 
 export const StyledButtonContainer = styled.div`
@@ -169,7 +158,6 @@ export const StyledBorder = styled.hr`
 `;
 
 export const StyledCardBorder = styled.hr`
-  /* margin: 1rem 0 2rem; */
   border: none;
   border-top: 2px solid #a5b8a4;
 `;
