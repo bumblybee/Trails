@@ -94,12 +94,12 @@ const Map = ({ hoveredCard }) => {
   // When user stops dragging map, get center and call api with updated lat and lng, set markers
   // TODO: Handle poor UX where everything re-renders
   const handleMapDrag = async () => {
-    if (searchOnMove) {
-      const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
+    const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
+    await setQueryParamsOnDrag(mapCenter);
+    history.push(`${location.pathname}?${queryParams.toString()}`);
 
+    if (searchOnMove) {
       await searchTrails(mapCenter.lat, mapCenter.lng);
-      await setQueryParamsOnDrag(mapCenter);
-      history.push(`${location.pathname}?${queryParams.toString()}`);
     }
   };
 
