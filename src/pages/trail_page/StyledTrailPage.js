@@ -31,7 +31,7 @@ export const StyledTrailPageContainer = styled.div`
   }
 `;
 
-export const StyledFloatingCardContainer = styled.div`
+export const StyledFloatingCardsContainer = styled.div`
   position: absolute;
   right: 7%;
   top: -2.5rem;
@@ -59,14 +59,25 @@ export const StyledIconsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1rem;
+  text-transform: capitalize;
   font-size: 1.25rem;
+
+  .icon-label {
+    font-size: 0.95rem;
+    color: #fe7762;
+    font-weight: 500;
+  }
 `;
 
 export const StyledIcon = styled.div`
   display: flex;
-  color: #999;
+  /* padding-bottom: 0.5rem; */
 
-  padding-bottom: 0.5rem;
+  span {
+    color: #99a29e;
+
+    font-size: 0.89rem;
+  }
 
   svg,
   div {
@@ -74,8 +85,17 @@ export const StyledIcon = styled.div`
   }
 
   svg {
-    color: #99a29e;
+    color: #abb1ad;
   }
+
+  /* .faRoute {
+    color: #fe9787;
+  }
+
+  .faHiking,
+  .faBiking {
+    color: #fe9787;
+  } */
 `;
 
 export const StyledButtonContainer = styled.div`
@@ -91,14 +111,25 @@ export const StyledButtonContainer = styled.div`
     border: 2px solid transparent;
     border-radius: 6px;
     color: #fff;
-    background: ${(props) => (props.user ? "#a5b8a4" : "#eceeed")};
+    background: ${(props) => (props.user ? "#B1CE7C" : "#eceeed")};
 
     :hover {
       cursor: pointer;
       background: ${(props) => (props.user ? "#fff" : "")};
       border: ${(props) =>
-        props.user ? "2px solid #a5b8a4" : "2px solid transparent"};
-      color: ${(props) => (props.user ? "#a5b8a4" : "#fff")};
+        props.user ? "2px solid #B1CE7C" : "2px solid transparent"};
+      color: ${(props) => (props.user ? "#B1CE7C" : "#fff")};
+    }
+
+    :nth-child(1) {
+      background: ${(props) => (props.user ? "#749073" : "#eceeed")};
+
+      :hover {
+        background: ${(props) => (props.user ? "#fff" : "")};
+        border: ${(props) =>
+          props.user ? "2px solid #a5b8a4" : "2px solid transparent"};
+        color: ${(props) => (props.user ? "#749073" : "#fff")};
+      }
     }
 
     :last-child {
@@ -133,4 +164,9 @@ export const StyledBorder = styled.hr`
   margin: 1rem 0 2rem;
   border: 1px solid #a5b8a4;
   width: 64%;
+`;
+
+export const StyledCardBorder = styled.hr`
+  /* margin: 1rem 0 2rem; */
+  border: 1px solid #a5b8a4;
 `;
