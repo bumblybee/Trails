@@ -46,7 +46,7 @@ export const StyledMapSearchbar = styled.div`
   top: 4rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100;
+  z-index: 10;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 370px;

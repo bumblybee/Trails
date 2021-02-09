@@ -26,7 +26,7 @@ const MapMarkerPopup = ({ selected, setSelected }) => {
     >
       <InfoWindow
         position={{ lat: selected.lat + 0.04, lng: selected.lng - 0.02 }}
-        zIndex={2000}
+        setZIndex={2000}
         onCloseClick={() => setSelected(null)}
       >
         <sc.StyledMapMarkerPopup>
