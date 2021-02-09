@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { loginUser } from "../../api/userApi";
+
 import { ErrorContext } from "../../context/error/ErrorContext";
 import { UserContext } from "../../context/user/UserContext";
 import * as sc from "../../styles/GlobalStyledComponents";

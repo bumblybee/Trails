@@ -17,7 +17,7 @@ import {
   FaBiking,
   FaPencilAlt,
 } from "react-icons/fa";
-import { StyledHr } from "../../styles/GlobalStyledComponents";
+
 import * as sc from "./StyledTrailPage";
 
 const TrailPage = () => {
@@ -33,17 +33,7 @@ const TrailPage = () => {
 
   const breakLongDescription = (trail) => {
     const text = trail.description;
-    let indices = [];
-    let count = 0;
 
-    // for (let i = 0; i < text.length; i++) {
-    //   if (text[i] === ".") {
-    //     count++;
-    //     if (count % 3 === 0) {
-    //       indices.push(i);
-    //     }
-    //   }
-    // }
     return text;
   };
 

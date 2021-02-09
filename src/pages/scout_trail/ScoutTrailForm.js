@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
+
 import { scoutTrail } from "../../api/trailsApi";
 import { ErrorContext } from "../../context/error/ErrorContext";
 import DragDrop from "../../components/upload/DragDrop";

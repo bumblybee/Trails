@@ -16,8 +16,10 @@ const TrailList = ({ setHoveredCard }) => {
   const city = query.get("city");
   const state = query.get("state");
 
+  const [userBookmarks, setUserBookmarks] = useState([]);
+
   useEffect(() => {
-    user && getUserBookmarks(user.id).then((bkmrks) => console.log(bkmrks));
+    user && getUserBookmarks().then((bkmrks) => setUserBookmarks(bkmrks));
   }, []);
 
   return (
@@ -37,6 +39,7 @@ const TrailList = ({ setHoveredCard }) => {
             <TrailCard
               key={index}
               trail={trail}
+              userBookmarks={userBookmarks}
               setHoveredCard={setHoveredCard}
             />
           ))}
