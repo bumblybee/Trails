@@ -17,7 +17,7 @@ import {
 
 import * as sc from "./StyledTrailCard";
 
-// !!: Handle bookmark hover in a way that isn't re-rendering
+// !!: Handle bookmark hover in a way that isn't re-rendering - get rid of random images too
 
 // TODO: Size and color icons
 
