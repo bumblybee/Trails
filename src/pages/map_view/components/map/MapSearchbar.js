@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
@@ -11,7 +11,6 @@ import * as sc from "./StyledMap";
 
 const MapSearchbar = () => {
   const history = useHistory();
-  const location = useLocation();
   const { trails, searchTrails, setSearchLocation } = useContext(SearchContext);
 
   // usePlacesAutoComplete options

@@ -5,7 +5,7 @@ import usePlacesAutoComplete, {
   getLatLng,
 } from "use-places-autocomplete";
 import { Combobox } from "@reach/combobox";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
+
 import { SearchContext } from "../../../context/search/SearchContext";
 import Filter from "../../../components/layout/search_filter/Filter";
 import { FaSearch } from "react-icons/fa";

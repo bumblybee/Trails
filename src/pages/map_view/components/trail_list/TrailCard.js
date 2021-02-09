@@ -16,15 +16,18 @@ import {
 } from "react-icons/fa";
 
 import * as sc from "./StyledTrailCard";
+import { removeBookmark } from "../../../../api/userApi";
 // !!: Handle bookmark hover in a way that isn't re-rendering
 
 // TODO: Size and color icons
 // TODO: check if need he decode now that using regex on server side
 
-const TrailCard = React.memo(({ trail, setHoveredCard }) => {
+const TrailCard = React.memo(({ trail, setHoveredCard, useBookmarks }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
-  const { bookmarks, createUserBookmark } = useContext(BookmarkContext);
+  const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
+    BookmarkContext
+  );
 
   const shouldTruncateDescription = () => {
     const desc = trail.description;
@@ -41,17 +44,24 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
 
   const handleTrailBookmark = async (id) => {
     // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
-    // if (user) {
-    //   // If trailId already exists, remove it
-    //   if (userBookmarks.includes(trailId)) {
-    //     const res = await removeBookmark(trailId);
-    //     setUserBookmarks([...res]);
-    //   } else {
-    //     // If trailId doesn't exist, add it
-    //     const res = await bookmarkTrail(trailId);
-    //     setUserBookmarks([...res]);
-    //   }
-    // }
+
+    if (user && bookmarks[0]) {
+      let type = "create";
+
+      for (const bkmrk in Object.keys(bookmarks)) {
+        if (bookmarks[bkmrk].trailId === id) {
+          type = "remove";
+        }
+      }
+
+      if (type === "create") {
+        const res = await createUserBookmark(user.id, id);
+        console.log(res);
+      } else {
+        const res = await removeUserBookmark(user.id, id);
+        console.log(res);
+      }
+    }
   };
 
   const renderBookmarkIcon = (id) => {
@@ -60,7 +70,7 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
         title={user ? "Click to bookmark trail" : "Log in to bookmark trail"}
       />
     );
-    if (bookmarks) {
+    if (bookmarks[0]) {
       bookmarks.forEach((bkmrk) => {
         if (bkmrk.trailId === id) {
           icon = <FaBookmark />;
