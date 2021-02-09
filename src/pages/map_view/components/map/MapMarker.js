@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import * as sc from "./StyledMapMarker";
+import { Marker } from "@react-google-maps/api";
 
 const MapMarker = ({ marker, hoveredCard, setSelected }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <sc.StyledMapMarker
+    <Marker
       onMouseOver={() => setHovered(!hovered)}
       onMouseOut={() => setHovered(!hovered)}
       className="map-marker"
