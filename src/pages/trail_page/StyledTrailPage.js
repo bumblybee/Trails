@@ -39,6 +39,7 @@ export const StyledFloatingCardsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1rem;
+  padding-bottom: 2rem;
 `;
 
 export const StyledFloatingCard = styled.div`
@@ -162,11 +163,13 @@ export const StyledImage = styled.img`
 
 export const StyledBorder = styled.hr`
   margin: 1rem 0 2rem;
-  border: 1px solid #a5b8a4;
+  border: none;
+  border-top: 4px solid #a5b8a4;
   width: 64%;
 `;
 
 export const StyledCardBorder = styled.hr`
   /* margin: 1rem 0 2rem; */
-  border: 1px solid #a5b8a4;
+  border: none;
+  border-top: 2px solid #a5b8a4;
 `;
