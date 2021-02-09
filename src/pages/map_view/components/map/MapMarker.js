@@ -1,15 +1,19 @@
-import React from "react";
-import { Marker } from "@react-google-maps/api";
+import React, { useState } from "react";
+import * as sc from "./StyledMapMarker";
 
 const MapMarker = ({ marker, hoveredCard, setSelected }) => {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <Marker
+    <sc.StyledMapMarker
+      onMouseOver={() => setHovered(!hovered)}
+      onMouseOut={() => setHovered(!hovered)}
       className="map-marker"
       onClick={() => setSelected(marker)}
       position={{ lat: marker.lat, lng: marker.lng }}
       icon={{
         url:
-          hoveredCard === marker.id
+          hoveredCard === marker.id || hovered
             ? "/assets/hoveredMarker.svg"
             : "/assets/marker.svg",
         scaledSize: new window.google.maps.Size(30, 30),
