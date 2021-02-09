@@ -10,7 +10,7 @@ const MapMarkerPopup = ({ selected, setSelected }) => {
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
-
+  // TODO: Position infowindow above searchbar
   return (
     <HashLink
       to={`?city=${queryParams.get("city")}&state=${queryParams.get(

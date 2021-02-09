@@ -19,6 +19,22 @@ export const StyledMapLogo = styled.div`
   }
 `;
 
+export const StyledSearchOnDragCheckbox = styled.div`
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  z-index: 100;
+  font-size: 0.9rem;
+  background: #ffffff88;
+  padding: 0.5rem;
+  text-shadow: 0 0 1px #999;
+  border-radius: 6px;
+
+  input {
+    margin-right: 0.1rem;
+  }
+`;
+
 export const StyledMapSearchbar = styled.div`
   border: 1px solid #eceeed;
   border-radius: 6px;

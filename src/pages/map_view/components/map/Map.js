@@ -43,6 +43,7 @@ const Map = ({ hoveredCard }) => {
 
   const [markers, setMarkers] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [searchOnMove, setSearchOnMove] = useState(true);
 
   const reverseGeocode = async (mapCenter) => {
     const res = await fetch(
@@ -93,11 +94,13 @@ const Map = ({ hoveredCard }) => {
   // When user stops dragging map, get center and call api with updated lat and lng, set markers
   // TODO: Handle poor UX where everything re-renders
   const handleMapDrag = async () => {
-    const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
+    if (searchOnMove) {
+      const mapCenter = mapRef.current && mapRef.current.getCenter().toJSON();
 
-    await searchTrails(mapCenter.lat, mapCenter.lng);
-    await setQueryParamsOnDrag(mapCenter);
-    history.push(`${location.pathname}?${queryParams.toString()}`);
+      await searchTrails(mapCenter.lat, mapCenter.lng);
+      await setQueryParamsOnDrag(mapCenter);
+      history.push(`${location.pathname}?${queryParams.toString()}`);
+    }
   };
 
   useEffect(() => {
@@ -118,8 +121,17 @@ const Map = ({ hoveredCard }) => {
         <img src="assets/logo.png" alt="" />
       </sc.StyledMapLogo>
 
+      <sc.StyledSearchOnDragCheckbox>
+        <label htmlFor="">
+          <input
+            type="checkbox"
+            checked={searchOnMove}
+            onChange={() => setSearchOnMove(!searchOnMove)}
+          />{" "}
+          Search on map move
+        </label>
+      </sc.StyledSearchOnDragCheckbox>
       <MapSearchbar />
-
       <GoogleMap
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
