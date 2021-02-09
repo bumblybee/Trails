@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 
 import he from "he";
 import { UserContext } from "../../../../context/user/UserContext";
-import { bookmarkTrail, removeBookmark } from "../../../../api/userApi";
+import { getBookmarks, createBookmark } from "../../../../api/bookmarkApi";
 import { useLocalStorage } from "../../../../hooks/useLocalStorage";
 import { randomImage } from "../../../../defaultImages/randomImages";
 import StarRating from "../../../../components/rating/StarRating";
@@ -24,11 +24,12 @@ import * as sc from "./StyledTrailCard";
 const TrailCard = React.memo(({ trail, setHoveredCard }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
-  const [storedBookmarks, setStoredBookmarks] = useLocalStorage(
-    "stored_bookmarks",
-    []
-  );
-  const [localBookmarkState, setLocalBookmarkState] = useState([]);
+  const [userBookmarks, setUserBookmarks] = useState([]);
+
+  // const [storedBookmarks, setStoredBookmarks] = useLocalStorage(
+  //   "stored_bookmarks",
+  //   []
+  // );
 
   const shouldTruncateDescription = () => {
     const desc = trail.description;
@@ -44,30 +45,41 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
   };
 
   const handleTrailBookmark = async (trailId) => {
-    // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
+    // // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
+    // if (user) {
+    //   // If trailId already exists, remove it
+    //   if (userBookmarks.includes(trailId)) {
+    //     const res = await removeBookmark(trailId);
+    //     setUserBookmarks([...res]);
+    //   } else {
+    //     // If trailId doesn't exist, add it
+    //     const res = await bookmarkTrail(trailId);
+    //     setUserBookmarks([...res]);
+    //   }
+    // }
+  };
 
-    if (user) {
-      // If trailId already exists, remove it
-      if (storedBookmarks.includes(trailId)) {
-        const res = await removeBookmark(trailId);
-
-        setStoredBookmarks([...res]);
-        setLocalBookmarkState([...storedBookmarks]);
-      } else {
-        // If trailId doesn't exist, add it
-        const res = await bookmarkTrail(trailId);
-
-        setStoredBookmarks([...res]);
-        setLocalBookmarkState([...storedBookmarks]);
-      }
+  const renderBookmarkIcon = (id) => {
+    let icon = (
+      <FaRegBookmark
+        title={user ? "Click to bookmark trail" : "Log in to bookmark trail"}
+      />
+    );
+    if (userBookmarks) {
+      userBookmarks.forEach((bkmrk) => {
+        if (bkmrk.trailId === id) {
+          icon = <FaBookmark />;
+        }
+      });
     }
+    return icon;
   };
 
   useEffect(() => {
-    if (user) {
-      !storedBookmarks.length && setStoredBookmarks([...user.bookmarks]);
-      setLocalBookmarkState([...storedBookmarks]);
-    }
+    user &&
+      getBookmarks(user.id).then((res) => {
+        setUserBookmarks([...res]);
+      });
   }, []);
 
   //TODO: color rating nearly invisible if none, color other icons
@@ -81,16 +93,7 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
         ref={bookmarkHoverRef}
         onClick={() => handleTrailBookmark(trail.id)}
       >
-        {/* if storedBookmarks includes trail id, solid icon*/}
-        {user && storedBookmarks && storedBookmarks.includes(trail.id) ? (
-          <FaBookmark />
-        ) : (
-          <FaRegBookmark
-            title={
-              user ? "Click to bookmark trail" : "Log in to bookmark trail"
-            }
-          />
-        )}
+        {renderBookmarkIcon(trail.id)}
       </sc.StyledBookmarkIcon>
 
       <sc.StyledImageContainer>
