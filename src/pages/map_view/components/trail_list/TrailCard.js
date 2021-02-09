@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 
 import he from "he";
 import { UserContext } from "../../../../context/user/UserContext";
-import { getBookmarks, createBookmark } from "../../../../api/bookmarkApi";
-import { useLocalStorage } from "../../../../hooks/useLocalStorage";
+import { BookmarkContext } from "../../../../context/bookmark/BookmarkContext";
+
 import { randomImage } from "../../../../defaultImages/randomImages";
 import StarRating from "../../../../components/rating/StarRating";
 import { useHover } from "../../../../hooks/useHover";
@@ -24,6 +24,7 @@ import * as sc from "./StyledTrailCard";
 const TrailCard = React.memo(({ trail, setHoveredCard }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
+  const { bookmarks, getUserBookmarks } = useContext(BookmarkContext);
   const [userBookmarks, setUserBookmarks] = useState([]);
 
   // const [storedBookmarks, setStoredBookmarks] = useLocalStorage(
@@ -65,8 +66,8 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
         title={user ? "Click to bookmark trail" : "Log in to bookmark trail"}
       />
     );
-    if (userBookmarks) {
-      userBookmarks.forEach((bkmrk) => {
+    if (bookmarks) {
+      bookmarks.forEach((bkmrk) => {
         if (bkmrk.trailId === id) {
           icon = <FaBookmark />;
         }
@@ -77,9 +78,7 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
 
   useEffect(() => {
     user &&
-      getBookmarks(user.id).then((res) => {
-        setUserBookmarks([...res]);
-      });
+      getUserBookmarks(user.id).then((bkmrks) => setUserBookmarks(bkmrks));
   }, []);
 
   //TODO: color rating nearly invisible if none, color other icons

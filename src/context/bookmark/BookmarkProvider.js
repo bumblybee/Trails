@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { BookmarkContext } from "./BookmarkContext";
 import { getBookmarks } from "../../api/bookmarkApi";
 
@@ -7,9 +7,8 @@ const BookmarkProvider = ({ children }) => {
 
   const getUserBookmarks = async (userId) => {
     const returnedBookmarks = await getBookmarks(userId);
-    setBookmarks(returnedBookmarks.bookmarks);
+    setBookmarks(returnedBookmarks);
     console.log(bookmarks);
-    return bookmarks;
   };
 
   return (
