@@ -49,8 +49,8 @@ const TrailCard = React.memo(({ trail, setHoveredCard, useBookmarks }) => {
     if (user && bookmarks[0]) {
       let type = "create";
 
-      for (const bkmrk in Object.keys(bookmarks)) {
-        if (bookmarks[bkmrk].trailId === id) {
+      for (let { trailId } of bookmarks) {
+        if (trailId === id) {
           type = "remove";
         }
       }

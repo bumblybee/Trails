@@ -23,7 +23,7 @@ export const StyledSearchOnDragCheckbox = styled.div`
   position: absolute;
   top: 4rem;
   right: 2rem;
-  z-index: 100;
+  z-index: 10;
   font-size: 0.9rem;
   background: #ffffff88;
   padding: 0.5rem;
