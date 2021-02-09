@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useClickOutsideMenu } from "../../../hooks/useClickOutsideMenu";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { ErrorContext } from "../../../context/error/ErrorContext";
 import { UserContext } from "../../../context/user/UserContext";
 import { SearchContext } from "../../../context/search/SearchContext";

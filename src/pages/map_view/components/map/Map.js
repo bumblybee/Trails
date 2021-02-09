@@ -8,7 +8,6 @@ import React, {
 
 import { useLocation, useHistory } from "react-router-dom";
 import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
-import usePlacesAutoComplete, { getGeocode } from "use-places-autocomplete";
 
 import { SearchContext } from "../../../../context/search/SearchContext";
 
@@ -32,11 +31,11 @@ const mapContainerStyle = {
 const Map = ({ hoveredCard }) => {
   const history = useHistory();
   const location = useLocation();
-  const query = new URLSearchParams(location.search);
+  const queryParams = new URLSearchParams(location.search);
 
   const coords = {
-    lat: Number(query.get("lat")),
-    lng: Number(query.get("lng")),
+    lat: Number(queryParams.get("lat")),
+    lng: Number(queryParams.get("lng")),
   };
 
   const { trails, searchTrails } = useContext(SearchContext);
@@ -81,10 +80,10 @@ const Map = ({ hoveredCard }) => {
 
     const address = data.plus_code.compound_code.split(",");
     console.log(address);
-    query.set("city", address[0].split(" ")[1]);
-    query.set("state", address[1]);
-    query.set("lat", mapCenter.lat);
-    query.set("lng", mapCenter.lng);
+    queryParams.set("city", address[0].split(" ")[1]);
+    queryParams.set("state", address[1]);
+    queryParams.set("lat", mapCenter.lat);
+    queryParams.set("lng", mapCenter.lng);
   };
 
   // When user stops dragging map, get center and call api with updated lat and lng, set markers
@@ -94,7 +93,7 @@ const Map = ({ hoveredCard }) => {
 
     await searchTrails(mapCenter.lat, mapCenter.lng);
     await setQueryParamsOnDrag(mapCenter);
-    history.push(`${location.pathname}?${query.toString()}`);
+    history.push(`${location.pathname}?${queryParams.toString()}`);
   };
 
   useEffect(() => {

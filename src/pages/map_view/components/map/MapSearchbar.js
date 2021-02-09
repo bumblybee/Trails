@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
 import { Combobox, ComboboxPopover } from "@reach/combobox";
-import { useLocalStorage } from "../../../../hooks/useLocalStorage";
 import { SearchContext } from "../../../../context/search/SearchContext";
 import Filter from "../../../../components/layout/search_filter/Filter";
 import * as sc from "./StyledMap";
 
 const MapSearchbar = () => {
   const history = useHistory();
+  const location = useLocation();
   const { trails, searchTrails, setSearchLocation } = useContext(SearchContext);
 
   // usePlacesAutoComplete options

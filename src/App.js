@@ -8,6 +8,7 @@ import { LoadScript } from "@react-google-maps/api";
 
 import UserProvider from "./context/user/UserProvider";
 import SearchProvider from "./context/search/SearchProvider";
+import BookmarkProvider from "./context/bookmark/BookmarkProvider";
 import ErrorProvider from "./context/error/ErrorProvider";
 import HoverProvider from "./context/hover/HoverProvider";
 
@@ -34,36 +35,40 @@ function App() {
         <SearchProvider>
           <ErrorProvider>
             <UserProvider>
-              <HoverProvider>
-                <Error />
-                <Nav />
-                <Switch>
-                  <Route path="/signup" exact>
-                    <Signup />
-                  </Route>
-                  <Route path="/login" exact>
-                    <Login />
-                  </Route>
-                  <Route path="/reset-password/:token" exact>
-                    <PasswordReset />
-                  </Route>
-                  <Route path="/reset-password" exact>
-                    <PasswordResetRequest />
-                  </Route>
-                  <Route path="/search" exact>
-                    <MapView />
-                  </Route>
-                  <Route path="/trail/:id" exact>
-                    <TrailPage />
-                  </Route>
-                  <Route path="/scout">
-                    <ScoutTrailForm />
-                  </Route>
-                  <Route path="/" exact>
-                    <Landing />
-                  </Route>
-                </Switch>
-              </HoverProvider>
+              <BookmarkProvider>
+                <HoverProvider>
+                  <Error />
+                  <Nav />
+                  <Switch>
+                    <Route path="/signup" exact>
+                      <Signup />
+                    </Route>
+                    <Route path="/login" exact>
+                      <Login />
+                    </Route>
+                    <Route path="/reset-password/:token" exact>
+                      <PasswordReset />
+                    </Route>
+                    <Route path="/reset-password" exact>
+                      <PasswordResetRequest />
+                    </Route>
+
+                    <Route path="/search" exact>
+                      <MapView />
+                    </Route>
+                    <Route path="/trail/:id" exact>
+                      <TrailPage />
+                    </Route>
+
+                    <Route path="/scout">
+                      <ScoutTrailForm />
+                    </Route>
+                    <Route path="/" exact>
+                      <Landing />
+                    </Route>
+                  </Switch>
+                </HoverProvider>
+              </BookmarkProvider>
             </UserProvider>
           </ErrorProvider>
         </SearchProvider>
