@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const StyledMapMarkerPopup = styled.div`
-  width: 220px;
+  width: 225px;
   height: auto;
   max-height: 240px;
-  padding: 0.5rem;
+  padding: 0.5rem 0.4rem;
   text-align: center;
   overflow-y: hidden;
 
@@ -13,19 +13,20 @@ export const StyledMapMarkerPopup = styled.div`
   }
 
   h3 {
-    margin-bottom: 0.25rem;
-    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
   }
 
   p {
     margin-bottom: 0.5rem;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
   }
 `;
 
 export const StyledImageContainer = styled.div`
   height: 125px;
   width: 100%;
+  margin-top: 0.5rem;
 
   img {
     width: 100%;
