@@ -31,7 +31,37 @@ export const StyledSearchOnDragCheckbox = styled.div`
   border-radius: 6px;
 
   input {
-    margin-right: 0.1rem;
+    /* margin-right: 0.1rem; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 1px solid #34423b;
+    border-radius: 2px;
+    outline: none;
+    transition-duration: 0.1s;
+    background-color: #ffffff88;
+    cursor: pointer;
+    padding: 0.3rem;
+  }
+
+  input:checked {
+    background: #fe7762;
+    border: 1px solid #fe7762;
+  }
+
+  label {
+    position: relative;
+  }
+
+  .faCheck {
+    position: absolute;
+    /* z-index: 20; */
+    font-size: 0.6rem;
+    top: 0.4rem;
+    left: 0.1rem;
+    color: #fff;
+    cursor: pointer;
   }
 `;
 

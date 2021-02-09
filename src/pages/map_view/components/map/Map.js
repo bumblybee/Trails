@@ -8,6 +8,7 @@ import React, {
 
 import { useLocation, useHistory } from "react-router-dom";
 import { GoogleMap } from "@react-google-maps/api";
+import { FaCheck } from "react-icons/fa";
 
 import { SearchContext } from "../../../../context/search/SearchContext";
 import MapMarker from "./map_marker/MapMarker";
@@ -83,7 +84,8 @@ const Map = ({ hoveredCard }) => {
   const setQueryParamsOnDrag = async (mapCenter) => {
     const data = await reverseGeocode(mapCenter);
 
-    const address = data.plus_code.compound_code.split(",");
+    const address =
+      data.plus_code.compound_code && data.plus_code.compound_code.split(",");
 
     queryParams.set("city", address[0].split(" ")[1]);
     queryParams.set("state", address[1]);
@@ -123,6 +125,14 @@ const Map = ({ hoveredCard }) => {
 
       <sc.StyledSearchOnDragCheckbox>
         <label htmlFor="">
+          {searchOnMove ? (
+            <FaCheck
+              className="faCheck"
+              onClick={() => setSearchOnMove(!searchOnMove)}
+            />
+          ) : (
+            ""
+          )}
           <input
             type="checkbox"
             checked={searchOnMove}
