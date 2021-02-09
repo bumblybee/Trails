@@ -4,6 +4,7 @@ import { useClickOutsideMenu } from "../../../hooks/useClickOutsideMenu";
 import { ErrorContext } from "../../../context/error/ErrorContext";
 import { UserContext } from "../../../context/user/UserContext";
 import { SearchContext } from "../../../context/search/SearchContext";
+import { BookmarkContext } from "../../../context/bookmark/BookmarkContext";
 
 import * as sc from "./StyledNavMenu";
 
@@ -17,11 +18,13 @@ const NavMenu = ({ closeMenu }) => {
   const menuRef = useClickOutsideMenu(() => closeMenu());
 
   const { user, logUserOut } = useContext(UserContext);
+  const { setBookmarks } = useContext(BookmarkContext);
   const { setError } = useContext(ErrorContext);
   const { searchTrails } = useContext(SearchContext);
 
   const handleLogout = async () => {
     await logUserOut();
+    setBookmarks(null);
     closeMenu();
   };
 
