@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
-import { useLocalStorage } from "../../../../hooks/useLocalStorage";
+
 import { SearchContext } from "../../../../context/search/SearchContext";
 import TrailCard from "./TrailCard";
 import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
