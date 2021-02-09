@@ -5,7 +5,6 @@ import { ErrorContext } from "../../../context/error/ErrorContext";
 import { UserContext } from "../../../context/user/UserContext";
 import { SearchContext } from "../../../context/search/SearchContext";
 
-import { logoutUser } from "../../../api/userApi";
 import * as sc from "./StyledNavMenu";
 
 // Todo:  Handle setting url when click "near me"
@@ -17,13 +16,12 @@ const NavMenu = ({ closeMenu }) => {
 
   const menuRef = useClickOutsideMenu(() => closeMenu());
 
-  const { user, setUser } = useContext(UserContext);
+  const { user, logUserOut } = useContext(UserContext);
   const { setError } = useContext(ErrorContext);
   const { searchTrails } = useContext(SearchContext);
 
   const handleLogout = async () => {
-    await logoutUser();
-    setUser(null);
+    await logUserOut();
     closeMenu();
   };
 
@@ -83,10 +81,7 @@ const NavMenu = ({ closeMenu }) => {
           </sc.StyledLink>
           <sc.StyledMenuHr />
 
-          <sc.StyledLink
-            to={window.location.pathname}
-            onClick={() => handleLogout()}
-          >
+          <sc.StyledLink to="/" onClick={() => handleLogout()}>
             Log out
           </sc.StyledLink>
         </>

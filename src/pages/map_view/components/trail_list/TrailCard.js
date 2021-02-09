@@ -45,6 +45,8 @@ const TrailCard = React.memo(({ trail, setHoveredCard, useBookmarks }) => {
   const handleTrailBookmark = async (id) => {
     // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
 
+    // Todo: adding bookmark taking two clicks, figure out
+
     if (user && bookmarks[0]) {
       let type = "create";
 
@@ -70,7 +72,7 @@ const TrailCard = React.memo(({ trail, setHoveredCard, useBookmarks }) => {
         title={user ? "Click to bookmark trail" : "Log in to bookmark trail"}
       />
     );
-    if (bookmarks[0]) {
+    if (bookmarks) {
       bookmarks.forEach((bkmrk) => {
         if (bkmrk.trailId === id) {
           icon = <FaBookmark />;
