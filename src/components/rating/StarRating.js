@@ -2,7 +2,7 @@ import React from "react";
 
 import { StyledStarRatingComponent, StyledStar } from "./StyledStar";
 
-const StarRating = ({ rating }) => {
+const StarRating = ({ rating, shrink }) => {
   return (
     <StyledStarRatingComponent
       name={"trail-rating"}
