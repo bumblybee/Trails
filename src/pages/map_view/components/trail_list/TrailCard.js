@@ -24,13 +24,7 @@ import * as sc from "./StyledTrailCard";
 const TrailCard = React.memo(({ trail, setHoveredCard }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
-  const { bookmarks, getUserBookmarks } = useContext(BookmarkContext);
-  const [userBookmarks, setUserBookmarks] = useState([]);
-
-  // const [storedBookmarks, setStoredBookmarks] = useLocalStorage(
-  //   "stored_bookmarks",
-  //   []
-  // );
+  const { bookmarks, createUserBookmark } = useContext(BookmarkContext);
 
   const shouldTruncateDescription = () => {
     const desc = trail.description;
@@ -45,8 +39,8 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
     return distance > 8 ? `${distance} miles away` : "nearby";
   };
 
-  const handleTrailBookmark = async (trailId) => {
-    // // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
+  const handleTrailBookmark = async (id) => {
+    // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
     // if (user) {
     //   // If trailId already exists, remove it
     //   if (userBookmarks.includes(trailId)) {
@@ -75,11 +69,6 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
     }
     return icon;
   };
-
-  useEffect(() => {
-    user &&
-      getUserBookmarks(user.id).then((bkmrks) => setUserBookmarks(bkmrks));
-  }, []);
 
   //TODO: color rating nearly invisible if none, color other icons
   return (

@@ -7,19 +7,22 @@ import * as sc from "../../pages/scout_trail/StyledScoutForm";
 const DragDrop = ({ setImage, preview, setPreview }) => {
   const { setError } = useContext(ErrorContext);
 
-  const onDrop = useCallback((files) => {
-    let reader = new FileReader();
+  const onDrop = useCallback(
+    (files) => {
+      let reader = new FileReader();
 
-    if (files[0]) {
-      reader.readAsDataURL(files[0]);
-      setImage(files[0]);
+      if (files[0]) {
+        reader.readAsDataURL(files[0]);
+        setImage(files[0]);
 
-      // TODO: v2 - look into loading photo to server before form submit (good for multiple pictures)
-      reader.onloadend = () => {
-        setPreview(reader.result);
-      };
-    }
-  }, []);
+        // TODO: v2 - look into loading photo to server before form submit (good for multiple pictures)
+        reader.onloadend = () => {
+          setPreview(reader.result);
+        };
+      }
+    },
+    [setImage, setPreview]
+  );
 
   // TODO: check into useCallback for this
   const onDropRejected = (fileRejections) => {
