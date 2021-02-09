@@ -7,13 +7,13 @@ import {
 } from "../../api/bookmarkApi";
 
 const BookmarkProvider = ({ children }) => {
-  const [bookmarks, setBookmarks] = useState([]);
+  const [bookmarks, setBookmarks] = useState(null);
 
   const getUserBookmarks = useCallback(async () => {
     const returnedBookmarks = await getBookmarks();
     setBookmarks(returnedBookmarks);
     return returnedBookmarks;
-  }, [bookmarks]);
+  }, []);
 
   const createUserBookmark = async (userId, trailId) => {
     const returnedBookmarks = await createBookmark(userId, trailId);
@@ -34,8 +34,9 @@ const BookmarkProvider = ({ children }) => {
   return (
     <BookmarkContext.Provider
       value={{
-        getUserBookmarks,
         bookmarks,
+        setBookmarks,
+        getUserBookmarks,
         createUserBookmark,
         removeUserBookmark,
       }}
