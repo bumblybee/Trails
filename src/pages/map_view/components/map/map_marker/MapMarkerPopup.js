@@ -6,11 +6,13 @@ import { InfoWindow } from "@react-google-maps/api";
 import StarRating from "../../../../../components/rating/StarRating";
 import * as sc from "./StyledMapMarkerPopup";
 
+// TODO: Position infowindow above searchbar
+
 const MapMarkerPopup = ({ selected, setSelected }) => {
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
-  // TODO: Position infowindow above searchbar
+
   return (
     <HashLink
       to={`?city=${queryParams.get("city")}&state=${queryParams.get(
