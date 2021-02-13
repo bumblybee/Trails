@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { signupUser } from "../../api/userApi";
+
 import { ErrorContext } from "../../context/error/ErrorContext";
 import { UserContext } from "../../context/user/UserContext";
 import * as sc from "../../styles/GlobalStyledComponents";
@@ -8,7 +8,7 @@ import * as sc from "../../styles/GlobalStyledComponents";
 const Signup = () => {
   const history = useHistory();
   const { setError } = useContext(ErrorContext);
-  const { setUser } = useContext(UserContext);
+  const { setUser, signUserUp } = useContext(UserContext);
 
   const [userDetails, setUserDetails] = useState({
     username: "",
@@ -18,11 +18,11 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const signup = await signupUser(userDetails);
+    const signup = await signUserUp(userDetails);
     // TODO: handle signup errors
     // TODO: reroute user to account page after creation
 
-    signup && setUser(signup.data);
+    // signup && setUser(signup.data);
     signup && signup.error ? setError(signup.error) : history.push("/");
   };
 

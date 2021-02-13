@@ -24,7 +24,7 @@ export const StyledMapMarkerPopup = styled.div`
 `;
 
 export const StyledImageContainer = styled.div`
-  height: 125px;
+  height: 130px;
   width: 100%;
   margin-top: 0.5rem;
 
