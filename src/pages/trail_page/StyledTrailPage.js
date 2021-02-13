@@ -31,10 +31,21 @@ export const StyledTrailPageContainer = styled.div`
   }
 `;
 
+export const StyledImageContainer = styled.div`
+  width: 100%;
+  height: 400px;
+`;
+
+export const StyledImage = styled.img`
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+`;
+
 export const StyledFloatingCardsContainer = styled.div`
   position: absolute;
   right: 7%;
-  top: -2.5rem;
+  top: -3rem;
   z-index: 10;
   display: grid;
   grid-template-columns: 1fr;
@@ -47,7 +58,7 @@ export const StyledFloatingCard = styled.div`
   border-radius: 6px;
   background: #fff;
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
-  padding: 2.5rem;
+  padding: 2.25rem;
   width: 300px;
 
   span {
@@ -74,7 +85,7 @@ export const StyledIcon = styled.div`
   display: flex;
 
   span {
-    color: #99a29e;
+    color: #99a29eee;
     font-size: 0.89rem;
   }
 
@@ -84,7 +95,7 @@ export const StyledIcon = styled.div`
   }
 
   svg {
-    color: #abb1ad;
+    color: #a5b8a4;
   }
 `;
 
@@ -140,25 +151,14 @@ export const StyledButtonContainer = styled.div`
   }
 `;
 
-export const StyledImageContainer = styled.div`
-  width: 100%;
-  height: 400px;
-`;
-
-export const StyledImage = styled.img`
-  object-fit: cover;
-  height: 400px;
-  width: 100%;
-`;
-
 export const StyledBorder = styled.hr`
   margin: 1rem 0 2rem;
   border: none;
-  border-top: 4px solid #a5b8a4;
+  border-top: 5px solid #a5b8a4;
   width: 64%;
 `;
 
 export const StyledCardBorder = styled.hr`
   border: none;
-  border-top: 2px solid #a5b8a4;
+  border-top: 2px solid #99a29e;
 `;
