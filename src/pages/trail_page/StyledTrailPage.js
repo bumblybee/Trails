@@ -100,6 +100,7 @@ export const StyledButtonContainer = styled.div`
     padding: 10px;
     border: 2px solid transparent;
     border-radius: 6px;
+    outline: none;
     color: #fff;
     background: ${(props) => (props.user ? "#B1CE7C" : "#eceeed")};
 
