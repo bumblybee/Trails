@@ -7,6 +7,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleTrail } from "../../api/trailsApi";
 import { UserContext } from "../../context/user/UserContext";
+import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
 import StarRating from "../../components/rating/StarRating";
 import { randomImage } from "../../defaultImages/randomImages";
 import {
@@ -24,11 +25,49 @@ const TrailPage = () => {
   const { id } = useParams();
   const [trail, setTrail] = useState({});
   const { user } = useContext(UserContext);
+  const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
+    BookmarkContext
+  );
 
   const getTrailData = async () => {
     const trailData = await getSingleTrail(id);
     setTrail(trailData);
     console.log(trail);
+  };
+
+  const handleTrailBookmark = async () => {
+    // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
+
+    if (user && bookmarks) {
+      let type = "create";
+
+      for (let { trailId } of bookmarks) {
+        if (trailId === trail.id) {
+          type = "remove";
+        }
+      }
+
+      if (type === "create") {
+        const res = await createUserBookmark(user.id, trail.id);
+        console.log(res);
+      } else {
+        const res = await removeUserBookmark(user.id, trail.id);
+        console.log(res);
+      }
+    }
+  };
+
+  const renderBookmarkButtonText = () => {
+    let text = "Bookmark";
+    if (bookmarks) {
+      for (let { trailId } of bookmarks) {
+        if (trailId === trail.id) {
+          text = "Remove Bookmark";
+        }
+      }
+    }
+
+    return text;
   };
 
   const breakLongDescription = (trail) => {
@@ -135,10 +174,11 @@ const TrailPage = () => {
                 <FaPencilAlt /> Suggest Edit
               </button>
               <button
+                onClick={() => handleTrailBookmark()}
                 title={user ? "" : "Log in to add a bookmark"}
                 disabled={user ? false : true}
               >
-                <FaRegBookmark /> Bookmark
+                <FaRegBookmark /> {renderBookmarkButtonText()}
               </button>
             </sc.StyledButtonContainer>
           </sc.StyledFloatingCard>
