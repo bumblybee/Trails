@@ -28,25 +28,6 @@ const NavMenu = ({ closeMenu }) => {
     closeMenu();
   };
 
-  const setQueryParams = (address, lat, lng) => {
-    query.set("city", address[0].split(" ")[1]);
-    query.set("state", address[1]);
-    query.set("lat", lat);
-    query.set("lng", lng);
-  };
-
-  // TODO: move api call outside of component
-  const reverseGeocode = async (lat, lng) => {
-    const res = await fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
-    );
-
-    const data = await res.json();
-    const address = data.plus_code.compound_code.split(",");
-
-    setQueryParams(address, lat, lng);
-  };
-
   const findTrailsNearUser = () => {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -66,6 +47,25 @@ const NavMenu = ({ closeMenu }) => {
     );
   };
 
+  // TODO: move api call outside of component
+  const reverseGeocode = async (lat, lng) => {
+    const res = await fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
+    );
+
+    const data = await res.json();
+    const address = data.plus_code.compound_code.split(",");
+
+    setQueryParams(address, lat, lng);
+  };
+
+  const setQueryParams = (address, lat, lng) => {
+    query.set("city", address[0].split(" ")[1]);
+    query.set("state", address[1]);
+    query.set("lat", lat);
+    query.set("lng", lng);
+  };
+
   return (
     <sc.StyledNavMenuContainer ref={menuRef}>
       {user ? (
@@ -78,7 +78,7 @@ const NavMenu = ({ closeMenu }) => {
           </sc.StyledLink>
           <sc.StyledMenuHr />
           <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
-            New trail
+            Post trail
           </sc.StyledLink>
 
           <sc.StyledLink to="#" onClick={() => findTrailsNearUser()}>
