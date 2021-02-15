@@ -70,17 +70,19 @@ const NavMenu = ({ closeMenu }) => {
     <sc.StyledNavMenuContainer ref={menuRef}>
       {user ? (
         <>
-          <sc.StyledLink to="/account" onClick={() => closeMenu()}>
-            Account
-          </sc.StyledLink>
           <sc.StyledLink to="/bookmarks" onClick={() => closeMenu()}>
             Bookmarks
           </sc.StyledLink>
+          <sc.StyledLink to="/scouted-trails" onClick={() => closeMenu()}>
+            Scouted Trails
+          </sc.StyledLink>
+          <sc.StyledMenuHr />
+          <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
+            New trail
+          </sc.StyledLink>
+
           <sc.StyledLink to="#" onClick={() => findTrailsNearUser()}>
             Near me
-          </sc.StyledLink>
-          <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
-            Scout trail
           </sc.StyledLink>
           <sc.StyledMenuHr />
 

@@ -18,7 +18,8 @@ export const StyledNavMenuContainer = styled.div`
 export const StyledLink = styled(Link)`
   color: #34423b;
   font-size: 0.95rem;
-  padding: 1rem 0 1.25rem 1rem;
+  font-weight: 500;
+  padding: 1rem 0 1rem 1rem;
 
   :hover {
     color: #fffeff;
@@ -33,11 +34,17 @@ export const StyledLink = styled(Link)`
   :last-child {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    font-weight: 400;
+  }
+
+  :nth-child(4),
+  :nth-child(5) {
+    font-weight: 400;
   }
 `;
 
 export const StyledMenuHr = styled.hr`
   border: none;
   border-top: 1px solid #b9c8b8;
-  width: 99%;
+  padding: 0;
 `;
