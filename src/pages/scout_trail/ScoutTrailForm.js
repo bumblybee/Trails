@@ -13,7 +13,6 @@ const ScoutTrail = () => {
   // TODOS: progress, clear form or reroute, save draft, maybe move radio button group to own component
   const { setError } = useContext(ErrorContext);
   const [trailDetails, setTrailDetails] = useState({
-    // userId: 1,
     name: "",
     city: "",
     state: "",
