@@ -13,6 +13,12 @@ export const getSingleTrail = async (id) => {
   return res.data;
 };
 
+export const getScoutedTrails = async (id) => {
+  const res = await get(`/trails/scouted/${id}`);
+  console.log(res);
+  return res;
+};
+
 export const scoutTrail = async (data, onUploadProgress) => {
   const res = await postFormData(`/trails`, data, onUploadProgress);
   console.log(res);
