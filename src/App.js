@@ -18,6 +18,7 @@ import Landing from "./pages/landing/Landing";
 import MapView from "./pages/map_view/MapView";
 import TrailPage from "./pages/trail_page/TrailPage";
 import ScoutTrailForm from "./pages/scout_trail/ScoutTrailForm";
+import Bookmarks from "./pages/bookmarks/Bookmarks";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import PasswordResetRequest from "./pages/passwordReset/PasswordResetRequest";
@@ -59,7 +60,9 @@ function App() {
                     <Route path="/trail/:id" exact>
                       <TrailPage />
                     </Route>
-
+                    <Route path="/bookmarks" exact>
+                      <Bookmarks />
+                    </Route>
                     <Route path="/scout">
                       <ScoutTrailForm />
                     </Route>
