@@ -15,13 +15,13 @@ import {
   FaBiking,
 } from "react-icons/fa";
 
-import * as sc from "./StyledTrailCard";
+import * as sc from "./StyledTrailListCard";
 
 // !!: Handle bookmark hover in a way that isn't re-rendering - get rid of random images too
 
 // TODO: Size and color icons
 
-const TrailCard = React.memo(({ trail, setHoveredCard }) => {
+const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
   const {
@@ -173,4 +173,4 @@ const TrailCard = React.memo(({ trail, setHoveredCard }) => {
   );
 });
 
-export default TrailCard;
+export default TrailListCard;

@@ -15,8 +15,8 @@ export const getSingleTrail = async (id) => {
 
 export const getScoutedTrails = async (id) => {
   const res = await get(`/trails/scouted/${id}`);
-  console.log(res);
-  return res;
+
+  return res.data;
 };
 
 export const scoutTrail = async (data, onUploadProgress) => {

@@ -63,9 +63,9 @@ function App() {
                     </Route>
                     <Route path="/bookmarks" exact>
                       <Bookmarks />
-                      <Route path="/scouted-trails" exact>
-                        <ScoutedTrails />
-                      </Route>
+                    </Route>
+                    <Route path="/scouted-trails" exact>
+                      <ScoutedTrails />
                     </Route>
                     <Route path="/scout">
                       <ScoutTrailForm />
