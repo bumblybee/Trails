@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { UserContext } from "../../../../context/user/UserContext";
 import { BookmarkContext } from "../../../../context/bookmark/BookmarkContext";
 import { SearchContext } from "../../../../context/search/SearchContext";
-import TrailCard from "./TrailCard";
+import TrailListCard from "./TrailListCard";
 import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
 const TrailList = ({ setHoveredCard }) => {
@@ -36,7 +36,7 @@ const TrailList = ({ setHoveredCard }) => {
         </StyledTrailListHeader>
         {trails &&
           trails.map((trail, index) => (
-            <TrailCard
+            <TrailListCard
               key={index}
               trail={trail}
               userBookmarks={userBookmarks}
