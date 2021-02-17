@@ -101,7 +101,7 @@ export const StyledCardContentContainer = styled.div`
   h4 {
     margin-bottom: 0.2rem;
     text-transform: capitalize;
-    letter-spacing: 0.08rem;
+    letter-spacing: 0.05rem;
 
     @media (max-width: 620px) {
       color: #eceeedee;
