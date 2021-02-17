@@ -12,11 +12,11 @@ export const StyledLanding = styled.div`
 export const StyledLandingContainer = styled.div`
   background: linear-gradient(
       to top,
-      rgba(254, 119, 98, 0.6) 5%,
-      rgba(254, 119, 98, 0.1),
-      rgba(255, 255, 255)
+      rgba(254, 119, 98, 0.45),
+      rgba(254, 119, 98, 0.2),
+      rgb(12, 15, 14, 0.85)
     ),
-    url("/assets/Black People Hiking.png");
+    url("https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 
   z-index: 1;
   background-repeat: no-repeat;
@@ -27,7 +27,7 @@ export const StyledLandingContainer = styled.div`
   padding: 2rem;
   text-align: center;
   z-index: 10;
-  height: 860px;
+  height: 825px;
 
   @media (max-width: 620px) {
     width: 100%;
@@ -39,7 +39,7 @@ export const StyledLandingContent = styled.div`
   color: #fff;
   text-align: left;
   width: 60%;
-  margin: 7% auto;
+  margin: 10% auto;
 
   @media (max-width: 620px) {
     width: 100%;
@@ -50,7 +50,7 @@ export const StyledLandingContent = styled.div`
 export const StyledLandingText = styled.div`
   width: 55%;
 
-  color: #000;
+  color: #fff;
   h1 {
     margin-bottom: 0.5rem;
     font-family: "PT Sans", sans-serif;
