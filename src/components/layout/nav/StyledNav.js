@@ -7,9 +7,17 @@ export const StyledNav = styled.div`
   padding: 0 1.5rem;
   max-width: 100%;
   box-shadow: ${(props) =>
-    props.currentPath === "/" ? "" : "0 1px 6px rgba(0, 0, 0, 0.1)"};
+    props.currentPath === "/" ||
+    props.currentPath === "/login" ||
+    props.currentPath === "/signup"
+      ? ""
+      : "0 1px 6px rgba(0, 0, 0, 0.1)"};
   background: ${(props) =>
-    props.currentPath === "/" ? "transparent" : "#fffeff"};
+    props.currentPath === "/" ||
+    props.currentPath === "/login" ||
+    props.currentPath === "/signup"
+      ? "transparent"
+      : "#fffeff"};
   position: absolute;
   top: 0;
   left: 0;
@@ -26,7 +34,7 @@ export const StyledLogoContainer = styled.div`
 `;
 
 export const StyledLogo = styled.img`
-  height: ${(props) => (props.currentPath === "/" ? "45px" : "40px")};
+  height: ${(props) => (props.currentPath === "/" ? "44px" : "37px")};
   background: transparent;
 
   @media (max-width: 620px) {

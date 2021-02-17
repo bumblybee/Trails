@@ -23,7 +23,9 @@ const Nav = () => {
         <sc.StyledLogoContainer>
           <sc.StyledLogo
             src={
-              currentPath === "/"
+              currentPath === "/" ||
+              currentPath === "/login" ||
+              currentPath === "/signup"
                 ? "/assets/logolight.png"
                 : "/assets/logodark.png"
             }
