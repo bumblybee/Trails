@@ -23,7 +23,7 @@ const Login = () => {
     if (user.error) {
       setError(user.error);
     } else {
-      history.goBack();
+      history.push("/");
     }
   };
 
