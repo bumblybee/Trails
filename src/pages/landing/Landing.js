@@ -13,7 +13,7 @@ const Landing = () => {
         <sc.StyledLandingContainer>
           <sc.StyledLandingContent>
             <sc.StyledLandingText>
-              <h1>Lorem ipsum dolor sit consectetur.</h1>
+              <h1>Choose your own adventure.</h1>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
                 ad. Inven voluptatibus ea minus libero recusandae consectetur, i

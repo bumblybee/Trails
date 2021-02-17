@@ -4,7 +4,7 @@ export const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1.5rem;
+  padding: 0 1.5rem;
   max-width: 100%;
   box-shadow: ${(props) =>
     props.currentPath === "/" ? "" : "0 1px 6px rgba(0, 0, 0, 0.1)"};
@@ -26,7 +26,7 @@ export const StyledLogoContainer = styled.div`
 `;
 
 export const StyledLogo = styled.img`
-  height: 24px;
+  height: ${(props) => (props.currentPath === "/" ? "45px" : "40px")};
   background: transparent;
 
   @media (max-width: 620px) {
@@ -40,7 +40,8 @@ export const StyledLinksContainer = styled.div`
   align-items: center;
   margin-right: 1.3rem;
   transition: border-color 0.2s ease-in-out 0s;
-
+  /* box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+   */
   svg {
     font-size: 2.2rem;
     /* color: ${(props) =>

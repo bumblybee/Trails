@@ -39,7 +39,7 @@ export const StyledLandingContent = styled.div`
   color: #fff;
   text-align: left;
   width: 60%;
-  margin: 10% auto;
+  margin: 12% auto;
 
   @media (max-width: 620px) {
     width: 100%;
@@ -49,17 +49,20 @@ export const StyledLandingContent = styled.div`
 
 export const StyledLandingText = styled.div`
   width: 55%;
-
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   color: #fff;
+
   h1 {
     margin-bottom: 0.5rem;
     font-family: "PT Sans", sans-serif;
-    font-size: 2.7rem;
+    font-size: 2.75rem;
   }
 
   p {
     margin-bottom: 2.5rem;
-    line-height: 1.33;
+    line-height: 1.35;
+    font-weight: 500;
+    font-size: 1.2rem;
   }
 
   @media (max-width: 620px) {
@@ -72,5 +75,6 @@ export const StyledCardContainer = styled.div`
 
   h3 {
     padding: 1rem 0 2rem;
+    font-size: 2.7rem;
   }
 `;
