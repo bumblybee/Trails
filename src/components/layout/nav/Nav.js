@@ -21,7 +21,15 @@ const Nav = () => {
     <sc.StyledNav currentPath={currentPath}>
       <Link to="/">
         <sc.StyledLogoContainer>
-          <sc.StyledLogo src="/assets/logo.png" alt="" />
+          <sc.StyledLogo
+            src={
+              currentPath === "/"
+                ? "/assets/logolight.png"
+                : "/assets/logodark.png"
+            }
+            currentPath={currentPath}
+            alt=""
+          />
         </sc.StyledLogoContainer>
       </Link>
 

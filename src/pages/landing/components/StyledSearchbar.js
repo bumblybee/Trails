@@ -11,7 +11,7 @@ export const StyledSearchbarContainer = styled.div`
   padding: 1rem;
   background: #fffeff;
   z-index: 10;
-  box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   /* width: 80%; */
   @media (max-width: 620px) {
@@ -22,7 +22,7 @@ export const StyledSearchbarContainer = styled.div`
 
 export const StyledSearchbar = styled.div`
   border: 1px solid #eceeed;
-  border-radius: 32px;
+  border-radius: 100px;
   padding: 1rem;
   background: #fffeff;
   z-index: 10;
@@ -31,7 +31,11 @@ export const StyledSearchbar = styled.div`
 
   :hover {
     border: 1px solid transparent;
-    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.07);
+    box-shadow: inset 0 0 6px 2px rgba(0, 0, 0, 0.07);
+
+    button {
+      box-shadow: inset 0 0 6px 2px rgba(255, 255, 255, 0.07);
+    }
   }
 
   @media (max-width: 620px) {
@@ -91,6 +95,7 @@ export const StyledButtonContainer = styled.div`
   justify-content: space-between;
   height: 40px;
   width: 15%;
+
   @media (max-width: 620px) {
     grid-gap: 0.5rem;
   }
