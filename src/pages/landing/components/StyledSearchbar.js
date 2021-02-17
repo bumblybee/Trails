@@ -22,16 +22,18 @@ export const StyledSearchbarContainer = styled.div`
 
 export const StyledSearchbar = styled.div`
   border: 1px solid #eceeed;
+
   border-radius: 100px;
   padding: 1rem;
   background: #fffeff;
   z-index: 10;
   display: flex;
   justify-content: space-between;
+  box-shadow: inset 0 0 6px 2px rgba(0, 0, 0, 0.07);
 
   :hover {
-    border: 1px solid transparent;
-    box-shadow: inset 0 0 6px 2px rgba(0, 0, 0, 0.07);
+    box-shadow: inset 0 0 6px 2px rgba(0, 0, 0, 0.1);
+    /* border: 1px solid #eceeed55; */
 
     button {
       box-shadow: inset 0 0 6px 2px rgba(255, 255, 255, 0.07);
@@ -58,6 +60,7 @@ export const StyledComboInput = styled(ComboboxInput)`
   height: 100%;
   width: 700px;
   color: #99a29e;
+  caret-color: #fe7762;
 
   ::placeholder {
     color: #d0d4d2;

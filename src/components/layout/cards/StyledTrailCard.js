@@ -6,7 +6,7 @@ export const StyledCardContainer = styled.div`
   border: 0.5px solid #eceeed75;
   border-radius: 6px;
   width: 300px;
-  height: 325px;
+  height: 330px;
 
   background: #fff;
   margin-right: 1rem;
@@ -40,6 +40,7 @@ export const StyledCardContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  line-height: 1.33;
 
   h4 {
     text-transform: capitalize;

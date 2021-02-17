@@ -14,7 +14,7 @@ export const StyledLandingContainer = styled.div`
       to top,
       rgba(254, 119, 98, 0.45),
       rgba(254, 119, 98, 0.2),
-      rgb(12, 15, 14, 0.85)
+      rgb(12, 15, 14, 0.8)
     ),
     url("https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 
@@ -27,7 +27,7 @@ export const StyledLandingContainer = styled.div`
   padding: 2rem;
   text-align: center;
   z-index: 10;
-  height: 825px;
+  height: 840px;
 
   @media (max-width: 620px) {
     width: 100%;
@@ -75,6 +75,6 @@ export const StyledCardContainer = styled.div`
 
   h3 {
     padding: 1rem 0 2rem;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
   }
 `;
