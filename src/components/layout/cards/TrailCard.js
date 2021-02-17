@@ -20,8 +20,8 @@ const TrailCard = ({ trail }) => {
               {trail.city}, {trail.state}
             </h5>
             <p>
-              {trail.description.length > 80
-                ? he.decode(trail.description).substring(0, 80) + "..."
+              {trail.description.length > 89
+                ? he.decode(trail.description).substring(0, 90) + "..."
                 : he.decode(trail.description)}
             </p>
           </div>

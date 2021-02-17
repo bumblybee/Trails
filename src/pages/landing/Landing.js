@@ -27,7 +27,7 @@ const Landing = () => {
         <sc.StyledCardContainer>
           <div
             style={{
-              width: "65%",
+              width: "60%",
               margin: "0 auto",
             }}
           >
