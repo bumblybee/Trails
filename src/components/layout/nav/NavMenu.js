@@ -77,11 +77,11 @@ const NavMenu = ({ closeMenu }) => {
             Bookmarks
           </sc.StyledLink>
           <sc.StyledLink to="/scouted-trails" onClick={() => closeMenu()}>
-            Scouted Trails
+            Scouted trails
           </sc.StyledLink>
           <sc.StyledMenuHr />
           <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
-            Post trail
+            Create new trail
           </sc.StyledLink>
 
           <sc.StyledLink to="#" onClick={() => findTrailsNearUser()}>

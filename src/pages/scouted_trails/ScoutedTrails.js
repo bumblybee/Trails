@@ -5,31 +5,27 @@ import TrailCard from "../../components/layout/cards/TrailCard";
 import * as sc from "./StyledScoutedTrail";
 
 const ScoutedTrails = () => {
-  const { user } = useContext(UserContext);
+  const { user, getCurrentUser } = useContext(UserContext);
   const [scoutedTrails, setScoutedTrails] = useState([]);
 
-  const getTrails = async () => {
-    const id = user.id;
-    const trails = await getScoutedTrails(id);
-    console.log(trails);
-    setScoutedTrails(trails);
-  };
-
   useEffect(() => {
-    user && getTrails();
+    getCurrentUser().then((userData) => setScoutedTrails(userData.trails));
   }, []);
 
   return (
     <sc.StyledScoutedTrailsContainer>
-      <sc.StyledCardContainer>
-        {scoutedTrails.length ? (
-          scoutedTrails.map((trail) => (
+      <h3>Scouted Trails</h3>
+      {scoutedTrails.length ? (
+        <sc.StyledCardContainer>
+          {scoutedTrails.map((trail) => (
             <TrailCard key={trail.id} trail={trail} />
-          ))
-        ) : (
-          <h1>trails</h1>
-        )}
-      </sc.StyledCardContainer>
+          ))}
+        </sc.StyledCardContainer>
+      ) : (
+        <sc.StyledTextContainer>
+          <h3>Looks like you haven't scouted any trails yet</h3>
+        </sc.StyledTextContainer>
+      )}
     </sc.StyledScoutedTrailsContainer>
   );
 };

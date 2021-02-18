@@ -15,6 +15,7 @@ const Bookmarks = () => {
 
   return (
     <sc.StyledBookmarksContainer>
+      <h3>Bookmarked Trails</h3>
       <sc.StyledCardContainer>
         {bookmarks && bookmarks.length ? (
           bookmarks.map((bookmark) => <TrailCard trail={bookmark.trail} />)
