@@ -31,7 +31,7 @@ export const StyledLandingContainer = styled.div`
   @media (max-width: 620px) {
     width: 100%;
     padding: 1rem;
-    height: 740px;
+    height: 100%;
   }
 `;
 

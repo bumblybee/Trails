@@ -30,7 +30,7 @@ export const StyledNav = styled.div`
 `;
 
 export const StyledLogoContainer = styled.div`
-  padding: 0.4rem;
+  padding: 0.4rem 0.4rem 0;
 `;
 
 export const StyledLogo = styled.img`
@@ -38,7 +38,7 @@ export const StyledLogo = styled.img`
   background: transparent;
 
   @media (max-width: 620px) {
-    height: 20px;
+    height: ${(props) => (props.currentPath === "/" ? "27px" : "26px")};
   }
 `;
 
@@ -63,6 +63,11 @@ export const StyledLinksContainer = styled.div`
 
     :hover {
       cursor: pointer;
+    }
+
+    @media (max-width: 620px) {
+      /* font-size: 1.8rem; */
+      border: none;
     }
   }
 
