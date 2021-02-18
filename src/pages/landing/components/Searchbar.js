@@ -78,7 +78,7 @@ const Searchbar = () => {
 
         <sc.StyledButtonContainer>
           <Filter />
-          <StyledSearchButton
+          <sc.StyledSearchButton
             onClick={() => {
               history.push(
                 `/search?city=${searchLocation.city}&state=${searchLocation.state}&lat=${searchLocation.coords.lat}&lng=${searchLocation.coords.lng}`
@@ -86,7 +86,7 @@ const Searchbar = () => {
             }}
           >
             <FaSearch />
-          </StyledSearchButton>
+          </sc.StyledSearchButton>
         </sc.StyledButtonContainer>
       </sc.StyledSearchbar>
     </sc.StyledSearchbarContainer>
