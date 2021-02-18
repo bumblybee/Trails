@@ -48,12 +48,12 @@ export const StyledLandingContent = styled.div`
 `;
 
 export const StyledLandingText = styled.div`
-  width: 55%;
+  width: 60%;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   color: #fff;
 
   h1 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     font-family: "PT Sans", sans-serif;
     font-size: 2.75rem;
   }
@@ -62,7 +62,7 @@ export const StyledLandingText = styled.div`
     margin-bottom: 2.5rem;
     line-height: 1.35;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.35rem;
   }
 
   @media (max-width: 620px) {
