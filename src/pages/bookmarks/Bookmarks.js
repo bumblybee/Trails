@@ -2,12 +2,18 @@ import React, { useContext } from "react";
 
 import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
 
+import TrailCard from "../../components/layout/cards/TrailCard";
+
 const Bookmarks = () => {
-  const { bookmarks, getUserBookmarks } = useContext(BookmarkContext);
-  console.log(bookmarks);
+  const { bookmarks } = useContext(BookmarkContext);
+
   return (
     <div style={{ padding: "3rem" }}>
-      <h1>bookmarks</h1>
+      {bookmarks ? (
+        bookmarks.map((bookmark) => <TrailCard trail={bookmark.trail} />)
+      ) : (
+        <p>No bookmarks to show</p>
+      )}
     </div>
   );
 };
