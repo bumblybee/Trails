@@ -1,20 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
 
 import TrailCard from "../../components/layout/cards/TrailCard";
 
+import * as sc from "./StyledBookmarks";
+
 const Bookmarks = () => {
-  const { bookmarks } = useContext(BookmarkContext);
+  const { bookmarks, getUserBookmarks } = useContext(BookmarkContext);
+
+  useEffect(() => {
+    getUserBookmarks().then((data) => console.log(data));
+  }, []);
 
   return (
-    <div style={{ padding: "3rem" }}>
-      {bookmarks ? (
-        bookmarks.map((bookmark) => <TrailCard trail={bookmark.trail} />)
-      ) : (
-        <p>No bookmarks to show</p>
-      )}
-    </div>
+    <sc.StyledBookmarksContainer>
+      <sc.StyledCardContainer>
+        {bookmarks && bookmarks.length ? (
+          bookmarks.map((bookmark) => <TrailCard trail={bookmark.trail} />)
+        ) : (
+          <h4>No bookmarks to show</h4>
+        )}
+      </sc.StyledCardContainer>
+    </sc.StyledBookmarksContainer>
   );
 };
 

@@ -7,6 +7,7 @@ export const StyledCardContainer = styled.div`
   border-radius: 6px;
   width: 300px;
   height: 330px;
+  flex: 1 1 0;
 
   background: #fff;
   margin-right: 1rem;
@@ -22,7 +23,7 @@ export const StyledCardContainer = styled.div`
 
 export const StyledCardImage = styled.div`
   width: 100%;
-  height: 150px;
+  height: 140px;
   background: #ccc;
 
   img {
@@ -46,7 +47,7 @@ export const StyledCardContent = styled.div`
     text-transform: capitalize;
     letter-spacing: 0.02rem;
     margin-top: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   h5 {
@@ -70,6 +71,7 @@ export const StyledCardFooter = styled.div`
   display: flex;
   justify-content: space-between;
   color: #99a29e;
+  /* height: 100%; */
 `;
 
 export const StyledIconContainer = styled.div`
