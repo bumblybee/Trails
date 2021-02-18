@@ -61,7 +61,8 @@ const NavMenu = ({ closeMenu }) => {
 
   const setQueryParams = (address, lat, lng) => {
     query.set("city", address[0].split(" ")[1]);
-    query.set("state", address[1]);
+    console.log(address);
+    query.set("state", address[1].trim());
     query.set("lat", lat);
     query.set("lng", lng);
   };
