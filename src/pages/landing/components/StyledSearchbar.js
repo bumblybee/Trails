@@ -13,9 +13,9 @@ export const StyledSearchbarContainer = styled.div`
   z-index: 10;
   box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
-  /* width: 80%; */
+
   @media (max-width: 620px) {
-    padding: 0.7rem;
+    padding: 0.6rem;
     width: 100%;
   }
 `;
@@ -41,7 +41,7 @@ export const StyledSearchbar = styled.div`
   }
 
   @media (max-width: 620px) {
-    padding: 0.3rem;
+    padding: 0.25rem 0.5rem;
   }
 `;
 
@@ -61,6 +61,7 @@ export const StyledComboInput = styled(ComboboxInput)`
   width: 700px;
   color: #99a29e;
   caret-color: #fe7762;
+  background: transparent;
 
   ::placeholder {
     color: #d0d4d2;
@@ -68,7 +69,7 @@ export const StyledComboInput = styled(ComboboxInput)`
 
   @media (max-width: 620px) {
     margin-left: 0.2rem;
-    width: 125px;
+    width: 200px;
     font-size: 0.9rem;
   }
 `;
@@ -96,10 +97,48 @@ export const StyledComboboxOption = styled(ComboboxOption)`
 export const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 40px;
   width: 15%;
 
   @media (max-width: 620px) {
-    grid-gap: 0.5rem;
+    grid-gap: 0.25rem;
+    width: auto;
+  }
+`;
+
+export const StyledSearchButton = styled.button`
+  background: #fe7762;
+  display: block;
+
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  outline: none;
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+
+  :hover {
+    cursor: pointer;
+    background: #fff;
+    border: 2px solid #fe7762;
+    color: #fe7762;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.07);
+  }
+
+  :active {
+    color: #fff;
+    background: #fe7762;
+
+    border: 2px solid transparent;
+  }
+
+  @media (max-width: 620px) {
+    font-size: 0.8rem;
+    padding: 0;
+    height: 30px;
+    width: 30px;
   }
 `;

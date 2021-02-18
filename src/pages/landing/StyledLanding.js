@@ -17,21 +17,21 @@ export const StyledLandingContainer = styled.div`
       rgb(12, 15, 14, 0.75)
     ),
     url("https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-
-  z-index: 1;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
 
-  margin: 0 auto;
+  z-index: 1;
+  position: relative;
   padding: 2rem;
   text-align: center;
   z-index: 10;
-  height: 840px;
+  height: 860px;
 
   @media (max-width: 620px) {
     width: 100%;
     padding: 1rem;
+    height: 740px;
   }
 `;
 
@@ -39,11 +39,14 @@ export const StyledLandingContent = styled.div`
   color: #fff;
   text-align: left;
   width: 60%;
-  margin: 13% auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 
   @media (max-width: 620px) {
-    width: 100%;
-    margin: 45% auto;
+    width: 90%;
+    transform: translate(-50%, -45%);
   }
 `;
 
@@ -56,6 +59,12 @@ export const StyledLandingText = styled.div`
     margin-bottom: 0;
     font-family: "PT Sans", sans-serif;
     font-size: 2.75rem;
+
+    @media (max-width: 620px) {
+      font-size: 2.2rem;
+      line-height: 0.9;
+      margin-bottom: 0.5rem;
+    }
   }
 
   p {
@@ -63,15 +72,21 @@ export const StyledLandingText = styled.div`
     line-height: 1.35;
     font-weight: 500;
     font-size: 1.35rem;
+
+    @media (max-width: 620px) {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      width: 90%;
+    }
   }
 
   @media (max-width: 620px) {
-    width: 80%;
+    width: 95%;
   }
 `;
 
 export const StyledLandingBottomContainer = styled.div`
-  padding: 2rem;
+  padding: 1.5rem;
   width: 60%;
   margin: 0 auto;
 

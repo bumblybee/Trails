@@ -4,7 +4,7 @@ import Dropdown from "react-dropdown";
 export const StyledFilter = styled(Dropdown)`
   width: 90px;
   color: #99a29e;
-  /* border: 0.5px solid #eceeed; */
+  background: transparent;
 
   padding: 0.2rem;
   font-size: 0.9rem;
