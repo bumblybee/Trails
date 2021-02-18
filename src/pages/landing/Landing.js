@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Searchbar from "./components/Searchbar";
+import TrailCard from "../../components/layout/cards/TrailCard";
 
 import * as sc from "./StyledLanding";
 
@@ -7,17 +8,18 @@ import * as sc from "./StyledLanding";
 // TODO: Image own element, not background
 
 const Landing = () => {
+  const [popularTrails, setPopularTrails] = useState([]);
+
   return (
     <div>
       <sc.StyledLanding>
         <sc.StyledLandingContainer>
           <sc.StyledLandingContent>
             <sc.StyledLandingText>
-              <h1>Choose your own adventure.</h1>
+              <h1>Choose Your Own Adventure.</h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
-                ad. Inven voluptatibus ea minus libero recusandae consectetur, i
-                non!
+                We never known where our next journey begins. When you come to a
+                fork in the road, take it.
               </p>
             </sc.StyledLandingText>
             <Searchbar />
@@ -33,45 +35,7 @@ const Landing = () => {
           >
             <h3>Popular Trails</h3>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <div
-                style={{
-                  borderRadius: "6px",
-                  border: "1px solid #eceeed",
-                  background: "#fff",
-                  padding: "1rem",
-                  width: "250px",
-                  textAlign: "center",
-                }}
-              >
-                <h4 style={{ marginBottom: "0.5rem" }}>card title</h4>
-                <p>card body</p>
-              </div>
-              <div
-                style={{
-                  borderRadius: "6px",
-                  border: "1px solid #eceeed",
-                  background: "#fff",
-                  padding: "1rem",
-                  width: "250px",
-                  textAlign: "center",
-                }}
-              >
-                <h4 style={{ marginBottom: "0.5rem" }}>card title</h4>
-                <p>card body</p>
-              </div>
-              <div
-                style={{
-                  borderRadius: "6px",
-                  border: "1px solid #eceeed",
-                  background: "#fff",
-                  padding: "1rem",
-                  width: "250px",
-                  textAlign: "center",
-                }}
-              >
-                <h4 style={{ marginBottom: "0.5rem" }}>card title</h4>
-                <p>card body</p>
-              </div>
+              {/* <TrailCard /> */}
             </div>
           </div>
         </sc.StyledCardContainer>
