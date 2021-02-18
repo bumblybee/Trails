@@ -2,18 +2,28 @@ import React, { useState, useCallback, useEffect } from "react";
 import { BookmarkContext } from "./BookmarkContext";
 import {
   getBookmarks,
+  getLatestBookmarks,
   createBookmark,
   removeBookmark,
 } from "../../api/bookmarkApi";
 
 const BookmarkProvider = ({ children }) => {
   const [bookmarks, setBookmarks] = useState(null);
+  const [latestBookmarks, setLatestBookmarks] = useState(null);
 
   const getUserBookmarks = useCallback(async () => {
     const returnedBookmarks = await getBookmarks();
     setBookmarks(returnedBookmarks);
     console.log(returnedBookmarks);
     return returnedBookmarks;
+  }, []);
+
+  const getLatest = useCallback(async () => {
+    const latest = await getLatestBookmarks();
+    if (!latest.error) {
+      setLatestBookmarks(latest);
+      return latest.data;
+    }
   }, []);
 
   const createUserBookmark = async (userId, trailId) => {
@@ -30,12 +40,14 @@ const BookmarkProvider = ({ children }) => {
 
   useEffect(() => {
     getUserBookmarks();
+    getLatest();
   }, []);
 
   return (
     <BookmarkContext.Provider
       value={{
         bookmarks,
+        latestBookmarks,
         setBookmarks,
         getUserBookmarks,
         createUserBookmark,
