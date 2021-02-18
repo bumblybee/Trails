@@ -34,10 +34,13 @@ const NavMenu = ({ closeMenu }) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
 
-        await reverseGeocode(lat, lng);
+        const address = await reverseGeocode(lat, lng);
+        setQueryParams(address, lat, lng);
+
         await searchTrails(lat, lng);
 
         closeMenu();
+
         history.push(`/search?${query.toString()}`);
       },
       (err) => {
@@ -56,7 +59,7 @@ const NavMenu = ({ closeMenu }) => {
     const data = await res.json();
     const address = data.plus_code.compound_code.split(",");
 
-    setQueryParams(address, lat, lng);
+    return address;
   };
 
   const setQueryParams = (address, lat, lng) => {
