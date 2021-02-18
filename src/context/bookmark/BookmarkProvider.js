@@ -12,6 +12,7 @@ const BookmarkProvider = ({ children }) => {
   const getUserBookmarks = useCallback(async () => {
     const returnedBookmarks = await getBookmarks();
     setBookmarks(returnedBookmarks);
+    console.log(returnedBookmarks);
     return returnedBookmarks;
   }, []);
 

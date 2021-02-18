@@ -42,7 +42,7 @@ const NavMenu = ({ closeMenu }) => {
         await searchTrails(lat, lng);
 
         closeMenu();
-
+        // Could pass state containing lat, lng, address rather than resetting url, hmm
         history.push(`/search?${query.toString()}`);
       },
       (err) => {
