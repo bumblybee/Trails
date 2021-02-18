@@ -70,7 +70,7 @@ const ScoutTrail = () => {
         // setProgress("Complete");
         setSubmitted(true);
         setTimeout(() => {
-          window.location.reload();
+          window.location.pathname = "/scouted-trails";
         }, 2500);
       }
 
