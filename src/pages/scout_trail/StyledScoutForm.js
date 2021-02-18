@@ -18,13 +18,13 @@ export const StyledFormContainer = styled.div`
     font-weight: 500;
   }
 
-  label.type {
-    margin-right: 0.5rem;
-  }
-
   label span {
     color: #a5afab;
     font-weight: 300;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 0.25rem;
   }
 
   input[type="text"],

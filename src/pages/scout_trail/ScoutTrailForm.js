@@ -158,7 +158,7 @@ const ScoutTrail = () => {
               }}
               type="checkbox"
               value="Biking"
-            />{" "}
+            />
             Biking
           </label>
         </sc.StyledFormGroup>
