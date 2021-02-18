@@ -17,7 +17,7 @@ import Nav from "./components/layout/nav/Nav";
 import Landing from "./pages/landing/Landing";
 import MapView from "./pages/map_view/MapView";
 import TrailPage from "./pages/trail_page/TrailPage";
-import ScoutTrailForm from "./pages/scout_trail/ScoutTrailForm";
+import ScoutTrail from "./pages/scout_trail/ScoutTrail";
 import Bookmarks from "./pages/bookmarks/Bookmarks";
 import ScoutedTrails from "./pages/scouted_trails/ScoutedTrails";
 import Signup from "./pages/signup/Signup";
@@ -68,7 +68,7 @@ function App() {
                       <ScoutedTrails />
                     </Route>
                     <Route path="/scout">
-                      <ScoutTrailForm />
+                      <ScoutTrail />
                     </Route>
                     <Route path="/" exact>
                       <Landing />
