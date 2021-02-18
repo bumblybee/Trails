@@ -6,12 +6,17 @@ import * as sc from "./StyledTrailCard";
 import { StyledCardLinkWrapper } from "../../../pages/map_view/components/trail_list/StyledTrailListCard";
 
 const TrailCard = ({ trail }) => {
-  console.log(trail.name);
   return (
     <StyledCardLinkWrapper to={`/trail/${trail.id}`}>
       <sc.StyledCardContainer>
         <sc.StyledCardImage>
-          <img src={trail.image} alt="" />
+          <img
+            src={
+              trail.image ||
+              "https://images.unsplash.com/photo-1584492100332-b0eaad7652fe?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjAzfHx0cmFpbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"
+            }
+            alt=""
+          />
         </sc.StyledCardImage>
         <sc.StyledCardContent>
           <div>
