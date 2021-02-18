@@ -18,8 +18,8 @@ const Landing = () => {
             <sc.StyledLandingText>
               <h1>Choose Your Own Adventure.</h1>
               <p>
-                We never known where the next journey begins. When you come to a
-                fork in the road, take it.
+                We never known where this journey ends and the next begins. When
+                you come to a fork in the road, take it.
               </p>
             </sc.StyledLandingText>
             <Searchbar />
