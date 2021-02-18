@@ -5,6 +5,11 @@ export const getBookmarks = async () => {
   return res.data;
 };
 
+export const getLatestBookmarks = async () => {
+  const res = await get(`/bookmarks/latest`);
+  return res.data;
+};
+
 export const createBookmark = async (userId, trailId) => {
   const res = await post(`bookmarks/create/${userId}/${trailId}`);
   return res.data;

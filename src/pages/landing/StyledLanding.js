@@ -39,7 +39,7 @@ export const StyledLandingContent = styled.div`
   color: #fff;
   text-align: left;
   width: 60%;
-  margin: 12% auto;
+  margin: 13% auto;
 
   @media (max-width: 620px) {
     width: 100%;
@@ -59,7 +59,7 @@ export const StyledLandingText = styled.div`
   }
 
   p {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     line-height: 1.35;
     font-weight: 500;
     font-size: 1.35rem;
@@ -70,11 +70,19 @@ export const StyledLandingText = styled.div`
   }
 `;
 
-export const StyledCardContainer = styled.div`
+export const StyledLandingBottomContainer = styled.div`
   padding: 2rem;
+  width: 60%;
+  margin: 0 auto;
 
   h3 {
-    padding: 1rem 0 2rem;
-    font-size: 2.5rem;
+    padding: 2rem 0 1rem;
+    font-size: 2.25rem;
   }
+`;
+
+export const StyledLandingCardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `;
