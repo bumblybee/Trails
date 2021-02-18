@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import { geocode } from "../../../api/geocodeApi";
 import { useClickOutsideMenu } from "../../../hooks/useClickOutsideMenu";
 import { ErrorContext } from "../../../context/error/ErrorContext";
 import { UserContext } from "../../../context/user/UserContext";
@@ -35,6 +36,7 @@ const NavMenu = ({ closeMenu }) => {
         const lng = position.coords.longitude;
 
         const address = await reverseGeocode(lat, lng);
+
         setQueryParams(address, lat, lng);
 
         await searchTrails(lat, lng);
@@ -52,12 +54,9 @@ const NavMenu = ({ closeMenu }) => {
 
   // TODO: move api call outside of component
   const reverseGeocode = async (lat, lng) => {
-    const res = await fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
-    );
-
-    const data = await res.json();
-    const address = data.plus_code.compound_code.split(",");
+    const geocodeData = await geocode(lat, lng);
+    console.log(geocodeData);
+    const address = geocodeData.plus_code.compound_code.split(",");
 
     return address;
   };
