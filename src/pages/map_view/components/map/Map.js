@@ -8,9 +8,10 @@ import React, {
 
 import { useLocation, useHistory } from "react-router-dom";
 import { GoogleMap } from "@react-google-maps/api";
+import { geocode } from "../../../../api/geocodeApi";
+import { SearchContext } from "../../../../context/search/SearchContext";
 import { FaCheck } from "react-icons/fa";
 
-import { SearchContext } from "../../../../context/search/SearchContext";
 import MapMarker from "./map_marker/MapMarker";
 import MapMarkerPopup from "./map_marker/MapMarkerPopup";
 import mapStyles from "../../../../styles/mapStyles";
@@ -47,12 +48,8 @@ const Map = ({ hoveredCard }) => {
   const [searchOnMove, setSearchOnMove] = useState(true);
 
   const reverseGeocode = async (mapCenter) => {
-    const res = await fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${mapCenter.lat},${mapCenter.lng}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
-    );
-
-    const data = await res.json();
-    return data;
+    const geocodeData = await geocode(mapCenter.lat, mapCenter.lng);
+    return geocodeData;
   };
 
   const mapRef = useRef();
@@ -82,10 +79,12 @@ const Map = ({ hoveredCard }) => {
   }, [trails]);
 
   const setQueryParamsOnDrag = async (mapCenter) => {
-    const data = await reverseGeocode(mapCenter);
+    const geocodeData = await reverseGeocode(mapCenter);
 
     const address =
-      data.plus_code.compound_code && data.plus_code.compound_code.split(",");
+      geocodeData.plus_code.compound_code &&
+      geocodeData.plus_code.compound_code.split(",");
+    console.log(address);
 
     queryParams.set("city", address[0].split(" ")[1]);
     queryParams.set("state", address[1]);
