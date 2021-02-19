@@ -103,6 +103,9 @@ export const StyledCardContentContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  @media (max-width: 620px) {
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+  }
 
   h4 {
     margin-bottom: 0.2rem;
@@ -112,7 +115,7 @@ export const StyledCardContentContainer = styled.div`
     @media (max-width: 620px) {
       color: #eceeedee;
       font-weight: 600;
-      text-shadow: 0 0 1px #99a29e;
+      /* text-shadow: 0 0 1px #99a29e; */
     }
   }
 
@@ -127,7 +130,7 @@ export const StyledCardContentContainer = styled.div`
 
     @media (max-width: 620px) {
       color: #b1ce7c;
-      text-shadow: 1px 1px #333;
+      /* text-shadow: 1px 1px #333; */
       font-size: 0.875rem;
     }
   }
@@ -142,11 +145,11 @@ export const StyledCardContentContainer = styled.div`
     @media (max-width: 620px) {
       height: 100%;
       width: 100%;
-      padding: 1.5rem 0 1rem;
+      padding: 0;
       display: grid;
       grid-template-columns: 1fr;
       color: #eceeedee;
-      text-shadow: 1px 1px #333;
+      /* text-shadow: 1px 1px #333; */
     }
   }
 `;

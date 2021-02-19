@@ -19,6 +19,10 @@ export const StyledCardContainer = styled.div`
     cursor: pointer;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   }
+
+  @media (max-width: 620px) {
+    height: 315px;
+  }
 `;
 
 export const StyledCardImage = styled.div`

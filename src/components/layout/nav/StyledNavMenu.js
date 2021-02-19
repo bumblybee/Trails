@@ -17,7 +17,7 @@ export const StyledNavMenuContainer = styled.div`
   @media (max-width: 620px) {
     top: 2.7rem;
     right: 1.25rem;
-    width: 30%;
+    width: 32.5%;
   }
 `;
 

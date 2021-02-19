@@ -144,6 +144,24 @@ export const StyledFormLink = styled(Link)`
   margin-top: 1rem;
 `;
 
+export const StyledPasswordInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, 220%);
+    color: #7f7f7f;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+`;
+
 export const StyledHr = styled.hr`
   margin: 1rem auto 2rem;
   border: 1px solid #b9c8b8;

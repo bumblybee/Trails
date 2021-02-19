@@ -1,9 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 import { ErrorContext } from "../../context/error/ErrorContext";
 import { UserContext } from "../../context/user/UserContext";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import * as sc from "../../styles/GlobalStyledComponents";
+import { StyledPasswordInput } from "../../styles/GlobalStyledComponents";
 
 const Login = () => {
   const history = useHistory();
@@ -14,6 +16,20 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
+
+  const passwordRef = useRef();
+  const passwordIconRef = useRef();
+
+  const handleShowPassword = () => {
+    if (passwordRef.current.type === "password") {
+      passwordRef.current.type = "text";
+      setShowPassword(!showPassword);
+    } else {
+      passwordRef.current.type = "password";
+      setShowPassword(!showPassword);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,9 +64,10 @@ const Login = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <StyledPasswordInput className="form-group">
           <label htmlFor="password">Password</label>
           <input
+            ref={passwordRef}
             type="password"
             id="password"
             value={userDetails.password}
@@ -59,7 +76,12 @@ const Login = () => {
             }
             required
           />
-        </div>
+          {showPassword ? (
+            <FaEye ref={passwordIconRef} onClick={handleShowPassword} />
+          ) : (
+            <FaEyeSlash ref={passwordIconRef} onClick={handleShowPassword} />
+          )}
+        </StyledPasswordInput>
         <button>Log In</button>
         <div style={{ display: "flex" }}>
           <sc.StyledFormLink to="/reset-password">
