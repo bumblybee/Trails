@@ -15,7 +15,11 @@ export const StyledSearchContainer = styled.div`
     display: flex;
     flex-direction: column-reverse;
     > div {
-      height: 50%;
+      height: 45%;
+    }
+
+    div:nth-child(2) {
+      height: 55%;
     }
   }
 `;

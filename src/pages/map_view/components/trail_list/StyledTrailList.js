@@ -6,6 +6,7 @@ export const StyledTrailList = styled.ul`
   max-height: 950px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+
   ::-webkit-scrollbar-scrollbar-track-color {
     background: transparent;
     color: transparent;
@@ -26,7 +27,7 @@ export const StyledTrailListHeader = styled.div`
 
     @media (max-width: 620px) {
       margin: 0 0 1rem;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
     }
   }
 
