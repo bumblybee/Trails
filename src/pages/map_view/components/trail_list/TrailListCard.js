@@ -24,12 +24,9 @@ import * as sc from "./StyledTrailListCard";
 const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
   const [bookmarkHoverRef] = useHover();
   const { user } = useContext(UserContext);
-  const {
-    bookmarks,
-    setBookmarks,
-    createUserBookmark,
-    removeUserBookmark,
-  } = useContext(BookmarkContext);
+  const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
+    BookmarkContext
+  );
 
   const shouldTruncateDescription = () => {
     const desc = trail.description;

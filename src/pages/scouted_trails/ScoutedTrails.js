@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { getScoutedTrails } from "../../api/trailsApi";
+
 import { UserContext } from "../../context/user/UserContext";
 import TrailCard from "../../components/layout/cards/TrailCard";
 import * as sc from "./StyledScoutedTrail";
 
 const ScoutedTrails = () => {
-  const { user, getCurrentUser } = useContext(UserContext);
+  const { getCurrentUser } = useContext(UserContext);
   const [scoutedTrails, setScoutedTrails] = useState([]);
 
   useEffect(() => {

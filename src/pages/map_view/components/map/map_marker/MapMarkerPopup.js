@@ -36,7 +36,7 @@ const MapMarkerPopup = ({ selected, setSelected }) => {
           </p>
           <StarRating rating={selected.rating} />
           <sc.StyledImageContainer>
-            <img src={selected.img} alt="trail image" />
+            <img src={selected.img} alt="trail" />
           </sc.StyledImageContainer>
         </sc.StyledMapMarkerPopup>
       </InfoWindow>

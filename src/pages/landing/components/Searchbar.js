@@ -9,7 +9,7 @@ import { Combobox } from "@reach/combobox";
 import { SearchContext } from "../../../context/search/SearchContext";
 import Filter from "../../../components/layout/search_filter/Filter";
 import { FaSearch } from "react-icons/fa";
-import { StyledSearchButton } from "../../../styles/GlobalStyledComponents";
+
 import * as sc from "./StyledSearchbar";
 
 const Searchbar = () => {
