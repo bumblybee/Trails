@@ -46,7 +46,7 @@ export const StyledLandingContent = styled.div`
 
   @media (max-width: 620px) {
     width: 90%;
-    transform: translate(-50%, -55%);
+    transform: translate(-50%, -53%);
   }
 `;
 
@@ -75,7 +75,7 @@ export const StyledLandingText = styled.div`
 
     @media (max-width: 620px) {
       font-size: 1.1rem;
-      margin-bottom: 1.5rem;
+      /* margin-bottom: 1.5rem; */
       width: 90%;
     }
   }
@@ -103,7 +103,7 @@ export const StyledLandingBottomContainer = styled.div`
     font-size: 2.25rem;
 
     @media (max-width: 620px) {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
     }
   }
 `;

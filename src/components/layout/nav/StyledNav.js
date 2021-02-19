@@ -25,12 +25,12 @@ export const StyledNav = styled.div`
   z-index: 100;
 
   @media (max-width: 620px) {
-    padding: 0.5rem 0.7rem;
+    padding: 0.5rem 0.75rem;
   }
 `;
 
 export const StyledLogoContainer = styled.div`
-  padding: 0.4rem 0.4rem 0;
+  padding: 0 0.4rem 0;
 `;
 
 export const StyledLogo = styled.img`
@@ -38,7 +38,7 @@ export const StyledLogo = styled.img`
   background: transparent;
 
   @media (max-width: 620px) {
-    height: ${(props) => (props.currentPath === "/" ? "27px" : "26px")};
+    height: ${(props) => (props.currentPath === "/" ? "30px" : "27px")};
   }
 `;
 
