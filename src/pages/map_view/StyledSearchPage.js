@@ -18,7 +18,7 @@ export const StyledSearchContainer = styled.div`
       height: 45%;
     }
 
-    div:nth-child(2) {
+    > div:nth-child(2) {
       height: 55%;
     }
   }
