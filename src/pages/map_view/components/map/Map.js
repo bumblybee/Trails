@@ -80,14 +80,15 @@ const Map = ({ hoveredCard }) => {
 
   const setQueryParamsOnDrag = async (mapCenter) => {
     const geocodeData = await reverseGeocode(mapCenter);
+    console.log(geocodeData);
 
     const address =
       geocodeData.plus_code.compound_code &&
-      geocodeData.plus_code.compound_code.split(",");
+      geocodeData.plus_code.compound_code.slice(7).split(",");
     console.log(address);
 
-    queryParams.set("city", address[0].split(" ")[1]);
-    queryParams.set("state", address[1]);
+    queryParams.set("city", address[0].trim());
+    queryParams.set("state", address[1].trim());
     queryParams.set("lat", mapCenter.lat);
     queryParams.set("lng", mapCenter.lng);
   };

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledTrailList = styled.ul`
-  padding: 2rem 1rem 1rem 1.5rem;
+  padding: 2.5rem 1rem 1rem 1.5rem;
   overflow-y: scroll;
   max-height: 950px;
   scrollbar-width: none;
@@ -19,7 +19,7 @@ export const StyledTrailList = styled.ul`
 
 export const StyledTrailListHeader = styled.div`
   color: #34423b;
-  padding: 3.5rem 0 2rem;
+  padding: 4rem 0 1.5rem;
 
   h3 {
     margin: 0 0 0.5rem;

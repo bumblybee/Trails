@@ -32,7 +32,7 @@ export const StyledMapLogo = styled.div`
 
 export const StyledSearchOnDragCheckbox = styled.div`
   position: absolute;
-  top: 4rem;
+  top: 5rem;
   right: 2rem;
   z-index: 10;
   font-size: 0.9rem;
