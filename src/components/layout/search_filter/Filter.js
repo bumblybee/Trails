@@ -5,7 +5,7 @@ import { SearchContext } from "../../../context/search/SearchContext";
 
 const options = ["hiking", "biking", "none"];
 
-const Filter = () => {
+const Filter = ({ origin }) => {
   const { setSearchFilterValue } = useContext(SearchContext);
 
   const handleSelect = (option) => {
@@ -15,6 +15,7 @@ const Filter = () => {
 
   return (
     <StyledFilter
+      origin={origin}
       options={options}
       placeholder="filter"
       onChange={handleSelect}
