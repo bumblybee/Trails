@@ -17,17 +17,15 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
+
   const passwordRef = useRef();
   const passwordIconRef = useRef();
 
   const handleShowPassword = () => {
     if (passwordRef.current.type === "password") {
       passwordRef.current.type = "text";
-      setShowPassword(!showPassword);
     } else {
       passwordRef.current.type = "password";
-      setShowPassword(!showPassword);
     }
   };
 
@@ -95,10 +93,10 @@ const Signup = () => {
             }
             required
           />
-          {showPassword ? (
-            <FaEye ref={passwordIconRef} onClick={handleShowPassword} />
-          ) : (
+          {passwordRef.current && passwordRef.current.type === "password" ? (
             <FaEyeSlash ref={passwordIconRef} onClick={handleShowPassword} />
+          ) : (
+            <FaEye ref={passwordIconRef} onClick={handleShowPassword} />
           )}
         </StyledPasswordInput>
         <button>Join TrailScout</button>

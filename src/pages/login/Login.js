@@ -16,7 +16,6 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
 
   const passwordRef = useRef();
   const passwordIconRef = useRef();
@@ -24,10 +23,8 @@ const Login = () => {
   const handleShowPassword = () => {
     if (passwordRef.current.type === "password") {
       passwordRef.current.type = "text";
-      setShowPassword(!showPassword);
     } else {
       passwordRef.current.type = "password";
-      setShowPassword(!showPassword);
     }
   };
 
@@ -76,10 +73,10 @@ const Login = () => {
             }
             required
           />
-          {showPassword ? (
-            <FaEye ref={passwordIconRef} onClick={handleShowPassword} />
-          ) : (
+          {passwordRef.current && passwordRef.current.type === "password" ? (
             <FaEyeSlash ref={passwordIconRef} onClick={handleShowPassword} />
+          ) : (
+            <FaEye ref={passwordIconRef} onClick={handleShowPassword} />
           )}
         </StyledPasswordInput>
         <button>Log In</button>
