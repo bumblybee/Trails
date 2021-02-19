@@ -35,9 +35,14 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (passwordVerify !== userDetails.password) {
+      password2Ref.current.setCustomValidity("Passwords must match");
+      return;
+    }
     const signup = await signUserUp(userDetails);
+
     // TODO: handle signup errors
-    // TODO: reroute user to account page after creation
 
     // signup && setUser(signup.data);
     signup && signup.error ? setError(signup.error) : history.push("/");
@@ -110,7 +115,7 @@ const Signup = () => {
           )}
         </StyledPasswordInput>
         <StyledPasswordInput className="form-group">
-          <label htmlFor="password">Verify Password</label>
+          <label htmlFor="password">Confirm Password</label>
           <input
             ref={password2Ref}
             value={passwordVerify}
