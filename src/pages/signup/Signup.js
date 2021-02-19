@@ -17,15 +17,19 @@ const Signup = () => {
     email: "",
     password: "",
   });
+  const [passwordVerify, setPasswordVerify] = useState("");
 
-  const passwordRef = useRef();
-  const passwordIconRef = useRef();
+  const password1Ref = useRef();
+  const password2Ref = useRef();
 
-  const handleShowPassword = () => {
-    if (passwordRef.current.type === "password") {
-      passwordRef.current.type = "text";
+  const passwordIcon1Ref = useRef();
+  const passwordIcon2Ref = useRef();
+
+  const handleShowPassword = (reference) => {
+    if (reference.current.type === "password") {
+      reference.current.type = "text";
     } else {
-      passwordRef.current.type = "password";
+      reference.current.type = "password";
     }
   };
 
@@ -41,7 +45,7 @@ const Signup = () => {
 
   return (
     <sc.StyledUserFormContainer>
-      <sc.StyledUserForm onSubmit={handleSubmit}>
+      <sc.StyledUserForm onSubmit={handleSubmit} origin={"signup"}>
         <div className="form-header">
           <h4>Join TrailScout</h4>
           <p>
@@ -81,7 +85,7 @@ const Signup = () => {
         <StyledPasswordInput className="form-group">
           <label htmlFor="password">Password</label>
           <input
-            ref={passwordRef}
+            ref={password1Ref}
             type="password"
             id="password"
             value={userDetails.password}
@@ -93,13 +97,44 @@ const Signup = () => {
             }
             required
           />
-          {passwordRef.current && passwordRef.current.type === "password" ? (
-            <FaEyeSlash ref={passwordIconRef} onClick={handleShowPassword} />
+          {password1Ref.current && password1Ref.current.type === "password" ? (
+            <FaEyeSlash
+              ref={passwordIcon1Ref}
+              onClick={() => handleShowPassword(password1Ref)}
+            />
           ) : (
-            <FaEye ref={passwordIconRef} onClick={handleShowPassword} />
+            <FaEye
+              ref={passwordIcon1Ref}
+              onClick={() => handleShowPassword(password1Ref)}
+            />
           )}
         </StyledPasswordInput>
-        <button>Join TrailScout</button>
+        <StyledPasswordInput className="form-group">
+          <label htmlFor="password">Verify Password</label>
+          <input
+            ref={password2Ref}
+            value={passwordVerify}
+            type="password"
+            id="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain at least 8 characters with at least one number, one uppercase and one lowercase letter."
+            maxLength="50"
+            onChange={(e) => setPasswordVerify(e.target.value)}
+            required
+          />
+          {password2Ref.current && password2Ref.current.type === "password" ? (
+            <FaEyeSlash
+              ref={passwordIcon2Ref}
+              onClick={() => handleShowPassword(password2Ref)}
+            />
+          ) : (
+            <FaEye
+              ref={passwordIcon2Ref}
+              onClick={() => handleShowPassword(password2Ref)}
+            />
+          )}
+        </StyledPasswordInput>
+        <button>Join</button>
         <sc.StyledFormLink to="/login">
           I already have an account
         </sc.StyledFormLink>

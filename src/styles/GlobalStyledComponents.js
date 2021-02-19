@@ -67,7 +67,7 @@ export const StyledUserForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin: 11% auto;
+  margin: ${(props) => (props.origin === "signup" ? "7% auto" : "11% auto")};
   border: 1px solid #eceeed;
   background: #fff;
 
@@ -78,7 +78,8 @@ export const StyledUserForm = styled.form`
     width: 70%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.3rem;
+    margin-bottom: ${(props) =>
+      props.origin === "signup" ? "1rem" : "1.3rem"};
   }
 
   div.form-header {
