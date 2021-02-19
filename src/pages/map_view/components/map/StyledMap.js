@@ -3,11 +3,12 @@ import { ComboboxInput, ComboboxList, ComboboxOption } from "@reach/combobox";
 
 export const StyledMapContainer = styled.div`
   position: relative;
+  padding-top: 3em;
 `;
 
 export const StyledMapLogo = styled.div`
   position: absolute;
-  top: 4rem;
+  top: 5rem;
   left: 2rem;
   z-index: 100;
   margin: 0;
@@ -83,7 +84,7 @@ export const StyledMapSearchbar = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 4rem;
+  top: 5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
