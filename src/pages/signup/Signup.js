@@ -10,7 +10,7 @@ import * as sc from "../../styles/GlobalStyledComponents";
 const Signup = () => {
   const history = useHistory();
   const { setError } = useContext(ErrorContext);
-  const { setUser, signUserUp } = useContext(UserContext);
+  const { signUserUp } = useContext(UserContext);
 
   const [userDetails, setUserDetails] = useState({
     username: "",
@@ -120,7 +120,7 @@ const Signup = () => {
             ref={password2Ref}
             value={passwordVerify}
             type="password"
-            id="password"
+            id="password2"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Must contain at least 8 characters with at least one number, one uppercase and one lowercase letter."
             maxLength="50"
