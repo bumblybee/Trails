@@ -46,7 +46,7 @@ export const StyledLandingContent = styled.div`
 
   @media (max-width: 620px) {
     width: 90%;
-    transform: translate(-50%, -45%);
+    transform: translate(-50%, -55%);
   }
 `;
 
@@ -89,10 +89,22 @@ export const StyledLandingBottomContainer = styled.div`
   padding: 1.5rem;
   width: 60%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 620px) {
+    width: 100%;
+    padding: 0;
+  }
 
   h3 {
     padding: 2rem 0 1rem;
     font-size: 2.25rem;
+
+    @media (max-width: 620px) {
+      font-size: 1.9rem;
+    }
   }
 `;
 
@@ -100,4 +112,14 @@ export const StyledLandingCardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @media (max-width: 620px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    > a {
+      margin-bottom: 1rem;
+    }
+  }
 `;
