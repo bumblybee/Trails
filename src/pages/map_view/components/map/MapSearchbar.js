@@ -82,7 +82,7 @@ const MapSearchbar = () => {
           </sc.StyledComboList>
         </ComboboxPopover>
       </Combobox>
-      <Filter />
+      <Filter origin={"map"} />
     </sc.StyledMapSearchbar>
   );
 };

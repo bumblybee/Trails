@@ -34,6 +34,11 @@ export const StyledFilter = styled(Dropdown)`
     border-radius: 6px;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
     margin-top: 2.3rem;
+
+    @media (max-width: 620px) {
+      margin-top: ${(props) =>
+        props.origin === "landing" ? "1.25rem" : "0.7rem"};
+    }
   }
 
   option {

@@ -4,7 +4,7 @@ export const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.5rem;
+  padding: 1rem 1.5rem;
   max-width: 100%;
   box-shadow: ${(props) =>
     props.currentPath === "/" ||
@@ -25,7 +25,7 @@ export const StyledNav = styled.div`
   z-index: 100;
 
   @media (max-width: 620px) {
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem;
   }
 `;
 

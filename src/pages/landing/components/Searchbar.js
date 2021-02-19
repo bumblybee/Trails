@@ -77,7 +77,7 @@ const Searchbar = () => {
         </Combobox>
 
         <sc.StyledButtonContainer>
-          <Filter />
+          <Filter origin={"landing"} />
           <sc.StyledSearchButton
             onClick={() => {
               history.push(

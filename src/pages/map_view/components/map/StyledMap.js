@@ -17,6 +17,16 @@ export const StyledMapLogo = styled.div`
     width: 100px;
     opacity: 0.8;
   }
+
+  @media (max-width: 620px) {
+    bottom: 0.5rem;
+    top: auto;
+    left: 0.5rem;
+
+    img {
+      width: 60px;
+    }
+  }
 `;
 
 export const StyledSearchOnDragCheckbox = styled.div`
