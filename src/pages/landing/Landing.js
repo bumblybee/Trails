@@ -37,7 +37,7 @@ const Landing = () => {
             <sc.StyledLandingCardContainer>
               {popularBookmarks &&
                 popularBookmarks.map((bookmark) => (
-                  <TrailCard trail={bookmark.trail} />
+                  <TrailCard key={bookmark.id} trail={bookmark.trail} />
                 ))}
             </sc.StyledLandingCardContainer>
           </div>
