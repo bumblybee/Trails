@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
 import { Combobox } from "@reach/combobox";
-
+import { ErrorContext } from "../../../context/error/ErrorContext";
 import { SearchContext } from "../../../context/search/SearchContext";
 import Filter from "../../../components/layout/search_filter/Filter";
 import { FaSearch } from "react-icons/fa";
@@ -14,10 +14,9 @@ import * as sc from "./StyledSearchbar";
 
 const Searchbar = () => {
   const history = useHistory();
-
-  const { searchTrails, searchLocation, setSearchLocation } = useContext(
-    SearchContext
-  );
+  const { setError } = useContext(ErrorContext);
+  const { searchTrails } = useContext(SearchContext);
+  const [searchLocation, setSearchLocation] = useState(null);
 
   const {
     ready,
@@ -30,7 +29,6 @@ const Searchbar = () => {
   const handleSelect = async (address) => {
     setValue(address, false);
     clearSuggestions();
-    console.log(address);
 
     try {
       //get geo of address user passes in
@@ -40,6 +38,7 @@ const Searchbar = () => {
 
       const city = address.split(",")[0];
       const state = address.split(", ")[1];
+
       setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
 
       //call api
@@ -80,9 +79,11 @@ const Searchbar = () => {
           <Filter origin={"landing"} />
           <sc.StyledSearchButton
             onClick={() => {
-              history.push(
-                `/search?city=${searchLocation.city}&state=${searchLocation.state}&lat=${searchLocation.coords.lat}&lng=${searchLocation.coords.lng}`
-              );
+              searchLocation
+                ? history.push(
+                    `/search?city=${searchLocation.city}&state=${searchLocation.state}&lat=${searchLocation.coords.lat}&lng=${searchLocation.coords.lng}`
+                  )
+                : setError("Please enter search a location.");
             }}
           >
             <FaSearch />

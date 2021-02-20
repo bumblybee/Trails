@@ -47,7 +47,7 @@ export const StyledSearchbar = styled.div`
 
 //TODO: Separation between dropdown and searchbar
 export const StyledComboPopover = styled(ComboboxPopover)`
-  z-index: 1;
+  z-index: 100;
   border: none;
   margin-top: 3rem;
   border-radius: 6px;

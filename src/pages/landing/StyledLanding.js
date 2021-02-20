@@ -41,8 +41,8 @@ export const StyledLandingContent = styled.div`
   width: 60%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   position: absolute;
+  transform: translate(-50%, -55%);
 
   @media (max-width: 620px) {
     width: 90%;
