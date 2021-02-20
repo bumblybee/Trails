@@ -18,6 +18,7 @@ export const StyledNav = styled.div`
     props.currentPath === "/signup"
       ? "transparent"
       : "#fffeff"};
+
   position: absolute;
   top: 0;
   left: 0;
@@ -34,7 +35,7 @@ export const StyledLogoContainer = styled.div`
 `;
 
 export const StyledLogo = styled.img`
-  height: ${(props) => (props.currentPath === "/" ? "44px" : "37px")};
+  height: ${(props) => (props.currentPath === "/" ? "42px" : "37px")};
   background: transparent;
 
   @media (max-width: 620px) {
@@ -46,23 +47,23 @@ export const StyledLinksContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 1.3rem;
+  margin-right: 1.2rem;
   transition: border-color 0.2s ease-in-out 0s;
-  /* box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-   */
+
   svg {
     font-size: 2.2rem;
-    /* color: ${(props) =>
-      props.currentPath === "/" ? "#fffeff" : "#fe7762"}; */
-    color: #fe7762;
+
+    color: ${(props) => (props.showMenu ? "#fe9787" : "#fe7762")};
+    border: ${(props) =>
+      props.showMenu ? "2px solid #fe9787" : "2px solid #fe7762"};
     border-radius: 6px;
-    /* border: ${(props) =>
-      props.currentPath === "/" ? "2px solid #fffeff" : "2px solid #fe7762"}; */
-    border: 2px solid #fe7762;
-    padding: 0.5rem;
+
+    padding: 0.45rem;
 
     :hover {
       cursor: pointer;
+      color: #fe9787;
+      border-color: #fe9787;
     }
 
     @media (max-width: 620px) {
