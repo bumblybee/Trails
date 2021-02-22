@@ -1,5 +1,20 @@
 import styled from "styled-components";
 
+export const StyledBlackout = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.5);
+`;
+
+export const StyledHr = styled.hr`
+  margin: 1rem 0;
+  border: 2px solid #b9c8b8;
+`;
+
 export const StyledEditTrailFormContainer = styled.div`
   position: absolute;
   top: 50%;
@@ -7,8 +22,8 @@ export const StyledEditTrailFormContainer = styled.div`
   transform: translate(-50%, -50%);
   z-index: 100;
   background: #fff;
-  width: 25%;
-  padding: 2rem 2rem 1rem;
+  width: 28%;
+  padding: 0.5rem 1.5rem;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #eceeed;
   border-radius: 6px;
@@ -27,10 +42,6 @@ export const StyledEditTrailFormContainer = styled.div`
     font-weight: 300;
   }
 
-  textarea {
-    width: 99%;
-  }
-
   input[type="checkbox"] {
     margin-right: 0.25rem;
   }
@@ -42,13 +53,13 @@ export const StyledEditTrailFormContainer = styled.div`
   input[type="text"],
   input[type="number"],
   textarea {
-    border: none;
+    border: 1px solid #333;
     background: #eceeed;
     padding: 0.5rem;
     font-weight: 300;
 
     :focus {
-      border: none;
+      /* border: none; */
       outline: none;
     }
 
@@ -56,6 +67,14 @@ export const StyledEditTrailFormContainer = styled.div`
       font-weight: 300;
       color: #99a29e;
     }
+  }
+
+  textarea {
+    width: 99%;
+  }
+
+  h4 {
+    margin-bottom: 0.5rem;
   }
 `;
 
@@ -65,6 +84,9 @@ export const StyledForm = styled.form`
 
 export const StyledFormGroup = styled.div`
   margin-bottom: 1.3rem;
+  :nth-child(9) {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export const StyledFormButton = styled.button`
@@ -94,5 +116,6 @@ export const StyledFormButton = styled.button`
 `;
 
 export const StyledMessage = styled.p`
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  width: 95%;
 `;
