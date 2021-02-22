@@ -35,7 +35,7 @@ const Nav = () => {
         </sc.StyledLogoContainer>
       </Link>
       {showMenu ? <NavMenu closeMenu={closeMenu} /> : ""}
-      showMenu={showMenu}
+
       <sc.StyledLinksContainer currentPath={currentPath} showMenu={showMenu}>
         <FaBars title="account" onClick={() => setShowMenu(!showMenu)} />
       </sc.StyledLinksContainer>
