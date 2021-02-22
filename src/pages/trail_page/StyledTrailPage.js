@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledTrailPageWrapper = styled.div`
-  padding: 4.5rem 1rem;
+  padding: 5rem 1rem;
+  position: relative;
 `;
 
 export const StyledTrailPageContainer = styled.div`

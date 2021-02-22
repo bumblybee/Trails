@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { getSingleTrail } from "../../api/trailsApi";
 import { UserContext } from "../../context/user/UserContext";
 import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
+import EditTrailForm from "./components/EditTrailForm";
 import StarRating from "../../components/rating/StarRating";
 import { randomImage } from "../../defaultImages/randomImages";
 import {
@@ -24,6 +25,7 @@ import * as sc from "./StyledTrailPage";
 const TrailPage = () => {
   const { id } = useParams();
   const [trail, setTrail] = useState({});
+  const [showEditForm, setShowEditForm] = useState(false);
   const { user } = useContext(UserContext);
   const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
     BookmarkContext
@@ -82,6 +84,13 @@ const TrailPage = () => {
 
   return (
     <sc.StyledTrailPageWrapper>
+      {showEditForm && (
+        <EditTrailForm
+          trail={trail}
+          showEditForm={showEditForm}
+          setShowEditForm={setShowEditForm}
+        />
+      )}
       <sc.StyledImageContainer>
         <sc.StyledImage
           src={trail.image !== null ? trail.image : randomImage()}
@@ -168,6 +177,7 @@ const TrailPage = () => {
                 Add Photo
               </button>
               <button
+                onClick={() => setShowEditForm(!showEditForm)}
                 title={user ? "" : "Log in to suggest an edit"}
                 disabled={user ? false : true}
               >
