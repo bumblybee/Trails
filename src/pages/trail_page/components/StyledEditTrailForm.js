@@ -5,7 +5,7 @@ export const StyledBlackout = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 105%;
+  height: 110%;
   z-index: 99;
   background: rgba(0, 0, 0, 0.5);
 `;
@@ -47,13 +47,13 @@ export const StyledEditTrailFormContainer = styled.div`
   }
 
   input[type="text"] {
-    width: 70%;
+    width: 60%;
   }
 
   input[type="text"],
   input[type="number"],
   textarea {
-    border: 1px solid #333;
+    border: 1px solid #a5afab;
     background: #eceeed;
     padding: 0.5rem;
     font-weight: 300;

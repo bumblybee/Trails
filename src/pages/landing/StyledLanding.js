@@ -58,7 +58,7 @@ export const StyledLandingText = styled.div`
   h1 {
     margin-bottom: 0;
     font-family: "PT Sans", sans-serif;
-    font-size: 2.75rem;
+    font-size: 3.5rem;
 
     @media (max-width: 620px) {
       font-size: 2.2rem;
@@ -71,7 +71,7 @@ export const StyledLandingText = styled.div`
     margin-bottom: 2rem;
     line-height: 1.35;
     font-weight: 500;
-    font-size: 1.35rem;
+    font-size: 1.5rem;
 
     @media (max-width: 620px) {
       font-size: 1.1rem;
@@ -91,7 +91,6 @@ export const StyledLandingBottomContainer = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   @media (max-width: 620px) {
     width: 100%;
@@ -99,8 +98,10 @@ export const StyledLandingBottomContainer = styled.div`
   }
 
   h3 {
-    padding: 2rem 0 1rem;
-    font-size: 2.25rem;
+    padding: 2rem 0 3rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    font-family: "Noto Sans Jp";
 
     @media (max-width: 620px) {
       font-size: 1.8rem;
@@ -112,6 +113,7 @@ export const StyledLandingCardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 
   @media (max-width: 620px) {
     flex-direction: column;

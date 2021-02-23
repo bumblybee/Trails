@@ -99,7 +99,8 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
 
           <sc.StyledImage
             src={trail.image !== null ? trail.image : randomImage()}
-            alt="trail image"
+            alt="trail"
+            loading="lazy"
           />
         </sc.StyledCardLinkWrapper>
       </sc.StyledImageContainer>
