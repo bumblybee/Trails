@@ -80,12 +80,12 @@ const NavMenu = ({ closeMenu }) => {
             Scouted trails
           </sc.StyledLink>
           <sc.StyledMenuHr />
-          <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
-            Create new trail
-          </sc.StyledLink>
 
           <sc.StyledLink to="#" onClick={() => findTrailsNearUser()}>
             Near me
+          </sc.StyledLink>
+          <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
+            Create new trail
           </sc.StyledLink>
           <sc.StyledMenuHr />
 
@@ -95,12 +95,11 @@ const NavMenu = ({ closeMenu }) => {
         </>
       ) : (
         <>
-          <sc.StyledLink to="/login" onClick={() => closeMenu()}>
-            Log in
-          </sc.StyledLink>
-
           <sc.StyledLink to="/signup" onClick={() => closeMenu()}>
             Sign up
+          </sc.StyledLink>
+          <sc.StyledLink to="/login" onClick={() => closeMenu()}>
+            Log in
           </sc.StyledLink>
           <sc.StyledLink to="#" onClick={() => findTrailsNearUser()}>
             Near me
