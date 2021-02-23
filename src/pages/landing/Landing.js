@@ -15,6 +15,8 @@ const Landing = () => {
   useEffect(() => {
     latestBookmarks && setPopularBookmarks(latestBookmarks);
   });
+
+  console.log(popularBookmarks);
   return (
     <div>
       <sc.StyledLanding>
@@ -33,7 +35,7 @@ const Landing = () => {
         {/* TODO: Break into own component */}
         <sc.StyledLandingBottomContainer>
           <div>
-            <h3>Popular Trails</h3>
+            <h3>Recently discovered</h3>
             <sc.StyledLandingCardContainer>
               {popularBookmarks &&
                 popularBookmarks.map((bookmark) => (

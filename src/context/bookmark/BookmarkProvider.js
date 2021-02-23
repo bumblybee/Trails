@@ -20,10 +20,9 @@ const BookmarkProvider = ({ children }) => {
 
   const getLatest = useCallback(async () => {
     const latest = await getLatestBookmarks();
-    if (!latest.error) {
-      setLatestBookmarks(latest);
-      return latest.data;
-    }
+
+    setLatestBookmarks(latest);
+    return latest.data;
   }, []);
 
   const createUserBookmark = async (userId, trailId) => {

@@ -1,11 +1,49 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { ErrorContext } from "../../../context/error/ErrorContext";
 import * as sc from "./StyledEditTrailForm";
 
 const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
+  const { setError } = useContext(ErrorContext);
+  const [submitted, setSubmitted] = useState(false);
+
+  const [trailDetails, setTrailDetails] = useState({
+    name: "",
+    city: "",
+    state: "",
+    lat: null,
+    lng: null,
+    hiking: false,
+    biking: false,
+    length: null,
+    rating: null,
+    description: "",
+    difficulty: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  useEffect(() => {
+    setTrailDetails({
+      name: trail.name,
+      city: trail.city,
+      state: trail.state,
+      lat: trail.lnglat.coordinates[0],
+      lng: trail.lnglat.coordinates[1],
+      hiking: trail.hiking,
+      biking: trail.biking,
+      length: trail.length,
+      rating: trail.rating,
+      description: trail.description,
+      difficulty: trail.difficulty,
+    });
+  }, []);
+  console.log(trailDetails);
   return (
     <sc.StyledBlackout>
       <sc.StyledEditTrailFormContainer>
-        <sc.StyledForm>
+        <sc.StyledForm onSubit={handleSubmit}>
           <h4>Suggest Edits</h4>
           <sc.StyledMessage>
             Update any field with changes you'd like to see us make. Your
@@ -18,7 +56,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
             <label htmlFor="name">
               Trail Name<span title="required">*</span>
             </label>
-            <input type="text" name="" value={trail.name} required />
+            <input type="text" name="" value={trailDetails.name} required />
           </sc.StyledFormGroup>
 
           <sc.StyledFormGroup>
@@ -28,7 +66,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
             <input
               type="text"
               name=""
-              value={`${trail.city}, ${trail.state}`}
+              value={`${trailDetails.city}, ${trailDetails.state}`}
               required
             />
           </sc.StyledFormGroup>
@@ -42,7 +80,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
                 type="radio"
                 value="Beginner"
                 name="difficulty"
-                checked={trail.difficulty === "beginner"}
+                checked={trailDetails.difficulty === "beginner"}
                 required
               />{" "}
               Beginner - <span>flat or little uneven terrain</span>
@@ -52,7 +90,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
                 type="radio"
                 value="Intermediate"
                 name="difficulty"
-                checked={trail.difficulty === "intermediate"}
+                checked={trailDetails.difficulty === "intermediate"}
               />{" "}
               Intermediate - <span>some incline or uneven terrain</span>
             </label>
@@ -61,7 +99,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
                 type="radio"
                 value="Advanced"
                 name="difficulty"
-                checked={trail.difficulty === "advanced"}
+                checked={trailDetails.difficulty === "advanced"}
               />{" "}
               Advanced - <span>rocky, uneven terrain, steep inclines</span>
             </label>
@@ -70,7 +108,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
                 type="radio"
                 value="Expert"
                 name="difficulty"
-                checked={trail.difficulty === "expert"}
+                checked={trailDetails.difficulty === "expert"}
               />{" "}
               Expert - <span>very steep or treacherous terrain</span>
             </label>
@@ -81,11 +119,31 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
               Trail Type<span title="required">*</span>
             </label>
             <label className="type">
-              <input type="checkbox" value="Hiking" />
+              <input
+                onChange={(e) => {
+                  setTrailDetails({
+                    ...trailDetails,
+                    hiking: e.target.checked && true,
+                  });
+                }}
+                type="checkbox"
+                value="Hiking"
+                checked={trailDetails.hiking}
+              />
               Hiking
             </label>
             <label htmlFor="" className="type">
-              <input type="checkbox" value="Biking" />
+              <input
+                onChange={(e) => {
+                  setTrailDetails({
+                    ...trailDetails,
+                    biking: e.target.checked && true,
+                  });
+                }}
+                type="checkbox"
+                value="Biking"
+                checked={trailDetails.biking}
+              />
               Biking
             </label>
           </sc.StyledFormGroup>
@@ -98,7 +156,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
               placeholder="0"
               step="0.1"
               min="0"
-              value={trail.length}
+              value={trailDetails.length}
               style={{ width: "4rem", fontWeight: "300" }}
             />{" "}
             miles
@@ -115,13 +173,13 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
               style={{ resize: "none" }}
               required
             >
-              {trail.description}
+              {trailDetails.description}
             </textarea>
           </sc.StyledFormGroup>
 
           <sc.StyledFormGroup>
             <sc.StyledFormButton type="submit" submitButton={true}>
-              Submit Trail
+              Submit
             </sc.StyledFormButton>
             <sc.StyledFormButton onClick={() => setShowEditForm(!showEditForm)}>
               Cancel
