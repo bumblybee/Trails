@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ErrorContext } from "../../../context/error/ErrorContext";
+import { suggestTrailEdit } from "../../../api/trailsApi";
+import TrailLocationInput from "../../scout_trail/TrailLocationInput";
 import * as sc from "./StyledEditTrailForm";
 
 const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
@@ -20,8 +22,17 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
     difficulty: "",
   });
 
-  const handleSubmit = (e) => {
+  const setLocation = (city, state, lat, lng) => {
+    setTrailDetails({ ...trailDetails, city, state, lat, lng });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const editDetails = { ...trailDetails, trailId: trail.id };
+
+    const res = await suggestTrailEdit(editDetails);
+    console.log(res);
   };
 
   useEffect(() => {
@@ -39,7 +50,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
       difficulty: trail.difficulty,
     });
   }, []);
-  console.log(trailDetails);
+
   return (
     <sc.StyledBlackout>
       <sc.StyledEditTrailFormContainer>
@@ -55,19 +66,22 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
             <label htmlFor="name">
               Trail Name<span title="required">*</span>
             </label>
-            <input type="text" name="" value={trailDetails.name} required />
+            <input
+              onChange={(e) =>
+                setTrailDetails({ ...trailDetails, name: e.target.value })
+              }
+              type="text"
+              name=""
+              value={trailDetails.name}
+              required
+            />
           </sc.StyledFormGroup>
 
           <sc.StyledFormGroup>
             <label htmlFor="location">
               Location<span title="required">*</span>
             </label>
-            <input
-              type="text"
-              name=""
-              value={`${trailDetails.city}, ${trailDetails.state}`}
-              required
-            />
+            <TrailLocationInput trail={trail} setLocation={setLocation} />
           </sc.StyledFormGroup>
 
           <sc.StyledFormGroup>
@@ -76,6 +90,12 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
             </label>
             <label htmlFor="difficulty" className="difficulty">
               <input
+                onChange={(e) =>
+                  setTrailDetails({
+                    ...trailDetails,
+                    difficulty: e.target.value.toLowerCase(),
+                  })
+                }
                 type="radio"
                 value="Beginner"
                 name="difficulty"
@@ -86,6 +106,12 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
             </label>
             <label htmlFor="difficulty" className="difficulty">
               <input
+                onChange={(e) =>
+                  setTrailDetails({
+                    ...trailDetails,
+                    difficulty: e.target.value.toLowerCase(),
+                  })
+                }
                 type="radio"
                 value="Intermediate"
                 name="difficulty"
@@ -95,6 +121,12 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
             </label>
             <label htmlFor="difficulty" className="difficulty">
               <input
+                onChange={(e) =>
+                  setTrailDetails({
+                    ...trailDetails,
+                    difficulty: e.target.value.toLowerCase(),
+                  })
+                }
                 type="radio"
                 value="Advanced"
                 name="difficulty"
@@ -104,6 +136,12 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
             </label>
             <label htmlFor="difficulty" className="difficulty">
               <input
+                onChange={(e) =>
+                  setTrailDetails({
+                    ...trailDetails,
+                    difficulty: e.target.value.toLowerCase(),
+                  })
+                }
                 type="radio"
                 value="Expert"
                 name="difficulty"
@@ -150,6 +188,12 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
           <sc.StyledFormGroup>
             <label htmlFor="length">Length</label>
             <input
+              onChange={(e) =>
+                setTrailDetails({
+                  ...trailDetails,
+                  length: e.target.value,
+                })
+              }
               type="number"
               name=""
               placeholder="0"

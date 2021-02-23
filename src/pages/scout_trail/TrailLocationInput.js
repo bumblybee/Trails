@@ -8,8 +8,10 @@ import PlacesAutocomplete, {
 import * as sc from "./StyledLocation";
 
 //TODO: Check into making input required
-const TrailLocationInput = ({ setLocation }) => {
-  const [address, setAddress] = useState("");
+const TrailLocationInput = ({ setLocation, trail }) => {
+  const [address, setAddress] = useState(
+    trail.city ? `${trail.city}, ${trail.state}` : ""
+  );
 
   // Grab city and state from returned geocode result
   const getCityAndState = (result) => {

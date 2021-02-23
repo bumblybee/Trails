@@ -174,7 +174,7 @@ const ScoutTrail = () => {
               onChange={(e) =>
                 setTrailDetails({
                   ...trailDetails,
-                  difficulty: e.target.value,
+                  difficulty: e.target.value.toLowerCase(),
                 })
               }
               type="radio"
@@ -190,7 +190,7 @@ const ScoutTrail = () => {
               onChange={(e) =>
                 setTrailDetails({
                   ...trailDetails,
-                  difficulty: e.target.value,
+                  difficulty: e.target.value.toLowerCase(),
                 })
               }
               type="radio"
@@ -205,7 +205,7 @@ const ScoutTrail = () => {
               onChange={(e) =>
                 setTrailDetails({
                   ...trailDetails,
-                  difficulty: e.target.value,
+                  difficulty: e.target.value.toLowerCase(),
                 })
               }
               type="radio"
@@ -220,7 +220,7 @@ const ScoutTrail = () => {
               onChange={(e) =>
                 setTrailDetails({
                   ...trailDetails,
-                  difficulty: e.target.value,
+                  difficulty: e.target.value.toLowerCase(),
                 })
               }
               type="radio"
