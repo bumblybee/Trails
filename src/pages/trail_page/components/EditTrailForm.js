@@ -46,9 +46,8 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
         <sc.StyledForm onSubit={handleSubmit}>
           <h4>Suggest Edits</h4>
           <sc.StyledMessage>
-            Update any field with changes you'd like to see us make. Your
-            suggestions and email address will be shared with our team and the
-            original creator for review.
+            Update any field with changes you'd like to see. Your suggestions
+            will be shared with our team and the original creator for review.
           </sc.StyledMessage>
 
           <sc.StyledHr />

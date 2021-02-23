@@ -28,6 +28,11 @@ export const StyledEditTrailFormContainer = styled.div`
   border: 1px solid #eceeed;
   border-radius: 6px;
 
+  h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+  }
+
   label {
     display: block;
     margin-bottom: 0.3rem;
@@ -56,7 +61,9 @@ export const StyledEditTrailFormContainer = styled.div`
     border: 1px solid #a5afab;
     background: #eceeed;
     padding: 0.5rem;
+
     font-weight: 300;
+    line-height: 1;
 
     :focus {
       /* border: none; */
@@ -71,10 +78,7 @@ export const StyledEditTrailFormContainer = styled.div`
 
   textarea {
     width: 99%;
-  }
-
-  h4 {
-    margin-bottom: 0.5rem;
+    line-height: 1.2;
   }
 `;
 
@@ -117,5 +121,7 @@ export const StyledFormButton = styled.button`
 
 export const StyledMessage = styled.p`
   font-size: 0.95rem;
-  width: 95%;
+  font-weight: 400;
+  width: 85%;
+  line-height: 1.2;
 `;
