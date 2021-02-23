@@ -10,9 +10,11 @@ import UserProvider from "./context/user/UserProvider";
 import SearchProvider from "./context/search/SearchProvider";
 import BookmarkProvider from "./context/bookmark/BookmarkProvider";
 import ErrorProvider from "./context/error/ErrorProvider";
+import SuccessProvider from "./context/success/SuccessProvider";
 import HoverProvider from "./context/hover/HoverProvider";
 
 import Error from "./components/error/Error";
+import Success from "./components/success/Success";
 import Nav from "./components/layout/nav/Nav";
 import Landing from "./pages/landing/Landing";
 import MapView from "./pages/map_view/MapView";
@@ -36,47 +38,50 @@ function App() {
       <Router>
         <SearchProvider>
           <ErrorProvider>
-            <UserProvider>
-              <BookmarkProvider>
-                <HoverProvider>
-                  <Error />
-                  <Nav />
-                  <Switch>
-                    <Route path="/signup" exact>
-                      <Signup />
-                    </Route>
-                    <Route path="/login" exact>
-                      <Login />
-                    </Route>
-                    <Route path="/reset-password/:token" exact>
-                      <PasswordReset />
-                    </Route>
-                    <Route path="/reset-password" exact>
-                      <PasswordResetRequest />
-                    </Route>
+            <SuccessProvider>
+              <UserProvider>
+                <BookmarkProvider>
+                  <HoverProvider>
+                    <Error />
+                    <Success />
+                    <Nav />
+                    <Switch>
+                      <Route path="/signup" exact>
+                        <Signup />
+                      </Route>
+                      <Route path="/login" exact>
+                        <Login />
+                      </Route>
+                      <Route path="/reset-password/:token" exact>
+                        <PasswordReset />
+                      </Route>
+                      <Route path="/reset-password" exact>
+                        <PasswordResetRequest />
+                      </Route>
 
-                    <Route path="/search" exact>
-                      <MapView />
-                    </Route>
-                    <Route path="/trail/:id" exact>
-                      <TrailPage />
-                    </Route>
-                    <Route path="/bookmarks" exact>
-                      <Bookmarks />
-                    </Route>
-                    <Route path="/scouted-trails" exact>
-                      <ScoutedTrails />
-                    </Route>
-                    <Route path="/scout">
-                      <ScoutTrail />
-                    </Route>
-                    <Route path="/" exact>
-                      <Landing />
-                    </Route>
-                  </Switch>
-                </HoverProvider>
-              </BookmarkProvider>
-            </UserProvider>
+                      <Route path="/search" exact>
+                        <MapView />
+                      </Route>
+                      <Route path="/trail/:id" exact>
+                        <TrailPage />
+                      </Route>
+                      <Route path="/bookmarks" exact>
+                        <Bookmarks />
+                      </Route>
+                      <Route path="/scouted-trails" exact>
+                        <ScoutedTrails />
+                      </Route>
+                      <Route path="/scout">
+                        <ScoutTrail />
+                      </Route>
+                      <Route path="/" exact>
+                        <Landing />
+                      </Route>
+                    </Switch>
+                  </HoverProvider>
+                </BookmarkProvider>
+              </UserProvider>
+            </SuccessProvider>
           </ErrorProvider>
         </SearchProvider>
       </Router>

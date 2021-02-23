@@ -1,11 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ErrorContext } from "../../../context/error/ErrorContext";
+import { SuccessContext } from "../../../context/success/SuccessContext";
 import { suggestTrailEdit } from "../../../api/trailsApi";
 import TrailLocationInput from "../../scout_trail/TrailLocationInput";
 import * as sc from "./StyledEditTrailForm";
 
 const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
   const { setError } = useContext(ErrorContext);
+  const { setSuccess } = useContext(SuccessContext);
   const [submitted, setSubmitted] = useState(false);
 
   const [trailDetails, setTrailDetails] = useState({
@@ -31,8 +33,11 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
 
     const editDetails = { ...trailDetails, trailId: trail.id };
 
-    const res = await suggestTrailEdit(editDetails);
-    console.log(res);
+    const edit = await suggestTrailEdit(editDetails);
+    console.log(edit);
+
+    edit && setSuccess("Your suggestions have been uploaded for review.");
+    edit && setShowEditForm(!showEditForm);
   };
 
   useEffect(() => {
@@ -54,7 +59,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
   return (
     <sc.StyledBlackout>
       <sc.StyledEditTrailFormContainer>
-        <sc.StyledForm onSubit={handleSubmit}>
+        <sc.StyledForm onSubmit={handleSubmit}>
           <h4>Suggest Edits</h4>
           <sc.StyledMessage>
             Update any field with changes you'd like to see. Your suggestions
@@ -210,14 +215,18 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
               Description<span title="required">*</span>
             </label>
             <textarea
-              type="text"
+              onChange={(e) =>
+                setTrailDetails({
+                  ...trailDetails,
+                  description: e.target.value,
+                })
+              }
               name=""
+              defaultValue={trailDetails.description}
               rows={8}
               style={{ resize: "none" }}
               required
-            >
-              {trailDetails.description}
-            </textarea>
+            ></textarea>
           </sc.StyledFormGroup>
 
           <sc.StyledFormGroup>
