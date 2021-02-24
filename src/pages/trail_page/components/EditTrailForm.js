@@ -63,7 +63,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
           <h4>Suggest Edits</h4>
           <sc.StyledMessage>
             Update any field with changes you'd like to see. Your suggestions
-            will be shared with our team and the original creator for review.
+            will be reviewed by our team before any changes are made.
           </sc.StyledMessage>
 
           <sc.StyledHr />
