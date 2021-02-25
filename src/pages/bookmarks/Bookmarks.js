@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
 
@@ -7,10 +7,11 @@ import TrailCard from "../../components/layout/cards/TrailCard";
 import * as sc from "./StyledBookmarks";
 
 const Bookmarks = () => {
-  const { bookmarks, getUserBookmarks } = useContext(BookmarkContext);
+  const { getUserBookmarks } = useContext(BookmarkContext);
+  const [bookmarks, setBookmarks] = useState([]);
 
   useEffect(() => {
-    getUserBookmarks().then((data) => console.log(data));
+    getUserBookmarks().then((data) => setBookmarks(data));
   }, []);
 
   return (

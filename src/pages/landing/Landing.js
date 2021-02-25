@@ -16,7 +16,6 @@ const Landing = () => {
     latestBookmarks && setPopularBookmarks(latestBookmarks);
   });
 
-  console.log(popularBookmarks);
   return (
     <div>
       <sc.StyledLanding>

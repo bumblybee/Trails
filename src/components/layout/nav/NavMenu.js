@@ -55,7 +55,6 @@ const NavMenu = ({ closeMenu }) => {
   // TODO: move api call outside of component
   const reverseGeocode = async (lat, lng) => {
     const geocodeData = await geocode(lat, lng);
-    console.log(geocodeData);
     const address = geocodeData.plus_code.compound_code.split(",");
 
     return address;
@@ -63,7 +62,6 @@ const NavMenu = ({ closeMenu }) => {
 
   const setQueryParams = (address, lat, lng) => {
     query.set("city", address[0].split(" ")[1]);
-    console.log(address);
     query.set("state", address[1].trim());
     query.set("lat", lat);
     query.set("lng", lng);
