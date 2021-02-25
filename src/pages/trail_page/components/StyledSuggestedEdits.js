@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledSuggestedEditsContainer = styled.div`
   position: absolute;
-  top: 46.3%;
+  top: 35%;
   left: 18%;
   transform: translate(-50%, -46%);
   z-index: 100;
@@ -22,15 +22,20 @@ export const StyledSuggestedEditsContainer = styled.div`
   table {
     width: 100%;
     font-size: 0.9rem;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
   }
 
   th {
     border-bottom: 1px solid #333;
-    border-left: 1px solid #333;
+    :not(:first-child) {
+      border-left: 1px solid #333;
+    }
   }
 
   td {
-    border-left: 1px solid #333;
+    :not(:first-child) {
+      border-left: 1px solid #333;
+    }
+    border-bottom: 1px solid #333;
   }
 `;
