@@ -180,7 +180,7 @@ const ScoutTrail = () => {
               type="radio"
               value="Beginner"
               name="difficulty"
-              checked={trailDetails.difficulty === "Beginner"}
+              checked={trailDetails.difficulty === "beginner"}
               required
             />{" "}
             Beginner - <span>flat or little uneven terrain</span>
@@ -196,7 +196,7 @@ const ScoutTrail = () => {
               type="radio"
               value="Intermediate"
               name="difficulty"
-              checked={trailDetails.difficulty === "Intermediate"}
+              checked={trailDetails.difficulty === "intermediate"}
             />{" "}
             Intermediate - <span>some incline or uneven terrain</span>
           </label>
@@ -211,7 +211,7 @@ const ScoutTrail = () => {
               type="radio"
               value="Advanced"
               name="difficulty"
-              checked={trailDetails.difficulty === "Advanced"}
+              checked={trailDetails.difficulty === "advanced"}
             />{" "}
             Advanced - <span>rocky, uneven terrain, steep inclines</span>
           </label>
@@ -226,7 +226,7 @@ const ScoutTrail = () => {
               type="radio"
               value="Expert"
               name="difficulty"
-              checked={trailDetails.difficulty === "Expert"}
+              checked={trailDetails.difficulty === "expert"}
             />{" "}
             Expert - <span>very steep or treacherous terrain</span>
           </label>

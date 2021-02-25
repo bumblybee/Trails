@@ -9,6 +9,7 @@ import { getSingleTrail } from "../../api/trailsApi";
 import { UserContext } from "../../context/user/UserContext";
 import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
 import EditTrailForm from "./components/EditTrailForm";
+import SuggestedEdits from "./components/SuggestedEdits";
 import StarRating from "../../components/rating/StarRating";
 import { randomImage } from "../../defaultImages/randomImages";
 import {
@@ -83,139 +84,145 @@ const TrailPage = () => {
   }, [id]);
 
   return (
-    <sc.StyledTrailPageWrapper>
-      {showEditForm && (
-        <EditTrailForm
-          user={user}
-          trail={trail}
-          showEditForm={showEditForm}
-          setShowEditForm={setShowEditForm}
-        />
-      )}
-      <sc.StyledImageContainer>
-        <sc.StyledImage
-          src={trail.image !== null ? trail.image : randomImage()}
-          alt="trail image"
-        />
-      </sc.StyledImageContainer>
+    trail && (
+      <sc.StyledTrailPageWrapper>
+        {showEditForm && (
+          <EditTrailForm
+            user={user}
+            trail={trail}
+            showEditForm={showEditForm}
+            setShowEditForm={setShowEditForm}
+          />
+        )}
+        {showEditForm && user.role === "Admin" && (
+          <SuggestedEdits trail={trail} />
+        )}
+        <sc.StyledImageContainer>
+          <sc.StyledImage
+            src={trail.image !== null ? trail.image : randomImage()}
+            alt="trail image"
+          />
+        </sc.StyledImageContainer>
 
-      <sc.StyledTrailPageContainer>
-        <sc.StyledFloatingCardsContainer>
-          <sc.StyledFloatingCard>
-            <sc.StyledIconsContainer>
-              <span className="icon-label">Length</span>
-              <sc.StyledIcon>
-                <FaRoute className="faRoute" />
-
-                <div>
-                  <span title="length in miles">
-                    {Math.floor(trail.length)} miles
-                  </span>
-                </div>
-              </sc.StyledIcon>
-              <sc.StyledCardBorder />
-              <span className="icon-label">Type</span>
-
-              {trail.hiking === true && (
+        <sc.StyledTrailPageContainer>
+          <sc.StyledFloatingCardsContainer>
+            <sc.StyledFloatingCard>
+              <sc.StyledIconsContainer>
+                <span className="icon-label">Length</span>
                 <sc.StyledIcon>
-                  <FaHiking className="faHiking" />
-                  <span>hiking</span>
+                  <FaRoute className="faRoute" />
+
+                  <div>
+                    <span title="length in miles">
+                      {Math.floor(trail.length)} miles
+                    </span>
+                  </div>
                 </sc.StyledIcon>
-              )}
-              {trail.biking === true && (
+                <sc.StyledCardBorder />
+                <span className="icon-label">Type</span>
+
+                {trail.hiking === true && (
+                  <sc.StyledIcon>
+                    <FaHiking className="faHiking" />
+                    <span>hiking</span>
+                  </sc.StyledIcon>
+                )}
+                {trail.biking === true && (
+                  <sc.StyledIcon>
+                    <FaBiking className="faBiking" />
+                    <span>biking</span>
+                  </sc.StyledIcon>
+                )}
+                <sc.StyledCardBorder />
+
+                <span className="icon-label">Difficulty</span>
+
                 <sc.StyledIcon>
-                  <FaBiking className="faBiking" />
-                  <span>biking</span>
-                </sc.StyledIcon>
-              )}
-              <sc.StyledCardBorder />
-
-              <span className="icon-label">Difficulty</span>
-
-              <sc.StyledIcon>
-                <div
-                  title={`difficulty: ${trail.difficulty}`}
-                  style={{
-                    background:
-                      trail.difficulty === "beginner"
-                        ? "#b1ce7c"
-                        : trail.difficulty === "intermediate"
-                        ? "#fec787"
-                        : trail.difficulty === "advanced"
-                        ? "#FE9787"
-                        : trail.difficulty === "expert"
-                        ? "##FE7762"
-                        : "#eeeeed",
-                    padding: "0.6rem",
-                    width: "18px",
-                    height: "18px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    borderRadius: "4px",
-                    fontSize: "0.8rem",
-                    fontWeight: "400",
-                    color: "#fff",
-                    border: "1px solid #eeeeed55",
-                  }}
-                >
-                  {trail.difficulty && trail.difficulty.charAt(0).toUpperCase()}
-                </div>
-                <span>
-                  {trail.difficulty !== "unknown" && trail.difficulty}
-                </span>
-              </sc.StyledIcon>
-            </sc.StyledIconsContainer>
-          </sc.StyledFloatingCard>
-
-          <sc.StyledFloatingCard>
-            <sc.StyledButtonContainer user={user}>
-              {user && user.role === "Admin" ? (
-                <button
-                  onClick={() => setShowEditForm(!showEditForm)}
-                  title={user ? "" : "Log in to suggest an edit"}
-                  disabled={user ? false : true}
-                >
-                  <FaPencilAlt /> Edit
-                </button>
-              ) : (
-                <>
-                  <button
-                    title={user ? "" : "Log in to add a photo"}
-                    disabled={user ? false : true}
+                  <div
+                    title={`difficulty: ${trail.difficulty}`}
+                    style={{
+                      background:
+                        trail.difficulty === "beginner"
+                          ? "#b1ce7c"
+                          : trail.difficulty === "intermediate"
+                          ? "#fec787"
+                          : trail.difficulty === "advanced"
+                          ? "#FE9787"
+                          : trail.difficulty === "expert"
+                          ? "##FE7762"
+                          : "#eeeeed",
+                      padding: "0.6rem",
+                      width: "18px",
+                      height: "18px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderRadius: "4px",
+                      fontSize: "0.8rem",
+                      fontWeight: "400",
+                      color: "#fff",
+                      border: "1px solid #eeeeed55",
+                    }}
                   >
-                    <FaImage />
-                    Add Photo
-                  </button>
+                    {trail.difficulty &&
+                      trail.difficulty.charAt(0).toUpperCase()}
+                  </div>
+                  <span>
+                    {trail.difficulty !== "unknown" && trail.difficulty}
+                  </span>
+                </sc.StyledIcon>
+              </sc.StyledIconsContainer>
+            </sc.StyledFloatingCard>
+
+            <sc.StyledFloatingCard>
+              <sc.StyledButtonContainer user={user}>
+                {user && user.role === "Admin" ? (
                   <button
                     onClick={() => setShowEditForm(!showEditForm)}
                     title={user ? "" : "Log in to suggest an edit"}
                     disabled={user ? false : true}
                   >
-                    <FaPencilAlt /> Suggest Edit
+                    <FaPencilAlt /> Edit
                   </button>
-                  <button
-                    onClick={() => handleTrailBookmark()}
-                    title={user ? "" : "Log in to add a bookmark"}
-                    disabled={user ? false : true}
-                  >
-                    <FaRegBookmark /> {renderBookmarkButtonText()}
-                  </button>
-                </>
-              )}
-            </sc.StyledButtonContainer>
-          </sc.StyledFloatingCard>
-        </sc.StyledFloatingCardsContainer>
+                ) : (
+                  <>
+                    <button
+                      title={user ? "" : "Log in to add a photo"}
+                      disabled={user ? false : true}
+                    >
+                      <FaImage />
+                      Add Photo
+                    </button>
+                    <button
+                      onClick={() => setShowEditForm(!showEditForm)}
+                      title={user ? "" : "Log in to suggest an edit"}
+                      disabled={user ? false : true}
+                    >
+                      <FaPencilAlt /> Suggest Edit
+                    </button>
+                    <button
+                      onClick={() => handleTrailBookmark()}
+                      title={user ? "" : "Log in to add a bookmark"}
+                      disabled={user ? false : true}
+                    >
+                      <FaRegBookmark /> {renderBookmarkButtonText()}
+                    </button>
+                  </>
+                )}
+              </sc.StyledButtonContainer>
+            </sc.StyledFloatingCard>
+          </sc.StyledFloatingCardsContainer>
 
-        <h5>
-          {trail.city}, {trail.state}
-        </h5>
-        <h2>{trail.name}</h2>
-        <StarRating rating={trail.rating} />
-        <sc.StyledBorder />
-        <p id="description">{breakLongDescription(trail)}</p>
-      </sc.StyledTrailPageContainer>
-    </sc.StyledTrailPageWrapper>
+          <h5>
+            {trail.city}, {trail.state}
+          </h5>
+          <h2>{trail.name}</h2>
+          <StarRating rating={trail.rating} />
+          <sc.StyledBorder />
+          <p id="description">{breakLongDescription(trail)}</p>
+        </sc.StyledTrailPageContainer>
+      </sc.StyledTrailPageWrapper>
+    )
   );
 };
 
