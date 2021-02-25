@@ -17,13 +17,11 @@ const SuggestedEdits = ({ trail }) => {
         <h4>Open edits for this trail</h4>
         <table>
           <thead>
-            {suggestedEdits.map((edit) => (
-              <tr className="heading">
-                {Object.keys(edit).map((key) => (
-                  <th>{key}</th>
-                ))}
-              </tr>
-            ))}
+            <tr className="heading">
+              {Object.keys(suggestedEdits[0]).map((key) => (
+                <th>{key}</th>
+              ))}
+            </tr>
           </thead>
           <tbody>
             {suggestedEdits.map((edit) => (

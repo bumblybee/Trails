@@ -13,7 +13,7 @@ const SuggestedEditsInput = ({ trail }) => {
     suggestedEdits.length > 0 && (
       <div>
         <label htmlFor="suggestedEdit">
-          Select id of suggestion being implemented
+          Select which ID to close out
           <span title="required">*</span>
         </label>
         {suggestedEdits.map((edit) => (
