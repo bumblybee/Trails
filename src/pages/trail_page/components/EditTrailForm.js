@@ -28,16 +28,25 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
     setTrailDetails({ ...trailDetails, city, state, lat, lng });
   };
 
-  const handleSubmit = async (e) => {
+  const handleUserSubmit = async (e) => {
     e.preventDefault();
 
     const editDetails = { ...trailDetails, trailId: trail.id };
 
-    const edit = await suggestTrailEdit(editDetails);
-    console.log(edit);
+    const suggestedEdit = await suggestTrailEdit(editDetails);
+    console.log(suggestedEdit);
 
-    edit && setSuccess("Your suggestions have been uploaded for review.");
-    edit && setShowEditForm(!showEditForm);
+    suggestedEdit &&
+      setSuccess("Your suggestions have been uploaded for review.");
+    suggestedEdit && setShowEditForm(!showEditForm);
+  };
+
+  const handleAdminSubmit = (e) => {
+    e.preventDefault();
+    const editDetails = { ...trailDetails, trailId: trail.id };
+    // const edit = await EditTrailForm(editDetails);
+    // edit && setSuccess("Your changes have been posted successfully.");
+    // edit && setShowEditForm(!showEditForm);
   };
 
   useEffect(() => {
@@ -59,7 +68,11 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
   return (
     <sc.StyledBlackout>
       <sc.StyledEditTrailFormContainer>
-        <sc.StyledForm onSubmit={handleSubmit}>
+        <sc.StyledForm
+          onSubmit={
+            user.role === "Admin" ? handleAdminSubmit : handleUserSubmit
+          }
+        >
           {user.role === "Admin" ? (
             <>
               <h4>Edit Trail</h4>
