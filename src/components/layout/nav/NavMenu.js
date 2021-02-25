@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { geocode } from "../../../api/geocodeApi";
 import { useClickOutsideMenu } from "../../../hooks/useClickOutsideMenu";
@@ -14,6 +14,7 @@ import * as sc from "./StyledNavMenu";
 const NavMenu = ({ closeMenu }) => {
   const history = useHistory();
   const location = useLocation();
+  const [trailId, setTrailId] = useState(null);
   const query = new URLSearchParams(location.search);
 
   const menuRef = useClickOutsideMenu(() => closeMenu());
@@ -69,7 +70,7 @@ const NavMenu = ({ closeMenu }) => {
 
   return (
     <sc.StyledNavMenuContainer ref={menuRef}>
-      {user ? (
+      {user && user.role === "User" ? (
         <>
           <sc.StyledLink to="/bookmarks" onClick={() => closeMenu()}>
             Bookmarks
@@ -86,6 +87,31 @@ const NavMenu = ({ closeMenu }) => {
             Create new trail
           </sc.StyledLink>
           <sc.StyledMenuHr />
+
+          <sc.StyledLink to="/" onClick={() => handleLogout()}>
+            Log out
+          </sc.StyledLink>
+        </>
+      ) : user && user.role === "Admin" ? (
+        <>
+          <sc.StyledAdminPanel>
+            <input
+              onChange={(e) => setTrailId(e.target.value)}
+              type="text"
+              placeholder="Trail id"
+            />
+            <sc.StyledLink
+              onClick={() => closeMenu()}
+              to={trailId ? `/edit/${trailId}` : "#"}
+              className="edit-link"
+            >
+              Edit Trail
+            </sc.StyledLink>
+          </sc.StyledAdminPanel>
+          <sc.StyledMenuHr />
+          <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
+            Create new trail
+          </sc.StyledLink>
 
           <sc.StyledLink to="/" onClick={() => handleLogout()}>
             Log out

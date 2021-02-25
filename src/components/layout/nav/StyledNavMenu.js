@@ -49,6 +49,49 @@ export const StyledLink = styled(Link)`
   }
 `;
 
+export const StyledAdminPanel = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #fe7762;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+
+  input {
+    border: none;
+    background: #eceeed;
+    padding: 0.75rem;
+    font-weight: 300;
+    /* border-top-left-radius: 6px;
+    border-top-right-radius: 6px; */
+    text-align: center;
+
+    :focus {
+      border: none;
+      outline: none;
+    }
+
+    ::placeholder {
+      font-weight: 300;
+      color: #99a29e;
+    }
+  }
+
+  .edit-link {
+    border: none;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    text-align: center;
+    background: #fe7762;
+    padding: 0.75rem;
+    color: #fff;
+
+    :hover {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+`;
+
 export const StyledMenuHr = styled.hr`
   border: none;
   border-top: 1px solid #b9c8b8;
