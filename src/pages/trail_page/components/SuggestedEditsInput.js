@@ -18,7 +18,7 @@ const SuggestedEditsInput = ({ trail }) => {
         </label>
         {suggestedEdits.map((edit) => (
           <label htmlFor="suggestedEdit" className="suggested-edit">
-            <input type="radio" value="id" name="suggestionId" required />
+            <input type="radio" value="id" name="suggestionId" required />{" "}
             {edit.id}
           </label>
         ))}
