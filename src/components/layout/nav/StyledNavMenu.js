@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 export const StyledNavMenuContainer = styled.div`
   display: flex;
@@ -46,6 +46,18 @@ export const StyledLink = styled(Link)`
   :nth-child(4),
   :nth-child(5) {
     font-weight: 400;
+  }
+`;
+
+export const StyledRedirect = styled(Redirect)`
+  color: #34423b;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 1rem 0 1rem 1rem;
+
+  :hover {
+    color: #fffeff;
+    background: #ccc;
   }
 `;
 

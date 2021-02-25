@@ -24,6 +24,7 @@ import * as sc from "./StyledTrailPage";
 
 const TrailPage = () => {
   const { id } = useParams();
+
   const [trail, setTrail] = useState({});
   const [showEditForm, setShowEditForm] = useState(false);
   const { user } = useContext(UserContext);
@@ -31,10 +32,9 @@ const TrailPage = () => {
     BookmarkContext
   );
 
-  const getTrailData = async () => {
+  const getTrailData = async (id) => {
     const trailData = await getSingleTrail(id);
     setTrail(trailData);
-    console.log(trail);
   };
 
   const handleTrailBookmark = async () => {
@@ -79,8 +79,8 @@ const TrailPage = () => {
   };
 
   useEffect(() => {
-    getTrailData();
-  }, []);
+    getTrailData(id);
+  }, [id]);
 
   return (
     <sc.StyledTrailPageWrapper>
