@@ -5,7 +5,7 @@ import { suggestTrailEdit } from "../../../api/trailsApi";
 import TrailLocationInput from "../../scout_trail/TrailLocationInput";
 import * as sc from "./StyledEditTrailForm";
 
-const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
+const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
   const { setError } = useContext(ErrorContext);
   const { setSuccess } = useContext(SuccessContext);
   const [submitted, setSubmitted] = useState(false);
@@ -60,12 +60,21 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm }) => {
     <sc.StyledBlackout>
       <sc.StyledEditTrailFormContainer>
         <sc.StyledForm onSubmit={handleSubmit}>
-          <h4>Suggest Edits</h4>
-          <sc.StyledMessage>
-            Update any field with changes you'd like to see. Your suggestions
-            will be reviewed by our team before any changes are made.
-          </sc.StyledMessage>
-
+          {user.role === "Admin" ? (
+            <>
+              <h4>Edit Trail</h4>
+              <sc.StyledMessage>Update necessary fields</sc.StyledMessage>
+            </>
+          ) : (
+            <>
+              <h4> Suggest Edits</h4>
+              <sc.StyledMessage>
+                Update any field with changes you'd like to see. Your
+                suggestions will be reviewed by our team before any changes are
+                made.
+              </sc.StyledMessage>
+            </>
+          )}
           <sc.StyledHr />
           <sc.StyledFormGroup>
             <label htmlFor="name">

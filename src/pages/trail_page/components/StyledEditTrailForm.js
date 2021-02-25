@@ -30,7 +30,7 @@ export const StyledEditTrailFormContainer = styled.div`
 
   h4 {
     margin-bottom: 0.5rem;
-    font-size: 1.75rem;
+    font-size: 1.7rem;
   }
 
   label {
