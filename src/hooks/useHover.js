@@ -1,12 +1,5 @@
 import { useRef, useState, useEffect } from "react";
 
-// // Usage
-// function App() {
-//   const [hoverRef, isHovered] = useHover();
-
-//   return <div ref={hoverRef}>{isHovered ? "😁" : "☹️"}</div>;
-// }
-
 // Hook
 export function useHover() {
   const [value, setValue] = useState(null);

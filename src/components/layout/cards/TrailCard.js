@@ -1,14 +1,74 @@
-import React from "react";
+import React, { useContext } from "react";
 import he from "he";
-import { FaRoute, FaHiking, FaBiking } from "react-icons/fa";
+import {
+  FaRoute,
+  FaHiking,
+  FaBiking,
+  FaBookmark,
+  FaRegBookmark,
+} from "react-icons/fa";
+import { BookmarkContext } from "../../../context/bookmark/BookmarkContext";
+import { UserContext } from "../../../context/user/UserContext";
+import { useHover } from "../../../hooks/useHover";
 import StarRating from "../../rating/StarRating";
 import * as sc from "./StyledTrailCard";
+import { StyledBookmarkIcon } from "../../../pages/map_view/components/trail_list/StyledTrailListCard";
 import { StyledCardLinkWrapper } from "../../../pages/map_view/components/trail_list/StyledTrailListCard";
 
 const TrailCard = ({ trail }) => {
+  const [bookmarkHoverRef] = useHover();
+  const { user } = useContext(UserContext);
+  const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
+    BookmarkContext
+  );
+  const handleTrailBookmark = async (id) => {
+    // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
+
+    if (user && bookmarks.length) {
+      let type = "create";
+
+      for (let { trailId } of bookmarks) {
+        if (trailId === id) {
+          type = "remove";
+        }
+      }
+
+      if (type === "create") {
+        const res = await createUserBookmark(user.id, id);
+
+        console.log(res);
+      } else {
+        const res = await removeUserBookmark(user.id, id);
+
+        console.log(res);
+      }
+    }
+  };
+
+  const renderBookmarkIcon = (id) => {
+    let icon = (
+      <FaRegBookmark title={user ? "Bookmark" : "Log in to bookmark trail"} />
+    );
+
+    if (bookmarks.length) {
+      for (let { trailId } of bookmarks) {
+        if (trailId === id) {
+          icon = <FaBookmark title="Remove bookmark" />;
+        }
+      }
+    }
+    return icon;
+  };
+
   return (
-    <StyledCardLinkWrapper to={`/trail/${trail.id}`}>
-      <sc.StyledCardContainer>
+    <sc.StyledCardContainer>
+      <StyledBookmarkIcon
+        ref={bookmarkHoverRef}
+        onClick={() => handleTrailBookmark(trail.id)}
+      >
+        {renderBookmarkIcon(trail.id)}
+      </StyledBookmarkIcon>
+      <StyledCardLinkWrapper to={`/trail/${trail.id}`}>
         <sc.StyledCardImage>
           <img
             src={
@@ -19,6 +79,8 @@ const TrailCard = ({ trail }) => {
             loading="lazy"
           />
         </sc.StyledCardImage>
+      </StyledCardLinkWrapper>
+      <StyledCardLinkWrapper to={`/trail/${trail.id}`}>
         <sc.StyledCardContent>
           <div>
             <h4>{trail.name}</h4>
@@ -75,8 +137,8 @@ const TrailCard = ({ trail }) => {
             </sc.StyledIconContainer>
           </sc.StyledCardFooter>
         </sc.StyledCardContent>
-      </sc.StyledCardContainer>
-    </StyledCardLinkWrapper>
+      </StyledCardLinkWrapper>
+    </sc.StyledCardContainer>
   );
 };
 

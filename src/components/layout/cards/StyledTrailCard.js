@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const StyledCardContainer = styled.div`
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
-
   border: 0.5px solid #eceeed75;
   border-radius: 6px;
   width: 300px;
   height: 330px;
   flex: 1 1 0;
-
   background: #fff;
   margin-right: 1rem;
+  position: relative;
 
   display: flex;
   flex-direction: column;
