@@ -1,4 +1,4 @@
-import { get, post, postFormData } from "./baseApi";
+import { get, put, post, postFormData } from "./baseApi";
 
 export const getTrails = async (lat, lng, filter) => {
   const res = await get(
@@ -23,9 +23,4 @@ export const scoutTrail = async (data, onUploadProgress) => {
   const res = await postFormData(`/trails`, data, onUploadProgress);
   console.log(res);
   return res;
-};
-
-export const suggestTrailEdit = async (data) => {
-  const res = await post(`/trails/suggest-edit`, data);
-  return res.data;
 };

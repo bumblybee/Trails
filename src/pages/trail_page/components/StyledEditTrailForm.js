@@ -5,7 +5,7 @@ export const StyledBlackout = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 110%;
+  height: 1000px;
   z-index: 99;
   background: rgba(0, 0, 0, 0.5);
 `;
@@ -19,7 +19,7 @@ export const StyledEditTrailFormContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -46%);
   z-index: 100;
   background: #fff;
   width: 28%;

@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ErrorContext } from "../../../context/error/ErrorContext";
 import { SuccessContext } from "../../../context/success/SuccessContext";
-import { suggestTrailEdit } from "../../../api/trailsApi";
+import { suggestTrailEdit, editTrail } from "../../../api/editApi";
 import TrailLocationInput from "../../scout_trail/TrailLocationInput";
 import * as sc from "./StyledEditTrailForm";
+import SuggestedEdits from "./SuggestedEditsInput";
 
 const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
   const { setError } = useContext(ErrorContext);
@@ -41,12 +42,13 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
     suggestedEdit && setShowEditForm(!showEditForm);
   };
 
-  const handleAdminSubmit = (e) => {
+  const handleAdminSubmit = async (e) => {
     e.preventDefault();
     const editDetails = { ...trailDetails, trailId: trail.id };
-    // const edit = await EditTrailForm(editDetails);
-    // edit && setSuccess("Your changes have been posted successfully.");
-    // edit && setShowEditForm(!showEditForm);
+    const edit = await editTrail(editDetails);
+    console.log(edit);
+    edit && setSuccess("Your changes have been posted successfully.");
+    edit && setShowEditForm(!showEditForm);
   };
 
   useEffect(() => {
@@ -250,7 +252,11 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
               required
             ></textarea>
           </sc.StyledFormGroup>
-
+          {user.role === "Admin" && (
+            <sc.StyledFormGroup>
+              <SuggestedEdits trail={trail} />
+            </sc.StyledFormGroup>
+          )}
           <sc.StyledFormGroup>
             <sc.StyledFormButton type="submit" submitButton={true}>
               Submit
