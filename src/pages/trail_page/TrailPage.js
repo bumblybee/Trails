@@ -86,6 +86,7 @@ const TrailPage = () => {
     <sc.StyledTrailPageWrapper>
       {showEditForm && (
         <EditTrailForm
+          user={user}
           trail={trail}
           showEditForm={showEditForm}
           setShowEditForm={setShowEditForm}
@@ -169,27 +170,39 @@ const TrailPage = () => {
 
           <sc.StyledFloatingCard>
             <sc.StyledButtonContainer user={user}>
-              <button
-                title={user ? "" : "Log in to add a photo"}
-                disabled={user ? false : true}
-              >
-                <FaImage />
-                Add Photo
-              </button>
-              <button
-                onClick={() => setShowEditForm(!showEditForm)}
-                title={user ? "" : "Log in to suggest an edit"}
-                disabled={user ? false : true}
-              >
-                <FaPencilAlt /> Suggest Edit
-              </button>
-              <button
-                onClick={() => handleTrailBookmark()}
-                title={user ? "" : "Log in to add a bookmark"}
-                disabled={user ? false : true}
-              >
-                <FaRegBookmark /> {renderBookmarkButtonText()}
-              </button>
+              {user && user.role === "Admin" ? (
+                <button
+                  onClick={() => setShowEditForm(!showEditForm)}
+                  title={user ? "" : "Log in to suggest an edit"}
+                  disabled={user ? false : true}
+                >
+                  <FaPencilAlt /> Edit
+                </button>
+              ) : (
+                <>
+                  <button
+                    title={user ? "" : "Log in to add a photo"}
+                    disabled={user ? false : true}
+                  >
+                    <FaImage />
+                    Add Photo
+                  </button>
+                  <button
+                    onClick={() => setShowEditForm(!showEditForm)}
+                    title={user ? "" : "Log in to suggest an edit"}
+                    disabled={user ? false : true}
+                  >
+                    <FaPencilAlt /> Suggest Edit
+                  </button>
+                  <button
+                    onClick={() => handleTrailBookmark()}
+                    title={user ? "" : "Log in to add a bookmark"}
+                    disabled={user ? false : true}
+                  >
+                    <FaRegBookmark /> {renderBookmarkButtonText()}
+                  </button>
+                </>
+              )}
             </sc.StyledButtonContainer>
           </sc.StyledFloatingCard>
         </sc.StyledFloatingCardsContainer>

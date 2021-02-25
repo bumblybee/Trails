@@ -102,16 +102,18 @@ const NavMenu = ({ closeMenu }) => {
             />
             <sc.StyledLink
               onClick={() => closeMenu()}
-              to={trailId ? `/edit/${trailId}` : "#"}
+              to={trailId ? `/trail/${trailId}` : "#"}
               className="edit-link"
+              title="Enter trail id above"
             >
               Edit Trail
             </sc.StyledLink>
           </sc.StyledAdminPanel>
-          <sc.StyledMenuHr />
+
           <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
             Create new trail
           </sc.StyledLink>
+          <sc.StyledMenuHr />
 
           <sc.StyledLink to="/" onClick={() => handleLogout()}>
             Log out

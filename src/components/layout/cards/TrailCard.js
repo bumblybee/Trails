@@ -24,7 +24,7 @@ const TrailCard = ({ trail }) => {
   const handleTrailBookmark = async (id) => {
     // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
 
-    if (user && bookmarks.length) {
+    if (user && bookmarks) {
       let type = "create";
 
       for (let { trailId } of bookmarks) {
@@ -50,7 +50,7 @@ const TrailCard = ({ trail }) => {
       <FaRegBookmark title={user ? "Bookmark" : "Log in to bookmark trail"} />
     );
 
-    if (bookmarks.length) {
+    if (bookmarks) {
       for (let { trailId } of bookmarks) {
         if (trailId === id) {
           icon = <FaBookmark title="Remove bookmark" />;
