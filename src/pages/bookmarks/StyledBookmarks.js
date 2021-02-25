@@ -11,9 +11,8 @@ export const StyledBookmarksContainer = styled.div`
 `;
 
 export const StyledCardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   margin-top: 0.5rem;
 
   > a {
