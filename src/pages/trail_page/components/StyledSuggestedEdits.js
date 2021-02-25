@@ -15,27 +15,23 @@ export const StyledSuggestedEditsContainer = styled.div`
   border-radius: 6px;
 
   h4 {
+    text-align: center;
     margin-bottom: 1rem;
     text-transform: capitalize;
+    font-size: 1.7rem;
   }
 
   table {
     width: 100%;
     font-size: 0.9rem;
-    /* border: 1px solid #333; */
+    border-collapse: collapse;
   }
 
   th {
-    border-bottom: 1px solid #333;
-    :not(:first-child) {
-      border-left: 1px solid #333;
-    }
+    border: 1px solid #333;
   }
 
   td {
-    :not(:first-child) {
-      border-left: 1px solid #333;
-    }
-    border-bottom: 1px solid #333;
+    border: 1px solid #333;
   }
 `;
