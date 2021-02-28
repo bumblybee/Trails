@@ -5,7 +5,7 @@ export const StyledBlackout = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 1100px;
+  height: 1000px;
   z-index: 99;
   background: rgba(0, 0, 0, 0.5);
 `;
@@ -19,10 +19,10 @@ export const StyledEditTrailFormContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -45%);
   z-index: 100;
   background: #fff;
-  width: 28%;
+  width: ${(props) => (props.user.role === "Admin" ? "70%" : "28%")};
   padding: 0.5rem 1.5rem;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #eceeed;
