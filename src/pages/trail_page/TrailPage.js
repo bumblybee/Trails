@@ -9,7 +9,6 @@ import { getSingleTrail } from "../../api/trailsApi";
 import { UserContext } from "../../context/user/UserContext";
 import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
 import EditTrailForm from "./components/EditTrailForm";
-import SuggestedEdits from "./components/SuggestedEdits";
 import StarRating from "../../components/rating/StarRating";
 import { randomImage } from "../../defaultImages/randomImages";
 import {
@@ -94,9 +93,7 @@ const TrailPage = () => {
             setShowEditForm={setShowEditForm}
           />
         )}
-        {showEditForm && user.role === "Admin" && (
-          <SuggestedEdits trail={trail} />
-        )}
+
         <sc.StyledImageContainer>
           <sc.StyledImage
             src={trail.image !== null ? trail.image : randomImage()}
