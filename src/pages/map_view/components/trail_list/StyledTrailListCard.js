@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export const StyledCardLinkWrapper = styled(Link)`
   text-decoration: none;
   color: #34423b;
+  height: 100%;
 `;
 
 export const StyledCard = styled.li`

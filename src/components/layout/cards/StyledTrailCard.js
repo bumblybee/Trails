@@ -27,7 +27,7 @@ export const StyledCardContainer = styled.div`
 
 export const StyledCardImage = styled.div`
   width: 100%;
-  height: 140px;
+  height: 150px;
   background: #ccc;
 
   img {
@@ -40,7 +40,7 @@ export const StyledCardImage = styled.div`
 `;
 
 export const StyledCardContent = styled.div`
-  padding: 1rem 1rem 0.75rem;
+  padding: 0 1rem 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -85,6 +85,6 @@ export const StyledIconContainer = styled.div`
   font-size: 0.975rem;
 
   svg {
-    margin-left: 0.507rem;
+    margin-left: 0.57rem;
   }
 `;
