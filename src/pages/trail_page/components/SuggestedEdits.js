@@ -3,14 +3,9 @@ import { getEdits } from "../../../api/editApi";
 
 import * as sc from "./StyledSuggestedEdits";
 
-const SuggestedEdits = ({ trail }) => {
+const SuggestedEdits = ({ trail, changes, setChanges }) => {
   const [suggestedEdits, setSuggestedEdits] = useState([]);
-  const [changes, setChanges] = useState({});
-
-  const handleCheck = (e, key) => {
-    setChanges();
-  };
-
+  // TODO: select only one edit, disable others if one selected
   useEffect(() => {
     const trailId = trail.id;
     getEdits(trailId).then((data) => {
