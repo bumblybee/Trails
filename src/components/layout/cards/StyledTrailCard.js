@@ -8,12 +8,13 @@ export const StyledCardContainer = styled.div`
   height: 330px;
   flex: 1 1 0;
   background: #fff;
-  margin-right: 1rem;
   position: relative;
 
   display: flex;
   flex-direction: column;
-
+  :not(:last-child) {
+    margin-right: 1rem;
+  }
   :hover {
     cursor: pointer;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);

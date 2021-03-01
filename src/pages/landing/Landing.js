@@ -34,7 +34,7 @@ const Landing = () => {
         {/* TODO: Break into own component */}
         <sc.StyledLandingBottomContainer>
           <div>
-            <h3>Recently discovered</h3>
+            <h3>Recently discovered trails</h3>
             <sc.StyledLandingCardContainer>
               {popularBookmarks &&
                 popularBookmarks.map((bookmark) => (

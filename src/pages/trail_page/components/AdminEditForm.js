@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import SuggestedEdits from "./SuggestedEdits";
 import * as sc from "./StyledEditTrailForm";
 
 const AdminEditForm = ({ trail, showEditForm, setShowEditForm }) => {
+  const [changes, setChanges] = useState({});
   const handleAdminSubmit = async (e) => {
-    //TODO: Send edit id with submission
+    // TODO: Send edit id with submission
+    // TODO: coerce true/false to bool
     e.preventDefault();
     // const editDetails = { ...trailDetails, trailId: trail.id };
     // const edit = await editTrail(editDetails);
@@ -15,7 +17,11 @@ const AdminEditForm = ({ trail, showEditForm, setShowEditForm }) => {
   return (
     <sc.StyledForm onSubmit={handleAdminSubmit}>
       <sc.StyledFormGroup>
-        <SuggestedEdits trail={trail} />
+        <SuggestedEdits
+          trail={trail}
+          changes={changes}
+          setChanges={setChanges}
+        />
       </sc.StyledFormGroup>
 
       <sc.StyledFormGroup>

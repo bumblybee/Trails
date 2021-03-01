@@ -86,7 +86,7 @@ export const StyledLandingText = styled.div`
 `;
 
 export const StyledLandingBottomContainer = styled.div`
-  padding: 1.5rem;
+  padding: 1.5rem 0;
   width: 60%;
   margin: 0 auto;
   display: flex;
@@ -99,7 +99,7 @@ export const StyledLandingBottomContainer = styled.div`
 
   h3 {
     padding: 2rem 0 3rem;
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     font-weight: 600;
     font-family: "Noto Sans Jp";
 
