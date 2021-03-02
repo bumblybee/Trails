@@ -11,11 +11,11 @@ export const getLatestBookmarks = async () => {
 };
 
 export const createBookmark = async (userId, trailId) => {
-  const res = await post(`bookmarks/create/${userId}/${trailId}`);
+  const res = await post(`/bookmarks/create/${userId}/${trailId}`);
   return res.data;
 };
 
 export const removeBookmark = async (userId, trailId) => {
-  const res = await post(`bookmarks/remove/${userId}/${trailId}`);
+  const res = await post(`/bookmarks/remove/${userId}/${trailId}`);
   return res.data;
 };
