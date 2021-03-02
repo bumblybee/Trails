@@ -4,7 +4,7 @@ import { handleErrors, handleErrorsArray } from "../handlers/errorHandler";
 const baseURL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:9000"
-    : "https://trailscout-server.herokuapp.com/";
+    : "https://trailscout-server.herokuapp.com";
 
 export const uploadProgress = (progress) => {
   const { loaded, total } = progress;
