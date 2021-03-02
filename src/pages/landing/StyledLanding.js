@@ -51,8 +51,8 @@ export const StyledLandingContent = styled.div`
 `;
 
 export const StyledLandingText = styled.div`
-  width: 60%;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  width: 65%;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
   color: #fff;
 
   h1 {
@@ -71,7 +71,7 @@ export const StyledLandingText = styled.div`
     margin-bottom: 2rem;
     line-height: 1.35;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.55rem;
 
     @media (max-width: 620px) {
       font-size: 1.1rem;

@@ -124,7 +124,10 @@ const TrailCard = ({ trail }) => {
                 {trail.difficulty.charAt(0).toUpperCase()}
               </div>
               <FaRoute />
-              <span title="length in miles" style={{ fontSize: "0.8rem" }}>
+              <span
+                title="length in miles"
+                style={{ fontSize: "0.8rem", marginLeft: "0.1rem" }}
+              >
                 {Math.floor(trail.length)}
               </span>
               {trail.hiking === true && <FaHiking />}

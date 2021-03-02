@@ -87,4 +87,7 @@ export const StyledIconContainer = styled.div`
   svg {
     margin-left: 0.57rem;
   }
+  /* svg:nth-child(2) {
+
+  } */
 `;
