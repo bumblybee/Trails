@@ -1,9 +1,11 @@
 import axios from "axios";
 import { handleErrors, handleErrorsArray } from "../handlers/errorHandler";
 
-const baseURL = "http://localhost:9000";
+const baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:9000"
+    : "https://trailscout-server.herokuapp.com/";
 
-//??How can I tie upload progress percentage to state if firing outside component?
 export const uploadProgress = (progress) => {
   const { loaded, total } = progress;
   let percent = Math.floor((loaded * 100) / total);
