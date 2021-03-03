@@ -115,7 +115,7 @@ const Map = ({ hoveredCard }) => {
     console.log("in map");
     getTrails();
     setTrailMarkers();
-  }, [setTrailMarkers]);
+  }, []);
 
   return (
     <sc.StyledMapContainer>
