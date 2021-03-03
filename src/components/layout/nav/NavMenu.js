@@ -41,7 +41,7 @@ const NavMenu = ({ closeMenu }) => {
         setQueryParams(address, lat, lng);
 
         await searchTrails(lat, lng);
-
+        console.log("in navmenu");
         closeMenu();
         // Could pass state containing lat, lng, address rather than resetting url, hmm
         history.push(`/search?${query.toString()}`);
@@ -53,7 +53,6 @@ const NavMenu = ({ closeMenu }) => {
     );
   };
 
-  // TODO: move api call outside of component
   const reverseGeocode = async (lat, lng) => {
     const geocodeData = await geocode(lat, lng);
     const address = geocodeData.plus_code.compound_code.split(",");
