@@ -105,13 +105,15 @@ const Map = ({ hoveredCard }) => {
     }
   };
 
+  const getTrails = async () => {
+    if (!trails.length) {
+      await searchTrails(coords.lat, coords.lng);
+    }
+  };
+
   useEffect(() => {
     // If window reloads or user coming from another page, search trails again using params so map, markers, and cards populate
-    const getTrails = async () => {
-      if (!trails.length) {
-        await searchTrails(coords.lat, coords.lng);
-      }
-    };
+
     console.log("in map");
     getTrails();
     setTrailMarkers();
