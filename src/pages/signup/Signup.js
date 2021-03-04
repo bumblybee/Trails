@@ -53,10 +53,7 @@ const Signup = () => {
       <sc.StyledUserForm onSubmit={handleSubmit} origin={"signup"}>
         <div className="form-header">
           <h4>Join TrailScout</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-            voluptates cupiditate!
-          </p>
+          <p>Enter a username, email, and password for your new account.</p>
         </div>
 
         <div className="form-group">

@@ -7,6 +7,7 @@ const AdminEditForm = ({ trail, showEditForm, setShowEditForm }) => {
   const handleAdminSubmit = async (e) => {
     // TODO: Send edit id with submission
     // TODO: coerce true/false to bool
+    // TODO: get lat/lng for city and state
     e.preventDefault();
     // const editDetails = { ...trailDetails, trailId: trail.id };
     // const edit = await editTrail(editDetails);
