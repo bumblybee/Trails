@@ -17,7 +17,5 @@ export const StyledCardContainer = styled.div`
 `;
 
 export const StyledTextContainer = styled.div`
-  h3 {
-    font-size: 2rem;
-  }
+  margin-top: 2rem;
 `;

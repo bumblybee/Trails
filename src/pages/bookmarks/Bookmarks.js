@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Loader from "../../components/layout/loader/Loader";
 
 import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
 import { UserContext } from "../../context/user/UserContext";
@@ -23,6 +24,7 @@ const Bookmarks = () => {
         {bookmarks && bookmarks.length ? (
           bookmarks.map((bookmark) => (
             <TrailCard
+              key={bookmark.id}
               trail={bookmark.trail}
               bookmarks={bookmarks}
               setBookmarks={setBookmarks}
