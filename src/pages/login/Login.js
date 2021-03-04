@@ -45,7 +45,7 @@ const Login = () => {
       <sc.StyledUserForm onSubmit={handleSubmit}>
         <div className="form-header">
           <h4>Log in to TrailScout</h4>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
+          <p>Enter the email and password associated with your account.</p>
         </div>
 
         <div className="form-group">

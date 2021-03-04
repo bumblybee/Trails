@@ -39,9 +39,9 @@ const SuggestedEdits = ({ trail, changes, setChanges }) => {
                       }}
                       type="checkbox"
                       name=""
-                      id=""
+                      id={edit.id}
                       value={edit[key]}
-                    />{" "}
+                    />
                     {String(edit[key])}
                   </td>
                 ))}
