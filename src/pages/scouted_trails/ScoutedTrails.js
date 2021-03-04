@@ -23,7 +23,7 @@ const ScoutedTrails = () => {
         </sc.StyledCardContainer>
       ) : (
         <sc.StyledTextContainer>
-          <h3>Looks like you haven't scouted any trails yet</h3>
+          <h4>Looks like you haven't posted any trails yet.</h4>
         </sc.StyledTextContainer>
       )}
     </sc.StyledScoutedTrailsContainer>

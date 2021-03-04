@@ -10,11 +10,13 @@ import {
 const BookmarkProvider = ({ children }) => {
   const [bookmarks, setBookmarks] = useState(null);
   const [latestBookmarks, setLatestBookmarks] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const getUserBookmarks = useCallback(async () => {
+    setLoading(true);
     const returnedBookmarks = await getBookmarks();
+    setLoading(false);
     setBookmarks(returnedBookmarks);
-    console.log(returnedBookmarks);
     return returnedBookmarks;
   }, []);
 
@@ -47,6 +49,7 @@ const BookmarkProvider = ({ children }) => {
       value={{
         bookmarks,
         latestBookmarks,
+        loading,
         setBookmarks,
         getUserBookmarks,
         createUserBookmark,
