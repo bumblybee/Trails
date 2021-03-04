@@ -125,7 +125,7 @@ export const StyledCardContentContainer = styled.div`
     text-transform: capitalize;
     color: #99a29e;
     text-shadow: 0 0 1px #99a29e;
-
+    font-size: 0.95rem;
     font-weight: 300;
     font-family: "Noto Sans JP", sans-serif;
 
