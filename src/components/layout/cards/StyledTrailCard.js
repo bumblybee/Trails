@@ -29,10 +29,12 @@ export const StyledCardImage = styled.div`
   width: 100%;
   height: 150px;
   background: #ccc;
+  /* border-top-left-radius: 6px;
+  border-top-right-radius: 6px; */
 
   img {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    /* border-top-left-radius: 6px;
+    border-top-right-radius: 6px; */
     object-fit: cover;
     width: 100%;
     height: 100%;
@@ -87,7 +89,4 @@ export const StyledIconContainer = styled.div`
   svg {
     margin-left: 0.57rem;
   }
-  /* svg:nth-child(2) {
-
-  } */
 `;
