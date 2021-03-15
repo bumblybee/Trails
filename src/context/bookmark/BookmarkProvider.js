@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { BookmarkContext } from "./BookmarkContext";
 import {
   getBookmarks,
@@ -26,8 +26,8 @@ const BookmarkProvider = ({ children }) => {
   const getLatest = useCallback(async () => {
     const latest = await getLatestBookmarks();
 
-    latest && setLatestBookmarks(latest);
-    return latestBookmarks;
+    setLatestBookmarks(latest);
+    return latest;
   }, []);
 
   const createUserBookmark = async (userId, trailId) => {

@@ -9,7 +9,6 @@ import * as sc from "./StyledEditTrailForm";
 const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
   const { setError } = useContext(ErrorContext);
   const { setSuccess } = useContext(SuccessContext);
-  const [submitted, setSubmitted] = useState(false);
 
   const [trailDetails, setTrailDetails] = useState({
     name: "",
@@ -86,7 +85,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
                 }
                 type="text"
                 name=""
-                value={trailDetails.name}
+                value={trailDetails.name || ""}
                 required
               />
             </sc.StyledFormGroup>
@@ -213,7 +212,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
                 placeholder="0"
                 step="0.1"
                 min="0"
-                value={trailDetails.length}
+                value={trailDetails.length || ""}
                 style={{ width: "4rem", fontWeight: "300" }}
               />{" "}
               miles

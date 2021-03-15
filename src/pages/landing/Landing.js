@@ -14,7 +14,7 @@ const Landing = () => {
 
   useEffect(() => {
     getLatest().then((latestBookmarks) => setPopularBookmarks(latestBookmarks));
-  });
+  }, []);
 
   return (
     <div>
