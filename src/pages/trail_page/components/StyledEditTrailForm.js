@@ -17,7 +17,7 @@ export const StyledHr = styled.hr`
 
 export const StyledEditTrailFormContainer = styled.div`
   position: absolute;
-  top: 50%;
+  top: ${(props) => (props.user.role === "Admin" ? "35%" : "50%")};
   left: 50%;
   transform: translate(-50%, -45%);
   z-index: 100;
