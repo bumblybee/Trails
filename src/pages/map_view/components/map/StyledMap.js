@@ -4,6 +4,10 @@ import { ComboboxInput, ComboboxList, ComboboxOption } from "@reach/combobox";
 export const StyledMapContainer = styled.div`
   position: relative;
   padding-top: 3em;
+
+  div:focus {
+    outline: 1px solid transparent;
+  }
 `;
 
 export const StyledMapLogo = styled.div`

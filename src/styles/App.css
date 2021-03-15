@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+
 body {
   font-family: "Noto Sans JP", sans-serif;
   height: 100%;
@@ -11,6 +12,8 @@ body {
   overflow-x: hidden;
   color: #34423b;
 }
+
+
 
 ul {
   list-style: none;
