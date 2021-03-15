@@ -14,7 +14,7 @@ const Bookmarks = () => {
   const [bookmarks, setBookmarks] = useState([]);
 
   useEffect(() => {
-    user && getUserBookmarks().then((data) => setBookmarks(data));
+    user && getUserBookmarks(user.id).then((data) => setBookmarks(data));
   }, []);
 
   return (
