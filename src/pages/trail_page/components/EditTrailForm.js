@@ -7,7 +7,7 @@ import TrailLocationInput from "../../scout_trail/TrailLocationInput";
 import * as sc from "./StyledEditTrailForm";
 
 const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
-  const { setError } = useContext(ErrorContext);
+  // const { setError } = useContext(ErrorContext);
   const { setSuccess } = useContext(SuccessContext);
 
   const [trailDetails, setTrailDetails] = useState({
@@ -35,14 +35,14 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
   const handleUserSubmit = async (e) => {
     e.preventDefault();
 
-    const editDetails = { ...changes, trailId: trail.id };
+    const changeDetails = { ...changes, trailId: trail.id };
 
-    const suggestedEdit = await suggestTrailEdit(editDetails);
-    console.log(suggestedEdit);
+    const sendChanges = await suggestTrailEdit(changeDetails);
+    console.log(sendChanges);
 
-    suggestedEdit &&
+    sendChanges &&
       setSuccess("Your suggestions have been uploaded for review.");
-    suggestedEdit && setShowEditForm(!showEditForm);
+    sendChanges && setShowEditForm(!showEditForm);
   };
 
   useEffect(() => {
@@ -198,9 +198,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
                   }}
                   type="checkbox"
                   value="Hiking"
-                  checked={
-                    changes.hiking ? changes.hiking : trailDetails.hiking
-                  }
+                  checked={changes.hiking}
                 />
                 Hiking
               </label>
@@ -214,9 +212,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
                   }}
                   type="checkbox"
                   value="Biking"
-                  checked={
-                    changes.biking ? changes.biking : trailDetails.biking
-                  }
+                  checked={changes.biking}
                 />
                 Biking
               </label>
