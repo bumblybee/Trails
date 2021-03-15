@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { BookmarkContext } from "./BookmarkContext";
 import {
   getBookmarks,
@@ -12,15 +12,16 @@ const BookmarkProvider = ({ children }) => {
   const [latestBookmarks, setLatestBookmarks] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const getUserBookmarks = useCallback(async (id) => {
+  const getUserBookmarks = useCallback(async () => {
     setLoading(true);
-    const returnedBookmarks = await getBookmarks(id);
 
-    returnedBookmarks && setBookmarks(returnedBookmarks);
+    const returnedBookmarks = await getBookmarks();
+
+    setBookmarks(returnedBookmarks);
 
     setLoading(false);
 
-    return returnedBookmarks;
+    return bookmarks;
   }, []);
 
   const getLatest = useCallback(async () => {
@@ -32,15 +33,19 @@ const BookmarkProvider = ({ children }) => {
 
   const createUserBookmark = async (userId, trailId) => {
     const returnedBookmarks = await createBookmark(userId, trailId);
-    setBookmarks(returnedBookmarks.bookmarks);
+    returnedBookmarks && setBookmarks(returnedBookmarks.bookmarks);
     return returnedBookmarks.bookmarks;
   };
 
   const removeUserBookmark = async (userId, trailId) => {
     const returnedBookmarks = await removeBookmark(userId, trailId);
-    setBookmarks(returnedBookmarks.bookmarks);
+    returnedBookmarks && setBookmarks(returnedBookmarks.bookmarks);
     return returnedBookmarks.bookmarks;
   };
+
+  useEffect(() => {
+    getUserBookmarks();
+  }, []);
 
   return (
     <BookmarkContext.Provider

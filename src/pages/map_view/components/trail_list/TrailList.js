@@ -19,8 +19,7 @@ const TrailList = ({ setHoveredCard }) => {
   const [userBookmarks, setUserBookmarks] = useState([]);
 
   useEffect(() => {
-    user &&
-      getUserBookmarks(user.id).then((bkmrks) => setUserBookmarks(bkmrks));
+    user && getUserBookmarks().then((data) => setUserBookmarks(data));
   }, []);
 
   return (
