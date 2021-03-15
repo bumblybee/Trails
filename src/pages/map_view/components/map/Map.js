@@ -49,7 +49,10 @@ const Map = ({ hoveredCard }) => {
 
   const reverseGeocode = async (mapCenter) => {
     const geocodeData = await geocode(mapCenter.lat, mapCenter.lng);
-    return geocodeData;
+    const address =
+      geocodeData.plus_code.compound_code &&
+      geocodeData.plus_code.compound_code.slice(7).split(",");
+    return address;
   };
 
   const mapRef = useRef();
@@ -79,13 +82,7 @@ const Map = ({ hoveredCard }) => {
   }, [trails]);
 
   const setQueryParamsOnDrag = async (mapCenter) => {
-    const geocodeData = await reverseGeocode(mapCenter);
-    console.log(geocodeData);
-
-    const address =
-      geocodeData.plus_code.compound_code &&
-      geocodeData.plus_code.compound_code.slice(7).split(",");
-    console.log(address);
+    const address = await reverseGeocode(mapCenter);
 
     queryParams.set("city", address[0].trim());
     queryParams.set("state", address[1].trim());
