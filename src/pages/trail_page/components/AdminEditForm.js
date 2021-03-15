@@ -9,12 +9,8 @@ const AdminEditForm = ({ trail, showEditForm, setShowEditForm }) => {
     // TODO: coerce true/false to bool
     // TODO: get lat/lng for city and state
     e.preventDefault();
-    // const editDetails = { ...trailDetails, trailId: trail.id };
-    // const edit = await editTrail(editDetails);
-    // console.log(edit);
-    // edit && setSuccess("Your changes have been posted successfully.");
-    // edit && setShowEditForm(!showEditForm);
   };
+
   return (
     <sc.StyledForm onSubmit={handleAdminSubmit}>
       <sc.StyledFormGroup>

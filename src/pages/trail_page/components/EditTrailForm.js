@@ -24,14 +24,18 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
     difficulty: "",
   });
 
+  const [changes, setChanges] = useState({});
+
+  // ? Separate state object for changes and just send changes ?
+
   const setLocation = (city, state, lat, lng) => {
-    setTrailDetails({ ...trailDetails, city, state, lat, lng });
+    setChanges({ ...changes, city, state, lat, lng });
   };
 
   const handleUserSubmit = async (e) => {
     e.preventDefault();
 
-    const editDetails = { ...trailDetails, trailId: trail.id };
+    const editDetails = { ...changes, trailId: trail.id };
 
     const suggestedEdit = await suggestTrailEdit(editDetails);
     console.log(suggestedEdit);
@@ -81,11 +85,11 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
               </label>
               <input
                 onChange={(e) =>
-                  setTrailDetails({ ...trailDetails, name: e.target.value })
+                  setChanges({ ...changes, name: e.target.value })
                 }
                 type="text"
                 name=""
-                value={trailDetails.name || ""}
+                value={changes.name ? changes.name : trailDetails.name}
                 required
               />
             </sc.StyledFormGroup>
@@ -104,15 +108,19 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
               <label htmlFor="difficulty" className="difficulty">
                 <input
                   onChange={(e) =>
-                    setTrailDetails({
-                      ...trailDetails,
+                    setChanges({
+                      ...changes,
                       difficulty: e.target.value.toLowerCase(),
                     })
                   }
                   type="radio"
                   value="Beginner"
                   name="difficulty"
-                  checked={trailDetails.difficulty === "beginner"}
+                  checked={
+                    changes.difficulty === "beginner"
+                      ? changes.difficulty === "beginner"
+                      : trailDetails.difficulty === "beginner"
+                  }
                   required
                 />{" "}
                 Beginner - <span>flat or little uneven terrain</span>
@@ -120,45 +128,57 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
               <label htmlFor="difficulty" className="difficulty">
                 <input
                   onChange={(e) =>
-                    setTrailDetails({
-                      ...trailDetails,
+                    setChanges({
+                      ...changes,
                       difficulty: e.target.value.toLowerCase(),
                     })
                   }
                   type="radio"
                   value="Intermediate"
                   name="difficulty"
-                  checked={trailDetails.difficulty === "intermediate"}
+                  checked={
+                    changes.difficulty === "intermediate"
+                      ? changes.difficulty === "intermediate"
+                      : trailDetails.difficulty === "intermediate"
+                  }
                 />{" "}
                 Intermediate - <span>some incline or uneven terrain</span>
               </label>
               <label htmlFor="difficulty" className="difficulty">
                 <input
                   onChange={(e) =>
-                    setTrailDetails({
-                      ...trailDetails,
+                    setChanges({
+                      ...changes,
                       difficulty: e.target.value.toLowerCase(),
                     })
                   }
                   type="radio"
                   value="Advanced"
                   name="difficulty"
-                  checked={trailDetails.difficulty === "advanced"}
+                  checked={
+                    changes.difficulty === "advanced"
+                      ? changes.difficulty === "advanced"
+                      : trailDetails.difficulty === "advanced"
+                  }
                 />{" "}
                 Advanced - <span>rocky, uneven terrain, steep inclines</span>
               </label>
               <label htmlFor="difficulty" className="difficulty">
                 <input
                   onChange={(e) =>
-                    setTrailDetails({
-                      ...trailDetails,
+                    setChanges({
+                      ...changes,
                       difficulty: e.target.value.toLowerCase(),
                     })
                   }
                   type="radio"
                   value="Expert"
                   name="difficulty"
-                  checked={trailDetails.difficulty === "expert"}
+                  checked={
+                    changes.difficulty === "expert"
+                      ? changes.difficulty === "expert"
+                      : trailDetails.difficulty === "expert"
+                  }
                 />{" "}
                 Expert - <span>very steep or treacherous terrain</span>
               </label>
@@ -171,28 +191,32 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
               <label className="type">
                 <input
                   onChange={(e) => {
-                    setTrailDetails({
-                      ...trailDetails,
+                    setChanges({
+                      ...changes,
                       hiking: e.target.checked && true,
                     });
                   }}
                   type="checkbox"
                   value="Hiking"
-                  checked={trailDetails.hiking}
+                  checked={
+                    changes.hiking ? changes.hiking : trailDetails.hiking
+                  }
                 />
                 Hiking
               </label>
               <label htmlFor="" className="type">
                 <input
                   onChange={(e) => {
-                    setTrailDetails({
-                      ...trailDetails,
+                    setChanges({
+                      ...changes,
                       biking: e.target.checked && true,
                     });
                   }}
                   type="checkbox"
                   value="Biking"
-                  checked={trailDetails.biking}
+                  checked={
+                    changes.biking ? changes.biking : trailDetails.biking
+                  }
                 />
                 Biking
               </label>
@@ -202,8 +226,8 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
               <label htmlFor="length">Length</label>
               <input
                 onChange={(e) =>
-                  setTrailDetails({
-                    ...trailDetails,
+                  setChanges({
+                    ...changes,
                     length: e.target.value,
                   })
                 }
@@ -212,7 +236,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
                 placeholder="0"
                 step="0.1"
                 min="0"
-                value={trailDetails.length || ""}
+                value={changes.length ? changes.length : trailDetails.length}
                 style={{ width: "4rem", fontWeight: "300" }}
               />{" "}
               miles
@@ -224,8 +248,8 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
               </label>
               <textarea
                 onChange={(e) =>
-                  setTrailDetails({
-                    ...trailDetails,
+                  setChanges({
+                    ...changes,
                     description: e.target.value,
                   })
                 }
