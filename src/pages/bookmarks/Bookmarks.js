@@ -9,12 +9,12 @@ import TrailCard from "../../components/layout/cards/TrailCard";
 import * as sc from "./StyledBookmarks";
 
 const Bookmarks = () => {
-  const { getUserBookmarks } = useContext(BookmarkContext);
+  const { bookmarks, getUserBookmarks } = useContext(BookmarkContext);
   const { user } = useContext(UserContext);
-  const [bookmarks, setBookmarks] = useState([]);
+  // const [bookmarks, setBookmarks] = useState([]);
 
   useEffect(() => {
-    user && getUserBookmarks(user.id).then((data) => setBookmarks(data));
+    user && getUserBookmarks().then((data) => console.log(data));
   }, []);
 
   return (
@@ -27,7 +27,6 @@ const Bookmarks = () => {
               key={bookmark.id}
               trail={bookmark.trail}
               bookmarks={bookmarks}
-              setBookmarks={setBookmarks}
             />
           ))
         ) : (
