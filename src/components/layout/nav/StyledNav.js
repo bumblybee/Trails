@@ -4,7 +4,7 @@ export const StyledNav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.5rem 1rem 1rem;
   max-width: 100%;
   box-shadow: ${(props) =>
     props.currentPath === "/" ||
@@ -31,7 +31,7 @@ export const StyledNav = styled.div`
 `;
 
 export const StyledLogoContainer = styled.div`
-  padding: 0 0.4rem 0;
+  padding: 0;
 `;
 
 export const StyledLogo = styled.img`

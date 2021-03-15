@@ -12,6 +12,7 @@ const ScoutedTrails = () => {
     getCurrentUser().then((userData) => setScoutedTrails(userData.trails));
   }, []);
 
+  // ! ScoutedTrails container and cards + Bookmarks container and cards could be one component or share styling bc styled the same way
   return (
     <sc.StyledScoutedTrailsContainer>
       <h3>Scouted Trails</h3>
@@ -23,7 +24,7 @@ const ScoutedTrails = () => {
         </sc.StyledCardContainer>
       ) : (
         <sc.StyledTextContainer>
-          <h4>Looks like you haven't posted any trails yet.</h4>
+          <p>Looks like you haven't posted any trails yet.</p>
         </sc.StyledTextContainer>
       )}
     </sc.StyledScoutedTrailsContainer>
