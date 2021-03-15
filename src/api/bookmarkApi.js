@@ -1,7 +1,7 @@
 import { get, post } from "./baseApi";
 
-export const getBookmarks = async () => {
-  const res = await get(`/bookmarks`);
+export const getBookmarks = async (id) => {
+  const res = await get(`/bookmarks/${id}`);
   return res.data;
 };
 

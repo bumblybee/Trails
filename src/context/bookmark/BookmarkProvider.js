@@ -12,9 +12,9 @@ const BookmarkProvider = ({ children }) => {
   const [latestBookmarks, setLatestBookmarks] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const getUserBookmarks = useCallback(async () => {
+  const getUserBookmarks = useCallback(async (id) => {
     setLoading(true);
-    const returnedBookmarks = await getBookmarks();
+    const returnedBookmarks = await getBookmarks(id);
     setLoading(false);
     setBookmarks(returnedBookmarks);
     return returnedBookmarks;
