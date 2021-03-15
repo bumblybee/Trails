@@ -15,8 +15,6 @@ export const StyledFilter = styled(Dropdown)`
 
   :hover {
     cursor: pointer;
-
-    /* border: 1px solid transparent; */
   }
 
   .Dropdown-control {
@@ -33,7 +31,8 @@ export const StyledFilter = styled(Dropdown)`
     border: none;
     border-radius: 6px;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 2.3rem;
+    margin-top: ${(props) =>
+      props.origin === "landing" ? "2.3rem" : "0.95rem"};
 
     @media (max-width: 620px) {
       margin-top: ${(props) =>
