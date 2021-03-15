@@ -30,18 +30,25 @@ const SuggestedEdits = ({ trail, changes, setChanges }) => {
           <tbody>
             {suggestedEdits.map((edit) => (
               <tr>
-                {Object.keys(edit).map((key) => (
+                {Object.keys(edit).map((key, index) => (
                   <td>
-                    <input
-                      field={key}
-                      onChange={(e) => {
-                        setChanges({ ...changes, [key]: e.target.value });
-                      }}
-                      type="checkbox"
-                      name=""
-                      value={edit[key]}
-                    />
-                    {String(edit[key])}
+                    {edit[key] !== null && (
+                      <input
+                        field={key}
+                        onChange={(e) => {
+                          setChanges({
+                            ...changes,
+                            [key]: e.target.checked ? e.target.value : null,
+                          });
+                        }}
+                        type="checkbox"
+                        name={key}
+                        key={index}
+                        value={edit[key]}
+                      />
+                    )}
+                    <br />
+                    {edit[key] === null ? "" : String(edit[key])}
                   </td>
                 ))}
               </tr>
