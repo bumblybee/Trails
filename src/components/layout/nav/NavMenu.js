@@ -56,12 +56,12 @@ const NavMenu = ({ closeMenu }) => {
   const reverseGeocode = async (lat, lng) => {
     const geocodeData = await geocode(lat, lng);
     const address = geocodeData.plus_code.compound_code.split(",");
-
+    console.log(address);
     return address;
   };
 
   const setQueryParams = (address, lat, lng) => {
-    query.set("city", address[0].split(" ")[1]);
+    query.set("city", address[0].slice(7));
     query.set("state", address[1].trim());
     query.set("lat", lat);
     query.set("lng", lng);
