@@ -1,4 +1,4 @@
-import { get, put, post, postFormData } from "./baseApi";
+import { get, postFormData } from "./baseApi";
 
 export const getTrails = async (lat, lng, filter) => {
   const res = await get(
