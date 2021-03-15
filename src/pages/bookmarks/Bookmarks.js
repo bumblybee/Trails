@@ -31,7 +31,9 @@ const Bookmarks = () => {
             />
           ))
         ) : (
-          <h4>No bookmarks to show</h4>
+          <sc.StyledNoBookmarksContainer>
+            <p>Looks like you haven't bookmarked any trails yet.</p>
+          </sc.StyledNoBookmarksContainer>
         )}
       </sc.StyledCardContainer>
     </sc.StyledBookmarksContainer>
