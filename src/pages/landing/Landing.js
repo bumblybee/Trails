@@ -9,11 +9,11 @@ import * as sc from "./StyledLanding";
 // TODO: Image own element, not background
 
 const Landing = () => {
-  const { latestBookmarks } = useContext(BookmarkContext);
+  const { getLatest } = useContext(BookmarkContext);
   const [popularBookmarks, setPopularBookmarks] = useState([]);
 
   useEffect(() => {
-    latestBookmarks && setPopularBookmarks(latestBookmarks);
+    getLatest().then((latestBookmarks) => setPopularBookmarks(latestBookmarks));
   });
 
   return (
