@@ -31,6 +31,7 @@ const TrailList = ({ setHoveredCard }) => {
               Trails near {city}, {state}
             </h3>
           ) : (
+            // Style me
             <h1>Search a location...</h1>
           )}
         </StyledTrailListHeader>

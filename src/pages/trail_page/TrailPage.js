@@ -10,7 +10,7 @@ import { UserContext } from "../../context/user/UserContext";
 import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
 import EditTrailForm from "./components/EditTrailForm";
 import StarRating from "../../components/rating/StarRating";
-import { randomImage } from "../../defaultImages/randomImages";
+
 import {
   FaRoute,
   FaImage,
@@ -96,7 +96,11 @@ const TrailPage = () => {
 
         <sc.StyledImageContainer>
           <sc.StyledImage
-            src={trail.image !== null ? trail.image : randomImage()}
+            src={
+              trail.image !== null
+                ? trail.image
+                : "https://images.unsplash.com/photo-1589064090574-7be967916250?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjgzfHx0cmFpbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"
+            }
             alt="trail image"
           />
         </sc.StyledImageContainer>

@@ -5,7 +5,7 @@ import * as sc from "./StyledSuggestedEdits";
 
 const SuggestedEdits = ({ trail, changes, setChanges }) => {
   const [suggestedEdits, setSuggestedEdits] = useState([]);
-  // TODO: select only one edit, disable others if one selected
+  // TODO: select only one edit - disable others if one selected
   useEffect(() => {
     const trailId = trail.id;
     getEdits(trailId).then((data) => {

@@ -11,9 +11,7 @@ const MapView = () => {
   // Handles highlighting of marker on map
   const [hoveredCard, setHoveredCard] = useState({});
 
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <sc.StyledSearchContainer>
       <TrailList className="list" setHoveredCard={setHoveredCard} />
 

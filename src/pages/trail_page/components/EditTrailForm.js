@@ -76,7 +76,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
             <h4> Suggest Edits</h4>
             <sc.StyledMessage>
               Update any field with changes you'd like to see. Your suggestions
-              will be reviewed by our team before any changes are made.
+              will be reviewed by our team.
             </sc.StyledMessage>
 
             <sc.StyledHr />
