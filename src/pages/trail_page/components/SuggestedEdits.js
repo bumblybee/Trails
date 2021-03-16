@@ -12,7 +12,6 @@ const SuggestedEdits = ({ trail, changes, setChanges }) => {
       setSuggestedEdits(data);
     });
   }, []);
-  console.log(changes);
   return (
     suggestedEdits &&
     suggestedEdits.length > 0 && (
