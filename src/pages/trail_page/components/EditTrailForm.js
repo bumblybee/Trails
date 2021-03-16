@@ -7,7 +7,7 @@ import TrailLocationInput from "../../scout_trail/TrailLocationInput";
 import * as sc from "./StyledEditTrailForm";
 
 const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
-  // const { setError } = useContext(ErrorContext);
+  const { setError } = useContext(ErrorContext);
   const { setSuccess } = useContext(SuccessContext);
 
   const [trailDetails, setTrailDetails] = useState({
@@ -26,8 +26,6 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
 
   const [changes, setChanges] = useState({});
 
-  // ? Separate state object for changes and just send changes ?
-
   const setLocation = (city, state, lat, lng) => {
     setChanges({ ...changes, city, state, lat, lng });
   };
@@ -40,8 +38,11 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
     const sendChanges = await suggestTrailEdit(changeDetails);
     console.log(sendChanges);
 
+    if (sendChanges.error) setError("Something went wrong.");
+
     sendChanges &&
       setSuccess("Your suggestions have been uploaded for review.");
+
     sendChanges && setShowEditForm(!showEditForm);
   };
 

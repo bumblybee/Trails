@@ -10,7 +10,7 @@ const AdminEditForm = ({ trail, showEditForm, setShowEditForm }) => {
     // TODO: get lat/lng for city and state
     e.preventDefault();
   };
-
+  console.log(changes);
   return (
     <sc.StyledForm onSubmit={handleAdminSubmit}>
       <sc.StyledFormGroup>
