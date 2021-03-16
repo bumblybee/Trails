@@ -4,7 +4,6 @@ import he from "he";
 import { UserContext } from "../../../../context/user/UserContext";
 import { BookmarkContext } from "../../../../context/bookmark/BookmarkContext";
 
-import { randomImage } from "../../../../defaultImages/randomImages";
 import StarRating from "../../../../components/rating/StarRating";
 import { useHover } from "../../../../hooks/useHover";
 import {
@@ -17,12 +16,10 @@ import {
 
 import * as sc from "./StyledTrailListCard";
 
-// !!: Handle bookmark hover in a way that isn't re-rendering - get rid of random images too
-
 // TODO: Size and color icons
 
 const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
-  const [bookmarkHoverRef] = useHover();
+  const [bookmarkHoverRef, isHovered] = useHover();
   const { user } = useContext(UserContext);
   const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
     BookmarkContext
@@ -55,10 +52,8 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
 
       if (type === "create") {
         const res = await createUserBookmark(user.id, id);
-        console.log(res);
       } else {
         const res = await removeUserBookmark(user.id, id);
-        console.log(res);
       }
     }
   };
@@ -68,17 +63,26 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
       <FaRegBookmark title={user ? "Bookmark" : "Log in to bookmark trail"} />
     );
 
+    let isSet = false;
+
     if (bookmarks) {
       for (let { trailId } of bookmarks) {
         if (trailId === id) {
+          isSet = true;
           icon = <FaBookmark title="Remove bookmark" />;
         }
       }
     }
+
+    if (isSet && isHovered)
+      return (
+        <FaRegBookmark title={user ? "Bookmark" : "Log in to bookmark trail"} />
+      );
     return icon;
   };
 
-  //TODO: color rating nearly invisible if none, color other icons
+  // TODO: color rating nearly invisible if none, color other icons
+  // TODO: use local hover state for bookmark hover like doing for card and marker instead of hook
   return (
     <sc.StyledCard
       onMouseEnter={() => setHoveredCard(trail.id)}
@@ -98,7 +102,11 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
           {/* TODO: Carousel v2 */}
 
           <sc.StyledImage
-            src={trail.image !== null ? trail.image : randomImage()}
+            src={
+              trail.image !== null
+                ? trail.image
+                : "https://images.unsplash.com/photo-1589064090574-7be967916250?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjgzfHx0cmFpbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"
+            }
             alt="trail"
             loading="lazy"
           />

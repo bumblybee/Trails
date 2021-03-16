@@ -83,11 +83,13 @@ const Map = ({ hoveredCard }) => {
 
   const setQueryParamsOnDrag = async (mapCenter) => {
     const address = await reverseGeocode(mapCenter);
-
-    queryParams.set("city", address[0].trim());
-    queryParams.set("state", address[1].trim());
-    queryParams.set("lat", mapCenter.lat);
-    queryParams.set("lng", mapCenter.lng);
+    console.log(address);
+    if (address[0]) {
+      queryParams.set("city", address[0].trim());
+      queryParams.set("state", address[1].trim());
+      queryParams.set("lat", mapCenter.lat);
+      queryParams.set("lng", mapCenter.lng);
+    }
   };
 
   // When user stops dragging map, get center and call api with updated lat and lng, set markers
