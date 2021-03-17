@@ -71,7 +71,7 @@ const NavMenu = ({ closeMenu }) => {
 
   return (
     <sc.StyledNavMenuContainer ref={menuRef}>
-      {user && user.role === "User" ? (
+      {user ? (
         <>
           <sc.StyledLink to="/bookmarks" onClick={() => closeMenu()}>
             Bookmarks
@@ -84,33 +84,6 @@ const NavMenu = ({ closeMenu }) => {
           <sc.StyledLink to="#" onClick={() => findTrailsNearUser()}>
             Near me
           </sc.StyledLink>
-          <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
-            Create new trail
-          </sc.StyledLink>
-          <sc.StyledMenuHr />
-
-          <sc.StyledLink to="/" onClick={() => handleLogout()}>
-            Log out
-          </sc.StyledLink>
-        </>
-      ) : user && user.role === "Admin" ? (
-        <>
-          <sc.StyledAdminPanel>
-            <input
-              onChange={(e) => setTrailId(e.target.value)}
-              type="text"
-              placeholder="Trail id"
-            />
-            <sc.StyledLink
-              onClick={() => closeMenu()}
-              to={trailId ? `/trail/${trailId}` : "#"}
-              className="edit-link"
-              title="Enter trail id above"
-            >
-              Edit Trail
-            </sc.StyledLink>
-          </sc.StyledAdminPanel>
-
           <sc.StyledLink to="/scout" onClick={() => closeMenu()}>
             Create new trail
           </sc.StyledLink>
