@@ -107,7 +107,7 @@ const TrailPage = () => {
 
         <sc.StyledTrailPageContainer>
           <sc.StyledFloatingCardsContainer>
-            <sc.StyledFloatingCard>
+            <sc.StyledFloatingCard className="icon-card">
               <sc.StyledIconsContainer>
                 <span className="icon-label">Length</span>
                 <sc.StyledIcon>
@@ -213,14 +213,15 @@ const TrailPage = () => {
               </sc.StyledButtonContainer>
             </sc.StyledFloatingCard>
           </sc.StyledFloatingCardsContainer>
-
-          <h5>
-            {trail.city}, {trail.state}
-          </h5>
-          <h2>{trail.name}</h2>
-          <StarRating rating={trail.rating} />
-          <sc.StyledBorder />
-          <p id="description">{breakLongDescription(trail)}</p>
+          <div>
+            <h5>
+              {trail.city}, {trail.state}
+            </h5>
+            <h2>{trail.name}</h2>
+            <StarRating rating={trail.rating} />
+            <sc.StyledBorder />
+            <p id="description">{breakLongDescription(trail)}</p>
+          </div>
         </sc.StyledTrailPageContainer>
       </sc.StyledTrailPageWrapper>
     )
