@@ -219,7 +219,46 @@ const TrailPage = () => {
               {trail.city}, {trail.state}
             </h5>
             <h2>{trail.name && he.decode(trail.name)}</h2>
-            <StarRating rating={trail.rating} />
+
+            <sc.StyledHeaderIcons>
+              <StarRating rating={trail.rating} />
+              <div className="mobile-icons">
+                <FaRoute />
+                <span title="length in miles" style={{ fontSize: "0.9rem" }}>
+                  {Math.floor(trail.length)}
+                </span>
+                {trail.hiking === true && <FaHiking />}
+                {trail.biking === true && <FaBiking />}
+              </div>
+              <div
+                title={trail.difficulty}
+                style={{
+                  background:
+                    trail.difficulty === "beginner"
+                      ? "#b1ce7c"
+                      : trail.difficulty === "intermediate"
+                      ? "#fec787"
+                      : trail.difficulty === "advanced"
+                      ? "#FE9787"
+                      : trail.difficulty === "expert"
+                      ? "##FE7762"
+                      : "#eeeeed",
+                  padding: "0.6rem",
+                  width: "18px",
+                  height: "18px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "50%",
+                  fontSize: "0.8rem",
+                  fontWeight: "500",
+                  color: "#fff",
+                  border: "1px solid #eeeeed55",
+                }}
+              >
+                {trail.difficulty && trail.difficulty.charAt(0).toUpperCase()}
+              </div>
+            </sc.StyledHeaderIcons>
             <sc.StyledBorder />
             <p id="description">{breakLongDescription(trail)}</p>
           </div>

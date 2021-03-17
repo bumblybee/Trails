@@ -50,7 +50,7 @@ export const StyledTrailPageContainer = styled.div`
 
     @media (max-width: 620px) {
       width: 100%;
-      margin-top: 2rem;
+      margin-top: 1.75rem;
     }
   }
 `;
@@ -128,6 +128,31 @@ export const StyledIconsContainer = styled.div`
     font-size: 0.95rem;
     color: #fe7762;
     font-weight: 500;
+  }
+`;
+
+export const StyledHeaderIcons = styled.div`
+  .mobile-icons {
+    display: none;
+
+    @media (max-width: 620px) {
+      display: flex;
+      justify-content: space-evenly;
+      margin-left: 1rem;
+
+      span {
+        margin-right: 0.5rem;
+      }
+
+      svg:not(:first-child) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 620px) {
+    display: flex;
+    width: 100%;
   }
 `;
 
