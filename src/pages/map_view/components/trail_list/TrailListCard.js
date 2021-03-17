@@ -105,7 +105,7 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
             src={
               trail.image !== null
                 ? trail.image
-                : "https://images.unsplash.com/photo-1589064090574-7be967916250?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjgzfHx0cmFpbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"
+                : "https://images.pexels.com/photos/6408293/pexels-photo-6408293.jpeg?h=750&w=1260"
             }
             alt="trail"
             loading="lazy"
