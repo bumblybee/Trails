@@ -22,6 +22,7 @@ export const StyledCardContainer = styled.div`
 
   @media (max-width: 620px) {
     height: 315px;
+    width: 100%;
   }
 `;
 
@@ -52,7 +53,7 @@ export const StyledCardContent = styled.div`
   h4 {
     text-transform: capitalize;
     letter-spacing: 0.02rem;
-    margin-top: 0;
+    margin-top: 0.25rem;
     font-size: 1.1rem;
   }
 
