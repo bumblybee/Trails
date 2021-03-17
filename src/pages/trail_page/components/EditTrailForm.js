@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ErrorContext } from "../../../context/error/ErrorContext";
 import { SuccessContext } from "../../../context/success/SuccessContext";
-import { suggestTrailEdit, editTrail } from "../../../api/editApi";
-import AdminEditForm from "./AdminEditForm";
+import { suggestTrailEdit } from "../../../api/editApi";
+
 import TrailLocationInput from "../../scout_trail/TrailLocationInput";
 import * as sc from "./StyledEditTrailForm";
 
@@ -65,211 +65,199 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
   return (
     <sc.StyledBlackout>
       <sc.StyledEditTrailFormContainer user={user}>
-        {user.role === "Admin" ? (
-          <AdminEditForm
-            trail={trail}
-            showEditForm={showEditForm}
-            setShowEditForm={setShowEditForm}
-          />
-        ) : (
-          <sc.StyledForm onSubmit={handleUserSubmit}>
-            <h4> Suggest Edits</h4>
-            <sc.StyledMessage>
-              Update any field with changes you'd like to see. Your suggestions
-              will be reviewed by our team.
-            </sc.StyledMessage>
+        <sc.StyledForm onSubmit={handleUserSubmit}>
+          <h4> Suggest Edits</h4>
+          <sc.StyledMessage>
+            Update any field with changes you'd like to see. Your suggestions
+            will be reviewed by our team.
+          </sc.StyledMessage>
 
-            <sc.StyledHr />
-            <sc.StyledFormGroup>
-              <label htmlFor="name">
-                Trail Name<span title="required">*</span>
-              </label>
-              <input
-                onChange={(e) =>
-                  setChanges({ ...changes, name: e.target.value })
-                }
-                type="text"
-                name=""
-                value={changes.name ? changes.name : trailDetails.name}
-                required
-              />
-            </sc.StyledFormGroup>
+          <sc.StyledHr />
+          <sc.StyledFormGroup>
+            <label htmlFor="name">
+              Trail Name<span title="required">*</span>
+            </label>
+            <input
+              onChange={(e) => setChanges({ ...changes, name: e.target.value })}
+              type="text"
+              name=""
+              value={changes.name ? changes.name : trailDetails.name}
+              required
+            />
+          </sc.StyledFormGroup>
 
-            <sc.StyledFormGroup>
-              <label htmlFor="location">
-                Location<span title="required">*</span>
-              </label>
-              <TrailLocationInput trail={trail} setLocation={setLocation} />
-            </sc.StyledFormGroup>
+          <sc.StyledFormGroup>
+            <label htmlFor="location">
+              Location<span title="required">*</span>
+            </label>
+            <TrailLocationInput trail={trail} setLocation={setLocation} />
+          </sc.StyledFormGroup>
 
-            <sc.StyledFormGroup>
-              <label htmlFor="difficulty">
-                Difficulty<span title="required">*</span>
-              </label>
-              <label htmlFor="difficulty" className="difficulty">
-                <input
-                  onChange={(e) =>
-                    setChanges({
-                      ...changes,
-                      difficulty: e.target.value.toLowerCase(),
-                    })
-                  }
-                  type="radio"
-                  value="Beginner"
-                  name="difficulty"
-                  checked={
-                    changes.difficulty === "beginner"
-                      ? changes.difficulty === "beginner"
-                      : trailDetails.difficulty === "beginner"
-                  }
-                  required
-                />{" "}
-                Beginner - <span>flat or little uneven terrain</span>
-              </label>
-              <label htmlFor="difficulty" className="difficulty">
-                <input
-                  onChange={(e) =>
-                    setChanges({
-                      ...changes,
-                      difficulty: e.target.value.toLowerCase(),
-                    })
-                  }
-                  type="radio"
-                  value="Intermediate"
-                  name="difficulty"
-                  checked={
-                    changes.difficulty === "intermediate"
-                      ? changes.difficulty === "intermediate"
-                      : trailDetails.difficulty === "intermediate"
-                  }
-                />{" "}
-                Intermediate - <span>some incline or uneven terrain</span>
-              </label>
-              <label htmlFor="difficulty" className="difficulty">
-                <input
-                  onChange={(e) =>
-                    setChanges({
-                      ...changes,
-                      difficulty: e.target.value.toLowerCase(),
-                    })
-                  }
-                  type="radio"
-                  value="Advanced"
-                  name="difficulty"
-                  checked={
-                    changes.difficulty === "advanced"
-                      ? changes.difficulty === "advanced"
-                      : trailDetails.difficulty === "advanced"
-                  }
-                />{" "}
-                Advanced - <span>rocky, uneven terrain, steep inclines</span>
-              </label>
-              <label htmlFor="difficulty" className="difficulty">
-                <input
-                  onChange={(e) =>
-                    setChanges({
-                      ...changes,
-                      difficulty: e.target.value.toLowerCase(),
-                    })
-                  }
-                  type="radio"
-                  value="Expert"
-                  name="difficulty"
-                  checked={
-                    changes.difficulty === "expert"
-                      ? changes.difficulty === "expert"
-                      : trailDetails.difficulty === "expert"
-                  }
-                />{" "}
-                Expert - <span>very steep or treacherous terrain</span>
-              </label>
-            </sc.StyledFormGroup>
-
-            <sc.StyledFormGroup>
-              <label htmlFor="trail-type">
-                Trail Type<span title="required">*</span>
-              </label>
-              <label className="type">
-                <input
-                  onChange={(e) => {
-                    setChanges({
-                      ...changes,
-                      hiking: e.target.checked && true,
-                    });
-                  }}
-                  type="checkbox"
-                  value="Hiking"
-                  checked={changes.hiking}
-                />
-                Hiking
-              </label>
-              <label htmlFor="" className="type">
-                <input
-                  onChange={(e) => {
-                    setChanges({
-                      ...changes,
-                      biking: e.target.checked && true,
-                    });
-                  }}
-                  type="checkbox"
-                  value="Biking"
-                  checked={changes.biking}
-                />
-                Biking
-              </label>
-            </sc.StyledFormGroup>
-
-            <sc.StyledFormGroup>
-              <label htmlFor="length">Length</label>
+          <sc.StyledFormGroup>
+            <label htmlFor="difficulty">
+              Difficulty<span title="required">*</span>
+            </label>
+            <label htmlFor="difficulty" className="difficulty">
               <input
                 onChange={(e) =>
                   setChanges({
                     ...changes,
-                    length: e.target.value,
+                    difficulty: e.target.value.toLowerCase(),
                   })
                 }
-                type="number"
-                name=""
-                placeholder="0"
-                step="0.1"
-                min="0"
-                value={changes.length ? changes.length : trailDetails.length}
-                style={{ width: "4rem", fontWeight: "300" }}
+                type="radio"
+                value="Beginner"
+                name="difficulty"
+                checked={
+                  changes.difficulty === "beginner"
+                    ? changes.difficulty === "beginner"
+                    : trailDetails.difficulty === "beginner"
+                }
+                required
               />{" "}
-              miles
-            </sc.StyledFormGroup>
-
-            <sc.StyledFormGroup>
-              <label htmlFor="description">
-                Description<span title="required">*</span>
-              </label>
-              <textarea
+              Beginner - <span>flat or little uneven terrain</span>
+            </label>
+            <label htmlFor="difficulty" className="difficulty">
+              <input
                 onChange={(e) =>
                   setChanges({
                     ...changes,
-                    description: e.target.value,
+                    difficulty: e.target.value.toLowerCase(),
                   })
                 }
-                name=""
-                defaultValue={trailDetails.description}
-                rows={8}
-                style={{ resize: "none" }}
-                required
-              ></textarea>
-            </sc.StyledFormGroup>
+                type="radio"
+                value="Intermediate"
+                name="difficulty"
+                checked={
+                  changes.difficulty === "intermediate"
+                    ? changes.difficulty === "intermediate"
+                    : trailDetails.difficulty === "intermediate"
+                }
+              />{" "}
+              Intermediate - <span>some incline or uneven terrain</span>
+            </label>
+            <label htmlFor="difficulty" className="difficulty">
+              <input
+                onChange={(e) =>
+                  setChanges({
+                    ...changes,
+                    difficulty: e.target.value.toLowerCase(),
+                  })
+                }
+                type="radio"
+                value="Advanced"
+                name="difficulty"
+                checked={
+                  changes.difficulty === "advanced"
+                    ? changes.difficulty === "advanced"
+                    : trailDetails.difficulty === "advanced"
+                }
+              />{" "}
+              Advanced - <span>rocky, uneven terrain, steep inclines</span>
+            </label>
+            <label htmlFor="difficulty" className="difficulty">
+              <input
+                onChange={(e) =>
+                  setChanges({
+                    ...changes,
+                    difficulty: e.target.value.toLowerCase(),
+                  })
+                }
+                type="radio"
+                value="Expert"
+                name="difficulty"
+                checked={
+                  changes.difficulty === "expert"
+                    ? changes.difficulty === "expert"
+                    : trailDetails.difficulty === "expert"
+                }
+              />{" "}
+              Expert - <span>very steep or treacherous terrain</span>
+            </label>
+          </sc.StyledFormGroup>
 
-            <sc.StyledFormGroup>
-              <sc.StyledFormButton type="submit" submitButton={true}>
-                Submit
-              </sc.StyledFormButton>
-              <sc.StyledFormButton
-                onClick={() => setShowEditForm(!showEditForm)}
-              >
-                Cancel
-              </sc.StyledFormButton>
-            </sc.StyledFormGroup>
-          </sc.StyledForm>
-        )}
+          <sc.StyledFormGroup>
+            <label htmlFor="trail-type">
+              Trail Type<span title="required">*</span>
+            </label>
+            <label className="type">
+              <input
+                onChange={(e) => {
+                  setChanges({
+                    ...changes,
+                    hiking: e.target.checked && true,
+                  });
+                }}
+                type="checkbox"
+                value="Hiking"
+                checked={changes.hiking}
+              />
+              Hiking
+            </label>
+            <label htmlFor="" className="type">
+              <input
+                onChange={(e) => {
+                  setChanges({
+                    ...changes,
+                    biking: e.target.checked && true,
+                  });
+                }}
+                type="checkbox"
+                value="Biking"
+                checked={changes.biking}
+              />
+              Biking
+            </label>
+          </sc.StyledFormGroup>
+
+          <sc.StyledFormGroup>
+            <label htmlFor="length">Length</label>
+            <input
+              onChange={(e) =>
+                setChanges({
+                  ...changes,
+                  length: e.target.value,
+                })
+              }
+              type="number"
+              name=""
+              placeholder="0"
+              step="0.1"
+              min="0"
+              value={changes.length ? changes.length : trailDetails.length}
+              style={{ width: "4rem", fontWeight: "300" }}
+            />{" "}
+            miles
+          </sc.StyledFormGroup>
+
+          <sc.StyledFormGroup>
+            <label htmlFor="description">
+              Description<span title="required">*</span>
+            </label>
+            <textarea
+              onChange={(e) =>
+                setChanges({
+                  ...changes,
+                  description: e.target.value,
+                })
+              }
+              name=""
+              defaultValue={trailDetails.description}
+              rows={8}
+              style={{ resize: "none" }}
+              required
+            ></textarea>
+          </sc.StyledFormGroup>
+
+          <sc.StyledFormGroup>
+            <sc.StyledFormButton type="submit" submitButton={true}>
+              Submit
+            </sc.StyledFormButton>
+            <sc.StyledFormButton onClick={() => setShowEditForm(!showEditForm)}>
+              Cancel
+            </sc.StyledFormButton>
+          </sc.StyledFormGroup>
+        </sc.StyledForm>
       </sc.StyledEditTrailFormContainer>
     </sc.StyledBlackout>
   );
