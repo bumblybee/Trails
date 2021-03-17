@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { geocode } from "../../../api/geocodeApi";
 import { useClickOutsideMenu } from "../../../hooks/useClickOutsideMenu";
@@ -14,7 +14,7 @@ import * as sc from "./StyledNavMenu";
 const NavMenu = ({ closeMenu }) => {
   const history = useHistory();
   const location = useLocation();
-  const [trailId, setTrailId] = useState(null);
+
   const query = new URLSearchParams(location.search);
 
   const menuRef = useClickOutsideMenu(() => closeMenu());

@@ -36,7 +36,6 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
     const changeDetails = { ...changes, trailId: trail.id };
 
     const sendChanges = await suggestTrailEdit(changeDetails);
-    console.log(sendChanges);
 
     if (sendChanges.error) setError("Something went wrong.");
 

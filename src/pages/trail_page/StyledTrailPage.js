@@ -3,18 +3,36 @@ import styled from "styled-components";
 export const StyledTrailPageWrapper = styled.div`
   padding: 5rem 1rem;
   position: relative;
+
+  @media (max-width: 620px) {
+    padding: 4rem 0 2rem;
+    width: 100%;
+  }
 `;
 
 export const StyledTrailPageContainer = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 60%;
   padding: 2rem;
   margin: 0 auto;
+
+  @media (max-width: 620px) {
+    padding: 1.5rem 1.5rem 0;
+    width: 100%;
+    flex-direction: column-reverse;
+  }
 
   h2 {
     margin-bottom: 1rem;
     width: 80%;
     font-size: 2.5rem;
+
+    @media (max-width: 620px) {
+      font-size: 2rem;
+      width: 90%;
+    }
   }
 
   h5 {
@@ -29,12 +47,21 @@ export const StyledTrailPageContainer = styled.div`
     margin-top: 3rem;
     width: 64%;
     line-height: 1.5;
+
+    @media (max-width: 620px) {
+      width: 100%;
+      margin-top: 2rem;
+    }
   }
 `;
 
 export const StyledImageContainer = styled.div`
   width: 100%;
   height: 400px;
+
+  @media (max-width: 620px) {
+    height: 200px;
+  }
 `;
 
 export const StyledImage = styled.img`
@@ -52,6 +79,20 @@ export const StyledFloatingCardsContainer = styled.div`
   grid-template-columns: 1fr;
   grid-gap: 1rem;
   padding-bottom: 2rem;
+
+  .icon-card {
+    @media (max-width: 620px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 620px) {
+    top: auto;
+    right: auto;
+    position: relative;
+    margin: 0;
+    padding-bottom: 0;
+  }
 `;
 
 export const StyledFloatingCard = styled.div`
@@ -65,6 +106,14 @@ export const StyledFloatingCard = styled.div`
   span {
     font-size: 0.95rem;
     color: #99a29e;
+  }
+
+  @media (max-width: 620px) {
+    padding: 1rem;
+    /* border: none; */
+    box-shadow: none;
+    margin: 2rem 0 0;
+    width: 99%;
   }
 `;
 
@@ -157,6 +206,11 @@ export const StyledBorder = styled.hr`
   border: none;
   border-top: 5px solid #a5b8a4;
   width: 64%;
+
+  @media (max-width: 620px) {
+    width: 100%;
+    margin: 1rem 0 0;
+  }
 `;
 
 export const StyledCardBorder = styled.hr`
