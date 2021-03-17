@@ -4,6 +4,7 @@
 // TODO: v2 - comments, check-in
 
 import React, { useContext, useEffect, useState } from "react";
+import he from "he";
 import { useParams } from "react-router-dom";
 import { getSingleTrail } from "../../api/trailsApi";
 import { UserContext } from "../../context/user/UserContext";
@@ -217,7 +218,7 @@ const TrailPage = () => {
             <h5>
               {trail.city}, {trail.state}
             </h5>
-            <h2>{trail.name}</h2>
+            <h2>{trail.name && he.decode(trail.name)}</h2>
             <StarRating rating={trail.rating} />
             <sc.StyledBorder />
             <p id="description">{breakLongDescription(trail)}</p>
