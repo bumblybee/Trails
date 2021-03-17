@@ -31,7 +31,7 @@ export const StyledLandingContainer = styled.div`
   @media (max-width: 620px) {
     width: 100%;
     padding: 1rem;
-    height: 100%;
+    height: 99%;
   }
 `;
 
@@ -46,7 +46,7 @@ export const StyledLandingContent = styled.div`
 
   @media (max-width: 620px) {
     width: 90%;
-    transform: translate(-50%, -53%);
+    transform: translate(-50%, -50%);
   }
 `;
 
@@ -61,7 +61,7 @@ export const StyledLandingText = styled.div`
     font-size: 3.5rem;
 
     @media (max-width: 620px) {
-      font-size: 2.2rem;
+      font-size: 2.25rem;
       line-height: 0.9;
       margin-bottom: 0.5rem;
     }
@@ -74,9 +74,9 @@ export const StyledLandingText = styled.div`
     font-size: 1.55rem;
 
     @media (max-width: 620px) {
-      font-size: 1.1rem;
-      /* margin-bottom: 1.5rem; */
-      width: 90%;
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+      width: 95%;
     }
   }
 
@@ -104,7 +104,9 @@ export const StyledLandingBottomContainer = styled.div`
     font-family: "Noto Sans Jp";
 
     @media (max-width: 620px) {
-      font-size: 1.8rem;
+      padding: 2rem 0;
+      font-size: 1.65rem;
+      text-align: center;
     }
   }
 `;
@@ -119,9 +121,15 @@ export const StyledLandingCardContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 85%;
+    margin: 0 auto;
 
-    > a {
+    > div {
       margin-bottom: 1rem;
+    }
+
+    > div:last-child {
+      margin-right: 1rem;
     }
   }
 `;
