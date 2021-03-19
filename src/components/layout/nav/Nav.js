@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import NavMenu from "./NavMenu";
+import MapSearchBar from "../../../pages/map_view/components/map/MapSearchbar";
 import * as sc from "./StyledNav";
 
 const Nav = () => {
@@ -34,6 +35,8 @@ const Nav = () => {
           />
         </sc.StyledLogoContainer>
       </Link>
+      {currentPath === "/search" && <MapSearchBar />}
+
       {showMenu ? <NavMenu closeMenu={closeMenu} /> : ""}
 
       <sc.StyledLinksContainer currentPath={currentPath} showMenu={showMenu}>

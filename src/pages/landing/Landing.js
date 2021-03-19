@@ -24,8 +24,6 @@ const Landing = () => {
             <sc.StyledLandingText>
               <h1>Choose your own adventure.</h1>
               <p>
-                {/* We never known where this journey ends and the next begins. When
-                you come to a fork in the road, take it. */}
                 Where will your next journey begin? Discover hiking and biking
                 trails close to home, or thousands of miles away.
               </p>
