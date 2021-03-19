@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { SearchContext } from "./SearchContext";
 
 import { getTrails } from "../../api/trailsApi";
@@ -13,7 +13,7 @@ const SearchProvider = ({ children }) => {
   });
   const [loading, setLoading] = useState(false);
 
-  const searchTrails = async (lat, lng) => {
+  const searchTrails = useCallback(async (lat, lng) => {
     setLoading(true);
     const trailData = await getTrails(lat, lng, searchFilterValue);
 
@@ -23,7 +23,7 @@ const SearchProvider = ({ children }) => {
     console.log(trailData);
 
     return trailData;
-  };
+  }, []);
 
   return (
     <SearchContext.Provider
