@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import NavMenu from "./NavMenu";
-import MapSearchBar from "../../../pages/map_view/components/map/MapSearchbar";
+import MapSearchBar from "./MapSearchbar";
 import * as sc from "./StyledNav";
 
 const Nav = () => {

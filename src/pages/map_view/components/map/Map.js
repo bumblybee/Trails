@@ -15,7 +15,7 @@ import { FaCheck } from "react-icons/fa";
 import MapMarker from "./map_marker/MapMarker";
 import MapMarkerPopup from "./map_marker/MapMarkerPopup";
 import mapStyles from "../../../../styles/mapStyles";
-import MapSearchbar from "./MapSearchbar";
+
 import * as sc from "./StyledMap";
 
 // TODO: google dev - setup uri for key after deploy
@@ -142,7 +142,6 @@ const Map = ({ hoveredCard }) => {
           Search on map move
         </label>
       </sc.StyledSearchOnDragCheckbox>
-      {/* <MapSearchbar /> */}
       <GoogleMap
         onClick={() => setSelected(null)}
         onLoad={onMapLoad}
