@@ -142,7 +142,7 @@ const Map = ({ hoveredCard }) => {
           Search on map move
         </label>
       </sc.StyledSearchOnDragCheckbox>
-      <MapSearchbar />
+      {/* <MapSearchbar /> */}
       <GoogleMap
         onClick={() => setSelected(null)}
         onLoad={onMapLoad}

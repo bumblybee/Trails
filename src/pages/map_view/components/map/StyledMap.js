@@ -82,17 +82,17 @@ export const StyledSearchOnDragCheckbox = styled.div`
 
 export const StyledMapSearchbar = styled.div`
   border: 1px solid #eceeed;
+
   border-radius: 6px;
-  padding: 0.7rem;
+  padding: 0.25rem;
   background: #fffeff;
   display: flex;
   justify-content: space-between;
   position: absolute;
-  top: 5rem;
-  left: 50%;
+  top: 15%;
+  left: 70%;
   transform: translateX(-50%);
-  z-index: 10;
-  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.03);
   width: 100%;
   max-width: 370px;
 
@@ -112,7 +112,7 @@ export const StyledComboList = styled(ComboboxList)`
   background: #fffeff;
   width: 369px;
   padding: 0.5rem 0;
-  transform: translateX(-7.9%) translateY(6%);
+  transform: translateX(-6%) translateY(10%);
   font-size: 0.95rem;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
