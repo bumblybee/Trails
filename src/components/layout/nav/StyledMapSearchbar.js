@@ -56,6 +56,7 @@ export const StyledComboInput = styled(ComboboxInput)`
   font-size: 0.95rem;
   color: #99a29e;
   outline: none;
+  caret-color: #fe7762;
 
   ::placeholder {
     color: #d0d4d2;
