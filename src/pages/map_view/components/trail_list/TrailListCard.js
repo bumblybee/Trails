@@ -101,15 +101,7 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
         <sc.StyledCardLinkWrapper to={`/trail/${trail.id}`}>
           {/* TODO: Carousel v2 */}
 
-          <sc.StyledImage
-            src={
-              trail.image !== null
-                ? trail.image
-                : "https://images.pexels.com/photos/6408293/pexels-photo-6408293.jpeg?h=750&w=1260"
-            }
-            alt="trail"
-            loading="lazy"
-          />
+          <sc.StyledImage src={trail.image} alt="trail" loading="lazy" />
         </sc.StyledCardLinkWrapper>
       </sc.StyledImageContainer>
 

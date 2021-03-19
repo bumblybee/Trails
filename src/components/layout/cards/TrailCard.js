@@ -70,14 +70,7 @@ const TrailCard = ({ trail }) => {
       </StyledBookmarkIcon>
       <StyledCardLinkWrapper to={`/trail/${trail.id}`}>
         <sc.StyledCardImage>
-          <img
-            src={
-              trail.image ||
-              "https://images.unsplash.com/photo-1584492100332-b0eaad7652fe?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjAzfHx0cmFpbHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"
-            }
-            alt="trail"
-            loading="lazy"
-          />
+          <img src={trail.image} alt="trail" loading="lazy" />
         </sc.StyledCardImage>
       </StyledCardLinkWrapper>
       <StyledCardLinkWrapper to={`/trail/${trail.id}`}>
