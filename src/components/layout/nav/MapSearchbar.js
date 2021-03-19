@@ -5,9 +5,9 @@ import usePlacesAutoComplete, {
   getLatLng,
 } from "use-places-autocomplete";
 import { Combobox, ComboboxPopover } from "@reach/combobox";
-import { SearchContext } from "../../../../context/search/SearchContext";
-import Filter from "../../../../components/layout/search_filter/Filter";
-import * as sc from "./StyledMap";
+import { SearchContext } from "../../../context/search/SearchContext";
+import Filter from "../search_filter/Filter";
+import * as sc from "./StyledMapSearchbar";
 
 const MapSearchbar = () => {
   const history = useHistory();
