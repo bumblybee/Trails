@@ -32,34 +32,33 @@ const MapSearchbar = () => {
     requestOptions,
   });
 
+  const handleSelect = async (address) => {
+    setValue(address, false);
+
+    //store address in context
+    const city = address.split(",")[0];
+    const state = address.split(", ")[1];
+    clearSuggestions();
+    try {
+      //get geo of address user passes in
+      const results = await getGeocode({ address });
+
+      // grab lat and lng from first result
+      const { lat, lng } = await getLatLng(results[0]);
+      setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
+      //call api
+      await searchTrails(lat, lng);
+
+      // TODO: see about setting query params instead of pushing history
+      history.push(`/search?city=${city}&state=${state}&lat=${lat}&lng=${lng}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <sc.StyledMapSearchbar className="map-searchbar">
-      <Combobox
-        onSelect={async (address) => {
-          setValue(address, false);
-          //store address in context
-          const city = address.split(",")[0];
-          const state = address.split(", ")[1];
-
-          clearSuggestions();
-          try {
-            //get geo of address user passes in
-            const results = await getGeocode({ address });
-
-            // grab lat and lng from first result
-            const { lat, lng } = await getLatLng(results[0]);
-            setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
-            //call api
-            await searchTrails(lat, lng);
-            // TODO: see about setting query params instead of pushing history
-            history.push(
-              `/search?city=${city}&state=${state}&lat=${lat}&lng=${lng}`
-            );
-          } catch (err) {
-            console.log(err);
-          }
-        }}
-      >
+      <Combobox onSelect={(address) => handleSelect(address)}>
         <sc.StyledComboInput
           onChange={(e) => {
             setValue(e.target.value);

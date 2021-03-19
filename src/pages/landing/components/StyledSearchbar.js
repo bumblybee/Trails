@@ -33,7 +33,6 @@ export const StyledSearchbar = styled.div`
 
   :hover {
     box-shadow: inset 0 0 6px 3px rgba(0, 0, 0, 0.08);
-    /* border: 1px solid #eceeed55; */
 
     button {
       box-shadow: inset 0 0 6px 2px rgba(255, 255, 255, 0.07);
