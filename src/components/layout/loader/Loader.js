@@ -4,7 +4,7 @@ import { StyledLoader, StyledLoaderContainer } from "./StyledLoader";
 const Loader = () => {
   return (
     <StyledLoaderContainer>
-      <StyledLoader></StyledLoader>Loading...
+      <StyledLoader></StyledLoader>
     </StyledLoaderContainer>
   );
 };

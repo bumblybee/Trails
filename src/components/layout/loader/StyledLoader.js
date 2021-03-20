@@ -10,7 +10,7 @@ export const StyledLoader = styled.span`
   width: 106px;
   height: 56px;
   display: block;
-  margin: 10rem auto 4rem;
+  margin: 30% auto 4rem 40%;
   background-image: linear-gradient(#fe7762 50px, transparent 0),
     linear-gradient(#fe7762 50px, transparent 0),
     linear-gradient(#fe7762 50px, transparent 0),
