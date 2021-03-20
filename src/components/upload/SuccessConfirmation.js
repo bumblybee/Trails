@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledSuccess } from "./StyledSuccessConfirmation";
-
+// TODO: probably trash
 const SuccessConfirmation = () => {
   return (
     <StyledSuccess>

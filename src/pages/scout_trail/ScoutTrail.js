@@ -2,16 +2,19 @@ import React, { useState, useContext } from "react";
 
 import { scoutTrail } from "../../api/trailsApi";
 import { ErrorContext } from "../../context/error/ErrorContext";
+import { SuccessContext } from "../../context/success/SuccessContext";
 import DragDrop from "../../components/upload/DragDrop";
 import ScoutFormStarRating from "../../components/rating/ScoutFormStarRating";
 import TrailLocationInput from "./TrailLocationInput";
-import SuccessConfirmation from "../../components/upload/SuccessConfirmation";
+
 import { FaImage } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
+import SuccessProvider from "../../context/success/SuccessProvider";
 
 const ScoutTrail = () => {
-  // TODOS: progress, clear form or reroute, save draft, maybe move radio button group to own component
+  // TODOS: save draft, maybe move radio button group to own component
   const { setError } = useContext(ErrorContext);
+  const { setSuccess } = useContext(SuccessContext);
   const [trailDetails, setTrailDetails] = useState({
     name: "",
     city: "",
@@ -25,7 +28,7 @@ const ScoutTrail = () => {
     description: "",
     difficulty: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
@@ -68,10 +71,11 @@ const ScoutTrail = () => {
         setError(submission.error);
       } else if (submission) {
         // setProgress("Complete");
-        setSubmitted(true);
+
+        setSuccess("Trail uploaded successfully!");
         setTimeout(() => {
           window.location.pathname = "/scouted-trails";
-        }, 2500);
+        }, 200);
       }
 
       // TODO: handle success confirmation
@@ -89,9 +93,7 @@ const ScoutTrail = () => {
     e.preventDefault();
   };
 
-  return submitted ? (
-    <SuccessConfirmation />
-  ) : (
+  return (
     <sc.StyledFormContainer>
       <h3 style={{ marginBottom: "0.2rem" }}>Add Trail</h3>
       <p>Scouted a new trail? Great! Let's get some details.</p>
