@@ -16,7 +16,7 @@ import { StyledBookmarkIcon } from "../../../pages/map_view/components/trail_lis
 import { StyledCardLinkWrapper } from "../../../pages/map_view/components/trail_list/StyledTrailListCard";
 
 const TrailCard = ({ trail }) => {
-  const [bookmarkHoverRef] = useHover();
+  const [bookmarkHoverRef, isHovered] = useHover();
   const { user } = useContext(UserContext);
   const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
     BookmarkContext
@@ -56,6 +56,10 @@ const TrailCard = ({ trail }) => {
           icon = <FaBookmark title="Remove bookmark" />;
         }
       }
+    }
+
+    if (isHovered) {
+      icon = <FaBookmark title="Remove bookmark" />;
     }
     return icon;
   };
