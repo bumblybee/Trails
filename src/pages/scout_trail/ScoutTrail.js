@@ -305,7 +305,7 @@ const ScoutTrail = () => {
 
         {/* ---Location--- */}
 
-        <sc.StyledFormGroup>
+        <sc.StyledFormGroup className="location-parent">
           <label htmlFor="location">
             Trail Location<span title="required">*</span>
           </label>
