@@ -9,7 +9,7 @@ export const StyledBookmarksContainer = styled.div`
     width: 100%;
     h3 {
       text-align: center;
-      font-size: 2rem;
+      font-size: 1.95rem;
     }
   }
 `;
@@ -25,6 +25,7 @@ export const StyledCardContainer = styled.div`
 
   @media (max-width: 620px) {
     grid-template-columns: 1fr;
+    grid-gap: 1rem;
   }
 `;
 
