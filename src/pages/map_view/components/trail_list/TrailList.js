@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { UserContext } from "../../../../context/user/UserContext";
 import { BookmarkContext } from "../../../../context/bookmark/BookmarkContext";
 import { SearchContext } from "../../../../context/search/SearchContext";
+import Loader from "../../../../components/layout/loader/Loader";
 import TrailListCard from "./TrailListCard";
 import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
@@ -32,7 +33,7 @@ const TrailList = ({ setHoveredCard }) => {
             </h3>
           ) : (
             // Style me
-            <h1>Search a location...</h1>
+            <Loader />
           )}
         </StyledTrailListHeader>
         {trails &&

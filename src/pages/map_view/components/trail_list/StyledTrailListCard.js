@@ -14,7 +14,7 @@ export const StyledCard = styled.li`
   border-radius: 6px;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.12);
   position: relative;
-  transition: box-shadow 0.05s ease-out;
+  /* transition: box-shadow 0.01s linear; */
 
   :not(:last-child) {
     margin-bottom: 0.5rem;
