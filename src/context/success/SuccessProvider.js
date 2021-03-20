@@ -10,7 +10,7 @@ const SuccessProvider = ({ children }) => {
     setSuccessMessage(msg);
     setTimeout(() => {
       setSuccessMessage(null);
-    }, 10000);
+    }, 7000);
   };
 
   return (
