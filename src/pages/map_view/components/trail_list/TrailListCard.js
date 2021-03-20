@@ -25,13 +25,6 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
     BookmarkContext
   );
 
-  const shouldTruncateDescription = () => {
-    const desc = trail.description;
-    if (desc.length >= 170) {
-      return true;
-    }
-  };
-
   const calcDistanceFromSearchLocation = () => {
     const distance = `${Math.floor(trail.distance / 1609)}`;
 
@@ -114,11 +107,8 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
               {trail.city}, {trail.state} -
               <span> {calcDistanceFromSearchLocation()}</span>
             </h5>
-            {shouldTruncateDescription() ? (
-              <p>{he.decode(trail.description).substring(0, 172)}...</p>
-            ) : (
-              <p>{he.decode(trail.description)}</p>
-            )}
+
+            <p>{he.decode(trail.description).substring(0, 172)}...</p>
           </div>
 
           <sc.StyledCardFooter>
