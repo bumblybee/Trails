@@ -8,7 +8,7 @@ export const StyledScoutedTrailsContainer = styled.div`
 
 export const StyledCardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat() (5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin-top: 1rem;
 
   > a {
