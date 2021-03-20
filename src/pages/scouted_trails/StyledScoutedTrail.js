@@ -4,6 +4,15 @@ export const StyledScoutedTrailsContainer = styled.div`
   width: 85%;
   margin: 4rem auto;
   padding: 2rem;
+
+  @media (max-width: 620px) {
+    width: 100%;
+
+    h3 {
+      text-align: center;
+      font-size: 1.95rem;
+    }
+  }
 `;
 
 export const StyledCardContainer = styled.div`
@@ -13,6 +22,11 @@ export const StyledCardContainer = styled.div`
 
   > a {
     margin: 1rem 0;
+  }
+
+  @media (max-width: 620px) {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
   }
 `;
 
