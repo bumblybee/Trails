@@ -75,7 +75,7 @@ const ScoutTrail = () => {
         setSuccess("Trail uploaded successfully!");
         setTimeout(() => {
           window.location.pathname = "/scouted-trails";
-        }, 200);
+        }, 100);
       }
 
       // TODO: handle success confirmation
