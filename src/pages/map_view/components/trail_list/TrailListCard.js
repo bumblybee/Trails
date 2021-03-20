@@ -44,9 +44,9 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
       }
 
       if (type === "create") {
-        const res = await createUserBookmark(user.id, id);
+        const created = await createUserBookmark(user.id, id);
       } else {
-        const res = await removeUserBookmark(user.id, id);
+        const removed = await removeUserBookmark(user.id, id);
       }
     }
   };
@@ -56,21 +56,19 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
       <FaRegBookmark title={user ? "Bookmark" : "Log in to bookmark trail"} />
     );
 
-    let isSet = false;
-
     if (bookmarks) {
       for (let { trailId } of bookmarks) {
         if (trailId === id) {
-          isSet = true;
           icon = <FaBookmark title="Remove bookmark" />;
         }
       }
     }
 
-    if (isSet && isHovered)
-      return (
-        <FaRegBookmark title={user ? "Bookmark" : "Log in to bookmark trail"} />
+    if (isHovered)
+      icon = (
+        <FaBookmark title={user ? "Bookmark" : "Log in to bookmark trail"} />
       );
+
     return icon;
   };
 
