@@ -16,7 +16,7 @@ const ScoutedTrails = () => {
   return (
     <sc.StyledScoutedTrailsContainer>
       <h3>Scouted Trails</h3>
-      {scoutedTrails.length ? (
+      {scoutedTrails && scoutedTrails.length ? (
         <sc.StyledCardContainer>
           {scoutedTrails.map((trail) => (
             <TrailCard key={trail.id} trail={trail} />
