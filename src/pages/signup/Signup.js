@@ -33,13 +33,19 @@ const Signup = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const checkPasswordsMatch = async (e) => {
     if (passwordVerify !== userDetails.password) {
       password2Ref.current.setCustomValidity("Passwords must match");
-      return;
+    } else {
+      password2Ref.current.setCustomValidity("");
+      await handleSubmit(e);
     }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(passwordVerify, userDetails.password);
+
     const signup = await signUserUp(userDetails);
 
     // TODO: handle signup errors
@@ -136,7 +142,7 @@ const Signup = () => {
             />
           )}
         </StyledPasswordInput>
-        <button>Join</button>
+        <button onClick={checkPasswordsMatch}>Join</button>
         <sc.StyledFormLink to="/login">
           I already have an account
         </sc.StyledFormLink>
