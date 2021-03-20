@@ -7,6 +7,8 @@ export const StyledBookmarksContainer = styled.div`
 
   @media (max-width: 620px) {
     width: 100%;
+    margin: 2.5rem auto 0;
+
     h3 {
       text-align: center;
       font-size: 1.95rem;
