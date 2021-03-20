@@ -19,15 +19,11 @@ export const StyledScoutedTrailsContainer = styled.div`
 export const StyledCardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
   margin-top: 1rem;
-
-  > a {
-    margin: 1rem 0;
-  }
 
   @media (max-width: 620px) {
     grid-template-columns: 1fr;
-    grid-gap: 1rem;
   }
 `;
 

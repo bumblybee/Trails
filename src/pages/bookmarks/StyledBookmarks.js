@@ -20,14 +20,10 @@ export const StyledCardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   margin-top: 1rem;
-
-  > a {
-    margin: 1rem 0;
-  }
+  grid-gap: 1rem;
 
   @media (max-width: 620px) {
     grid-template-columns: 1fr;
-    grid-gap: 1rem;
   }
 `;
 
