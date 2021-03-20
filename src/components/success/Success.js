@@ -3,9 +3,10 @@ import { ToastContainer, Zoom } from "react-toastify";
 import { SuccessContext } from "../../context/success/SuccessContext";
 
 const Success = () => {
-  const { sucessMessage } = useContext(SuccessContext);
+  const { successMessage } = useContext(SuccessContext);
+
   return (
-    sucessMessage !== null && (
+    successMessage !== null && (
       <ToastContainer
         style={{ background: "#fe7762" }}
         transition={Zoom}
