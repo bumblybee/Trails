@@ -22,7 +22,7 @@ export const StyledCard = styled.li`
 
   :hover {
     cursor: pointer;
-    box-shadow: inset 0 2px 8px 1px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
   }
 
   @media (max-width: 620px) {
@@ -75,7 +75,7 @@ export const StyledImageContainer = styled.div`
   width: 250px;
   height: 250px;
   :hover {
-    box-shadow: inset 0 2px 8px 1px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
   }
   @media (max-width: 620px) {
     display: none;
