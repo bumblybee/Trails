@@ -212,6 +212,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
           <sc.StyledFormGroup>
             <label htmlFor="length">Length</label>
             <input
+              className="length-input"
               onChange={(e) =>
                 setChanges({
                   ...changes,
@@ -224,7 +225,6 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
               step="0.1"
               min="0"
               value={changes.length ? changes.length : trailDetails.length}
-              style={{ width: "4rem", fontWeight: "300" }}
             />{" "}
             miles
           </sc.StyledFormGroup>
