@@ -61,13 +61,18 @@ export const StyledUserFormContainer = styled.div`
 `;
 
 export const StyledUserForm = styled.form`
+  position: absolute;
   width: 30%;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin: ${(props) => (props.origin === "signup" ? "7% auto" : "11% auto")};
+  /* margin: ${(props) =>
+    props.origin === "signup" ? "7% auto" : "11% auto"}; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: 1px solid #eceeed;
   background: #fff;
 
