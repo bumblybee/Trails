@@ -192,3 +192,11 @@ export const StyledHr = styled.hr`
   border: 1px solid #b9c8b8;
   width: 100%;
 `;
+
+export const StyledFormFooter = styled.div`
+  display: flex;
+  p {
+    margin: 1rem 0.5rem;
+    color: #b9c8b8;
+  }
+`;

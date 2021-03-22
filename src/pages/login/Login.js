@@ -5,7 +5,6 @@ import { ErrorContext } from "../../context/error/ErrorContext";
 import { UserContext } from "../../context/user/UserContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import * as sc from "../../styles/GlobalStyledComponents";
-import { StyledPasswordInput } from "../../styles/GlobalStyledComponents";
 
 const Login = () => {
   const history = useHistory();
@@ -61,7 +60,7 @@ const Login = () => {
             required
           />
         </div>
-        <StyledPasswordInput className="form-group">
+        <sc.StyledPasswordInput className="form-group">
           <label htmlFor="password">Password</label>
           <input
             ref={passwordRef}
@@ -78,15 +77,15 @@ const Login = () => {
           ) : (
             <FaEye ref={passwordIconRef} onClick={handleShowPassword} />
           )}
-        </StyledPasswordInput>
+        </sc.StyledPasswordInput>
         <button>Log In</button>
-        <div style={{ display: "flex" }}>
+        <sc.StyledFormFooter>
           <sc.StyledFormLink to="/reset-password">
             Forgot password
           </sc.StyledFormLink>
-          <p style={{ margin: "1rem 0.5rem", color: "#b9c8b8" }}>|</p>
+          <p>|</p>
           <sc.StyledFormLink to="/signup">Create account</sc.StyledFormLink>
-        </div>
+        </sc.StyledFormFooter>
       </sc.StyledUserForm>
     </sc.StyledUserFormContainer>
   );
