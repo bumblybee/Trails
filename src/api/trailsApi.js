@@ -21,6 +21,5 @@ export const getScoutedTrails = async (id) => {
 
 export const scoutTrail = async (data, onUploadProgress) => {
   const res = await postFormData(`/trails`, data, onUploadProgress);
-  console.log(res);
   return res;
 };

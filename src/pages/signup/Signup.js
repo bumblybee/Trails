@@ -44,14 +44,15 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(passwordVerify, userDetails.password);
 
     const signup = await signUserUp(userDetails);
 
     // TODO: handle signup errors
-
-    // signup && setUser(signup.data);
-    signup && signup.error ? setError(signup.error) : history.push("/");
+    if (signup.error) {
+      setError(signup.error);
+    } else {
+      history.push("/");
+    }
   };
 
   return (

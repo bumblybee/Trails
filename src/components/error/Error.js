@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
-import { ToastContainer, Zoom } from "react-toastify";
 import { ErrorContext } from "../../context/error/ErrorContext";
-import { StyledError } from "./StyledError";
+import { StyledNotificationPopup } from "../../styles/GlobalStyledComponents";
 
 const Error = () => {
   const { errorMessage } = useContext(ErrorContext);
 
   return (
-    errorMessage !== null && <StyledError draggable>{errorMessage}</StyledError>
+    errorMessage !== null && (
+      <StyledNotificationPopup origin={"error"} draggable>
+        {errorMessage}
+      </StyledNotificationPopup>
+    )
   );
 };
 

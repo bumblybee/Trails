@@ -1,18 +1,17 @@
 import React, { useState, useContext } from "react";
-
+import { useHistory } from "react-router-dom";
 import { scoutTrail } from "../../api/trailsApi";
 import { ErrorContext } from "../../context/error/ErrorContext";
 import { SuccessContext } from "../../context/success/SuccessContext";
 import DragDrop from "../../components/upload/DragDrop";
 import ScoutFormStarRating from "../../components/rating/ScoutFormStarRating";
 import TrailLocationInput from "./TrailLocationInput";
-
 import { FaImage } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
-import SuccessProvider from "../../context/success/SuccessProvider";
 
 const ScoutTrail = () => {
   // TODOS: save draft, maybe move radio button group to own component
+  const history = useHistory();
   const { setError } = useContext(ErrorContext);
   const { setSuccess } = useContext(SuccessContext);
   const [trailDetails, setTrailDetails] = useState({
@@ -46,8 +45,8 @@ const ScoutTrail = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // setProgress(0);
-    // Make sure at least one trail type box checked before sending to db
 
+    // Make sure at least one trail type box checked before sending to db
     if (isChecked) {
       let formData = new FormData();
 
@@ -60,6 +59,7 @@ const ScoutTrail = () => {
 
       // onUploadProgress event exposed when calling scoutTrail
       const submission = await scoutTrail(formData, (progressEvent) => {
+        //TODO: note how I did this before deleting
         // const percent = Math.round(
         //   (100 * progressEvent.loaded) / progressEvent.total
         // );
@@ -69,13 +69,14 @@ const ScoutTrail = () => {
       if (submission.error) {
         // setProgress(null);
         setError(submission.error);
-      } else if (submission) {
+      } else {
         // setProgress("Complete");
 
         setSuccess("Trail uploaded successfully!");
+
         setTimeout(() => {
-          window.location.pathname = "/scouted-trails";
-        }, 100);
+          history.replace("/scouted-trails");
+        }, 2000);
       }
 
       // TODO: handle success confirmation
@@ -318,9 +319,9 @@ const ScoutTrail = () => {
           <sc.StyledFormButton type="submit" submitButton={true}>
             Submit Trail
           </sc.StyledFormButton>
-          <sc.StyledFormButton onClick={handleSave}>
+          {/* <sc.StyledFormButton onClick={handleSave}>
             Save Draft
-          </sc.StyledFormButton>
+          </sc.StyledFormButton> */}
         </sc.StyledFormGroup>
       </sc.StyledForm>
     </sc.StyledFormContainer>
