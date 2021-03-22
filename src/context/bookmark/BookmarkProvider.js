@@ -13,12 +13,12 @@ const BookmarkProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   const getUserBookmarks = async () => {
-    // setLoading(true);
+    setLoading(true);
 
     const returnedBookmarks = await getBookmarks();
     setBookmarks(returnedBookmarks);
     console.log(returnedBookmarks);
-    // setLoading(false);
+    setLoading(false);
 
     return returnedBookmarks;
   };
