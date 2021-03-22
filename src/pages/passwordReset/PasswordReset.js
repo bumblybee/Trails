@@ -27,7 +27,7 @@ const PasswordReset = () => {
       <sc.StyledUserForm onSubmit={handleSubmit}>
         <div className="form-header">
           <h4>Password</h4>
-          <p style={{ marginBottom: "1rem" }}>Enter your new password.</p>
+          <p>Enter your new password.</p>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
@@ -38,9 +38,9 @@ const PasswordReset = () => {
             type="password"
             id="new-password"
             name="new-password"
-            // minLength="8"
-            // maxLength="50"
-            // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            minLength="8"
+            maxLength="50"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Must contain at least 8 characters with at least one number, one uppercase and one lowercase letter."
             required
           ></input>
