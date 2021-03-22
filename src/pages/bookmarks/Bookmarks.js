@@ -9,12 +9,17 @@ import TrailCard from "../../components/layout/cards/TrailCard";
 import * as sc from "./StyledBookmarks";
 
 const Bookmarks = () => {
-  const { bookmarks, getUserBookmarks } = useContext(BookmarkContext);
+  const { getUserBookmarks } = useContext(BookmarkContext);
   const { user } = useContext(UserContext);
-  const [userBookmarks, setUserBookmarks] = useState([]);
+  const [bookmarks, setBookmarks] = useState([]);
+
+  const getBookmarks = async () => {
+    const bkmrks = await getUserBookmarks();
+    setBookmarks(bkmrks);
+  };
 
   useEffect(() => {
-    user && getUserBookmarks();
+    user && getBookmarks();
   }, []);
 
   return (
