@@ -217,9 +217,7 @@ const TrailPage = () => {
               <StarRating rating={trail.rating} />
               <div className="mobile-icons">
                 <FaRoute />
-                <span title="length in miles" style={{ fontSize: "0.9rem" }}>
-                  {Math.floor(trail.length)}
-                </span>
+                <span title="length in miles">{Math.floor(trail.length)}</span>
                 {trail.hiking === true && <FaHiking />}
                 {trail.biking === true && <FaBiking />}
 
