@@ -61,7 +61,9 @@ const TrailCard = ({ trail }) => {
     }
 
     if (isHovered) {
-      icon = <FaBookmark title="Remove bookmark" />;
+      icon = (
+        <FaBookmark title={user ? "Bookmark" : "Log in to bookmark trail"} />
+      );
     }
     return icon;
   };

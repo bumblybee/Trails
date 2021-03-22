@@ -49,12 +49,15 @@ function App() {
                       <Route path="/signup" exact>
                         <Signup />
                       </Route>
+
                       <Route path="/login" exact>
                         <Login />
                       </Route>
+
                       <Route path="/reset-password/:token" exact>
                         <PasswordReset />
                       </Route>
+
                       <Route path="/reset-password" exact>
                         <PasswordResetRequest />
                       </Route>
@@ -62,18 +65,23 @@ function App() {
                       <Route path="/search" exact>
                         <MapView />
                       </Route>
+
                       <Route path="/trail/:id" exact>
                         <TrailPage />
                       </Route>
+
                       <Route path="/bookmarks" exact>
                         <Bookmarks />
                       </Route>
+
                       <Route path="/scouted-trails" exact>
                         <ScoutedTrails />
                       </Route>
+
                       <Route path="/scout">
                         <ScoutTrail />
                       </Route>
+
                       <Route path="/" exact>
                         <Landing />
                       </Route>

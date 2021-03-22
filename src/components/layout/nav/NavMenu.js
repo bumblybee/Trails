@@ -58,7 +58,7 @@ const NavMenu = ({ closeMenu }) => {
     const address =
       geocodeData.plus_code.compound_code &&
       geocodeData.plus_code.compound_code.slice(7).split(",");
-    console.log(address);
+
     return address;
   };
 
