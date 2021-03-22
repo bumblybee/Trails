@@ -12,6 +12,7 @@ export const StyledCardContainer = styled.div`
 
   display: flex;
   flex-direction: column;
+
   :not(:last-child) {
     margin-right: 1rem;
   }
@@ -86,6 +87,11 @@ export const StyledIconContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 0.975rem;
+
+  .length {
+    font-size: 0.8rem;
+    margin-left: 0.1rem;
+  }
 
   svg {
     margin-left: 0.57rem;
