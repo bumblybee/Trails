@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import he from "he";
+import DOMPurify from "dompurify";
 import {
   FaRoute,
   FaHiking,
@@ -16,6 +17,7 @@ import { StyledBookmarkIcon } from "../../../pages/map_view/components/trail_lis
 import { StyledCardLinkWrapper } from "../../../pages/map_view/components/trail_list/StyledTrailListCard";
 
 const TrailCard = ({ trail }) => {
+  const sanitize = DOMPurify.sanitize;
   const [bookmarkHoverRef, isHovered] = useHover();
   const { user } = useContext(UserContext);
   const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
@@ -25,15 +27,15 @@ const TrailCard = ({ trail }) => {
     // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
 
     if (user && bookmarks) {
-      let type = "create";
+      let action = "create";
 
       for (let { trailId } of bookmarks) {
         if (trailId === id) {
-          type = "remove";
+          action = "remove";
         }
       }
 
-      if (type === "create") {
+      if (action === "create") {
         const res = await createUserBookmark(user.id, id);
 
         console.log(res);
@@ -80,7 +82,7 @@ const TrailCard = ({ trail }) => {
       <StyledCardLinkWrapper to={`/trail/${trail.id}`}>
         <sc.StyledCardContent>
           <div>
-            <h4>{trail.name}</h4>
+            <h4>{sanitize(trail.name)}</h4>
             <h5>
               {trail.city}, {trail.state}
             </h5>

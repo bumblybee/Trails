@@ -11,11 +11,11 @@ import * as sc from "./StyledBookmarks";
 const Bookmarks = () => {
   const { bookmarks, getUserBookmarks } = useContext(BookmarkContext);
   const { user } = useContext(UserContext);
-  // const [bookmarks, setBookmarks] = useState([]);
+  const [userBookmarks, setUserBookmarks] = useState([]);
 
   useEffect(() => {
-    user && getUserBookmarks().then((data) => console.log(data));
-  }, []);
+    user && getUserBookmarks();
+  }, [bookmarks]);
 
   return (
     <sc.StyledBookmarksContainer>

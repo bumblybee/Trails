@@ -12,17 +12,16 @@ const BookmarkProvider = ({ children }) => {
   const [latestBookmarks, setLatestBookmarks] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const getUserBookmarks = useCallback(async () => {
-    setLoading(true);
+  const getUserBookmarks = async () => {
+    // setLoading(true);
 
     const returnedBookmarks = await getBookmarks();
-
     setBookmarks(returnedBookmarks);
+    console.log(returnedBookmarks);
+    // setLoading(false);
 
-    setLoading(false);
-
-    return bookmarks;
-  }, []);
+    return returnedBookmarks;
+  };
 
   const getLatest = useCallback(async () => {
     const latest = await getLatestBookmarks();
@@ -33,7 +32,9 @@ const BookmarkProvider = ({ children }) => {
 
   const createUserBookmark = async (userId, trailId) => {
     const returnedBookmarks = await createBookmark(userId, trailId);
+
     returnedBookmarks && setBookmarks(returnedBookmarks.bookmarks);
+
     return returnedBookmarks.bookmarks;
   };
 
