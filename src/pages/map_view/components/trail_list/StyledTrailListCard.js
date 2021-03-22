@@ -166,6 +166,11 @@ export const StyledIconContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
+
+  span {
+    font-size: 1rem;
+  }
+
   svg {
     margin-left: 1rem;
   }
