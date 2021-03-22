@@ -272,7 +272,6 @@ const ScoutTrail = () => {
             name=""
             rows={7}
             cols={44}
-            style={{ resize: "none" }}
             placeholder="Please provide as much detail as possible. It might encourage someone else to choose the same adventure!"
             required
           ></textarea>

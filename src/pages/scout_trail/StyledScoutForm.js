@@ -59,6 +59,10 @@ export const StyledForm = styled.form`
 export const StyledFormGroup = styled.div`
   margin-bottom: 1.3rem;
 
+  textarea {
+    resize: none;
+  }
+
   .length-input {
     width: 4rem;
     font-weight: 300;
