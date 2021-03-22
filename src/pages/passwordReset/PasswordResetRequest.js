@@ -20,7 +20,7 @@ const PasswordResetRequest = () => {
         <sc.StyledUserForm onSubmit={handleSubmit}>
           <div className="form-header">
             <h4>Password Reset</h4>
-            <p style={{ marginBottom: "1rem" }}>
+            <p>
               A link to reset your password will be sent to the email address
               provided.
             </p>
