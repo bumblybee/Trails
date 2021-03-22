@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import { toast } from "react-toastify";
-
 import { ErrorContext } from "./ErrorContext";
 
 const ErrorProvider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const setError = (msg) => {
-    toast.error(msg);
     setErrorMessage(msg);
     setTimeout(() => {
-      setError(null);
-    }, 10000);
+      setErrorMessage(null);
+    }, 3000);
   };
 
   return (
