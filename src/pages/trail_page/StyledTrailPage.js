@@ -142,6 +142,12 @@ export const StyledHeaderIcons = styled.div`
 
       span {
         margin-right: 0.5rem;
+        font-size: 0.95rem;
+        color: #a5b8a4;
+      }
+
+      svg {
+        color: #a5b8a4;
       }
 
       svg:not(:first-child) {
