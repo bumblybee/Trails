@@ -58,6 +58,11 @@ export const StyledForm = styled.form`
 
 export const StyledFormGroup = styled.div`
   margin-bottom: 1.3rem;
+
+  .length-input {
+    width: 4rem;
+    font-weight: 300;
+  }
 `;
 
 export const StyledUploadContainer = styled.div`
@@ -96,7 +101,6 @@ export const StyledDragDrop = styled.div`
     height: 5rem;
     position: absolute;
     z-index: -10;
-    /* transform: translate(105%, -15%); */
   }
 `;
 

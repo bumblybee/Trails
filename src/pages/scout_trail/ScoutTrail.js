@@ -240,6 +240,7 @@ const ScoutTrail = () => {
         <sc.StyledFormGroup>
           <label htmlFor="length">Length</label>
           <input
+            className="length-input"
             onChange={(e) =>
               setTrailDetails({
                 ...trailDetails,
@@ -251,7 +252,6 @@ const ScoutTrail = () => {
             placeholder="0"
             step="0.1"
             min="0"
-            style={{ width: "4rem", fontWeight: "300" }}
           />{" "}
           miles
         </sc.StyledFormGroup>
