@@ -109,7 +109,7 @@ export const StyledUserForm = styled.form`
   div.form-header {
     text-align: center;
     width: 75%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   label {
