@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-
+import DOMPurify from "dompurify";
 import he from "he";
 import { UserContext } from "../../../../context/user/UserContext";
 import { BookmarkContext } from "../../../../context/bookmark/BookmarkContext";
@@ -19,6 +19,7 @@ import * as sc from "./StyledTrailListCard";
 // TODO: Size and color icons
 
 const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
+  const sanitize = DOMPurify.sanitize;
   const [bookmarkHoverRef, isHovered] = useHover();
   const { user } = useContext(UserContext);
   const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
@@ -73,7 +74,6 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
   };
 
   // TODO: color rating nearly invisible if none, color other icons
-  // TODO: use local hover state for bookmark hover like doing for card and marker instead of hook
   return (
     <sc.StyledCard
       onMouseEnter={() => setHoveredCard(trail.id)}
@@ -99,7 +99,7 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
       <sc.StyledCardLinkWrapper to={`/trail/${trail.id}`}>
         <sc.StyledCardContentContainer>
           <div>
-            <h4>{he.decode(trail.name)}</h4>
+            <h4>{sanitize(he.decode(trail.name))}</h4>
 
             <h5>
               {trail.city}, {trail.state} -
