@@ -1,22 +1,15 @@
 import React, { useContext } from "react";
-import { ToastContainer, Zoom } from "react-toastify";
 import { SuccessContext } from "../../context/success/SuccessContext";
+import { StyledNotificationPopup } from "../../styles/GlobalStyledComponents";
 
 const Success = () => {
   const { successMessage } = useContext(SuccessContext);
 
   return (
     successMessage !== null && (
-      <ToastContainer
-        style={{ background: "#fe7762" }}
-        transition={Zoom}
-        position="top-center"
-        // autoClose={6000}
-        draggable
-        pauseOnHover
-        closeOnClick
-        newestOnTop
-      />
+      <StyledNotificationPopup origin={"success"} draggable>
+        {successMessage}
+      </StyledNotificationPopup>
     )
   );
 };
