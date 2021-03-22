@@ -15,7 +15,7 @@ const Bookmarks = () => {
 
   useEffect(() => {
     user && getUserBookmarks();
-  }, [bookmarks]);
+  }, []);
 
   return (
     <sc.StyledBookmarksContainer>
