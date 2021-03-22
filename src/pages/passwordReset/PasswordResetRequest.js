@@ -17,7 +17,7 @@ const PasswordResetRequest = () => {
   return (
     <sc.StyledUserFormContainer>
       {!submitted ? (
-        <sc.StyledUserForm onSubmit={handleSubmit}>
+        <sc.StyledUserForm onSubmit={handleSubmit} origin={"reset"}>
           <div className="form-header">
             <h4>Password Reset</h4>
             <p>
