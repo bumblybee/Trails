@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import he from "he";
 import DOMPurify from "dompurify";
 import {
@@ -20,9 +20,12 @@ const TrailCard = ({ trail }) => {
   const sanitize = DOMPurify.sanitize;
   const [bookmarkHoverRef, isHovered] = useHover();
   const { user } = useContext(UserContext);
-  const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
-    BookmarkContext
-  );
+  const {
+    bookmarks,
+    getUserBookmarks,
+    createUserBookmark,
+    removeUserBookmark,
+  } = useContext(BookmarkContext);
   const handleTrailBookmark = async (id) => {
     // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
 
@@ -67,6 +70,10 @@ const TrailCard = ({ trail }) => {
     }
     return icon;
   };
+
+  useEffect(() => {
+    user && getUserBookmarks();
+  }, []);
 
   return (
     <sc.StyledCardContainer>
