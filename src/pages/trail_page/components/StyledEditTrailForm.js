@@ -94,6 +94,10 @@ export const StyledFormGroup = styled.div`
     font-weight: 300;
   }
 
+  textarea {
+    resize: none;
+  }
+
   :nth-child(9) {
     margin-bottom: 0.5rem;
   }
