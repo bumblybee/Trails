@@ -243,7 +243,6 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
               name=""
               defaultValue={trailDetails.description}
               rows={8}
-              style={{ resize: "none" }}
               required
             ></textarea>
           </sc.StyledFormGroup>
