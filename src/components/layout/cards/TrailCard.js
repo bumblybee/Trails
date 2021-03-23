@@ -107,15 +107,15 @@ const TrailCard = ({ trail }) => {
                 difficulty={trail.difficulty}
                 title={`Difficulty: ${trail.difficulty}`}
               />
-              <FaRoute />
-              <span className="length" title="length in miles">
-                {Math.floor(trail.length)}
-              </span>
+              <FaRoute title={`Length: ${trail.length} miles`} />
+              <span className="length">{Math.round(trail.length)}</span>
               {trail.hiking === true && <FaHiking />}
               {trail.biking === true && <FaBiking />}
             </sc.StyledIconContainer>
             <sc.StyledIconContainer
-              title={trail.rating === "0" ? "no rating" : "rating"}
+              title={
+                trail.rating === "0" ? "no rating" : `rating: ${trail.rating}/5`
+              }
             >
               <StarRating rating={trail.rating} />
             </sc.StyledIconContainer>

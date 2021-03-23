@@ -123,7 +123,9 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
               {trail.biking === true && <sc.StyledBiking />}
             </sc.StyledIconContainer>
             <sc.StyledIconContainer
-              title={trail.rating === "0" ? "no rating" : "rating"}
+              title={
+                trail.rating === "0" ? "no rating" : `rating: ${trail.rating}/5`
+              }
             >
               <StarRating rating={trail.rating} />
             </sc.StyledIconContainer>
