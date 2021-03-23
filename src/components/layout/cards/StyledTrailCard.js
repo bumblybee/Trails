@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaBahai } from "react-icons/fa";
 
 export const StyledCardContainer = styled.div`
   box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.12);
@@ -86,14 +87,27 @@ export const StyledIconContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  font-size: 0.975rem;
+  font-size: 1rem;
 
   .length {
     font-size: 0.8rem;
     margin-left: 0.1rem;
   }
 
-  svg {
+  svg:not(:first-child) {
     margin-left: 0.57rem;
   }
+`;
+
+export const StyledDifficulty = styled(FaBahai)`
+  color: ${(props) =>
+    props.difficulty === "beginner"
+      ? "#b1ce7c"
+      : props.difficulty === "intermediate"
+      ? "#68ceec"
+      : props.difficulty === "advanced"
+      ? "#fcca42"
+      : props.difficulty === "expert"
+      ? "#FE7762"
+      : "#eeeeed"};
 `;
