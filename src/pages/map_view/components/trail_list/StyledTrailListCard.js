@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FaBahai } from "react-icons/fa";
+import { FaBahai, FaRoute, FaHiking, FaBiking } from "react-icons/fa";
 
 export const StyledCardLinkWrapper = styled(Link)`
   text-decoration: none;
@@ -159,7 +159,7 @@ export const StyledCardContentContainer = styled.div`
 export const StyledCardFooter = styled.div`
   display: flex;
   justify-content: space-between;
-  color: #99a29e;
+  /* color: #99a29e; */
 `;
 
 export const StyledIconContainer = styled.div`
@@ -168,12 +168,14 @@ export const StyledIconContainer = styled.div`
   align-items: center;
   font-size: 1.2rem;
 
-  span {
-    font-size: 1rem;
+  svg:not(:first-child) {
+    margin-left: 0.75rem;
   }
 
-  svg:not(:first-child) {
-    margin-left: 1rem;
+  .miles {
+    color: #86928d;
+    margin-left: 0.1rem;
+    font-size: 0.875rem;
   }
 `;
 
@@ -182,10 +184,23 @@ export const StyledDifficulty = styled(FaBahai)`
     props.difficulty === "beginner"
       ? "#b1ce7c"
       : props.difficulty === "intermediate"
-      ? "#68ceec"
+      ? "#79d0eb"
       : props.difficulty === "advanced"
-      ? "#fcca42"
+      ? "#fccf54"
       : props.difficulty === "expert"
       ? "#FE7762"
       : "#eeeeed"};
+`;
+
+export const StyledLength = styled(FaRoute)`
+  color: #86928d;
+  font-size: 1.15rem;
+`;
+
+export const StyledHiking = styled(FaHiking)`
+  color: #86928d;
+`;
+
+export const StyledBiking = styled(FaBiking)`
+  color: #86928d;
 `;
