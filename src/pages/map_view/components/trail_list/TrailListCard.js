@@ -116,11 +116,13 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
                 difficulty={trail.difficulty}
               />
               <sc.StyledLength title={`Length: ${trail.length} miles`} />
-              <span title="length in miles" className="miles">
-                {Math.round(trail.length)}
-              </span>
-              {trail.hiking === true && <sc.StyledHiking />}
-              {trail.biking === true && <sc.StyledBiking />}
+              <span className="miles">{Math.round(trail.length)}</span>
+              {trail.hiking === true && (
+                <sc.StyledHiking title="Activity: hiking" />
+              )}
+              {trail.biking === true && (
+                <sc.StyledBiking title="Activity: biking" />
+              )}
             </sc.StyledIconContainer>
             <sc.StyledIconContainer
               title={

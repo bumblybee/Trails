@@ -109,8 +109,8 @@ const TrailCard = ({ trail }) => {
               />
               <FaRoute title={`Length: ${trail.length} miles`} />
               <span className="length">{Math.round(trail.length)}</span>
-              {trail.hiking === true && <FaHiking />}
-              {trail.biking === true && <FaBiking />}
+              {trail.hiking === true && <FaHiking title="Activity: hiking" />}
+              {trail.biking === true && <FaBiking title="Activity: biking" />}
             </sc.StyledIconContainer>
             <sc.StyledIconContainer
               title={
