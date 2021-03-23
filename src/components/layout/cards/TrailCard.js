@@ -103,34 +103,10 @@ const TrailCard = ({ trail }) => {
           </div>
           <sc.StyledCardFooter>
             <sc.StyledIconContainer>
-              <div
-                title={trail.difficulty}
-                style={{
-                  background:
-                    trail.difficulty === "beginner"
-                      ? "#b1ce7c"
-                      : trail.difficulty === "intermediate"
-                      ? "#fec787"
-                      : trail.difficulty === "advanced"
-                      ? "#FE9787"
-                      : trail.difficulty === "expert"
-                      ? "##FE7762"
-                      : "#eeeeed",
-                  padding: "0.525rem",
-                  width: "14px",
-                  height: "14px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "4px",
-                  fontSize: "0.7rem",
-                  fontWeight: "400",
-                  color: "#fff",
-                  border: "1px solid #eeeeed55",
-                }}
-              >
-                {trail.difficulty.charAt(0).toUpperCase()}
-              </div>
+              <sc.StyledDifficulty
+                difficulty={trail.difficulty}
+                title={`Difficulty: ${trail.difficulty}`}
+              />
               <FaRoute />
               <span className="length" title="length in miles">
                 {Math.floor(trail.length)}

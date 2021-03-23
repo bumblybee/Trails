@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FaBahai } from "react-icons/fa";
 
 export const StyledCardLinkWrapper = styled(Link)`
   text-decoration: none;
@@ -171,7 +172,20 @@ export const StyledIconContainer = styled.div`
     font-size: 1rem;
   }
 
-  svg {
+  svg:not(:first-child) {
     margin-left: 1rem;
   }
+`;
+
+export const StyledDifficulty = styled(FaBahai)`
+  color: ${(props) =>
+    props.difficulty === "beginner"
+      ? "#b1ce7c"
+      : props.difficulty === "intermediate"
+      ? "#68ceec"
+      : props.difficulty === "advanced"
+      ? "#fcca42"
+      : props.difficulty === "expert"
+      ? "#FE7762"
+      : "#eeeeed"};
 `;

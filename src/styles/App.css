@@ -4,7 +4,6 @@
   padding: 0;
 }
 
-
 body {
   font-family: "Noto Sans JP", sans-serif;
   height: 100%;
@@ -12,8 +11,6 @@ body {
   overflow-x: hidden;
   color: #34423b;
 }
-
-
 
 ul {
   list-style: none;
@@ -69,7 +66,8 @@ small,
 
 p {
   font-weight: 300;
-  /* color: rgb(23, 29, 27); */
+
+  /* color: #68ceec; */
 }
 
 ::-webkit-scrollbar {
