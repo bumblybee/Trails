@@ -79,8 +79,7 @@ export const StyledCardFooter = styled.div`
   margin-top: auto;
   display: flex;
   justify-content: space-between;
-  color: #99a29e;
-  /* height: 100%; */
+  color: #86928d;
 `;
 
 export const StyledIconContainer = styled.div`
