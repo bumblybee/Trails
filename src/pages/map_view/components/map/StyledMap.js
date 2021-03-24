@@ -23,9 +23,7 @@ export const StyledMapLogo = styled.div`
   }
 
   @media (max-width: 620px) {
-    bottom: 0.5rem;
-    top: auto;
-    left: 0.5rem;
+    display: none;
 
     img {
       width: 60px;
@@ -45,9 +43,12 @@ export const StyledSearchOnDragCheckbox = styled.div`
   border-radius: 6px;
 
   @media (max-width: 620px) {
-    top: 3rem;
-    right: 0.25rem;
+    top: auto;
+    bottom: 0.25rem;
+    right: auto;
+    left: 0.2rem;
     font-size: 0.85rem;
+    padding: 0.25rem;
   }
 
   input {
@@ -82,7 +83,7 @@ export const StyledSearchOnDragCheckbox = styled.div`
     cursor: pointer;
 
     @media (max-width: 620px) {
-      font-size: 0.5rem;
+      font-size: 0.525rem;
     }
   }
 `;
