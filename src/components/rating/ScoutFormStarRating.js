@@ -7,14 +7,13 @@ const ScoutFormStarRating = ({ rating, setRating }) => {
     <StarRatingComponent
       name={"trail-rating"}
       starCount={5}
+      onStarHover={(nextValue, prevValue) => setRating(nextValue)}
+      onStarHoverOut={(nextValue, prevValue) => setRating(rating)}
       onStarClick={(nextValue) => {
         setRating(nextValue);
       }}
-      onStarHover={(nextValue) => setRating(nextValue)}
-      onStarHoverOut={(nextValue, prevValue) => setRating(prevValue)}
       size={32}
       value={Number(rating)}
-      //   starColor={hover ? "#fe7762" : "#99a29e"}
       renderStarIcon={() => <FaStar />}
       starColor={"#fe7762"}
       emptyStarColor={"#eceeed"}

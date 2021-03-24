@@ -10,6 +10,9 @@ const UserProvider = ({ children }) => {
     if (userData && !userData.error) {
       setUser(userData.data.user);
       return userData.data.user;
+    } else {
+      setUser(null);
+      return user;
     }
   }, []);
 

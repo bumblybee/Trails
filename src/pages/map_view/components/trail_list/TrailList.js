@@ -22,7 +22,6 @@ const TrailList = ({ setHoveredCard }) => {
   useEffect(() => {
     user && getUserBookmarks().then((data) => setUserBookmarks(data));
   }, []);
-
   return (
     <div>
       <StyledTrailList>
@@ -32,7 +31,6 @@ const TrailList = ({ setHoveredCard }) => {
               Trails near {city}, {state}
             </h3>
           ) : (
-            // Style me
             <Loader />
           )}
         </StyledTrailListHeader>
