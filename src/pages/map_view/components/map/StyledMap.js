@@ -44,8 +44,13 @@ export const StyledSearchOnDragCheckbox = styled.div`
   text-shadow: 0 0 1px #999;
   border-radius: 6px;
 
+  @media (max-width: 620px) {
+    top: 3rem;
+    right: 0.25rem;
+    font-size: 0.85rem;
+  }
+
   input {
-    /* margin-right: 0.1rem; */
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
@@ -70,11 +75,14 @@ export const StyledSearchOnDragCheckbox = styled.div`
 
   .faCheck {
     position: absolute;
-    /* z-index: 20; */
     font-size: 0.6rem;
     top: 0.4rem;
     left: 0.1rem;
     color: #fff;
     cursor: pointer;
+
+    @media (max-width: 620px) {
+      font-size: 0.5rem;
+    }
   }
 `;
