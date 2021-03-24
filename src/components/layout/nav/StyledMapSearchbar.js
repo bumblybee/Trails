@@ -1,9 +1,13 @@
 import styled from "styled-components";
-import { ComboboxInput, ComboboxList, ComboboxOption } from "@reach/combobox";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxList,
+  ComboboxOption,
+} from "@reach/combobox";
 
 export const StyledMapSearchbar = styled.div`
   border: 1px solid #eceeed;
-
   border-radius: 6px;
   padding: 0.25rem;
   background: #fffeff;
@@ -16,6 +20,7 @@ export const StyledMapSearchbar = styled.div`
   box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.03);
   width: 100%;
   max-width: 370px;
+  z-index: 500;
 
   :hover {
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.08),
@@ -23,9 +28,15 @@ export const StyledMapSearchbar = styled.div`
   }
 
   @media (max-width: 620px) {
-    padding: 0.3rem;
-    height: 12%;
-    width: 85%;
+    padding: 0.2rem;
+    height: 70%;
+    width: 50%;
+    left: 62%;
+  }
+`;
+export const StyledComboBox = styled(Combobox)`
+  @media (max-width: 620px) {
+    width: 60%;
   }
 `;
 
@@ -38,6 +49,13 @@ export const StyledComboList = styled(ComboboxList)`
   font-size: 0.95rem;
   box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+
+  @media (max-width: 620px) {
+    width: 200%;
+    font-size: 0.88rem;
+    padding: 0.25rem 0;
+    transform: translateX(-5%) translateY(10%);
+  }
 `;
 
 export const StyledComboboxOption = styled(ComboboxOption)`
@@ -63,6 +81,8 @@ export const StyledComboInput = styled(ComboboxInput)`
   }
 
   @media (max-width: 620px) {
-    margin-left: 0.2rem;
+    margin-left: 0.25rem;
+    font-size: 0.88rem;
+    width: 90%;
   }
 `;
