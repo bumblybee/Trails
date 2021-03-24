@@ -113,7 +113,6 @@ const Map = ({ hoveredCard }) => {
   useEffect(() => {
     // If window reloads or user coming from another page, search trails again using params so map, markers, and cards populate
 
-    console.log("in map");
     getTrails();
     setTrailMarkers();
   }, [setTrailMarkers]);

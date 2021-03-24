@@ -30,13 +30,13 @@ const BookmarkProvider = ({ children }) => {
     return latest;
   }, []);
 
-  const createUserBookmark = async (userId, trailId) => {
+  const createUserBookmark = useCallback(async (userId, trailId) => {
     const returnedBookmarks = await createBookmark(userId, trailId);
 
     returnedBookmarks && setBookmarks(returnedBookmarks.bookmarks);
 
     return returnedBookmarks.bookmarks;
-  };
+  }, []);
 
   const removeUserBookmark = async (userId, trailId) => {
     const returnedBookmarks = await removeBookmark(userId, trailId);
@@ -44,9 +44,9 @@ const BookmarkProvider = ({ children }) => {
     return returnedBookmarks.bookmarks;
   };
 
-  useEffect(() => {
-    getUserBookmarks();
-  }, []);
+  // useEffect(() => {
+  //   getUserBookmarks();
+  // }, []);
 
   return (
     <BookmarkContext.Provider

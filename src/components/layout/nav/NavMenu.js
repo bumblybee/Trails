@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { geocode } from "../../../api/geocodeApi";
 import { useClickOutsideMenu } from "../../../hooks/useClickOutsideMenu";
@@ -19,7 +19,7 @@ const NavMenu = ({ closeMenu }) => {
 
   const menuRef = useClickOutsideMenu(() => closeMenu());
 
-  const { user, logUserOut } = useContext(UserContext);
+  const { user, getCurrentUser, logUserOut } = useContext(UserContext);
   const { setBookmarks } = useContext(BookmarkContext);
   const { setError } = useContext(ErrorContext);
   const { searchTrails } = useContext(SearchContext);
@@ -68,6 +68,8 @@ const NavMenu = ({ closeMenu }) => {
     query.set("lat", lat);
     query.set("lng", lng);
   };
+
+  useEffect(() => getCurrentUser(), []);
 
   return (
     <sc.StyledNavMenuContainer ref={menuRef}>
