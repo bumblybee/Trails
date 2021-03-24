@@ -160,7 +160,11 @@ export const StyledCardContentContainer = styled.div`
 export const StyledCardFooter = styled.div`
   display: flex;
   justify-content: space-between;
-  /* color: #99a29e; */
+  color: #86928d;
+
+  @media (max-width: 620px) {
+    color: #eceeedee;
+  }
 `;
 
 export const StyledIconContainer = styled.div`
@@ -177,6 +181,10 @@ export const StyledIconContainer = styled.div`
     color: #86928d;
     margin-left: 0.1rem;
     font-size: 0.875rem;
+
+    @media (max-width: 620px) {
+      color: #eeeeed;
+    }
   }
 `;
 
@@ -194,14 +202,14 @@ export const StyledDifficulty = styled(FaBahai)`
 `;
 
 export const StyledLength = styled(FaRoute)`
-  color: #86928d;
+  /* color: #86928d; */
   font-size: 1.15rem;
 `;
 
 export const StyledHiking = styled(FaHiking)`
-  color: #86928d;
+  /* color: #86928d; */
 `;
 
 export const StyledBiking = styled(FaBiking)`
-  color: #86928d;
+  /* color: #86928d; */
 `;
