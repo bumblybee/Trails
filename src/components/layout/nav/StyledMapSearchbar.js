@@ -51,10 +51,10 @@ export const StyledComboList = styled(ComboboxList)`
   border-radius: 6px;
 
   @media (max-width: 620px) {
-    width: 200%;
+    width: 196%;
     font-size: 0.88rem;
     padding: 0.25rem 0;
-    transform: translateX(-5%) translateY(10%);
+    transform: translateX(-4%) translateY(7%);
   }
 `;
 
