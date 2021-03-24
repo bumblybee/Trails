@@ -61,7 +61,7 @@ const MapSearchbar = () => {
 
   return (
     <sc.StyledMapSearchbar className="map-searchbar">
-      <Combobox onSelect={handleSelect}>
+      <sc.StyledComboBox onSelect={handleSelect}>
         <sc.StyledComboInput
           onChange={(e) => {
             setValue(e.target.value);
@@ -83,7 +83,7 @@ const MapSearchbar = () => {
               ))}
           </sc.StyledComboList>
         </ComboboxPopover>
-      </Combobox>
+      </sc.StyledComboBox>
       <Filter origin={"map"} />
     </sc.StyledMapSearchbar>
   );

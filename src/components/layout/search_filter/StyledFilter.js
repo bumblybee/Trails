@@ -5,10 +5,17 @@ export const StyledFilter = styled(Dropdown)`
   width: 90px;
   color: #99a29e;
   background: transparent;
-
   padding: 0.2rem;
   font-size: 0.9rem;
 
+  @media (max-width: 620px) {
+    padding: 0;
+    font-size: 0.85rem;
+    width: 75px;
+  }
+  .Dropdown-arrow {
+    right: 8px;
+  }
   :focus {
     outline: none;
   }
@@ -44,9 +51,5 @@ export const StyledFilter = styled(Dropdown)`
     :hover {
       cursor: pointer;
     }
-  }
-
-  @media (max-width: 620px) {
-    width: 80px;
   }
 `;
