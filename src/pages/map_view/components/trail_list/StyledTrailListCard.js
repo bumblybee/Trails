@@ -105,6 +105,7 @@ export const StyledCardContentContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+
   @media (max-width: 620px) {
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
   }
@@ -115,9 +116,9 @@ export const StyledCardContentContainer = styled.div`
     letter-spacing: 0.05rem;
 
     @media (max-width: 620px) {
-      color: #eceeedee;
+      color: #eee;
       font-weight: 600;
-      /* text-shadow: 0 0 1px #99a29e; */
+      text-shadow: 0 0 1px #000;
     }
   }
 
