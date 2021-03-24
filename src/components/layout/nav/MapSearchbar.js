@@ -67,7 +67,9 @@ const MapSearchbar = () => {
             setValue(e.target.value);
           }}
           type="text"
-          placeholder="Search a location..."
+          placeholder={
+            window.innerWidth < 620 ? "Search..." : "Search a location..."
+          }
           value={value}
           disabled={!ready}
         ></sc.StyledComboInput>

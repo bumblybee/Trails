@@ -30,8 +30,8 @@ export const StyledMapSearchbar = styled.div`
   @media (max-width: 620px) {
     padding: 0.2rem;
     height: 70%;
-    width: 50%;
-    left: 62%;
+    width: 45%;
+    left: 61.5%;
   }
 `;
 export const StyledComboBox = styled(Combobox)`
@@ -51,7 +51,7 @@ export const StyledComboList = styled(ComboboxList)`
   border-radius: 6px;
 
   @media (max-width: 620px) {
-    width: 196%;
+    width: 203%;
     font-size: 0.88rem;
     padding: 0.25rem 0;
     transform: translateX(-4%) translateY(7%);
