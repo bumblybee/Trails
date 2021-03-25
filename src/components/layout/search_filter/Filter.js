@@ -4,7 +4,7 @@ import { StyledFilter } from "./StyledFilter";
 import { SearchContext } from "../../../context/search/SearchContext";
 
 const options = ["hiking", "biking", "none"];
-
+//TODO: might need to pass state from parent and update here to get filter val to be sent to api
 const Filter = ({ origin }) => {
   const { setSearchFilterValue } = useContext(SearchContext);
 

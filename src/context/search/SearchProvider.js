@@ -16,7 +16,7 @@ const SearchProvider = ({ children }) => {
   const searchTrails = useCallback(async (lat, lng) => {
     setLoading(true);
     const trailData = await getTrails(lat, lng, searchFilterValue);
-
+    console.log(searchFilterValue);
     setTrails(trailData);
     setLoading(false);
     setSearchFilterValue(null);
