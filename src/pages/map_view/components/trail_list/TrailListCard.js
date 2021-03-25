@@ -6,13 +6,7 @@ import { BookmarkContext } from "../../../../context/bookmark/BookmarkContext";
 
 import StarRating from "../../../../components/rating/StarRating";
 import { useHover } from "../../../../hooks/useHover";
-import {
-  FaRoute,
-  FaBookmark,
-  FaRegBookmark,
-  FaHiking,
-  FaBiking,
-} from "react-icons/fa";
+import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 
 import * as sc from "./StyledTrailListCard";
 

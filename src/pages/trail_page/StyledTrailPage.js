@@ -129,6 +129,23 @@ export const StyledIconsContainer = styled.div`
     color: #fe7762;
     font-weight: 500;
   }
+
+  svg {
+    color: #a5b8a4;
+  }
+
+  .difficulty {
+    color: ${(props) =>
+      props.difficulty === "beginner"
+        ? "#b1ce7c"
+        : props.difficulty === "intermediate"
+        ? "#79d0eb"
+        : props.difficulty === "advanced"
+        ? "#fccf54"
+        : props.difficulty === "expert"
+        ? "#FE7762"
+        : "#eeeeed"};
+  }
 `;
 
 export const StyledHeaderIcons = styled.div`
@@ -139,6 +156,7 @@ export const StyledHeaderIcons = styled.div`
       display: flex;
       justify-content: space-evenly;
       margin-left: 1rem;
+      font-size: 1.05rem;
 
       span {
         margin-right: 0.5rem;
@@ -147,11 +165,24 @@ export const StyledHeaderIcons = styled.div`
       }
 
       svg {
-        color: #a5b8a4;
+        color: #86928d;
       }
 
       svg:not(:first-child) {
         margin-right: 0.5rem;
+      }
+
+      .difficulty {
+        color: ${(props) =>
+          props.difficulty === "beginner"
+            ? "#b1ce7c"
+            : props.difficulty === "intermediate"
+            ? "#79d0eb"
+            : props.difficulty === "advanced"
+            ? "#fccf54"
+            : props.difficulty === "expert"
+            ? "#FE7762"
+            : "#eeeeed"};
       }
     }
   }
@@ -173,10 +204,6 @@ export const StyledIcon = styled.div`
   svg,
   div {
     margin-right: 1rem;
-  }
-
-  svg {
-    color: #a5b8a4;
   }
 `;
 
