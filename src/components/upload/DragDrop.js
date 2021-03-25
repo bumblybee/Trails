@@ -50,7 +50,7 @@ const DragDrop = ({ setImage, preview, setPreview }) => {
       isDragActive={isDragActive}
       onDropRejected={onDropRejected}
     >
-      {/* TODO: add progress */}
+      {/* TODO: add progress in v2 if hitting s3 on client side*/}
 
       <input {...getInputProps()} />
       {isDragActive ? (

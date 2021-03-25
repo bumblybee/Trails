@@ -6,7 +6,7 @@ import { BookmarkContext } from "../../../../context/bookmark/BookmarkContext";
 
 import StarRating from "../../../../components/rating/StarRating";
 import { useHover } from "../../../../hooks/useHover";
-import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { FaBookmark, FaRegBookmark, FaHiking, FaBiking } from "react-icons/fa";
 
 import * as sc from "./StyledTrailListCard";
 
@@ -111,12 +111,8 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
               />
               <sc.StyledLength title={`Length: ${trail.length} miles`} />
               <span className="miles">{Math.round(trail.length)}</span>
-              {trail.hiking === true && (
-                <sc.StyledHiking title="Activity: hiking" />
-              )}
-              {trail.biking === true && (
-                <sc.StyledBiking title="Activity: biking" />
-              )}
+              {trail.hiking === true && <FaHiking title="Activity: hiking" />}
+              {trail.biking === true && <FaBiking title="Activity: biking" />}
             </sc.StyledIconContainer>
             <sc.StyledIconContainer
               title={
