@@ -13,7 +13,8 @@ export const StyledTrailList = styled.ul`
   }
 
   @media (max-width: 620px) {
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.5rem 0.5rem;
+    max-height: 100%;
   }
 `;
 
