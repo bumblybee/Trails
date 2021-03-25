@@ -5,7 +5,7 @@ export const StyledTrailPageWrapper = styled.div`
   position: relative;
 
   @media (max-width: 620px) {
-    padding: 4rem 0 2rem;
+    padding: 4rem 0 1rem;
     width: 100%;
   }
 `;

@@ -45,11 +45,21 @@ export const StyledFormContainer = styled.div`
       color: #99a29e;
     }
   }
+
+  @media (max-width: 620px) {
+    width: 95%;
+    padding: 1.5rem;
+    margin: 4rem auto 1rem;
+  }
 `;
 
 export const StyledHr = styled.hr`
   margin: 1rem 0 1.5rem;
   border: 2px solid #b9c8b8;
+
+  @media (max-width: 620px) {
+    margin: 1rem 0 0.25rem;
+  }
 `;
 
 export const StyledForm = styled.form`
@@ -59,8 +69,17 @@ export const StyledForm = styled.form`
 export const StyledFormGroup = styled.div`
   margin-bottom: 1.3rem;
 
+  input[type="text"] {
+    @media (max-width: 620px) {
+      width: 100%;
+    }
+  }
+
   textarea {
     resize: none;
+    @media (max-width: 620px) {
+      width: 100%;
+    }
   }
 
   .length-input {
@@ -75,6 +94,10 @@ export const StyledUploadContainer = styled.div`
   grid-gap: 1rem;
   width: 40%;
   height: 140px;
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
 `;
 
 export const StyledDragDrop = styled.div`
@@ -170,5 +193,9 @@ export const StyledFormButton = styled.button`
     background: ${(props) => (props.submitButton ? "#fe7762" : "#a5b8a4")};
 
     border: 2px solid transparent;
+  }
+
+  @media (max-width: 620px) {
+    width: 100%;
   }
 `;

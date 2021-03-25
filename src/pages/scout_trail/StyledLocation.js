@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const StyledLocationInput = styled.input`
   width: 40%;
+
+  @media (max-width: 620px) {
+    width: 100%;
+  }
 `;
 
 export const StyledLocationDropDown = styled.div`
@@ -23,6 +27,10 @@ export const StyledLocationDropDown = styled.div`
 
   > div {
     padding: 0.5rem;
+  }
+
+  @media (max-width: 620px) {
+    width: 87.5%;
   }
 `;
 
