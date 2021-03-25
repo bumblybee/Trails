@@ -87,8 +87,6 @@ export const StyledUserForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  /* margin: ${(props) =>
-    props.origin === "signup" ? "7% auto" : "11% auto"}; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -104,6 +102,10 @@ export const StyledUserForm = styled.form`
     flex-direction: column;
     margin-bottom: ${(props) =>
       props.origin === "signup" ? "1rem" : "1.3rem"};
+
+    @media (max-width: 620px) {
+      width: 95%;
+    }
   }
 
   div.form-header {
@@ -112,6 +114,13 @@ export const StyledUserForm = styled.form`
     margin-bottom: 1rem;
     margin: ${(props) =>
       props.origin === "reset" ? "1rem 0 2rem" : "0 0 1rem"};
+
+    @media (max-width: 620px) {
+      width: 95%;
+
+      margin: ${(props) =>
+        props.origin === "reset" ? "0 0 2rem" : "0 0 1rem"};
+    }
   }
 
   label {
@@ -152,6 +161,10 @@ export const StyledUserForm = styled.form`
     outline: none;
     border-radius: 4px;
 
+    @media (max-width: 620px) {
+      width: 95%;
+    }
+
     :hover {
       cursor: pointer;
       background: #fff;
@@ -162,6 +175,10 @@ export const StyledUserForm = styled.form`
     :active {
       transform: scale(0.98);
     }
+  }
+
+  @media (max-width: 620px) {
+    width: 90%;
   }
 `;
 
@@ -193,6 +210,10 @@ export const StyledHr = styled.hr`
   margin: 1rem auto 2rem;
   border: 1px solid #b9c8b8;
   width: 100%;
+
+  @media (max-width: 620px) {
+    margin: 0.5rem auto 1rem;
+  }
 `;
 
 export const StyledFormFooter = styled.div`
