@@ -31,7 +31,7 @@ export const StyledLandingContainer = styled.div`
   @media (max-width: 620px) {
     width: 100%;
     padding: 1rem;
-    height: 99%;
+    height: 99.75%;
   }
 `;
 
@@ -46,7 +46,7 @@ export const StyledLandingContent = styled.div`
 
   @media (max-width: 620px) {
     width: 90%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -56%);
   }
 `;
 
