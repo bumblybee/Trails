@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import DOMPurify from "dompurify";
 import he from "he";
 import { UserContext } from "../../../../context/user/UserContext";
@@ -37,9 +37,9 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
       }
 
       if (type === "create") {
-        const created = await createUserBookmark(user.id, id);
+        await createUserBookmark(user.id, id);
       } else {
-        const removed = await removeUserBookmark(user.id, id);
+        await removeUserBookmark(user.id, id);
       }
     }
   };

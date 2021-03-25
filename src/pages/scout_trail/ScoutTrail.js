@@ -91,9 +91,9 @@ const ScoutTrail = () => {
   };
 
   //TODO: v2 - save draft to user account if click "save draft"
-  const handleSave = (e) => {
-    e.preventDefault();
-  };
+  // const handleSave = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <sc.StyledFormContainer>

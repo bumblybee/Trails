@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import Loader from "../../components/layout/loader/Loader";
 
 import { BookmarkContext } from "../../context/bookmark/BookmarkContext";
 import { UserContext } from "../../context/user/UserContext";
@@ -19,6 +18,7 @@ const Bookmarks = () => {
   };
 
   useEffect(() => {
+    // user && setBookmarks(user.bookmarks);
     user && getBookmarks();
   }, []);
 
@@ -32,6 +32,7 @@ const Bookmarks = () => {
               key={bookmark.id}
               trail={bookmark.trail}
               bookmarks={bookmarks}
+              setBookmarks={setBookmarks}
             />
           ))
         ) : (
