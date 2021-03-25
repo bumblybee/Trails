@@ -46,6 +46,12 @@ const ScoutTrail = () => {
     e.preventDefault();
     // setProgress(0);
 
+    if (!trailDetails.lat) {
+      setError("Please select the trail's location from the dropdown menu.");
+      window.scrollTo(0, 0);
+      return;
+    }
+
     // Make sure at least one trail type box checked before sending to db
     if (isChecked) {
       let formData = new FormData();
