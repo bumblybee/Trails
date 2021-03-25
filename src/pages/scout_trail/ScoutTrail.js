@@ -74,12 +74,12 @@ const ScoutTrail = () => {
 
         setSuccess("Trail uploaded successfully!");
 
+        window.scrollTo(0, 0);
+
         setTimeout(() => {
           history.replace("/scouted-trails");
         }, 2000);
       }
-
-      // TODO: handle success confirmation
       // TODO: handle error message
     }
   };
