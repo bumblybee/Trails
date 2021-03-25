@@ -1,5 +1,5 @@
-// TODO: add directions to trail via google
-// TODO: Add map clip showing location
+// TODO: add directions to trail via google v2
+// TODO: Add map clip showing location v2
 // TODO: v2 - comments, check-in
 
 import React, { useContext, useEffect, useState } from "react";
