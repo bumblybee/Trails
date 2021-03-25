@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FaBahai, FaRoute, FaHiking, FaBiking } from "react-icons/fa";
+import { FaBahai, FaRoute } from "react-icons/fa";
 
 // TODO: remove hiking and biking icons from stylesheet and directly add to JSX
 
@@ -205,12 +205,4 @@ export const StyledDifficulty = styled(FaBahai)`
 
 export const StyledLength = styled(FaRoute)`
   font-size: 1.15rem;
-`;
-
-export const StyledHiking = styled(FaHiking)`
-  /* color: #86928d; */
-`;
-
-export const StyledBiking = styled(FaBiking)`
-  /* color: #86928d; */
 `;

@@ -9,8 +9,6 @@ import { BookmarkContext } from "../../../context/bookmark/BookmarkContext";
 
 import * as sc from "./StyledNavMenu";
 
-// Todo:  Handle setting url when click "near me"
-// Todo: remove use of local storage
 const NavMenu = ({ closeMenu }) => {
   const history = useHistory();
   const location = useLocation();

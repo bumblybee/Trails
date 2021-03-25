@@ -5,9 +5,6 @@ import TrailCard from "../../components/layout/cards/TrailCard";
 
 import * as sc from "./StyledLanding";
 
-// TODO: add cards at bottom - break into separate component
-// TODO: Image own element, not background
-
 const Landing = () => {
   const { getLatest } = useContext(BookmarkContext);
   const [popularBookmarks, setPopularBookmarks] = useState([]);
