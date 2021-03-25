@@ -28,6 +28,7 @@ const Landing = () => {
             <Searchbar />
           </sc.StyledLandingContent>
         </sc.StyledLandingContainer>
+        {/* TODO: Break into own component */}
         <sc.StyledLandingBottomContainer>
           <div>
             <h3>Recently discovered trails</h3>

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { BookmarkContext } from "./BookmarkContext";
 import {
   getBookmarks,
@@ -10,18 +10,13 @@ import {
 const BookmarkProvider = ({ children }) => {
   const [bookmarks, setBookmarks] = useState(null);
   const [latestBookmarks, setLatestBookmarks] = useState(null);
-  const [loading, setLoading] = useState(false);
 
-  const getUserBookmarks = async () => {
-    setLoading(true);
-
+  const getUserBookmarks = useCallback(async () => {
     const returnedBookmarks = await getBookmarks();
     setBookmarks(returnedBookmarks);
-    console.log(returnedBookmarks);
-    setLoading(false);
 
     return returnedBookmarks;
-  };
+  }, []);
 
   const getLatest = useCallback(async () => {
     const latest = await getLatestBookmarks();
@@ -30,23 +25,20 @@ const BookmarkProvider = ({ children }) => {
     return latest;
   }, []);
 
-  const createUserBookmark = useCallback(async (userId, trailId) => {
+  const createUserBookmark = async (userId, trailId) => {
     const returnedBookmarks = await createBookmark(userId, trailId);
 
-    returnedBookmarks && setBookmarks(returnedBookmarks.bookmarks);
-
-    return returnedBookmarks.bookmarks;
-  }, []);
-
-  const removeUserBookmark = async (userId, trailId) => {
-    const returnedBookmarks = await removeBookmark(userId, trailId);
     returnedBookmarks && setBookmarks(returnedBookmarks.bookmarks);
     return returnedBookmarks.bookmarks;
   };
 
-  // useEffect(() => {
-  //   getUserBookmarks();
-  // }, []);
+  const removeUserBookmark = async (userId, trailId) => {
+    const returnedBookmarks = await removeBookmark(userId, trailId);
+
+    console.log(returnedBookmarks);
+    returnedBookmarks && setBookmarks(returnedBookmarks.bookmarks);
+    return returnedBookmarks.bookmarks;
+  };
 
   return (
     <BookmarkContext.Provider
@@ -54,7 +46,6 @@ const BookmarkProvider = ({ children }) => {
         bookmarks,
         getLatest,
         latestBookmarks,
-        loading,
         setBookmarks,
         getUserBookmarks,
         createUserBookmark,

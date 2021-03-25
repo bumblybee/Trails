@@ -16,7 +16,7 @@ import * as sc from "./StyledTrailCard";
 import { StyledBookmarkIcon } from "../../../pages/map_view/components/trail_list/StyledTrailListCard";
 import { StyledCardLinkWrapper } from "../../../pages/map_view/components/trail_list/StyledTrailListCard";
 
-const TrailCard = ({ trail }) => {
+const TrailCard = ({ trail, setBookmarks }) => {
   const sanitize = DOMPurify.sanitize;
   const [bookmarkHoverRef, isHovered] = useHover();
   const { user } = useContext(UserContext);
@@ -26,6 +26,7 @@ const TrailCard = ({ trail }) => {
     createUserBookmark,
     removeUserBookmark,
   } = useContext(BookmarkContext);
+
   const handleTrailBookmark = async (id) => {
     // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
 
@@ -40,12 +41,10 @@ const TrailCard = ({ trail }) => {
 
       if (action === "create") {
         const res = await createUserBookmark(user.id, id);
-
-        console.log(res);
+        setBookmarks(res);
       } else {
         const res = await removeUserBookmark(user.id, id);
-
-        console.log(res);
+        setBookmarks(res);
       }
     }
   };
@@ -73,7 +72,7 @@ const TrailCard = ({ trail }) => {
 
   useEffect(() => {
     user && getUserBookmarks();
-  }, []);
+  }, [user, getUserBookmarks]);
 
   return (
     <sc.StyledCardContainer>

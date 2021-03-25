@@ -6,8 +6,6 @@ import { useLocation } from "react-router-dom";
 import StarRating from "../../../../../components/rating/StarRating";
 import * as sc from "./StyledMapMarkerPopup";
 
-// TODO: Position infowindow above searchbar
-
 const MapMarkerPopup = ({ selected, setSelected }) => {
   const location = useLocation();
 
