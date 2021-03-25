@@ -41,6 +41,10 @@ export const StyledTrailPageContainer = styled.div`
     color: #99a29e;
     font-weight: 300;
     font-family: "Noto Sans JP", sans-serif;
+
+    @media (max-width: 620px) {
+      margin-bottom: 0.5rem;
+    }
   }
 
   p {
