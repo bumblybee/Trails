@@ -47,7 +47,7 @@ const ScoutTrail = () => {
     // setProgress(0);
 
     if (!trailDetails.lat) {
-      setError("Please select the trail's location from the dropdown menu.");
+      setError("Please select trail's location from the dropdown menu.");
       window.scrollTo(0, 0);
       return;
     }
@@ -80,13 +80,8 @@ const ScoutTrail = () => {
 
         setSuccess("Trail uploaded successfully!");
 
-        window.scrollTo(0, 0);
-
-        setTimeout(() => {
-          history.replace("/scouted-trails");
-        }, 2000);
+        history.replace("/scouted-trails");
       }
-      // TODO: handle error message
     }
   };
 
