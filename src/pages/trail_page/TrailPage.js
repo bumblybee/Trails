@@ -19,6 +19,7 @@ import {
   FaHiking,
   FaBiking,
   FaPencilAlt,
+  FaBahai,
 } from "react-icons/fa";
 
 import * as sc from "./StyledTrailPage";
@@ -102,7 +103,7 @@ const TrailPage = () => {
         <sc.StyledTrailPageContainer>
           <sc.StyledFloatingCardsContainer>
             <sc.StyledFloatingCard className="icon-card">
-              <sc.StyledIconsContainer>
+              <sc.StyledIconsContainer difficulty={trail.difficulty}>
                 <span className="icon-label">Length</span>
                 <sc.StyledIcon>
                   <FaRoute className="faRoute" />
@@ -133,35 +134,10 @@ const TrailPage = () => {
                 <span className="icon-label">Difficulty</span>
 
                 <sc.StyledIcon>
-                  <div
-                    title={`difficulty: ${trail.difficulty}`}
-                    style={{
-                      background:
-                        trail.difficulty === "beginner"
-                          ? "#b1ce7c"
-                          : trail.difficulty === "intermediate"
-                          ? "#fec787"
-                          : trail.difficulty === "advanced"
-                          ? "#FE9787"
-                          : trail.difficulty === "expert"
-                          ? "##FE7762"
-                          : "#eeeeed",
-                      padding: "0.6rem",
-                      width: "18px",
-                      height: "18px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      borderRadius: "4px",
-                      fontSize: "0.8rem",
-                      fontWeight: "400",
-                      color: "#fff",
-                      border: "1px solid #eeeeed55",
-                    }}
-                  >
-                    {trail.difficulty &&
-                      trail.difficulty.charAt(0).toUpperCase()}
-                  </div>
+                  <FaBahai
+                    className="difficulty"
+                    title={`Difficulty: ${trail.difficulty}`}
+                  />
                   <span>
                     {trail.difficulty !== "unknown" && trail.difficulty}
                   </span>
@@ -213,7 +189,7 @@ const TrailPage = () => {
             </h5>
             <h2>{trail.name && he.decode(trail.name)}</h2>
             {/* TODO: Break into own component */}
-            <sc.StyledHeaderIcons>
+            <sc.StyledHeaderIcons difficulty={trail.difficulty}>
               <StarRating rating={trail.rating} />
               <div className="mobile-icons">
                 <FaRoute />
@@ -221,34 +197,10 @@ const TrailPage = () => {
                 {trail.hiking === true && <FaHiking />}
                 {trail.biking === true && <FaBiking />}
 
-                <div
-                  title={trail.difficulty}
-                  style={{
-                    background:
-                      trail.difficulty === "beginner"
-                        ? "#b1ce7c"
-                        : trail.difficulty === "intermediate"
-                        ? "#fec787"
-                        : trail.difficulty === "advanced"
-                        ? "#FE9787"
-                        : trail.difficulty === "expert"
-                        ? "##FE7762"
-                        : "#eeeeed",
-                    padding: "0.6rem",
-                    width: "18px",
-                    height: "18px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    borderRadius: "50%",
-                    fontSize: "0.8rem",
-                    fontWeight: "500",
-                    color: "#fff",
-                    border: "1px solid #eeeeed55",
-                  }}
-                >
-                  {trail.difficulty && trail.difficulty.charAt(0).toUpperCase()}
-                </div>
+                <FaBahai
+                  className="difficulty"
+                  title={`Difficulty: ${trail.difficulty}`}
+                />
               </div>
             </sc.StyledHeaderIcons>
             <sc.StyledBorder />
