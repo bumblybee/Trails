@@ -1,6 +1,5 @@
 // TODO: add directions to trail via google
 // TODO: Add map clip showing location
-// TODO: Break up long descriptions
 // TODO: v2 - comments, check-in
 
 import React, { useContext, useEffect, useState } from "react";
@@ -26,23 +25,33 @@ import * as sc from "./StyledTrailPage";
 
 const TrailPage = () => {
   const { id } = useParams();
-
+  const [bookmarks, setBookmarks] = useState(null);
   const [trail, setTrail] = useState({});
   const [showEditForm, setShowEditForm] = useState(false);
   const { user } = useContext(UserContext);
-  const { bookmarks, createUserBookmark, removeUserBookmark } = useContext(
-    BookmarkContext
-  );
+  const {
+    getUserBookmarks,
+    createUserBookmark,
+    removeUserBookmark,
+  } = useContext(BookmarkContext);
+
+  useEffect(() => {
+    getBookmarks();
+    getTrailData(id);
+  }, [id]);
 
   const getTrailData = async (id) => {
     const trailData = await getSingleTrail(id);
     setTrail(trailData);
   };
 
-  const handleTrailBookmark = async () => {
-    // TODO: If cookie has expired and user hasn't refreshed page the user check fails and error thrown - handle
+  const getBookmarks = async () => {
+    const bkmrks = await getUserBookmarks();
+    setBookmarks(bkmrks);
+  };
 
-    if (user && bookmarks) {
+  const handleTrailBookmark = async () => {
+    if (bookmarks) {
       let type = "create";
 
       for (let { trailId } of bookmarks) {
@@ -53,10 +62,10 @@ const TrailPage = () => {
 
       if (type === "create") {
         const res = await createUserBookmark(user.id, trail.id);
-        console.log(res);
+        setBookmarks(res);
       } else {
         const res = await removeUserBookmark(user.id, trail.id);
-        console.log(res);
+        setBookmarks(res);
       }
     }
   };
@@ -79,10 +88,6 @@ const TrailPage = () => {
 
     return text;
   };
-
-  useEffect(() => {
-    getTrailData(id);
-  }, [id]);
 
   return (
     trail && (
@@ -147,39 +152,27 @@ const TrailPage = () => {
 
             <sc.StyledFloatingCard>
               <sc.StyledButtonContainer user={user}>
-                {user && user.role === "Admin" ? (
-                  <button
-                    onClick={() => setShowEditForm(!showEditForm)}
-                    title={user ? "" : "Log in to suggest an edit"}
-                    disabled={user ? false : true}
-                  >
-                    <FaPencilAlt /> Edit
-                  </button>
-                ) : (
-                  <>
-                    <button
-                      title={user ? "" : "Log in to add a photo"}
-                      disabled={user ? false : true}
-                    >
-                      <FaImage />
-                      Add Photo
-                    </button>
-                    <button
-                      onClick={() => setShowEditForm(!showEditForm)}
-                      title={user ? "" : "Log in to suggest an edit"}
-                      disabled={user ? false : true}
-                    >
-                      <FaPencilAlt /> Suggest Edit
-                    </button>
-                    <button
-                      onClick={() => handleTrailBookmark()}
-                      title={user ? "" : "Log in to add a bookmark"}
-                      disabled={user ? false : true}
-                    >
-                      <FaRegBookmark /> {renderBookmarkButtonText()}
-                    </button>
-                  </>
-                )}
+                <button
+                  title={user ? "" : "Log in to add a photo"}
+                  disabled={user ? false : true}
+                >
+                  <FaImage />
+                  Add Photo
+                </button>
+                <button
+                  onClick={() => setShowEditForm(!showEditForm)}
+                  title={user ? "" : "Log in to suggest an edit"}
+                  disabled={user ? false : true}
+                >
+                  <FaPencilAlt /> Suggest Edit
+                </button>
+                <button
+                  onClick={() => handleTrailBookmark()}
+                  title={user ? "" : "Log in to add a bookmark"}
+                  disabled={user ? false : true}
+                >
+                  <FaRegBookmark /> {renderBookmarkButtonText()}
+                </button>
               </sc.StyledButtonContainer>
             </sc.StyledFloatingCard>
           </sc.StyledFloatingCardsContainer>
