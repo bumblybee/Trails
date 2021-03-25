@@ -9,14 +9,13 @@ import * as sc from "./StyledBookmarks";
 
 const Bookmarks = () => {
   const { getUserBookmarks, bookmarks } = useContext(BookmarkContext);
-  const { user } = useContext(UserContext);
 
   const getBookmarks = async () => {
     await getUserBookmarks();
   };
 
   useEffect(() => {
-    user && getBookmarks();
+    getBookmarks();
   }, []);
 
   return (
