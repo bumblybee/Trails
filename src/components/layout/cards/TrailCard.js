@@ -41,10 +41,12 @@ const TrailCard = ({ trail, setBookmarks }) => {
 
       if (action === "create") {
         const res = await createUserBookmark(user.id, id);
-        setBookmarks(res);
+
+        console.log(res);
       } else {
         const res = await removeUserBookmark(user.id, id);
-        setBookmarks(res);
+
+        console.log(res);
       }
     }
   };

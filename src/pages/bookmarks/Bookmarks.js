@@ -8,17 +8,14 @@ import TrailCard from "../../components/layout/cards/TrailCard";
 import * as sc from "./StyledBookmarks";
 
 const Bookmarks = () => {
-  const { getUserBookmarks } = useContext(BookmarkContext);
+  const { getUserBookmarks, bookmarks } = useContext(BookmarkContext);
   const { user } = useContext(UserContext);
-  const [bookmarks, setBookmarks] = useState([]);
 
   const getBookmarks = async () => {
-    const bkmrks = await getUserBookmarks();
-    setBookmarks(bkmrks);
+    await getUserBookmarks();
   };
 
   useEffect(() => {
-    // user && setBookmarks(user.bookmarks);
     user && getBookmarks();
   }, []);
 
@@ -28,12 +25,7 @@ const Bookmarks = () => {
       <sc.StyledCardContainer>
         {bookmarks && bookmarks.length ? (
           bookmarks.map((bookmark) => (
-            <TrailCard
-              key={bookmark.id}
-              trail={bookmark.trail}
-              bookmarks={bookmarks}
-              setBookmarks={setBookmarks}
-            />
+            <TrailCard key={bookmark.id} trail={bookmark.trail} />
           ))
         ) : (
           <sc.StyledNoBookmarksContainer>
