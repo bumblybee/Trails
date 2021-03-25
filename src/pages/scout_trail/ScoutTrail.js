@@ -10,7 +10,7 @@ import { FaImage } from "react-icons/fa";
 import * as sc from "./StyledScoutForm";
 
 const ScoutTrail = () => {
-  // TODOS: save draft, maybe move radio button group to own component
+  // TODOS: v2 save draft, maybe move radio button group to own component
   const history = useHistory();
   const { setError } = useContext(ErrorContext);
   const { setSuccess } = useContext(SuccessContext);

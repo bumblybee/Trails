@@ -7,7 +7,6 @@ import PlacesAutocomplete, {
 
 import * as sc from "./StyledLocation";
 
-//TODO: Check into making input required
 const TrailLocationInput = ({ setLocation, trail }) => {
   const [address, setAddress] = useState(
     trail && trail.city ? `${trail.city}, ${trail.state}` : ""

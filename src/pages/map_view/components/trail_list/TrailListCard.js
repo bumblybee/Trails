@@ -10,8 +10,6 @@ import { FaBookmark, FaRegBookmark, FaHiking, FaBiking } from "react-icons/fa";
 
 import * as sc from "./StyledTrailListCard";
 
-// TODO: Size and color icons
-
 const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
   const sanitize = DOMPurify.sanitize;
   const [bookmarkHoverRef, isHovered] = useHover();
@@ -67,7 +65,6 @@ const TrailListCard = React.memo(({ trail, setHoveredCard }) => {
     return icon;
   };
 
-  // TODO: color rating nearly invisible if none, color other icons
   return (
     <sc.StyledCard
       onMouseEnter={() => setHoveredCard(trail.id)}
