@@ -50,6 +50,10 @@ export const StyledComboPopover = styled(ComboboxPopover)`
   border: none;
   margin-top: 3rem;
   border-radius: 6px;
+
+  @media (max-width: 620px) {
+    margin-top: 1.5rem;
+  }
 `;
 
 export const StyledComboInput = styled(ComboboxInput)`
@@ -67,7 +71,7 @@ export const StyledComboInput = styled(ComboboxInput)`
   }
 
   @media (max-width: 620px) {
-    margin-left: 0.2rem;
+    margin-left: 0.25rem;
     width: 200px;
     font-size: 0.9rem;
   }
@@ -82,6 +86,12 @@ export const StyledComboList = styled(ComboboxList)`
   transform: translateX(-5.2%);
   border: none;
   padding: 0.5rem 0 0.5rem 1.4rem;
+
+  @media (max-width: 620px) {
+    width: 184%;
+    transform: translateX(-6%);
+    padding: 0.5rem;
+  }
 `;
 
 export const StyledComboboxOption = styled(ComboboxOption)`
@@ -103,6 +113,7 @@ export const StyledButtonContainer = styled.div`
   @media (max-width: 620px) {
     grid-gap: 0.25rem;
     width: auto;
+    margin: 0 0.5rem;
   }
 `;
 
