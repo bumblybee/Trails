@@ -12,7 +12,9 @@ export const StyledFilter = styled(Dropdown)`
     padding: 0;
     font-size: 0.85rem;
     width: 75px;
+    margin-right: 0.5rem;
   }
+
   .Dropdown-arrow {
     right: 8px;
   }
@@ -43,7 +45,7 @@ export const StyledFilter = styled(Dropdown)`
 
     @media (max-width: 620px) {
       margin-top: ${(props) =>
-        props.origin === "landing" ? "1.25rem" : "0.7rem"};
+        props.origin === "landing" ? "1.5rem" : "0.7rem"};
     }
   }
 
