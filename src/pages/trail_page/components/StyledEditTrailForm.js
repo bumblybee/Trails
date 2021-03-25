@@ -17,12 +17,12 @@ export const StyledHr = styled.hr`
 
 export const StyledEditTrailFormContainer = styled.div`
   position: absolute;
-  top: ${(props) => (props.user.role === "Admin" ? "35%" : "50%")};
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -45%);
   z-index: 100;
   background: #fff;
-  width: ${(props) => (props.user.role === "Admin" ? "70%" : "28%")};
+  width: 28%;
   padding: 0.5rem 1.5rem;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #eceeed;
@@ -53,6 +53,11 @@ export const StyledEditTrailFormContainer = styled.div`
 
   input[type="text"] {
     width: 60%;
+
+    @media (max-width: 620px) {
+      width: 99%;
+      font-size: 0.95rem;
+    }
   }
 
   input[type="text"],
@@ -66,7 +71,6 @@ export const StyledEditTrailFormContainer = styled.div`
     line-height: 1;
 
     :focus {
-      /* border: none; */
       outline: none;
     }
 
@@ -79,6 +83,12 @@ export const StyledEditTrailFormContainer = styled.div`
   textarea {
     width: 99%;
     line-height: 1.2;
+  }
+
+  @media (max-width: 620px) {
+    width: 90%;
+    padding: 0 1.5rem;
+    transform: translate(-50%, -47%);
   }
 `;
 

@@ -63,7 +63,7 @@ const EditTrailForm = ({ trail, showEditForm, setShowEditForm, user }) => {
 
   return (
     <sc.StyledBlackout>
-      <sc.StyledEditTrailFormContainer user={user}>
+      <sc.StyledEditTrailFormContainer>
         <sc.StyledForm onSubmit={handleUserSubmit}>
           <h4> Suggest Edits</h4>
           <sc.StyledMessage>
