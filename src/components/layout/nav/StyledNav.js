@@ -39,7 +39,7 @@ export const StyledLogo = styled.img`
   background: transparent;
 
   @media (max-width: 620px) {
-    height: ${(props) => (props.currentPath === "/" ? "32px" : "28px")};
+    height: ${(props) => (props.currentPath === "/" ? "33px" : "29px")};
   }
 `;
 
@@ -67,7 +67,7 @@ export const StyledLinksContainer = styled.div`
     }
 
     @media (max-width: 620px) {
-      /* font-size: 1.8rem; */
+      font-size: 2.5rem;
       border: none;
     }
   }
