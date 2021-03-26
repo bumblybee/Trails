@@ -16,7 +16,7 @@ import * as sc from "./StyledTrailCard";
 import { StyledBookmarkIcon } from "../../../pages/map_view/components/trail_list/StyledTrailListCard";
 import { StyledCardLinkWrapper } from "../../../pages/map_view/components/trail_list/StyledTrailListCard";
 
-const TrailCard = ({ trail, setBookmarks }) => {
+const TrailCard = ({ trail }) => {
   const sanitize = DOMPurify.sanitize;
   const [bookmarkHoverRef, isHovered] = useHover();
   const { user } = useContext(UserContext);
