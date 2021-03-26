@@ -28,7 +28,7 @@ export const StyledTrailListHeader = styled.div`
 
     @media (max-width: 620px) {
       margin: 0 0 0.75rem 0.5rem;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
     }
   }
 
