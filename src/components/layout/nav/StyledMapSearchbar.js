@@ -20,7 +20,7 @@ export const StyledMapSearchbar = styled.div`
   box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.03);
   width: 100%;
   max-width: 370px;
-  z-index: 500;
+  z-index: 10;
 
   :hover {
     box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.08),
