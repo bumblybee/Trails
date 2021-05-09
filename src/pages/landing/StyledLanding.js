@@ -46,7 +46,7 @@ export const StyledLandingContent = styled.div`
 
   @media (max-width: 620px) {
     width: 90%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -60%);
   }
 `;
 
@@ -61,7 +61,7 @@ export const StyledLandingText = styled.div`
     font-size: 3.5rem;
 
     @media (max-width: 620px) {
-      font-size: 2.75rem;
+      font-size: 2.5rem;
       line-height: 0.9;
       margin-bottom: 0.5rem;
     }
