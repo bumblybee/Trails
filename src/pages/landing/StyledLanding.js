@@ -46,7 +46,7 @@ export const StyledLandingContent = styled.div`
 
   @media (max-width: 620px) {
     width: 92%;
-    transform: translate(-50%, -60%);
+    transform: translate(-50%, -59%);
   }
 `;
 
