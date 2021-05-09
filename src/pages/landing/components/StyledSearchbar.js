@@ -69,6 +69,12 @@ export const StyledComboInput = styled(ComboboxInput)`
     color: #d0d4d2;
   }
 
+  @media (max-width: 1027px) {
+    margin-left: 0.25rem;
+    width: 200px;
+    font-size: 0.9rem;
+  }
+
   @media (max-width: 620px) {
     margin-left: 0.25rem;
     width: 200px;
@@ -109,9 +115,7 @@ export const StyledButtonContainer = styled.div`
   height: 40px;
   width: 15%;
 
-  @media (max-width: 620px) {
-    /* grid-gap: 0.25rem; */
-
+  @media (max-width: 1027px) {
     width: auto;
     margin: 0 0 0 -1rem;
   }
