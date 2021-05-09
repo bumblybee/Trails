@@ -145,7 +145,7 @@ const Map = ({ hoveredCard }) => {
         onClick={() => setSelected(null)}
         onLoad={onMapLoad}
         mapContainerStyle={mapContainerStyle}
-        zoom={markers.length > 0 ? 8.5 : 6}
+        zoom={markers.length > 0 ? 8 : 6}
         center={coords}
         onDragEnd={handleMapDrag}
         options={options}
