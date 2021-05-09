@@ -15,14 +15,14 @@ export const StyledSearchbarContainer = styled.div`
   border-radius: 6px;
 
   @media (max-width: 620px) {
-    padding: 0.6rem;
+    padding: 0.5rem;
     width: 100%;
   }
 `;
 
 export const StyledSearchbar = styled.div`
   border: 1px solid #eceeed;
-
+  width: 100%;
   border-radius: 100px;
   padding: 1rem;
   background: #fffeff;
@@ -110,9 +110,10 @@ export const StyledButtonContainer = styled.div`
   width: 15%;
 
   @media (max-width: 620px) {
-    grid-gap: 0.25rem;
+    /* grid-gap: 0.25rem; */
+
     width: auto;
-    margin: 0 0.5rem;
+    margin: 0 0 0 -1rem;
   }
 `;
 
