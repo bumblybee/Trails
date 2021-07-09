@@ -1,16 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import "react-dropdown/style.css";
 import { StyledFilter } from "./StyledFilter";
-import { SearchContext } from "../../../context/search/SearchContext";
 
 const options = ["hiking", "biking", "none"];
-//TODO: might need to pass state from parent and update here to get filter val to be sent to api
-const Filter = ({ origin }) => {
-  const { setSearchFilterValue } = useContext(SearchContext);
 
+const Filter = ({ origin, setSearchFilterValue }) => {
   const handleSelect = (option) => {
-    setSearchFilterValue(option.value);
-    console.log(option.value);
+    let val = option.value;
+
+    if (val === "none") val = null;
+
+    setSearchFilterValue(val);
   };
 
   return (

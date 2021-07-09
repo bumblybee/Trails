@@ -4,7 +4,6 @@ import { SearchContext } from "./SearchContext";
 import { getTrails } from "../../api/trailsApi";
 
 const SearchProvider = ({ children }) => {
-  const [searchFilterValue, setSearchFilterValue] = useState(null);
   const [trails, setTrails] = useState([]);
   const [searchLocation, setSearchLocation] = useState({
     coords: { lat: null, lng: null },
@@ -13,13 +12,12 @@ const SearchProvider = ({ children }) => {
   });
   const [loading, setLoading] = useState(false);
 
-  const searchTrails = useCallback(async (lat, lng) => {
+  const searchTrails = useCallback(async (lat, lng, filter) => {
     setLoading(true);
-    const trailData = await getTrails(lat, lng, searchFilterValue);
-    console.log(searchFilterValue);
+    const trailData = await getTrails(lat, lng, filter);
+
     setTrails(trailData);
     setLoading(false);
-    setSearchFilterValue(null);
     console.log(trailData);
 
     return trailData;
@@ -31,7 +29,6 @@ const SearchProvider = ({ children }) => {
         searchTrails,
         trails,
         loading,
-        setSearchFilterValue,
         searchLocation,
         setSearchLocation,
       }}
