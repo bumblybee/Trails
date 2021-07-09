@@ -124,15 +124,16 @@ export const StyledButtonContainer = styled.div`
 export const StyledSearchButton = styled.button`
   background: #fe7762;
   display: block;
-
   color: #fff;
-  padding: 10px 10px;
+  height: 44px;
+  width: 44px;
   border-radius: 50%;
   border: 2px solid transparent;
   outline: none;
   font-weight: 400;
-  text-align: center;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   :hover {
     cursor: pointer;
