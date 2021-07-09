@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import usePlacesAutoComplete, {
   getGeocode,
@@ -12,6 +12,7 @@ import * as sc from "./StyledMapSearchbar";
 const MapSearchbar = () => {
   const history = useHistory();
   const { trails, searchTrails, setSearchLocation } = useContext(SearchContext);
+  const [searchFilterValue, setSearchFilterValue] = useState(null);
 
   // usePlacesAutoComplete options
   const requestOptions = trails.length && {
@@ -49,7 +50,7 @@ const MapSearchbar = () => {
 
       setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
       //call api
-      await searchTrails(lat, lng);
+      await searchTrails(lat, lng, searchFilterValue);
       // Clear input
       setValue("");
 
@@ -86,7 +87,7 @@ const MapSearchbar = () => {
           </sc.StyledComboList>
         </ComboboxPopover>
       </sc.StyledComboBox>
-      <Filter origin={"map"} />
+      <Filter origin={"map"} setSearchFilterValue={setSearchFilterValue} />
     </sc.StyledMapSearchbar>
   );
 };

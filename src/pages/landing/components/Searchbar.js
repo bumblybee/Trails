@@ -17,6 +17,7 @@ const Searchbar = () => {
   const { setError } = useContext(ErrorContext);
   const { searchTrails } = useContext(SearchContext);
   const [searchLocation, setSearchLocation] = useState(null);
+  const [searchFilterValue, setSearchFilterValue] = useState(null);
 
   const {
     ready,
@@ -40,12 +41,23 @@ const Searchbar = () => {
       const state = address.split(", ")[1];
 
       setSearchLocation({ coords: { lat: lat, lng: lng }, city, state });
-
-      //call api
-      await searchTrails(lat, lng);
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleSearch = async () => {
+    await searchTrails(
+      searchLocation.coords.lat,
+      searchLocation.coords.lng,
+      searchFilterValue
+    );
+
+    searchLocation
+      ? history.push(
+          `/search?city=${searchLocation.city}&state=${searchLocation.state}&lat=${searchLocation.coords.lat}&lng=${searchLocation.coords.lng}`
+        )
+      : setError("Please enter search a location.");
   };
 
   return (
@@ -76,16 +88,11 @@ const Searchbar = () => {
         </Combobox>
 
         <sc.StyledButtonContainer>
-          <Filter origin={"landing"} />
-          <sc.StyledSearchButton
-            onClick={() => {
-              searchLocation
-                ? history.push(
-                    `/search?city=${searchLocation.city}&state=${searchLocation.state}&lat=${searchLocation.coords.lat}&lng=${searchLocation.coords.lng}`
-                  )
-                : setError("Please enter search a location.");
-            }}
-          >
+          <Filter
+            origin={"landing"}
+            setSearchFilterValue={setSearchFilterValue}
+          />
+          <sc.StyledSearchButton onClick={handleSearch}>
             <FaSearch />
           </sc.StyledSearchButton>
         </sc.StyledButtonContainer>
