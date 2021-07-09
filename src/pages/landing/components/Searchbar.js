@@ -60,6 +60,12 @@ const Searchbar = () => {
       : setError("Please enter search a location.");
   };
 
+  const handleKeyDown = async (e) => {
+    if (e.keyCode === 13 && searchLocation) {
+      await handleSearch();
+    }
+  };
+
   return (
     <sc.StyledSearchbarContainer>
       <sc.StyledSearchbar>
@@ -68,6 +74,7 @@ const Searchbar = () => {
             onChange={(e) => {
               setValue(e.target.value);
             }}
+            onKeyDown={handleKeyDown}
             type="text"
             placeholder="Search a location..."
             value={value}
