@@ -6,11 +6,11 @@ Users can find, favorite, and post hiking and biking trails across the US.
 
 ## Tech Stack
 
-**Client:** React, Context API, Styled Components
+**Client:** React, Context API, Styled Components, Google Maps API, Google Places API
 
 **Server:** Node, Express
 
-**Database:** PostgreSQL, Sequelize ORM
+**Database:** PostgreSQL, Sequelize ORM, Amazon S3
 
   
 ## Screenshots
