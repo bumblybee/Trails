@@ -70,6 +70,12 @@ p {
   /* color: #86928d; */
 }
 
+.maintenance {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;

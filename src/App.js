@@ -26,74 +26,15 @@ import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import PasswordResetRequest from "./pages/passwordReset/PasswordResetRequest";
 import PasswordReset from "./pages/passwordReset/PasswordReset";
+import { FaTools } from "react-icons/fa";
 
 const libraries = ["places"];
 
 function App() {
   return (
-    <LoadScript
-      googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
-      libraries={libraries}
-    >
-      <Router>
-        <SearchProvider>
-          <ErrorProvider>
-            <SuccessProvider>
-              <UserProvider>
-                <BookmarkProvider>
-                  <HoverProvider>
-                    <Error />
-                    <Success />
-                    <Nav />
-                    <Switch>
-                      <Route path="/signup" exact>
-                        <Signup />
-                      </Route>
-
-                      <Route path="/login" exact>
-                        <Login />
-                      </Route>
-
-                      <Route path="/reset-password/:token" exact>
-                        <PasswordReset />
-                      </Route>
-
-                      <Route path="/reset-password" exact>
-                        <PasswordResetRequest />
-                      </Route>
-
-                      <Route path="/search" exact>
-                        <MapView />
-                      </Route>
-
-                      <Route path="/trail/:id" exact>
-                        <TrailPage />
-                      </Route>
-
-                      <Route path="/bookmarks" exact>
-                        <Bookmarks />
-                      </Route>
-
-                      <Route path="/scouted-trails" exact>
-                        <ScoutedTrails />
-                      </Route>
-
-                      <Route path="/scout">
-                        <ScoutTrail />
-                      </Route>
-
-                      <Route path="/" exact>
-                        <Landing />
-                      </Route>
-                    </Switch>
-                  </HoverProvider>
-                </BookmarkProvider>
-              </UserProvider>
-            </SuccessProvider>
-          </ErrorProvider>
-        </SearchProvider>
-      </Router>
-    </LoadScript>
+    <div className="maintenance">
+      <FaTools /> Our site is currently down for maintenance
+    </div>
   );
 }
 
