@@ -4,7 +4,7 @@ export const StyledTrailPageWrapper = styled.div`
   padding: 5rem 1rem;
   position: relative;
 
-  @media (max-width: 620px) {
+  @media (max-width: 810px) {
     padding: 4rem 0 1rem;
     width: 100%;
   }
@@ -22,7 +22,11 @@ export const StyledTrailPageContainer = styled.div`
     width: 90%;
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 1024px) {
+    width: 95%;
+  }
+
+  @media (max-width: 810px) {
     padding: 1.5rem 1.5rem 0;
     width: 100%;
     flex-direction: column-reverse;
@@ -89,12 +93,16 @@ export const StyledFloatingCardsContainer = styled.div`
   padding-bottom: 2rem;
 
   .icon-card {
-    @media (max-width: 620px) {
+    @media (max-width: 810px) {
       display: none;
     }
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 1024px) {
+    right: 2%;
+  }
+
+  @media (max-width: 810px) {
     top: auto;
     right: auto;
     position: relative;
@@ -116,7 +124,7 @@ export const StyledFloatingCard = styled.div`
     color: #99a29e;
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 810px) {
     padding: 1rem;
     /* border: none; */
     box-shadow: none;
@@ -160,7 +168,7 @@ export const StyledHeaderIcons = styled.div`
   .mobile-icons {
     display: none;
 
-    @media (max-width: 620px) {
+    @media (max-width: 810px) {
       display: flex;
       justify-content: space-evenly;
       margin-left: 1rem;
@@ -195,7 +203,7 @@ export const StyledHeaderIcons = styled.div`
     }
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 810px) {
     display: flex;
     width: 100%;
   }
@@ -273,7 +281,7 @@ export const StyledBorder = styled.hr`
   border-top: 5px solid #a5b8a4;
   width: 64%;
 
-  @media (max-width: 620px) {
+  @media (max-width: 810px) {
     width: 100%;
     margin: 1rem 0 0;
   }
