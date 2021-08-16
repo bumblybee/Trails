@@ -25,6 +25,10 @@ export const StyledNav = styled.div`
   right: 0;
   z-index: 100;
 
+  @media (max-width: 1366px) {
+    padding: 1rem;
+  }
+
   @media (max-width: 620px) {
     padding: 0.5rem;
   }
