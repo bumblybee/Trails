@@ -14,9 +14,18 @@ export const StyledNavMenuContainer = styled.div`
   width: 10%;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 
+  @media (max-width: 1024px) {
+    width: 18%;
+    right: 2.25rem;
+  }
+
+  @media (max-width: 810px) {
+    width: 25%;
+  }
+
   @media (max-width: 620px) {
-    top: 2.5rem;
-    right: 1.25rem;
+    top: 2.75rem;
+    right: 1rem;
     width: 40%;
   }
 `;

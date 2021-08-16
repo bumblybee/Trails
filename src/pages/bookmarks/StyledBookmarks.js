@@ -5,8 +5,11 @@ export const StyledBookmarksContainer = styled.div`
   margin: 4rem auto;
   padding: 2rem;
 
-  @media (max-width: 620px) {
+  @media (max-width: 1024px) {
     width: 100%;
+  }
+
+  @media (max-width: 620px) {
     margin: 2.5rem auto 0;
 
     h3 {
@@ -19,11 +22,15 @@ export const StyledBookmarksContainer = styled.div`
 export const StyledCardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin-top: 1rem;
+  margin: 1rem auto 0;
   grid-gap: 1rem;
 
   @media (max-width: 1366px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 810px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 620px) {

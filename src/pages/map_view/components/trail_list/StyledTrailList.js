@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledTrailList = styled.ul`
   padding: 2.5rem 1rem 1rem 1.5rem;
   overflow-y: scroll;
-  max-height: 950px;
+  max-height: 100vh;
   scrollbar-width: none;
   -ms-overflow-style: none;
 
