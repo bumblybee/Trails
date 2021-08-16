@@ -5,8 +5,11 @@ export const StyledScoutedTrailsContainer = styled.div`
   margin: 4rem auto;
   padding: 2rem;
 
-  @media (max-width: 620px) {
+  @media (max-width: 1024px) {
     width: 100%;
+  }
+
+  @media (max-width: 620px) {
     margin: 2.5rem auto 0;
 
     h3 {
@@ -24,6 +27,10 @@ export const StyledCardContainer = styled.div`
 
   @media (max-width: 1366px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 810px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 620px) {
