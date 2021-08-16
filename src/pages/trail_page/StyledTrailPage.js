@@ -18,6 +18,10 @@ export const StyledTrailPageContainer = styled.div`
   padding: 2rem;
   margin: 0 auto;
 
+  @media (max-width: 1366px) {
+    width: 90%;
+  }
+
   @media (max-width: 620px) {
     padding: 1.5rem 1.5rem 0;
     width: 100%;

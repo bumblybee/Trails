@@ -44,6 +44,10 @@ export const StyledLandingContent = styled.div`
   position: absolute;
   transform: translate(-50%, -55%);
 
+  @media (max-width: 1366px) {
+    width: 75%;
+  }
+
   @media (max-width: 620px) {
     width: 92%;
     transform: translate(-50%, -59%);
@@ -60,6 +64,10 @@ export const StyledLandingText = styled.div`
     font-family: "PT Sans", sans-serif;
     font-size: 3.5rem;
 
+    @media (max-width: 1366px) {
+      font-size: 3rem;
+    }
+
     @media (max-width: 620px) {
       font-size: 2.5rem;
       line-height: 0.9;
@@ -72,6 +80,10 @@ export const StyledLandingText = styled.div`
     line-height: 1.35;
     font-weight: 500;
     font-size: 1.55rem;
+
+    @media (max-width: 1366px) {
+      font-size: 1.3rem;
+    }
 
     @media (max-width: 620px) {
       font-size: 1.2rem;
@@ -91,6 +103,10 @@ export const StyledLandingBottomContainer = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1366px) {
+    width: 75%;
+  }
 
   @media (max-width: 620px) {
     width: 100%;

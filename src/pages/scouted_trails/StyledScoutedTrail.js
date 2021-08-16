@@ -22,6 +22,10 @@ export const StyledCardContainer = styled.div`
   grid-gap: 1rem;
   margin-top: 1rem;
 
+  @media (max-width: 1366px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   @media (max-width: 620px) {
     grid-template-columns: 1fr;
   }
