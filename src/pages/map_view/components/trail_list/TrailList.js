@@ -7,6 +7,7 @@ import Loader from "../../../../components/layout/loader/Loader";
 import TrailListCard from "./TrailListCard";
 import { StyledTrailList, StyledTrailListHeader } from "./StyledTrailList";
 
+//TODO: Wrap list and header in divs and sticky header
 const TrailList = ({ setHoveredCard }) => {
   const { trails } = useContext(SearchContext);
   const { getUserBookmarks } = useContext(BookmarkContext);
