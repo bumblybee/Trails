@@ -85,9 +85,12 @@ export const StyledComboInput = styled(ComboboxInput)`
     color: #d0d4d2;
   }
 
+  @media (max-width: 1024px) {
+    width: 90%;
+  }
+
   @media (max-width: 620px) {
     margin-left: 0.25rem;
     font-size: 0.88rem;
-    width: 90%;
   }
 `;
