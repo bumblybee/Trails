@@ -28,7 +28,7 @@ export const StyledMapSearchbar = styled.div`
   }
 
   @media (max-width: 1024px) {
-    width: 50%;
+    width: auto;
     left: 57%;
   }
 
