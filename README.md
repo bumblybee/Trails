@@ -38,5 +38,11 @@ Form Drag & Drop + Image Preview
 
 https://www.trailscout.xyz/
 
+## Things I'd Change (V2)
+
+-Improve styling for medium screen sizes
+-Allow multiple photos for trails (carousel)
+-Allow users to save drafts when uploading new trails
+
 
   
