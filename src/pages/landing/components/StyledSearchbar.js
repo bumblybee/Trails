@@ -40,7 +40,7 @@ export const StyledSearchbar = styled.div`
   }
 
   @media (max-width: 620px) {
-    padding: 0.25rem 0.5rem;
+    padding: 0.35rem 0.5rem;
   }
 `;
 
@@ -69,7 +69,7 @@ export const StyledComboInput = styled(ComboboxInput)`
     color: #d0d4d2;
   }
 
-  @media (max-width: 1027px) {
+  @media (max-width: 1500px) {
     margin-left: 0.25rem;
     width: 200px;
     font-size: 0.9rem;
@@ -113,12 +113,7 @@ export const StyledButtonContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 40px;
-  width: 15%;
-
-  @media (max-width: 1027px) {
-    width: auto;
-    margin: 0 0 0 -1rem;
-  }
+  width: auto;
 `;
 
 export const StyledSearchButton = styled.button`

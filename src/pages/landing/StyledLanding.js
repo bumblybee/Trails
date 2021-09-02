@@ -109,7 +109,7 @@ export const StyledLandingText = styled.div`
 
   @media (max-width: 620px) {
     width: 95%;
-    margin-bottom: 3rem;
+    margin-bottom: 2.25rem;
   }
 `;
 
