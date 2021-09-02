@@ -14,22 +14,26 @@ export const StyledTrailPageContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   padding: 2rem;
   margin: 0 auto;
 
-  @media (max-width: 1366px) {
+  @media (max-width: 1600px) {
+    width: 85%;
+  }
+
+  @media (max-width: 1400px) {
     width: 90%;
   }
 
   @media (max-width: 1024px) {
     width: 95%;
+    flex-direction: column-reverse;
   }
 
   @media (max-width: 810px) {
     padding: 1.5rem 1.5rem 0;
     width: 100%;
-    flex-direction: column-reverse;
   }
 
   h2 {
@@ -93,16 +97,24 @@ export const StyledFloatingCardsContainer = styled.div`
   padding-bottom: 2rem;
 
   .icon-card {
-    @media (max-width: 810px) {
+    @media (max-width: 1024px) {
       display: none;
     }
   }
 
-  @media (max-width: 1024px) {
+  @media screen and (min-device-width: 1600px) and (max-device-width: 1800px) {
+    right: 3%;
+  }
+
+  @media screen and (min-device-width: 1200px) and (max-device-width: 1599px) {
+    right: 6%;
+  }
+
+  @media screen and (max-width: 1199px) {
     right: 2%;
   }
 
-  @media (max-width: 810px) {
+  @media (max-width: 1024px) {
     top: auto;
     right: auto;
     position: relative;
@@ -124,7 +136,7 @@ export const StyledFloatingCard = styled.div`
     color: #99a29e;
   }
 
-  @media (max-width: 810px) {
+  @media (max-width: 1024px) {
     padding: 1rem;
     /* border: none; */
     box-shadow: none;
@@ -168,7 +180,7 @@ export const StyledHeaderIcons = styled.div`
   .mobile-icons {
     display: none;
 
-    @media (max-width: 810px) {
+    @media (max-width: 1024px) {
       display: flex;
       justify-content: space-evenly;
       margin-left: 1rem;
@@ -203,7 +215,7 @@ export const StyledHeaderIcons = styled.div`
     }
   }
 
-  @media (max-width: 810px) {
+  @media (max-width: 1024px) {
     display: flex;
     width: 100%;
   }
@@ -281,7 +293,7 @@ export const StyledBorder = styled.hr`
   border-top: 5px solid #a5b8a4;
   width: 64%;
 
-  @media (max-width: 810px) {
+  @media (max-width: 1024px) {
     width: 100%;
     margin: 1rem 0 0;
   }
