@@ -132,6 +132,22 @@ export const StyledUserForm = styled.form`
     }
   }
 
+  @media (max-width: 1600px) {
+    width: 40%;
+  }
+
+  @media (max-width: 1400px) {
+    width: 45%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 55%;
+  }
+
+  @media (max-width: 824px) {
+    width: 70%;
+  }
+
   @media (max-width: 620px) {
     width: 90%;
   }
