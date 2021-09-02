@@ -46,5 +46,7 @@ https://www.trailscout.xyz/
 
 - Allow users to save drafts when uploading new trails
 
+- About page
+
 
   
