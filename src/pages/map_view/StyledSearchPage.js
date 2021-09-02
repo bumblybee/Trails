@@ -11,7 +11,7 @@ export const StyledSearchContainer = styled.div`
     height: 100vh;
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 1028px) {
     display: flex;
     flex-direction: column-reverse;
     > div {

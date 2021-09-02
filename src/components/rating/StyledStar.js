@@ -11,4 +11,8 @@ export const StyledStarRatingComponent = styled(StarRatingComponent)`
 
 export const StyledStar = styled(FaStar)`
   font-size: 0.95rem;
+
+  @media (max-width: 1400px) {
+    font-size: 0.9rem;
+  }
 `;

@@ -145,6 +145,10 @@ export const StyledCardContentContainer = styled.div`
       text-transform: capitalize;
     }
 
+    @media (max-width: 1350px) {
+      font-size: 0.95rem;
+    }
+
     @media (max-width: 620px) {
       height: 100%;
       width: 100%;
@@ -175,6 +179,10 @@ export const StyledIconContainer = styled.div`
 
   svg:not(:first-child) {
     margin-left: 0.75rem;
+
+    @media (max-width: 1400px) {
+      margin-left: 0.3rem;
+    }
   }
 
   .miles {
@@ -185,6 +193,10 @@ export const StyledIconContainer = styled.div`
     @media (max-width: 620px) {
       color: #eeeeed;
     }
+  }
+
+  @media (max-width: 1400px) {
+    font-size: 0.975rem;
   }
 `;
 
