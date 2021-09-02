@@ -26,7 +26,8 @@ const Nav = () => {
             src={
               currentPath === "/" ||
               currentPath === "/login" ||
-              currentPath === "/signup"
+              currentPath === "/signup" ||
+              currentPath === "/reset-password"
                 ? "/assets/logolight.png"
                 : "/assets/logodark.png"
             }

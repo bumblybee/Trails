@@ -9,13 +9,15 @@ export const StyledNav = styled.div`
   box-shadow: ${(props) =>
     props.currentPath === "/" ||
     props.currentPath === "/login" ||
-    props.currentPath === "/signup"
+    props.currentPath === "/signup" ||
+    props.currentPath === "/reset-password"
       ? ""
       : "0 1px 6px rgba(0, 0, 0, 0.1)"};
   background: ${(props) =>
     props.currentPath === "/" ||
     props.currentPath === "/login" ||
-    props.currentPath === "/signup"
+    props.currentPath === "/signup" ||
+    props.currentPath === "/reset-password"
       ? "transparent"
       : "#fffeff"};
 
