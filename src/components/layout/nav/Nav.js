@@ -32,7 +32,7 @@ const Nav = () => {
                 : "/assets/logodark.png"
             }
             currentPath={currentPath}
-            alt=""
+            alt="Trail Scout Logo"
           />
         </sc.StyledLogoContainer>
       </Link>

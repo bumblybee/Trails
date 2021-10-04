@@ -99,7 +99,7 @@ const Searchbar = () => {
             origin={"landing"}
             setSearchFilterValue={setSearchFilterValue}
           />
-          <sc.StyledSearchButton onClick={handleSearch}>
+          <sc.StyledSearchButton onClick={handleSearch}aria-label="search">
             <FaSearch />
           </sc.StyledSearchButton>
         </sc.StyledButtonContainer>
